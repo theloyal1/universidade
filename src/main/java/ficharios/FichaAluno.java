@@ -14,8 +14,8 @@ public class FichaAluno {
         alunos.add(a);
     }
     
-    public void excluir(Aluno a) {
-        alunos.remove(a);
+    public void excluir(int pos) {
+        alunos.remove(pos);
     }
     
     public ArrayList<Aluno> consultar() {
