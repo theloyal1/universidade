@@ -8,15 +8,16 @@ import javax.swing.table.DefaultTableModel;
 
 public class FormAluno extends javax.swing.JFrame {
     
-    FichaAluno fichaAluno = new FichaAluno();
+    FichaAluno fichaAluno;
     DefaultTableModel modelo;
     
-    public FormAluno() {
+    public FormAluno(FichaAluno fichaAluno) {
         initComponents();
         String[] titulos = {"CPF", "Nome", "Email", "Endereço", "Telefone", "Nº de mat.", "Nº de conc.", "Nº de dep.", "Data da mat."};
         modelo = new DefaultTableModel(titulos, 0);
         jtAlunos.setModel(modelo);
         jbSair.setBackground(Color.red);
+        this.fichaAluno = fichaAluno;
     }
 
     @SuppressWarnings("unchecked")
@@ -124,6 +125,11 @@ public class FormAluno extends javax.swing.JFrame {
         jbConsultar.setText("Consultar");
         jbConsultar.setMaximumSize(new java.awt.Dimension(123, 39));
         jbConsultar.setMinimumSize(new java.awt.Dimension(123, 39));
+        jbConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbConsultarActionPerformed(evt);
+            }
+        });
 
         jtAlunos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -315,6 +321,10 @@ public class FormAluno extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Aluno excluído com sucesso!");
     }//GEN-LAST:event_jbExcluirActionPerformed
 
+    private void jbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsultarActionPerformed
+        fichaAluno.consultar();
+    }//GEN-LAST:event_jbConsultarActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -342,7 +352,7 @@ public class FormAluno extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormAluno().setVisible(true);
+                new FormAluno(fichaAluno).setVisible(true);
             }
         });
     }

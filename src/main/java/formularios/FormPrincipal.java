@@ -1,7 +1,10 @@
 package formularios;
 
+import ficharios.FichaAluno;
+
 public class FormPrincipal extends javax.swing.JFrame {
 
+    FichaAluno fichaAluno = new FichaAluno();
     
     public FormPrincipal() {
         initComponents();
@@ -137,7 +140,7 @@ public class FormPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlunoActionPerformed
-        FormAluno formAluno = new FormAluno();
+        FormAluno formAluno = new FormAluno(fichaAluno);
         formAluno.setVisible(true);
     }//GEN-LAST:event_jbAlunoActionPerformed
 
