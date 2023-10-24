@@ -43,7 +43,7 @@ public class FormPrincipal extends javax.swing.JFrame {
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(173, 189, 255));
 
-        jPanel1.setBackground(new java.awt.Color(192, 188, 208));
+        jPanel1.setBackground(new java.awt.Color(111, 156, 235));
         jPanel1.setForeground(new java.awt.Color(53, 40, 29));
 
         jbAluno.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
@@ -62,7 +62,7 @@ public class FormPrincipal extends javax.swing.JFrame {
         jbProfessor.setText("Professor");
 
         jlaTitulo.setFont(new java.awt.Font("Times New Roman", 2, 48)); // NOI18N
-        jlaTitulo.setForeground(new java.awt.Color(1, 151, 246));
+        jlaTitulo.setForeground(new java.awt.Color(20, 27, 65));
         jlaTitulo.setText("UniFed");
 
         jbPpc.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N

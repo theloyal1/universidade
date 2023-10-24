@@ -41,7 +41,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="d0" green="bc" red="c0" type="rgb"/>
+          <Color blue="eb" green="9c" red="6f" type="rgb"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="1d" green="28" red="35" type="rgb"/>
@@ -171,7 +171,7 @@
               <Font name="Times New Roman" size="48" style="2"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="f6" green="97" red="1" type="rgb"/>
+              <Color blue="41" green="1b" red="14" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="UniFed"/>
           </Properties>
