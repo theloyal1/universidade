@@ -39,6 +39,7 @@ public class FormPrincipal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("UniFed");
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(173, 189, 255));
 
@@ -61,7 +62,7 @@ public class FormPrincipal extends javax.swing.JFrame {
         jbProfessor.setText("Professor");
 
         jlaTitulo.setFont(new java.awt.Font("Times New Roman", 2, 48)); // NOI18N
-        jlaTitulo.setForeground(new java.awt.Color(73, 48, 107));
+        jlaTitulo.setForeground(new java.awt.Color(1, 151, 246));
         jlaTitulo.setText("UniFed");
 
         jbPpc.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
@@ -70,7 +71,7 @@ public class FormPrincipal extends javax.swing.JFrame {
         jbMateria.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
         jbMateria.setText("Matéria");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icone-red.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icone.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
