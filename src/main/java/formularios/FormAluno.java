@@ -8,16 +8,15 @@ import javax.swing.table.DefaultTableModel;
 
 public class FormAluno extends javax.swing.JFrame {
     
-    FichaAluno fichaAluno;
+    FichaAluno fichaAluno = new FichaAluno();
     DefaultTableModel modelo;
     
-    public FormAluno(FichaAluno fichaAluno) {
+    public FormAluno() {
         initComponents();
         String[] titulos = {"CPF", "Nome", "Email", "Endereço", "Telefone", "Nº de mat.", "Nº de conc.", "Nº de dep.", "Data da mat."};
         modelo = new DefaultTableModel(titulos, 0);
         jtAlunos.setModel(modelo);
         jbSair.setBackground(Color.red);
-        this.fichaAluno = fichaAluno;
     }
 
     @SuppressWarnings("unchecked")
@@ -313,6 +312,8 @@ public class FormAluno extends javax.swing.JFrame {
 
     private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
         setVisible(false);
+        FormPrincipal formPrincipal = new FormPrincipal();
+        formPrincipal.setVisible(true);
     }//GEN-LAST:event_jbSairActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
@@ -352,7 +353,7 @@ public class FormAluno extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormAluno(fichaAluno).setVisible(true);
+                new FormAluno().setVisible(true);
             }
         });
     }
