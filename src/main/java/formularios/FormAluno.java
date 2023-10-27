@@ -324,6 +324,16 @@ public class FormAluno extends javax.swing.JFrame {
 
     private void jbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsultarActionPerformed
         fichaAluno.consultar();
+        Aluno a = new Aluno();
+        JOptionPane.showMessageDialog(this, "CPF: " + a.getCpf() + 
+                "\nNome: " + a.getNome() + 
+                "\nEmail: " + a.getEmail() + 
+                "\nEndereço: " + a.getEndereco() + 
+                "\nTelefone: " + a.getTelefone() + 
+                "\nNúmero de matrículas: " + a.getNumMatriculas() + 
+                "\nNúmero de conclusões: " + a.getNumConclusoes() + 
+                "\nNúmero de dependências: " + a.getNumDiscDep() + 
+                "\nData da matrícula: " + a.getDataMatricula());
     }//GEN-LAST:event_jbConsultarActionPerformed
 
     public static void main(String args[]) {
