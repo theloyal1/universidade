@@ -7,10 +7,10 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class FormAluno extends javax.swing.JFrame {
-    
+
     FichaAluno fichaAluno = new FichaAluno();
     DefaultTableModel modelo;
-    
+
     public FormAluno() {
         initComponents();
         String[] titulos = {"CPF", "Nome", "Email", "Endereço", "Telefone", "Nº de mat.", "Nº de conc.", "Nº de dep.", "Data da mat."};
@@ -119,6 +119,11 @@ public class FormAluno extends javax.swing.JFrame {
         jbAlterar.setText("Alterar");
         jbAlterar.setMaximumSize(new java.awt.Dimension(123, 39));
         jbAlterar.setMinimumSize(new java.awt.Dimension(123, 39));
+        jbAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAlterarActionPerformed(evt);
+            }
+        });
 
         jbConsultar.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
         jbConsultar.setText("Consultar");
@@ -280,10 +285,10 @@ public class FormAluno extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         Aluno a = new Aluno();
-        
+
         a.setCpf(Integer.valueOf(jtfCpf.getText()));
         a.setNome(jtfNome.getText());
         a.setEmail(jtfEmail.getText());
@@ -293,10 +298,10 @@ public class FormAluno extends javax.swing.JFrame {
         a.setNumConclusoes(Integer.valueOf(jtfNumConc.getText()));
         a.setNumDiscDep(Integer.valueOf(jtfNumDep.getText()));
         a.setDataMatricula(jtfDataMat.getText());
-        
+
         fichaAluno.cadastrar(a);
-        modelo.addRow(new String[]{String.valueOf(a.getCpf()), a.getNome(), a.getEmail(), a.getEndereco(), 
-            a.getTelefone(), String.valueOf(a.getNumMatriculas()), String.valueOf(a.getNumConclusoes()), 
+        modelo.addRow(new String[]{String.valueOf(a.getCpf()), a.getNome(), a.getEmail(), a.getEndereco(),
+            a.getTelefone(), String.valueOf(a.getNumMatriculas()), String.valueOf(a.getNumConclusoes()),
             String.valueOf(a.getNumDiscDep()), a.getDataMatricula()});
         JOptionPane.showMessageDialog(this, "Aluno cadastrado com sucesso!");
         jtfCpf.setText(null);
@@ -311,30 +316,60 @@ public class FormAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
     private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
-        setVisible(false);
-        FormPrincipal formPrincipal = new FormPrincipal();
-        formPrincipal.setVisible(true);
+        int res = JOptionPane.showConfirmDialog(this, "Tem certeza de que queira sair?",
+                "Sair", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (res == JOptionPane.YES_OPTION) {
+            setVisible(false);
+            FormPrincipal formPrincipal = new FormPrincipal();
+            formPrincipal.setVisible(true);
+        }
     }//GEN-LAST:event_jbSairActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
-        fichaAluno.excluir(jtAlunos.getSelectedRow());
-        modelo.removeRow(jtAlunos.getSelectedRow());
-        JOptionPane.showMessageDialog(this, "Aluno excluído com sucesso!");
+        int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
+                "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (res == JOptionPane.YES_OPTION) {
+            fichaAluno.excluir(jtAlunos.getSelectedRow());
+            modelo.removeRow(jtAlunos.getSelectedRow());
+            JOptionPane.showMessageDialog(this, "Aluno excluído com sucesso!");
+        } else
+            JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
     }//GEN-LAST:event_jbExcluirActionPerformed
 
     private void jbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsultarActionPerformed
-        fichaAluno.consultar();
-        Aluno a = new Aluno();
-        JOptionPane.showMessageDialog(this, "CPF: " + a.getCpf() + 
-                "\nNome: " + a.getNome() + 
-                "\nEmail: " + a.getEmail() + 
-                "\nEndereço: " + a.getEndereco() + 
-                "\nTelefone: " + a.getTelefone() + 
-                "\nNúmero de matrículas: " + a.getNumMatriculas() + 
-                "\nNúmero de conclusões: " + a.getNumConclusoes() + 
-                "\nNúmero de dependências: " + a.getNumDiscDep() + 
-                "\nData da matrícula: " + a.getDataMatricula());
+        Aluno a = fichaAluno.consultar(jtAlunos.getSelectedRow());
+        JOptionPane.showMessageDialog(this, "CPF: " + a.getCpf()
+                + "\nNome: " + a.getNome()
+                + "\nEmail: " + a.getEmail()
+                + "\nEndereço: " + a.getEndereco()
+                + "\nTelefone: " + a.getTelefone()
+                + "\nNúmero de matrículas: " + a.getNumMatriculas()
+                + "\nNúmero de conclusões: " + a.getNumConclusoes()
+                + "\nNúmero de dependências: " + a.getNumDiscDep()
+                + "\nData da matrícula: " + a.getDataMatricula());
     }//GEN-LAST:event_jbConsultarActionPerformed
+
+    private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
+//        int res = JOptionPane.showConfirmDialog(this, "Confirmar alteração?", 
+//                "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//        if(res == JOptionPane.YES_OPTION) {
+        Aluno a = new Aluno();
+
+        a.setCpf(Integer.valueOf(jtfCpf.getText()));
+        a.setNome(jtfNome.getText());
+        a.setEmail(jtfEmail.getText());
+        a.setEndereco(jtfEndereco.getText());
+        a.setTelefone(jtfTelefone.getText());
+        a.setNumMatriculas(Integer.valueOf(jtfNumMat.getText()));
+        a.setNumConclusoes(Integer.valueOf(jtfNumConc.getText()));
+        a.setNumDiscDep(Integer.valueOf(jtfNumDep.getText()));
+        a.setDataMatricula(jtfDataMat.getText());
+
+        fichaAluno.alterar(a, jtAlunos.getSelectedRow());
+        JOptionPane.showMessageDialog(this, "Aluno alterado com sucesso!");
+//        } else
+//            JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
+    }//GEN-LAST:event_jbAlterarActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

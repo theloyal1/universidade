@@ -2,11 +2,12 @@ package formularios;
 
 import ficharios.FichaAluno;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 public class FormPrincipal extends javax.swing.JFrame {
 
     FichaAluno fichaAluno = new FichaAluno();
-    
+
     public FormPrincipal() {
         initComponents();
         jbSair.setBackground(Color.red);
@@ -158,9 +159,13 @@ public class FormPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbAlunoActionPerformed
 
     private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
-        setVisible(false);
-        Login login = new Login();
-        login.setVisible(true);
+        int res = JOptionPane.showConfirmDialog(this, "Tem certeza de que queira sair?",
+                "Sair", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (res == JOptionPane.YES_OPTION) {
+            setVisible(false);
+            Login login = new Login();
+            login.setVisible(true);
+        }
     }//GEN-LAST:event_jbSairActionPerformed
 
     public static void main(String args[]) {

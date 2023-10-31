@@ -4,11 +4,11 @@ import entidades.Aluno;
 import java.util.ArrayList;
 
 public class FichaAluno {
+    private ArrayList<Aluno> alunos = new ArrayList<>();
 
     public FichaAluno() {
     }
     
-    private ArrayList<Aluno> alunos = new ArrayList<>();
     
     public void cadastrar(Aluno a) {
         alunos.add(a);
@@ -18,7 +18,19 @@ public class FichaAluno {
         alunos.remove(pos);
     }
     
-    public ArrayList<Aluno> consultar() {
-        return alunos;
+    public void alterar(Aluno a, int pos) {
+        alunos.get(pos).setCpf(a.getCpf());
+        alunos.get(pos).setNome(a.getNome());
+        alunos.get(pos).setEmail(a.getEmail());
+        alunos.get(pos).setEndereco(a.getEndereco());
+        alunos.get(pos).setTelefone(a.getTelefone());
+        alunos.get(pos).setNumConclusoes(a.getNumConclusoes());
+        alunos.get(pos).setNumMatriculas(a.getNumMatriculas());
+        alunos.get(pos).setNumDiscDep(a.getNumDiscDep());
+        alunos.get(pos).setDataMatricula(a.getDataMatricula());
+    }
+    
+    public Aluno consultar(int pos) {
+        return alunos.get(pos);
     }
 }
