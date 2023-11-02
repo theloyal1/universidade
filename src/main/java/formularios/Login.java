@@ -1,12 +1,12 @@
 package formularios;
 
 import entidades.Usuario;
-import java.util.ArrayList;
+import ficharios.CadastroUsuario;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
-    ArrayList<Usuario> users = new ArrayList<>();
+    CadastroUsuario cadastro = new CadastroUsuario();
 
     public Login() {
         initComponents();
@@ -113,7 +113,10 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntrarActionPerformed
-        if ((jtfEmail.getText().equals("iftm")) || (jpfSenha.getText().equals("iftm"))) {
+        if ((jtfEmail.getText().isEmpty()) || (jpfSenha.getText().isEmpty())) {
+            JOptionPane.showMessageDialog(this, "Usuário e senha inválidos!", "ERRO",
+                    JOptionPane.ERROR_MESSAGE);
+        } else {
             Usuario u = new Usuario();
 
             u.setEmail(jtfEmail.getText());
@@ -122,10 +125,8 @@ public class Login extends javax.swing.JFrame {
             FormPrincipal formPrincipal = new FormPrincipal();
             formPrincipal.setVisible(true);
 
-            users.add(u);
-        } else
-            JOptionPane.showMessageDialog(this, "Usuário e senha inválidos!", "ERRO",
-                    JOptionPane.ERROR_MESSAGE);
+            cadastro.salvarUsuarios();
+        }
     }//GEN-LAST:event_jbEntrarActionPerformed
 
     public static void main(String args[]) {
