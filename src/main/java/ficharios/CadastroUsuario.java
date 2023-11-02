@@ -3,46 +3,67 @@ package ficharios;
 import entidades.Usuario;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class CadastroUsuario {
     
     ArrayList<Usuario> users = new ArrayList<>();
+    Iterator i = users.iterator();
     
     public CadastroUsuario() {
     }
     
-    public static void salvarUsuarios() {
-        List<String> usuarios = new ArrayList<>();
-
-        // 1. Ler o arquivo .txt existente para carregar os dados dos usuários
-        try (BufferedReader br = new BufferedReader(new FileReader("usuarios.txt"))) {
+    public static boolean usuarioJaCadastrado(Usuario usuario, String arquivo) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(arquivo));
             String linha;
-            while ((linha = br.readLine()) != null) {
-                usuarios.add(linha);
+
+            while ((linha = reader.readLine()) != null) {
+                String[] campos = linha.split(",");
+                if (campos.length >= 3) {
+                    String emailArquivo = campos[0];
+                    String senhaArquivo = campos[1];
+
+                    if (emailArquivo.equals(usuario.getEmail()) &&
+                        senhaArquivo.equals(usuario.getSenha())) {
+                        reader.close();
+                        return true; // O usuário já está cadastrado
+                    }
+                }
             }
+
+            reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        // 2. Verificar se o novo usuário já existe
-        String novoUsuario = "NovoUsuario";
-        if (!usuarios.contains(novoUsuario)) {
-            // 3. Adicione o novo usuário à lista
-            usuarios.add(novoUsuario);
-            System.out.println("Novo usuário adicionado: " + novoUsuario);
+        return false; // O usuário não está cadastrado
+    }
+
+    public static boolean salvarUsuario(Usuario usuario, String arquivo) {
+        if (!usuarioJaCadastrado(usuario, arquivo)) {
+            try {
+                BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo, true));
+
+                writer.write(usuario.getEmail()+ "," + usuario.getSenha());
+                writer.newLine();
+
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return true;
         } else {
-            System.out.println("Usuário já existe: " + novoUsuario);
+            return false;
         }
+    }
 
-        // 4. Salvar os dados de volta no arquivo .txt
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("usuarios.txt"))) {
-            for (String usuario : usuarios) {
-                bw.write(usuario);
-                bw.newLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static void main(String[] args) {
+        Usuario usuario = new Usuario();
+        // Preencha os dados do usuário a partir do formulário
+
+        String arquivo = "usuarios.txt";
+        salvarUsuario(usuario, arquivo);
     }
 }
