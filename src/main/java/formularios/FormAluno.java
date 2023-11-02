@@ -313,6 +313,7 @@ public class FormAluno extends javax.swing.JFrame {
         jtfNumConc.setText(null);
         jtfNumDep.setText(null);
         jtfDataMat.setText(null);
+        jtAlunos.setModel(modelo);
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
     private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
@@ -381,10 +382,16 @@ public class FormAluno extends javax.swing.JFrame {
                 a.setDataMatricula(jtfDataMat.getText());
 
                 fichaAluno.alterar(a, jtAlunos.getSelectedRow());
-//                modelo.setValueAt(new String[]{String.valueOf(a.getCpf()), a.getNome(),
-//                    a.getEmail(), a.getEndereco(), a.getTelefone(), String.valueOf(a.getNumMatriculas()),
-//                    String.valueOf(a.getNumConclusoes()), String.valueOf(a.getNumDiscDep()),
-//                    a.getDataMatricula()}, jtAlunos.getSelectedRow(), jtAlunos.get);
+                modelo.setValueAt(a.getCpf(), jtAlunos.getSelectedRow(), 0);
+                modelo.setValueAt(a.getNome(), jtAlunos.getSelectedRow(), 1);
+                modelo.setValueAt(a.getEmail(), jtAlunos.getSelectedRow(), 2);
+                modelo.setValueAt(a.getEndereco(), jtAlunos.getSelectedRow(), 3);
+                modelo.setValueAt(a.getTelefone(), jtAlunos.getSelectedRow(), 4);
+                modelo.setValueAt(a.getNumMatriculas(), jtAlunos.getSelectedRow(), 5);
+                modelo.setValueAt(a.getNumConclusoes(), jtAlunos.getSelectedRow(), 6);
+                modelo.setValueAt(a.getNumDiscDep(), jtAlunos.getSelectedRow(), 7);
+                modelo.setValueAt(a.getDataMatricula(), jtAlunos.getSelectedRow(), 8);
+                jtAlunos.setModel(modelo);
                 JOptionPane.showMessageDialog(this, "Aluno alterado com sucesso!");
             } else {
                 JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
