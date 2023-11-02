@@ -23,15 +23,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -49,128 +46,119 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jlaEndereco" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jtfEndereco" min="-2" pref="208" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jlaProfs" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
+                  <Component id="jbSair" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jScrollPane1" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jlaNumConc" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jbCadastrar" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                  <Component id="jbExcluir" min="-2" pref="123" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="jlaTelefone" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jtfTelefone" min="-2" pref="144" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jlaEmail" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="jtfEmail" min="-2" pref="174" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jlaCpf" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="jtfCpf" min="-2" pref="191" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace pref="41" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jtfNumConc" min="-2" pref="131" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jbCadastrar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="jbExcluir" min="-2" pref="123" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                      </Group>
-                      <Component id="jScrollPane1" alignment="0" min="-2" pref="698" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jlaCpf" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jtfCpf" min="-2" pref="135" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                              <Component id="jlaNome" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jtfNome" min="-2" pref="135" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                              <Component id="jlaEmail" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jtfEmail" min="-2" pref="135" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jlaNumMat" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jtfNumMat" min="-2" pref="132" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jlaNumDep" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jtfNumDep" min="-2" pref="129" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jlaTelefone" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jtfTelefone" min="-2" pref="234" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jtfNome" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="jlaEndereco" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jtfEndereco" min="-2" pref="195" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jlaEspec" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                           <Component id="jbAlterar" min="-2" pref="123" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                           <Component id="jbConsultar" min="-2" pref="123" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jlaDataMat" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jtfDataMat" min="-2" pref="148" max="-2" attributes="0"/>
+                                          <Component id="jtfEspec" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="273" max="-2" attributes="0"/>
-                              <Component id="jlaAlunos" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jbSair" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="29" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jlaAlunos" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Component id="jbSair" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jlaProfs" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jlaCpf" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jtfCpf" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jlaNome" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jtfNome" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jlaEmail" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jtfEmail" alignment="3" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jlaEndereco" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jtfEndereco" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jlaTelefone" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jtfTelefone" alignment="3" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jlaNumMat" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jtfNumMat" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jtfNumDep" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jlaNumDep" alignment="3" max="32767" attributes="0"/>
+                      <Component id="jlaCpf" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtfNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtfCpf" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jlaNumConc" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jtfNumConc" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jlaDataMat" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jtfDataMat" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlaEmail" alignment="3" max="32767" attributes="0"/>
+                      <Component id="jtfEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlaEndereco" alignment="3" max="32767" attributes="0"/>
+                      <Component id="jtfEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jlaTelefone" alignment="3" max="32767" attributes="0"/>
+                      <Component id="jtfTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlaEspec" alignment="3" max="32767" attributes="0"/>
+                      <Component id="jtfEspec" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -179,15 +167,15 @@
                       <Component id="jbAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jbConsultar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="210" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="192" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jlaAlunos">
+        <Component class="javax.swing.JLabel" name="jlaProfs">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="41" green="1b" red="14" type="rgb"/>
@@ -198,49 +186,22 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="41" green="1b" red="14" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Alunos"/>
+            <Property name="text" type="java.lang.String" value="Professores"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jlaNumConc">
+        <Component class="javax.swing.JButton" name="jbSair">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial Black" size="18" style="0"/>
+              <Font name="Yu Gothic Medium" size="11" style="1"/>
             </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="f8" red="f6" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="N&#xba; de conclus&#xf5;es: "/>
+            <Property name="text" type="java.lang.String" value="Sair"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jtfNumConc">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jlaDataMat">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial Black" size="18" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="f8" red="f6" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Data da matr&#xed;cula: "/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jtfDataMat">
-        </Component>
-        <Component class="javax.swing.JTextField" name="jtfNome">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jlaEmail">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial Black" size="18" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="f8" red="f6" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Email: "/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jtfEmail">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbSairActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jlaCpf">
           <Properties>
@@ -255,7 +216,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jtfCpf">
         </Component>
-        <Component class="javax.swing.JLabel" name="jlaNome">
+        <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Black" size="18" style="0"/>
@@ -265,6 +226,8 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Nome: "/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jtfNome">
         </Component>
         <Component class="javax.swing.JLabel" name="jlaEndereco">
           <Properties>
@@ -279,6 +242,19 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jtfEndereco">
         </Component>
+        <Component class="javax.swing.JLabel" name="jlaEmail">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial Black" size="18" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="f8" red="f6" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Email: "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jtfEmail">
+        </Component>
         <Component class="javax.swing.JLabel" name="jlaTelefone">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -292,7 +268,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jtfTelefone">
         </Component>
-        <Component class="javax.swing.JLabel" name="jlaNumMat">
+        <Component class="javax.swing.JLabel" name="jlaEspec">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Black" size="18" style="0"/>
@@ -300,23 +276,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="f8" red="f6" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="N&#xba; de matr&#xed;culas: "/>
+            <Property name="text" type="java.lang.String" value="Especializa&#xe7;&#xe3;o: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jtfNumMat">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jlaNumDep">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial Black" size="18" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="f8" red="f6" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="N&#xba; de depend&#xea;ncias: "/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jtfNumDep">
+        <Component class="javax.swing.JTextField" name="jtfEspec">
         </Component>
         <Component class="javax.swing.JButton" name="jbCadastrar">
           <Properties>
@@ -387,38 +350,20 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jtAlunos">
+            <Component class="javax.swing.JTable" name="jtProfs">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="9" rowCount="4">
+                  <Table columnCount="6" rowCount="4">
                     <Column editable="true" title="CPF" type="java.lang.Object"/>
                     <Column editable="true" title="Nome" type="java.lang.Object"/>
                     <Column editable="true" title="Email" type="java.lang.Object"/>
                     <Column editable="true" title="Endere&#xe7;o" type="java.lang.Object"/>
                     <Column editable="true" title="Telefone" type="java.lang.Object"/>
-                    <Column editable="true" title="N&#xba; de mat." type="java.lang.Object"/>
-                    <Column editable="true" title="N&#xba; de conc." type="java.lang.Object"/>
-                    <Column editable="true" title="N&#xba; de dep." type="java.lang.Object"/>
-                    <Column editable="true" title="Data da mat." type="java.lang.Object"/>
+                    <Column editable="true" title="Espec." type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
@@ -458,20 +403,6 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jbSair">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Yu Gothic Medium" size="11" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Sair"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbSairActionPerformed"/>
-          </Events>
-        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

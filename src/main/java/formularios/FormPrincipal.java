@@ -56,6 +56,11 @@ public class FormPrincipal extends javax.swing.JFrame {
 
         jbProfessor.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
         jbProfessor.setText("Professor");
+        jbProfessor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbProfessorActionPerformed(evt);
+            }
+        });
 
         jlaLogo.setFont(new java.awt.Font("Times New Roman", 2, 48)); // NOI18N
         jlaLogo.setForeground(new java.awt.Color(20, 27, 65));
@@ -167,6 +172,11 @@ public class FormPrincipal extends javax.swing.JFrame {
             login.setVisible(true);
         }
     }//GEN-LAST:event_jbSairActionPerformed
+
+    private void jbProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbProfessorActionPerformed
+        FormProf formProf = new FormProf();
+        formProf.setVisible(true);
+    }//GEN-LAST:event_jbProfessorActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

@@ -13,7 +13,8 @@ public class FormAluno extends javax.swing.JFrame {
 
     public FormAluno() {
         initComponents();
-        String[] titulos = {"CPF", "Nome", "Email", "Endereço", "Telefone", "Nº de mat.", "Nº de conc.", "Nº de dep.", "Data da mat."};
+        String[] titulos = {"CPF", "Nome", "Email", "Endereço", "Telefone", "Nº de mat.", 
+            "Nº de conc.", "Nº de dep.", "Data da mat."};
         modelo = new DefaultTableModel(titulos, 0);
         jtAlunos.setModel(modelo);
         jbSair.setBackground(Color.red);
@@ -137,13 +138,13 @@ public class FormAluno extends javax.swing.JFrame {
 
         jtAlunos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "CPF", "Nome", "Email", "Endereço", "Telefone", "Nº de mat.", "Nº de conc.", "Nº de dep.", "Data da mat."
             }
         ));
         jScrollPane1.setViewportView(jtAlunos);
