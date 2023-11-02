@@ -22,8 +22,8 @@ public class Login extends javax.swing.JFrame {
         jlaEmail = new javax.swing.JLabel();
         jtfEmail = new javax.swing.JTextField();
         jlaEmail1 = new javax.swing.JLabel();
-        jtfSenha = new javax.swing.JTextField();
         jbEntrar = new javax.swing.JButton();
+        jpfSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,7 +67,7 @@ public class Login extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jlaEmail1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtfSenha))
+                                .addComponent(jpfSenha))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jlaEmail)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -92,7 +92,7 @@ public class Login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlaEmail1)
-                    .addComponent(jtfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jpfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jbEntrar)
                 .addContainerGap(25, Short.MAX_VALUE))
@@ -113,19 +113,19 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntrarActionPerformed
-        if ((jtfEmail.getText().isEmpty()) || (jtfSenha.getText().isEmpty()))
-            JOptionPane.showMessageDialog(this, "Usuário e senha inválidos!", "ERRO", JOptionPane.ERROR_MESSAGE);
-        else {
+        if ((jtfEmail.getText().equals("iftm")) || (jpfSenha.getText().equals("iftm"))) {
             Usuario u = new Usuario();
 
             u.setEmail(jtfEmail.getText());
-            u.setSenha(jtfSenha.getText());
+            u.setSenha(jpfSenha.getText());
             setVisible(false);
             FormPrincipal formPrincipal = new FormPrincipal();
             formPrincipal.setVisible(true);
 
             users.add(u);
-        }
+        } else
+            JOptionPane.showMessageDialog(this, "Usuário e senha inválidos!", "ERRO",
+                    JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_jbEntrarActionPerformed
 
     public static void main(String args[]) {
@@ -167,7 +167,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jlaEmail1;
     private javax.swing.JLabel jlaIcone;
     private javax.swing.JLabel jlaLogo;
+    private javax.swing.JPasswordField jpfSenha;
     private javax.swing.JTextField jtfEmail;
-    private javax.swing.JTextField jtfSenha;
     // End of variables declaration//GEN-END:variables
 }

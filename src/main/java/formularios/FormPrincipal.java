@@ -1,7 +1,6 @@
 package formularios;
 
-import ficharios.FichaAluno;
-import ficharios.FichaProf;
+import ficharios.*;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 

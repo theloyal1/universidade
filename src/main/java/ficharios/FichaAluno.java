@@ -2,13 +2,13 @@ package ficharios;
 
 import entidades.Aluno;
 import java.util.ArrayList;
+//import java.util.Iterator;
 
 public class FichaAluno {
     private ArrayList<Aluno> alunos = new ArrayList<>();
-
+    
     public FichaAluno() {
     }
-    
     
     public void cadastrar(Aluno a) {
         alunos.add(a);
