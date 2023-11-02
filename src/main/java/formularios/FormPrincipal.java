@@ -1,12 +1,14 @@
 package formularios;
 
 import ficharios.FichaAluno;
+import ficharios.FichaProf;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
 public class FormPrincipal extends javax.swing.JFrame {
 
     FichaAluno fichaAluno = new FichaAluno();
+    FichaProf fichaProf = new FichaProf();
 
     public FormPrincipal() {
         initComponents();
@@ -53,6 +55,11 @@ public class FormPrincipal extends javax.swing.JFrame {
 
         jbCurso.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
         jbCurso.setText("Curso");
+        jbCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCursoActionPerformed(evt);
+            }
+        });
 
         jbProfessor.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
         jbProfessor.setText("Professor");
@@ -177,6 +184,17 @@ public class FormPrincipal extends javax.swing.JFrame {
         FormProf formProf = new FormProf();
         formProf.setVisible(true);
     }//GEN-LAST:event_jbProfessorActionPerformed
+
+    private void jbCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCursoActionPerformed
+        if ((fichaAluno.isEmpty()) || fichaProf.isEmpty())
+            JOptionPane.showMessageDialog(this,
+                    "Não há alunos e/ou professores cadastrados!", "Erro",
+                    JOptionPane.ERROR_MESSAGE);
+        else {
+            FormCurso formCurso = new FormCurso();
+            formCurso.setVisible(true);
+        }
+    }//GEN-LAST:event_jbCursoActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

@@ -1,13 +1,15 @@
 package entidades;
 
 public class Aluno extends Pessoa {
+
     private int numMatriculas, numConclusoes, numDiscDep;
     private String dataMatricula;
 
     public Aluno() {
     }
 
-    public Aluno(int numMatriculas, int numConclusoes, int numDiscDep, String dataMatricula, int cpf, String nome, String email, String endereco, String telefone) {
+    public Aluno(int numMatriculas, int numConclusoes, int numDiscDep, String dataMatricula,
+            int cpf, String nome, String email, String endereco, String telefone) {
         super(cpf, nome, email, endereco, telefone);
         this.numMatriculas = numMatriculas;
         this.numConclusoes = numConclusoes;
