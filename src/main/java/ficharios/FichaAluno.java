@@ -33,4 +33,11 @@ public class FichaAluno {
     public Aluno consultar(int pos) {
         return alunos.get(pos);
     }
+    
+    public boolean isEmpty() {
+        if(alunos.isEmpty())
+            return true;
+        else
+            return false;
+    }
 }
