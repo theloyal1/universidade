@@ -123,14 +123,10 @@ public class Login extends javax.swing.JFrame {
             u.setEmail(jtfEmail.getText());
             u.setSenha(jpfSenha.getText());
 
-            if (!cadastro.salvarUsuario(u, arquivo)) {
-                JOptionPane.showMessageDialog(this, "Usuário já cadastrado!", "Erro",
-                        JOptionPane.ERROR_MESSAGE);
-            } else {
-                setVisible(false);
-                FormPrincipal formPrincipal = new FormPrincipal();
-                formPrincipal.setVisible(true);
-            }
+            cadastro.salvarUsuario(u);
+            setVisible(false);
+            FormPrincipal formPrincipal = new FormPrincipal();
+            formPrincipal.setVisible(true);
         }
     }//GEN-LAST:event_jbEntrarActionPerformed
 

@@ -6,9 +6,6 @@ import javax.swing.JOptionPane;
 
 public class FormPrincipal extends javax.swing.JFrame {
 
-    FichaAluno fichaAluno = new FichaAluno();
-    FichaProf fichaProf = new FichaProf();
-
     public FormPrincipal() {
         initComponents();
         jbSair.setBackground(Color.red);
@@ -185,14 +182,8 @@ public class FormPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbProfessorActionPerformed
 
     private void jbCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCursoActionPerformed
-        if ((fichaAluno.isEmpty()) || fichaProf.isEmpty())
-            JOptionPane.showMessageDialog(this,
-                    "Não há alunos e/ou professores cadastrados!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        else {
-            FormCurso formCurso = new FormCurso();
-            formCurso.setVisible(true);
-        }
+        FormCurso formCurso = new FormCurso();
+        formCurso.setVisible(true);
     }//GEN-LAST:event_jbCursoActionPerformed
 
     public static void main(String args[]) {

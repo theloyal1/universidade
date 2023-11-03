@@ -1,6 +1,9 @@
 package ficharios;
 
 import entidades.Professor;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class FichaProf {
@@ -35,5 +38,20 @@ public class FichaProf {
             return true;
         else
             return false;
+    }
+    
+    public static void salvarProf(Professor prof) {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("alunos.txt", true));
+
+            writer.write(prof.getCpf() + ", " + prof.getNome() + ", " + prof.getEmail() + 
+                    ", " + prof.getEndereco() + "," + prof.getTelefone() + ", " + 
+                    prof.getEspecializacao());
+            writer.newLine();
+
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

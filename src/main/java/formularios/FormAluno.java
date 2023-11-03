@@ -301,9 +301,10 @@ public class FormAluno extends javax.swing.JFrame {
         a.setDataMatricula(jtfDataMat.getText());
 
         fichaAluno.cadastrar(a);
+        fichaAluno.salvarAluno(a);
         modelo.addRow(new String[]{String.valueOf(a.getCpf()), a.getNome(), a.getEmail(), a.getEndereco(),
             a.getTelefone(), String.valueOf(a.getNumMatriculas()), String.valueOf(a.getNumConclusoes()),
-            String.valueOf(a.getNumDiscDep()), a.getDataMatricula()});
+            String.valueOf(a.getNumDiscDep()), String.valueOf(a.getDataMatricula())});
         JOptionPane.showMessageDialog(this, "Aluno cadastrado com sucesso!");
         jtfCpf.setText(null);
         jtfNome.setText(null);
