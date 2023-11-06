@@ -42,7 +42,7 @@ public class FichaProf {
     
     public static void salvarProf(Professor prof) {
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("alunos.txt", true));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("profs.txt", true));
 
             writer.write(prof.getCpf() + ", " + prof.getNome() + ", " + prof.getEmail() + 
                     ", " + prof.getEndereco() + "," + prof.getTelefone() + ", " + 
