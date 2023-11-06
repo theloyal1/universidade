@@ -1,14 +1,24 @@
 package formularios;
 
 import entidades.Departamento;
+import ficharios.FichaDep;
+import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class FormDep extends javax.swing.JFrame {
-
+    
+    FichaDep fichaDep = new FichaDep();
+    DefaultTableModel modelo;
+    
     public FormDep() {
         initComponents();
+        String[] titulos = {"Código", "Nome", "Cursos"};
+        modelo = new DefaultTableModel(titulos, 0);
+        jtDep.setModel(modelo);
+        jbSair.setBackground(Color.RED);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -26,6 +36,8 @@ public class FormDep extends javax.swing.JFrame {
         jbExcluir = new javax.swing.JButton();
         jbAlterar = new javax.swing.JButton();
         jbConsultar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtDep = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,6 +105,19 @@ public class FormDep extends javax.swing.JFrame {
             }
         });
 
+        jtDep.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Código", "Nome", "Cursos"
+            }
+        ));
+        jScrollPane1.setViewportView(jtDep);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -103,18 +128,19 @@ public class FormDep extends javax.swing.JFrame {
                 .addGap(128, 128, 128)
                 .addComponent(jbSair)
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jbCadastrar)
                         .addGap(69, 69, 69)
                         .addComponent(jbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(77, 77, 77)
                         .addComponent(jbAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                         .addComponent(jbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jlaCodigo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -157,7 +183,9 @@ public class FormDep extends javax.swing.JFrame {
                     .addComponent(jbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(265, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -176,7 +204,7 @@ public class FormDep extends javax.swing.JFrame {
 
     private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
         int res = JOptionPane.showConfirmDialog(this, "Tem certeza de que queira sair?",
-            "Sair", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                "Sair", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (res == JOptionPane.YES_OPTION) {
             setVisible(false);
             FormPrincipal formPrincipal = new FormPrincipal();
@@ -186,31 +214,30 @@ public class FormDep extends javax.swing.JFrame {
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         Departamento d = new Departamento();
-
+        
         d.setCodigo(Integer.valueOf(jtfCodigo.getText()));
         d.setNome(jtfNome.getText());
-        d.setCursos(Cur);
+//        d.setCursos();
 
-        fichaCurso.cadastrar(c);
-        modelo.addRow(new String[]{String.valueOf(c.getNumDiscObg()),
-            String.valueOf(c.getNumDiscOpc()), String.valueOf(c.getAlunos()),
-            String.valueOf(c.getProfessores())});
-    JOptionPane.showMessageDialog(this, "Curso cadastrado com sucesso!");
-    jtfNumDiscObg.setText(null);
-    jtfNumDiscOpc.setText(null);
-    jtCursos.setModel(modelo);
+        fichaDep.cadastrar(d);
+        modelo.addRow(new String[]{String.valueOf(d.getCodigo()), d.getNome(), "???"});
+        JOptionPane.showMessageDialog(this, "Departamento cadastrado com sucesso!");
+        jtfCodigo.setText(null);
+        jtfNome.setText(null);
+        jtfCursos.setText(null);
+        jtDep.setModel(modelo);
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
-        if (fichaCurso.isEmpty())
-        JOptionPane.showMessageDialog(this, "Não há cursos cadastrados!", "Erro",
-            JOptionPane.ERROR_MESSAGE);
+        if (fichaDep.isEmpty())
+            JOptionPane.showMessageDialog(this, "Não há cursos cadastrados!", "Erro",
+                    JOptionPane.ERROR_MESSAGE);
         else {
             int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
-                "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
-                fichaCurso.excluir(jtCursos.getSelectedRow());
-                modelo.removeRow(jtCursos.getSelectedRow());
+                fichaDep.excluir(jtDep.getSelectedRow());
+                modelo.removeRow(jtDep.getSelectedRow());
                 JOptionPane.showMessageDialog(this, "Curso excluído com sucesso!");
             } else {
                 JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
@@ -219,22 +246,22 @@ public class FormDep extends javax.swing.JFrame {
     }//GEN-LAST:event_jbExcluirActionPerformed
 
     private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
-        if (fichaCurso.isEmpty())
-        JOptionPane.showMessageDialog(this, "Não há cursos cadastrados!", "Erro",
-            JOptionPane.ERROR_MESSAGE);
+        if (fichaDep.isEmpty())
+            JOptionPane.showMessageDialog(this, "Não há cursos cadastrados!", "Erro",
+                    JOptionPane.ERROR_MESSAGE);
         else {
             int res = JOptionPane.showConfirmDialog(this, "Confirmar alteração?",
-                "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
-                Curso c = new Curso();
-
-                c.setNumDiscObg(Integer.valueOf(jtfNumDiscObg.getText()));
-                c.setNumDiscOpc(Integer.valueOf(jtfNumDiscOpc.getText()));
-
-                fichaCurso.alterar(c, jtCursos.getSelectedRow());
-                modelo.setValueAt(c.getNumDiscObg(), jtCursos.getSelectedRow(), 0);
-                modelo.setValueAt(c.getNumDiscOpc(), jtCursos.getSelectedRow(), 1);
-                jtCursos.setModel(modelo);
+                Departamento d = new Departamento();
+        
+        d.setCodigo(Integer.valueOf(jtfCodigo.getText()));
+        d.setNome(jtfNome.getText());
+                
+                fichaDep.alterar(d, jtDep.getSelectedRow());
+                modelo.setValueAt(d.getCodigo(), jtDep.getSelectedRow(), 0);
+                modelo.setValueAt(d.getNome(), jtDep.getSelectedRow(), 1);
+                jtDep.setModel(modelo);
                 JOptionPane.showMessageDialog(this, "Curso alterado com sucesso!");
             } else {
                 JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
@@ -243,14 +270,15 @@ public class FormDep extends javax.swing.JFrame {
     }//GEN-LAST:event_jbAlterarActionPerformed
 
     private void jbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsultarActionPerformed
-        if (fichaCurso.isEmpty())
-        JOptionPane.showMessageDialog(this, "Não há alunos cadastrados!", "Erro",
-            JOptionPane.ERROR_MESSAGE);
+        if (fichaDep.isEmpty())
+            JOptionPane.showMessageDialog(this, "Não há alunos cadastrados!", "Erro",
+                    JOptionPane.ERROR_MESSAGE);
         else {
-            Curso c = fichaCurso.consultar(jtCursos.getSelectedRow());
+            Departamento d = fichaDep.consultar(jtDep.getSelectedRow());
             JOptionPane.showMessageDialog(this,
-                "Número de disciplinas obrigatórias: " + c.getNumDiscObg()
-                + "\nNúmero de disciplinas opcionais: " + c.getNumDiscOpc());
+                    "Código: " + d.getCodigo()
+                    + "\nNome: " + d.getNome() 
+                    + "\nCursos: " + d.getCurso());
         }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
@@ -291,6 +319,7 @@ public class FormDep extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbAlterar;
     private javax.swing.JButton jbCadastrar;
     private javax.swing.JButton jbConsultar;
@@ -300,6 +329,7 @@ public class FormDep extends javax.swing.JFrame {
     private javax.swing.JLabel jlaCursos;
     private javax.swing.JLabel jlaDep;
     private javax.swing.JLabel jlaNome;
+    private javax.swing.JTable jtDep;
     private javax.swing.JTextField jtfCodigo;
     private javax.swing.JTextField jtfCursos;
     private javax.swing.JTextField jtfNome;

@@ -5,15 +5,15 @@ import java.util.ArrayList;
 public class Departamento {
     private int codigo;
     private String nome;
-    private ArrayList<Curso> cursos;
+    private Curso curso;
 
     public Departamento() {
     }
     
-    public Departamento(int codigo, String nome, ArrayList<Curso> cursos) {
+    public Departamento(int codigo, String nome, Curso curso) {
         this.codigo = codigo;
         this.nome = nome;
-        this.cursos = cursos;
+        this.curso = curso;
     }
 
     public int getCodigo() {
@@ -32,11 +32,11 @@ public class Departamento {
         this.nome = nome;
     }
 
-    public ArrayList<Curso> getCursos() {
-        return cursos;
+    public Curso getCurso() {
+        return curso;
     }
 
-    public void setCursos(ArrayList<Curso> cursos) {
-        this.cursos = cursos;
+    public void setCurso(Curso curso) {
+        this.curso = curso;
     }
 }

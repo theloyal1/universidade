@@ -233,12 +233,14 @@ public class FormCurso extends javax.swing.JFrame {
 
         c.setNumDiscObg(Integer.valueOf(jtfNumDiscObg.getText()));
         c.setNumDiscOpc(Integer.valueOf(jtfNumDiscOpc.getText()));
-        c.setAlunos(jtfAluno.getText());
+        fichaCurso.procurarAluno();
+        fichaCurso.procurarProf();
 
         fichaCurso.cadastrar(c);
+        fichaCurso.salvarCurso(c);
         modelo.addRow(new String[]{String.valueOf(c.getNumDiscObg()),
-            String.valueOf(c.getNumDiscOpc()), String.valueOf(c.getAlunos()), 
-            String.valueOf(c.getProfessores())});
+            String.valueOf(c.getNumDiscOpc()), String.valueOf(c.getAluno()), 
+            String.valueOf(c.getProfessor())});
         JOptionPane.showMessageDialog(this, "Curso cadastrado com sucesso!");
         jtfNumDiscObg.setText(null);
         jtfNumDiscOpc.setText(null);
