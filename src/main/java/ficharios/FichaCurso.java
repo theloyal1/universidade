@@ -48,60 +48,6 @@ public class FichaCurso {
         cursos.add(curso);
     }
     
-    public boolean procurarAluno() {
-        try {
-            FileReader fr = new FileReader("alunos.txt");
-            BufferedReader br = new BufferedReader(fr);
-            String linha = br.readLine();
-            
-            while(linha!=null)
-                linha = br.readLine();
-            
-            Iterator<Aluno> iterator = alunos.iterator();
-            boolean achou = false;
-            int pos = 0;
-            
-            while (iterator.hasNext()) {
-                Aluno aluno = iterator.next();
-                if(achou) {
-                    cursos.get(pos).setAluno(aluno);
-                    break;
-                }
-                pos++;
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(FichaCurso.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return true;
-    }
-    
-    public boolean procurarProf() {
-        try {
-            FileReader fr = new FileReader("profs.txt");
-            BufferedReader br = new BufferedReader(fr);
-            String linha = br.readLine();
-            
-            while(linha!=null)
-                linha = br.readLine();
-            
-            Iterator<Professor> iterator = profs.iterator();
-            boolean achou = false;
-            int pos = 0;
-            
-            while (iterator.hasNext()) {
-                Professor prof = iterator.next();
-                if(achou) {
-                    cursos.get(pos).setProfessor(prof);
-                    break;
-                }
-                pos++;
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(FichaCurso.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return true;
-    }
-
     public ArrayList<Curso> getCursos() {
         return cursos;
     }

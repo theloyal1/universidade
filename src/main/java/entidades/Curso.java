@@ -7,6 +7,9 @@ public class Curso {
     private ArrayList<Aluno> alunos;
     private ArrayList<Professor> profs;
 
+    public Curso() {
+    }
+    
     public Curso(int numDiscObg, int numDiscOpc, ArrayList<Aluno> alunos, ArrayList<Professor> profs) {
         this.numDiscObg = numDiscObg;
         this.numDiscOpc = numDiscOpc;

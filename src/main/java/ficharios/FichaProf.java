@@ -44,18 +44,7 @@ public class FichaProf {
             return false;
     }
     
-    public static void salvarProf(Professor prof) {
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("profs.txt", true));
-
-            writer.write(prof.getCpf() + ", " + prof.getNome() + ", " + prof.getEmail() + 
-                    ", " + prof.getEndereco() + "," + prof.getTelefone() + ", " + 
-                    prof.getEspecializacao());
-            writer.newLine();
-
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void salvarProf(Professor prof) {
+        profs.add(prof);
     }
 }

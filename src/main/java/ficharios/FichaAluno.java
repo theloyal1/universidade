@@ -47,19 +47,7 @@ public class FichaAluno {
             return false;
     }
     
-    public static void salvarAluno(Aluno aluno) {
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("alunos.txt", true));
-
-            writer.write(aluno.getCpf() + ", " + aluno.getNome() + ", " + aluno.getEmail() + 
-                    ", " + aluno.getEndereco() + "," + aluno.getTelefone() + ", " + 
-                    aluno.getNumMatriculas() + ", " + aluno.getNumConclusoes() + ", " + 
-                    aluno.getNumDiscDep() + ", " + aluno.getDataMatricula());
-            writer.newLine();
-
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void salvarAluno(Aluno aluno) {
+        alunos.add(aluno);
     }
 }
