@@ -266,7 +266,7 @@ public class FormProf extends javax.swing.JFrame {
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         Professor p = new Professor();
 
-        p.setCpf(Integer.valueOf(jtfCpf.getText()));
+        p.setCpf(jtfCpf.getText());
         p.setNome(jtfNome.getText());
         p.setEmail(jtfEmail.getText());
         p.setEndereco(jtfEndereco.getText());
@@ -275,7 +275,7 @@ public class FormProf extends javax.swing.JFrame {
 
         fichaProf.cadastrar(p);
         fichaProf.salvarProf(p);
-        modelo.addRow(new String[]{String.valueOf(p.getCpf()), p.getNome(), p.getEmail(), p.getEndereco(),
+        modelo.addRow(new String[]{p.getCpf(), p.getNome(), p.getEmail(), p.getEndereco(),
             p.getTelefone(), p.getEspecializacao()});
         JOptionPane.showMessageDialog(this, "Professor cadastrado com sucesso!");
         jtfCpf.setText(null);
@@ -314,7 +314,7 @@ public class FormProf extends javax.swing.JFrame {
             if (res == JOptionPane.YES_OPTION) {
                 Professor p = new Professor();
 
-                p.setCpf(Integer.valueOf(jtfCpf.getText()));
+                p.setCpf(jtfCpf.getText());
                 p.setNome(jtfNome.getText());
                 p.setEmail(jtfEmail.getText());
                 p.setEndereco(jtfEndereco.getText());

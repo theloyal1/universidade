@@ -75,9 +75,9 @@
                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="jlaCpf" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jtfCpf" min="-2" pref="135" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jtfCpf" min="-2" pref="142" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Component id="jlaNome" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jtfNome" min="-2" pref="135" max="-2" attributes="0"/>
@@ -91,7 +91,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jtfNumMat" min="-2" pref="132" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="jlaNumDep" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -99,23 +99,23 @@
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="jlaTelefone" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jtfTelefone" min="-2" pref="234" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jtfTelefone" max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                                           <Component id="jbAlterar" min="-2" pref="123" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                                           <Component id="jbConsultar" min="-2" pref="123" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
                                           <Component id="jlaDataMat" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jtfDataMat" min="-2" pref="148" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="273" max="-2" attributes="0"/>
@@ -145,18 +145,18 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jlaCpf" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jtfCpf" alignment="3" max="32767" attributes="0"/>
                       <Component id="jlaNome" alignment="3" max="32767" attributes="0"/>
                       <Component id="jtfNome" alignment="3" max="32767" attributes="0"/>
                       <Component id="jlaEmail" alignment="3" max="32767" attributes="0"/>
                       <Component id="jtfEmail" alignment="3" max="32767" attributes="0"/>
+                      <Component id="jtfCpf" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jlaEndereco" alignment="3" max="32767" attributes="0"/>
                       <Component id="jtfEndereco" alignment="3" max="32767" attributes="0"/>
                       <Component id="jlaTelefone" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jtfTelefone" alignment="3" max="32767" attributes="0"/>
+                      <Component id="jtfTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -225,8 +225,6 @@
             <Property name="text" type="java.lang.String" value="Data da matr&#xed;cula: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jtfDataMat">
-        </Component>
         <Component class="javax.swing.JTextField" name="jtfNome">
         </Component>
         <Component class="javax.swing.JLabel" name="jlaEmail">
@@ -252,8 +250,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="CPF: "/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jtfCpf">
         </Component>
         <Component class="javax.swing.JLabel" name="jlaNome">
           <Properties>
@@ -289,8 +285,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Telefone: "/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jtfTelefone">
         </Component>
         <Component class="javax.swing.JLabel" name="jlaNumMat">
           <Properties>
@@ -471,6 +465,28 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbSairActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="jtfDataMat">
+          <Properties>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+              <Format format="##/##/####" subtype="-1" type="5"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="jtfCpf">
+          <Properties>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+              <Format format="###.###.###-##" subtype="-1" type="5"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="jtfTelefone">
+          <Properties>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+              <Format format="(##)#####-####" subtype="-1" type="5"/>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

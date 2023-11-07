@@ -29,17 +29,14 @@ public class FormAluno extends javax.swing.JFrame {
         jlaNumConc = new javax.swing.JLabel();
         jtfNumConc = new javax.swing.JTextField();
         jlaDataMat = new javax.swing.JLabel();
-        jtfDataMat = new javax.swing.JTextField();
         jtfNome = new javax.swing.JTextField();
         jlaEmail = new javax.swing.JLabel();
         jtfEmail = new javax.swing.JTextField();
         jlaCpf = new javax.swing.JLabel();
-        jtfCpf = new javax.swing.JTextField();
         jlaNome = new javax.swing.JLabel();
         jlaEndereco = new javax.swing.JLabel();
         jtfEndereco = new javax.swing.JTextField();
         jlaTelefone = new javax.swing.JLabel();
-        jtfTelefone = new javax.swing.JTextField();
         jlaNumMat = new javax.swing.JLabel();
         jtfNumMat = new javax.swing.JTextField();
         jlaNumDep = new javax.swing.JLabel();
@@ -51,6 +48,9 @@ public class FormAluno extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtAlunos = new javax.swing.JTable();
         jbSair = new javax.swing.JButton();
+        jtfDataMat = new javax.swing.JFormattedTextField();
+        jtfCpf = new javax.swing.JFormattedTextField();
+        jtfTelefone = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -158,6 +158,25 @@ public class FormAluno extends javax.swing.JFrame {
             }
         });
 
+        try {
+            jtfDataMat.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jtfDataMat.setToolTipText("");
+
+        try {
+            jtfCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            jtfTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -183,9 +202,9 @@ public class FormAluno extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jlaCpf)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jtfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(33, 33, 33)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jtfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(32, 32, 32)
                             .addComponent(jlaNome)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -198,25 +217,25 @@ public class FormAluno extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(jtfNumMat, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(37, 37, 37)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jlaNumDep)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jtfNumDep, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jlaTelefone)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jtfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jtfTelefone))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
                                         .addComponent(jbAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(89, 89, 89)
                                         .addComponent(jbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jlaDataMat)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jtfDataMat, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(jtfDataMat, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGap(1, 1, 1))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addGap(273, 273, 273)
                             .addComponent(jlaAlunos)
@@ -237,17 +256,17 @@ public class FormAluno extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlaCpf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtfCpf)
                     .addComponent(jlaNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jtfNome)
                     .addComponent(jlaEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtfEmail))
+                    .addComponent(jtfEmail)
+                    .addComponent(jtfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlaEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jtfEndereco)
                     .addComponent(jlaTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtfTelefone))
+                    .addComponent(jtfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlaNumMat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -290,7 +309,7 @@ public class FormAluno extends javax.swing.JFrame {
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         Aluno a = new Aluno();
 
-        a.setCpf(Integer.valueOf(jtfCpf.getText()));
+        a.setCpf(jtfCpf.getText());
         a.setNome(jtfNome.getText());
         a.setEmail(jtfEmail.getText());
         a.setEndereco(jtfEndereco.getText());
@@ -302,7 +321,7 @@ public class FormAluno extends javax.swing.JFrame {
 
         fichaAluno.cadastrar(a);
         fichaAluno.salvarAluno(a);
-        modelo.addRow(new String[]{String.valueOf(a.getCpf()), a.getNome(), a.getEmail(), a.getEndereco(),
+        modelo.addRow(new String[]{a.getCpf(), a.getNome(), a.getEmail(), a.getEndereco(),
             a.getTelefone(), String.valueOf(a.getNumMatriculas()), String.valueOf(a.getNumConclusoes()),
             String.valueOf(a.getNumDiscDep()), String.valueOf(a.getDataMatricula())});
         JOptionPane.showMessageDialog(this, "Aluno cadastrado com sucesso!");
@@ -372,7 +391,7 @@ public class FormAluno extends javax.swing.JFrame {
             if (res == JOptionPane.YES_OPTION) {
                 Aluno a = new Aluno();
 
-                a.setCpf(Integer.valueOf(jtfCpf.getText()));
+                a.setCpf(jtfCpf.getText());
                 a.setNome(jtfNome.getText());
                 a.setEmail(jtfEmail.getText());
                 a.setEndereco(jtfEndereco.getText());
@@ -451,14 +470,14 @@ public class FormAluno extends javax.swing.JFrame {
     private javax.swing.JLabel jlaNumMat;
     private javax.swing.JLabel jlaTelefone;
     private javax.swing.JTable jtAlunos;
-    private javax.swing.JTextField jtfCpf;
-    private javax.swing.JTextField jtfDataMat;
+    private javax.swing.JFormattedTextField jtfCpf;
+    private javax.swing.JFormattedTextField jtfDataMat;
     private javax.swing.JTextField jtfEmail;
     private javax.swing.JTextField jtfEndereco;
     private javax.swing.JTextField jtfNome;
     private javax.swing.JTextField jtfNumConc;
     private javax.swing.JTextField jtfNumDep;
     private javax.swing.JTextField jtfNumMat;
-    private javax.swing.JTextField jtfTelefone;
+    private javax.swing.JFormattedTextField jtfTelefone;
     // End of variables declaration//GEN-END:variables
 }
