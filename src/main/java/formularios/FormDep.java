@@ -8,15 +8,20 @@ import javax.swing.table.DefaultTableModel;
 
 public class FormDep extends javax.swing.JFrame {
 
-    FichaDep fichaDep = new FichaDep();
+    FichaDep fichaDep;
     DefaultTableModel modelo;
 
-    public FormDep() {
+    public FormDep(FichaDep fichaDep) {
         initComponents();
+        this.fichaDep = fichaDep;
         String[] titulos = {"Código", "Nome", "Cursos"};
         modelo = new DefaultTableModel(titulos, 0);
         jtDep.setModel(modelo);
         jbSair.setBackground(Color.RED);
+    }
+
+    private FormDep() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @SuppressWarnings("unchecked")
@@ -216,10 +221,10 @@ public class FormDep extends javax.swing.JFrame {
 
         d.setCodigo(Integer.valueOf(jtfCodigo.getText()));
         d.setNome(jtfNome.getText());
-//        d.setCursos();
+        d.setCursos();
 
         fichaDep.cadastrar(d);
-        modelo.addRow(new String[]{String.valueOf(d.getCodigo()), d.getNome(), "???"});
+        modelo.addRow(new String[]{String.valueOf(d.getCodigo()), d.getNome(), d.getCurso()});
         JOptionPane.showMessageDialog(this, "Departamento cadastrado com sucesso!");
         jtfCodigo.setText(null);
         jtfNome.setText(null);
@@ -316,6 +321,19 @@ public class FormDep extends javax.swing.JFrame {
                 new FormDep().setVisible(true);
             }
         });
+    }
+    
+    public void relatorio() {
+        try {
+            jtDep.removeAll();
+            for(int i=0; i<fichaDep.relatorio().size(); i++) {
+                modelo.addRow(new String[]{String.valueOf(fichaDep.relatorio().get(i).getCodigo()), 
+                    fichaDep.relatorio().get(i).getNome(), 
+                    String.valueOf(fichaDep.relatorio().get(i).getCurso())});
+            }
+            jtDep.setModel(modelo);
+        } catch (Exception e) {
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

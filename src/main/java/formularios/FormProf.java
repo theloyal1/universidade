@@ -8,14 +8,19 @@ import javax.swing.table.DefaultTableModel;
 
 public class FormProf extends javax.swing.JFrame {
 
-    FichaProf fichaProf = new FichaProf();
+    FichaProf fichaProf;
     DefaultTableModel modelo;
 
-    public FormProf() {
+    public FormProf(FichaProf fichaProf) {
         initComponents();
+        this.fichaProf = fichaProf;
         String[] titulos = {"CPF", "Nome", "Email", "Endereço", "Telefone", "Espec."};
         modelo = new DefaultTableModel(titulos, 0);
         jbSair.setBackground(Color.red);
+    }
+
+    private FormProf() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @SuppressWarnings("unchecked")
@@ -384,6 +389,22 @@ public class FormProf extends javax.swing.JFrame {
                 new FormProf().setVisible(true);
             }
         });
+    }
+    
+    public void preencheDados() {
+        try {
+            jtProfs.removeAll();
+            for(int i=0; i<fichaProf.relatorio().size(); i++) {
+                modelo.addRow(new String[]{fichaProf.relatorio().get(i).getCpf(), 
+                    fichaProf.relatorio().get(i).getNome(), 
+                    fichaProf.relatorio().get(i).getEmail(), 
+                    fichaProf.relatorio().get(i).getEndereco(),
+                    fichaProf.relatorio().get(i).getTelefone(), 
+                    fichaProf.relatorio().get(i).getEspecializacao()});
+            }
+            jtProfs.setModel(modelo);
+        } catch (Exception e) {
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

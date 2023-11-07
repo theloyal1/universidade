@@ -5,7 +5,15 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 
 public class FormPrincipal extends javax.swing.JFrame {
-
+    
+    private FichaAluno fichaAluno = new FichaAluno();
+    private FichaProf fichaProf = new FichaProf();
+    private FichaCurso fichaCurso = new FichaCurso();
+    private FichaDep fichaDep = new FichaDep();
+    private FichaDisc fichaDisc = new FichaDisc();
+    private FichaMat fichaMat = new FichaMat();
+    private FichaPpc fichaPpc = new FichaPpc();
+    
     public FormPrincipal() {
         initComponents();
         jbSair.setBackground(Color.red);
@@ -182,7 +190,7 @@ public class FormPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlunoActionPerformed
-        FormAluno formAluno = new FormAluno();
+        FormAluno formAluno = new FormAluno(fichaAluno);
         formAluno.setVisible(true);
     }//GEN-LAST:event_jbAlunoActionPerformed
 
@@ -196,17 +204,17 @@ public class FormPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbSairActionPerformed
 
     private void jbProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbProfessorActionPerformed
-        FormProf formProf = new FormProf();
+        FormProf formProf = new FormProf(fichaProf);
         formProf.setVisible(true);
     }//GEN-LAST:event_jbProfessorActionPerformed
 
     private void jbCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCursoActionPerformed
-        FormCurso formCurso = new FormCurso();
+        FormCurso formCurso = new FormCurso(fichaCurso);
         formCurso.setVisible(true);
     }//GEN-LAST:event_jbCursoActionPerformed
 
     private void jbDeptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDeptActionPerformed
-        FormDep formDep = new FormDep();
+        FormDep formDep = new FormDep(fichaDep);
         formDep.setVisible(true);
     }//GEN-LAST:event_jbDeptActionPerformed
 

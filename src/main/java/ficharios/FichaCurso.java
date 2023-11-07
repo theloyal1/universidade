@@ -9,9 +9,8 @@ import java.util.logging.Logger;
 
 public class FichaCurso {
     private ArrayList<Curso> cursos = new ArrayList<>();
-    private ArrayList<Aluno> alunos = new ArrayList<>();
-    private ArrayList<Professor> profs = new ArrayList<>();
-
+    private String nome;
+    
     public FichaCurso() {
     }
     
@@ -26,12 +25,16 @@ public class FichaCurso {
     public void alterar(Curso c, int pos) {
         cursos.get(pos).setNumDiscObg(c.getNumDiscObg());
         cursos.get(pos).setNumDiscOpc(c.getNumDiscOpc());
-        cursos.get(pos).setAluno(c.getAluno());
-        cursos.get(pos).setProfessor(c.getProfessor());
+        cursos.get(pos).setAlunos(c.getAlunos());
+        cursos.get(pos).setProfs(c.getProfs());
     }
     
     public Curso consultar(int pos) {
         return cursos.get(pos);
+    }
+    
+    public ArrayList<Curso> relatorio() {
+        return cursos;
     }
     
     public boolean isEmpty() {
@@ -42,17 +45,7 @@ public class FichaCurso {
     }
     
     public void salvarCurso(Curso curso) {
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("cursos.txt", true));
-
-            writer.write(curso.getNumDiscObg() + ", " + curso.getNumDiscOpc() + ", " 
-                    + curso.getAluno() + ", " + curso.getProfessor());
-            writer.newLine();
-
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        cursos.add(curso);
     }
     
     public boolean procurarAluno() {
@@ -108,4 +101,22 @@ public class FichaCurso {
         }
         return true;
     }
+
+    public ArrayList<Curso> getCursos() {
+        return cursos;
+    }
+
+    public void setCursos(ArrayList<Curso> cursos) {
+        this.cursos = cursos;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+    
 }

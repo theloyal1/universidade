@@ -8,16 +8,22 @@ import javax.swing.table.DefaultTableModel;
 
 public class FormAluno extends javax.swing.JFrame {
 
-    FichaAluno fichaAluno = new FichaAluno();
+    FichaAluno fichaAluno;
     DefaultTableModel modelo;
 
-    public FormAluno() {
+    public FormAluno(FichaAluno fichaAluno) {
         initComponents();
-        String[] titulos = {"CPF", "Nome", "Email", "Endereço", "Telefone", "Nº de mat.", 
+        this.fichaAluno = fichaAluno;
+        String[] titulos = {"CPF", "Nome", "Email", "Endereço", "Telefone", "Nº de mat.",
             "Nº de conc.", "Nº de dep.", "Data da mat."};
         modelo = new DefaultTableModel(titulos, 0);
         jtAlunos.setModel(modelo);
         jbSair.setBackground(Color.red);
+        preencheDados();
+    }
+
+    private FormAluno() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @SuppressWarnings("unchecked")
@@ -449,6 +455,25 @@ public class FormAluno extends javax.swing.JFrame {
                 new FormAluno().setVisible(true);
             }
         });
+    }
+
+    public void preencheDados() {
+        try {
+            jtAlunos.removeAll();
+            for (int i = 0; i < fichaAluno.relatorio().size(); i++) {
+                modelo.addRow(new String[]{fichaAluno.relatorio().get(i).getCpf(), 
+                    fichaAluno.relatorio().get(i).getNome(), 
+                    fichaAluno.relatorio().get(i).getEmail(), 
+                    fichaAluno.relatorio().get(i).getEndereco(),
+                    fichaAluno.relatorio().get(i).getTelefone(), 
+                    String.valueOf(fichaAluno.relatorio().get(i).getNumMatriculas()), 
+                    String.valueOf(fichaAluno.relatorio().get(i).getNumConclusoes()),
+                    String.valueOf(fichaAluno.relatorio().get(i).getNumDiscDep()), 
+                    String.valueOf(fichaAluno.relatorio().get(i).getDataMatricula())});
+                jtAlunos.setModel(modelo);
+            }
+        } catch (Exception e) {
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

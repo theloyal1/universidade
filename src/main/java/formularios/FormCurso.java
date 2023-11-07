@@ -8,15 +8,20 @@ import javax.swing.table.DefaultTableModel;
 
 public class FormCurso extends javax.swing.JFrame {
 
-    FichaCurso fichaCurso = new FichaCurso();
+    FichaCurso fichaCurso;
     DefaultTableModel modelo;
 
-    public FormCurso() {
+    public FormCurso(FichaCurso fichaCurso) {
         initComponents();
+        this.fichaCurso = fichaCurso;
         String[] titulos = {"Nº de disc. obg.", "Nº de disc. opc.", "Alunos", "Professores"};
         modelo = new DefaultTableModel(titulos, 0);
         jtCursos.setModel(modelo);
         jbSair.setBackground(Color.red);
+    }
+
+    private FormCurso() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @SuppressWarnings("unchecked")
@@ -300,8 +305,8 @@ public class FormCurso extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,
                     "Número de disciplinas obrigatórias: " + c.getNumDiscObg()
                     + "\nNúmero de disciplinas opcionais: " + c.getNumDiscOpc()
-                    + "\nAlunos: " + c.getAluno()
-                    + "\nProfessores: " + c.getProfessor());
+                    + "\nAlunos: " + c.getAlunos()
+                    + "\nProfessores: " + c.getProfs());
         }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
@@ -338,6 +343,20 @@ public class FormCurso extends javax.swing.JFrame {
                 new FormCurso().setVisible(true);
             }
         });
+    }
+    
+    public void relatorio() {
+        try {
+            jtCursos.removeAll();
+            for(int i=0; i<fichaCurso.relatorio().size(); i++) {
+                modelo.addRow(new String[]{String.valueOf(fichaCurso.relatorio().get(i).getNumDiscObg()),
+            String.valueOf(fichaCurso.relatorio().get(i).getNumDiscOpc()), 
+            String.valueOf(fichaCurso.relatorio().get(i).getAlunos()),
+            String.valueOf(fichaCurso.relatorio().get(i).getProfs())});
+            }
+            jtCursos.setModel(modelo);
+        } catch (Exception e) {
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

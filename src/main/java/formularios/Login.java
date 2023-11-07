@@ -111,7 +111,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jbEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntrarActionPerformed
         if ((jtfEmail.getText().isEmpty()) || (jpfSenha.getText().isEmpty()) || 
-                !jtfEmail.getText().equals("admin") || !jpfSenha.getText().equals("admin")) {
+                !jtfEmail.getText().equals("admin@gmail.com") || !jpfSenha.getText().equals("admin")) {
             JOptionPane.showMessageDialog(this, "Usuário e senha inválidos!", "ERRO",
                     JOptionPane.ERROR_MESSAGE);
         } else {

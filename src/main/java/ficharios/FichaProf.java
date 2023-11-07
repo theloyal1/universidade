@@ -33,6 +33,10 @@ public class FichaProf {
         return profs.get(pos);
     }
     
+    public ArrayList<Professor> relatorio() {
+        return profs;
+    }
+    
     public boolean isEmpty() {
         if(profs.isEmpty())
             return true;

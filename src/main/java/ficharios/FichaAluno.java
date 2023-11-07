@@ -36,6 +36,10 @@ public class FichaAluno {
         return alunos.get(pos);
     }
     
+    public ArrayList<Aluno> relatorio() {
+        return alunos;
+    }
+    
     public boolean isEmpty() {
         if(alunos.isEmpty())
             return true;

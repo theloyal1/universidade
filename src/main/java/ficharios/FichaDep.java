@@ -33,6 +33,10 @@ public class FichaDep {
         return deps.get(pos);
     }
     
+    public ArrayList<Departamento> relatorio() {
+        return deps;
+    }
+    
     public boolean isEmpty() {
         if(deps.isEmpty())
             return true;

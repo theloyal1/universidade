@@ -4,17 +4,14 @@ import java.util.ArrayList;
 
 public class Curso {
     private int numDiscObg, numDiscOpc;
-    private Aluno aluno;
-    private Professor professor;
+    private ArrayList<Aluno> alunos;
+    private ArrayList<Professor> profs;
 
-    public Curso() {
-    }
-
-    public Curso(int numDiscObg, int numDiscOpc, Aluno aluno, Professor professor) {
+    public Curso(int numDiscObg, int numDiscOpc, ArrayList<Aluno> alunos, ArrayList<Professor> profs) {
         this.numDiscObg = numDiscObg;
         this.numDiscOpc = numDiscOpc;
-        this.aluno = aluno;
-        this.professor = professor;
+        this.alunos = alunos;
+        this.profs = profs;
     }
 
     public int getNumDiscObg() {
@@ -33,19 +30,19 @@ public class Curso {
         this.numDiscOpc = numDiscOpc;
     }
 
-    public Aluno getAluno() {
-        return aluno;
+    public ArrayList<Aluno> getAlunos() {
+        return alunos;
     }
 
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
+    public void setAlunos(ArrayList<Aluno> alunos) {
+        this.alunos = alunos;
     }
 
-    public Professor getProfessor() {
-        return professor;
+    public ArrayList<Professor> getProfs() {
+        return profs;
     }
 
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
+    public void setProfs(ArrayList<Professor> profs) {
+        this.profs = profs;
     }
 }
