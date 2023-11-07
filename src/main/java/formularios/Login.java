@@ -1,12 +1,9 @@
 package formularios;
 
 import entidades.Usuario;
-import ficharios.CadastroUsuario;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
-
-    CadastroUsuario cadastro = new CadastroUsuario();
 
     public Login() {
         initComponents();
@@ -113,17 +110,16 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntrarActionPerformed
-        if ((jtfEmail.getText().isEmpty()) || (jpfSenha.getText().isEmpty())) {
+        if ((jtfEmail.getText().isEmpty()) || (jpfSenha.getText().isEmpty()) || 
+                !jtfEmail.getText().equals("admin") || !jpfSenha.getText().equals("admin")) {
             JOptionPane.showMessageDialog(this, "Usuário e senha inválidos!", "ERRO",
                     JOptionPane.ERROR_MESSAGE);
         } else {
             Usuario u = new Usuario();
-            String arquivo = "usuarios.txt";
 
             u.setEmail(jtfEmail.getText());
             u.setSenha(jpfSenha.getText());
 
-            cadastro.salvarUsuario(u);
             setVisible(false);
             FormPrincipal formPrincipal = new FormPrincipal();
             formPrincipal.setVisible(true);

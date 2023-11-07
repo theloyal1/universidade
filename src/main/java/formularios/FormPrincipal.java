@@ -45,9 +45,19 @@ public class FormPrincipal extends javax.swing.JFrame {
 
         jbDept.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
         jbDept.setText("Departamento");
+        jbDept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbDeptActionPerformed(evt);
+            }
+        });
 
         jbDisciplina.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
         jbDisciplina.setText("Disciplina");
+        jbDisciplina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbDisciplinaActionPerformed(evt);
+            }
+        });
 
         jbCurso.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
         jbCurso.setText("Curso");
@@ -71,9 +81,19 @@ public class FormPrincipal extends javax.swing.JFrame {
 
         jbPpc.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
         jbPpc.setText("PPC");
+        jbPpc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbPpcActionPerformed(evt);
+            }
+        });
 
         jbMateria.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
         jbMateria.setText("Matéria");
+        jbMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbMateriaActionPerformed(evt);
+            }
+        });
 
         jlaIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icone.png"))); // NOI18N
 
@@ -185,6 +205,26 @@ public class FormPrincipal extends javax.swing.JFrame {
         FormCurso formCurso = new FormCurso();
         formCurso.setVisible(true);
     }//GEN-LAST:event_jbCursoActionPerformed
+
+    private void jbDeptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDeptActionPerformed
+        FormDep formDep = new FormDep();
+        formDep.setVisible(true);
+    }//GEN-LAST:event_jbDeptActionPerformed
+
+    private void jbMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMateriaActionPerformed
+        FormMateria formMateria = new FormMateria();
+        formMateria.setVisible(true);
+    }//GEN-LAST:event_jbMateriaActionPerformed
+
+    private void jbPpcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPpcActionPerformed
+        FormPpc formPpc = new FormPpc();
+        formPpc.setVisible(true);
+    }//GEN-LAST:event_jbPpcActionPerformed
+
+    private void jbDisciplinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDisciplinaActionPerformed
+        FormDisc formDisc = new FormDisc();
+        formDisc.setVisible(true);
+    }//GEN-LAST:event_jbDisciplinaActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

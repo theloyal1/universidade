@@ -146,6 +146,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Departamento"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbDeptActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jbDisciplina">
           <Properties>
@@ -154,6 +157,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Disciplina"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbDisciplinaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jbCurso">
           <Properties>
@@ -195,6 +201,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="PPC"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbPpcActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jbMateria">
           <Properties>
@@ -203,6 +212,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Mat&#xe9;ria"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbMateriaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jlaIcone">
           <Properties>

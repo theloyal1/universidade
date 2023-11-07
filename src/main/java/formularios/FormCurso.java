@@ -239,7 +239,7 @@ public class FormCurso extends javax.swing.JFrame {
         fichaCurso.cadastrar(c);
         fichaCurso.salvarCurso(c);
         modelo.addRow(new String[]{String.valueOf(c.getNumDiscObg()),
-            String.valueOf(c.getNumDiscOpc()), String.valueOf(c.getAluno()), 
+            String.valueOf(c.getNumDiscOpc()), String.valueOf(c.getAluno()),
             String.valueOf(c.getProfessor())});
         JOptionPane.showMessageDialog(this, "Curso cadastrado com sucesso!");
         jtfNumDiscObg.setText(null);
@@ -274,12 +274,16 @@ public class FormCurso extends javax.swing.JFrame {
             if (res == JOptionPane.YES_OPTION) {
                 Curso c = new Curso();
 
-        c.setNumDiscObg(Integer.valueOf(jtfNumDiscObg.getText()));
-        c.setNumDiscOpc(Integer.valueOf(jtfNumDiscOpc.getText()));
+                c.setNumDiscObg(Integer.valueOf(jtfNumDiscObg.getText()));
+                c.setNumDiscOpc(Integer.valueOf(jtfNumDiscOpc.getText()));
+                fichaCurso.procurarAluno();
+                fichaCurso.procurarProf();
 
                 fichaCurso.alterar(c, jtCursos.getSelectedRow());
                 modelo.setValueAt(c.getNumDiscObg(), jtCursos.getSelectedRow(), 0);
                 modelo.setValueAt(c.getNumDiscOpc(), jtCursos.getSelectedRow(), 1);
+                modelo.setValueAt(c.getAluno(), jtCursos.getSelectedRow(), 2);
+                modelo.setValueAt(c.getProfessor(), jtCursos.getSelectedRow(), 3);
                 jtCursos.setModel(modelo);
                 JOptionPane.showMessageDialog(this, "Curso alterado com sucesso!");
             } else {
@@ -290,13 +294,15 @@ public class FormCurso extends javax.swing.JFrame {
 
     private void jbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsultarActionPerformed
         if (fichaCurso.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há alunos cadastrados!", "Erro",
+            JOptionPane.showMessageDialog(this, "Não há cursos cadastrados!", "Erro",
                     JOptionPane.ERROR_MESSAGE);
         else {
             Curso c = fichaCurso.consultar(jtCursos.getSelectedRow());
-            JOptionPane.showMessageDialog(this, 
+            JOptionPane.showMessageDialog(this,
                     "Número de disciplinas obrigatórias: " + c.getNumDiscObg()
-                    + "\nNúmero de disciplinas opcionais: " + c.getNumDiscOpc());
+                    + "\nNúmero de disciplinas opcionais: " + c.getNumDiscOpc()
+                    + "\nAlunos: " + c.getAluno()
+                    + "\nProfessores: " + c.getProfessor());
         }
     }//GEN-LAST:event_jbConsultarActionPerformed
 

@@ -1,21 +1,21 @@
 package formularios;
 
-import entidades.Departamento;
-import ficharios.FichaDep;
+import entidades.Ppc;
+import ficharios.FichaPpc;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class FormDep extends javax.swing.JFrame {
+public class FormPpc extends javax.swing.JFrame {
 
-    FichaDep fichaDep = new FichaDep();
+    FichaPpc fichaPpc = new FichaPpc();
     DefaultTableModel modelo;
 
-    public FormDep() {
+    public FormPpc() {
         initComponents();
-        String[] titulos = {"Código", "Nome", "Cursos"};
+        String[] titulos = {"Curso", "Matérias", "Ano de início"};
         modelo = new DefaultTableModel(titulos, 0);
-        jtDep.setModel(modelo);
+        jtPpcs.setModel(modelo);
         jbSair.setBackground(Color.RED);
     }
 
@@ -24,27 +24,39 @@ public class FormDep extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jlaDep = new javax.swing.JLabel();
+        jlaPpc = new javax.swing.JLabel();
+        jlaCurso = new javax.swing.JLabel();
+        jtfCurso = new javax.swing.JTextField();
+        jlaMats = new javax.swing.JLabel();
+        jtfMats = new javax.swing.JTextField();
+        jlaAnoInicio = new javax.swing.JLabel();
+        jtfAnoInicio = new javax.swing.JTextField();
         jbSair = new javax.swing.JButton();
-        jlaCodigo = new javax.swing.JLabel();
-        jtfCodigo = new javax.swing.JTextField();
-        jlaNome = new javax.swing.JLabel();
-        jtfNome = new javax.swing.JTextField();
-        jlaCursos = new javax.swing.JLabel();
-        jtfCursos = new javax.swing.JTextField();
         jbCadastrar = new javax.swing.JButton();
         jbExcluir = new javax.swing.JButton();
         jbAlterar = new javax.swing.JButton();
         jbConsultar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtDep = new javax.swing.JTable();
+        jtPpcs = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(111, 156, 235));
 
-        jlaDep.setFont(new java.awt.Font("Times New Roman", 2, 48)); // NOI18N
-        jlaDep.setText("Departamentos");
+        jlaPpc.setFont(new java.awt.Font("Times New Roman", 2, 48)); // NOI18N
+        jlaPpc.setText("PPC");
+
+        jlaCurso.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jlaCurso.setForeground(new java.awt.Color(246, 248, 255));
+        jlaCurso.setText("Curso: ");
+
+        jlaMats.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jlaMats.setForeground(new java.awt.Color(246, 248, 255));
+        jlaMats.setText("Matérias: ");
+
+        jlaAnoInicio.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jlaAnoInicio.setForeground(new java.awt.Color(246, 248, 255));
+        jlaAnoInicio.setText("Ano de início: ");
 
         jbSair.setBackground(new java.awt.Color(0, 0, 0));
         jbSair.setFont(new java.awt.Font("Yu Gothic Medium", 1, 11)); // NOI18N
@@ -54,18 +66,6 @@ public class FormDep extends javax.swing.JFrame {
                 jbSairActionPerformed(evt);
             }
         });
-
-        jlaCodigo.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jlaCodigo.setForeground(new java.awt.Color(246, 248, 255));
-        jlaCodigo.setText("Código: ");
-
-        jlaNome.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jlaNome.setForeground(new java.awt.Color(246, 248, 255));
-        jlaNome.setText("Nome: ");
-
-        jlaCursos.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jlaCursos.setForeground(new java.awt.Color(246, 248, 255));
-        jlaCursos.setText("Cursos: ");
 
         jbCadastrar.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
         jbCadastrar.setText("Cadastrar");
@@ -105,7 +105,7 @@ public class FormDep extends javax.swing.JFrame {
             }
         });
 
-        jtDep.setModel(new javax.swing.table.DefaultTableModel(
+        jtPpcs.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -113,79 +113,70 @@ public class FormDep extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Código", "Nome", "Cursos"
+                "Curso", "Matérias", "Ano de início"
             }
         ));
-        jScrollPane1.setViewportView(jtDep);
+        jScrollPane1.setViewportView(jtPpcs);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jlaDep, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(128, 128, 128)
-                .addComponent(jbSair)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jlaPpc)
+                        .addGap(259, 259, 259)
+                        .addComponent(jbSair))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jlaCurso)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtfCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(jlaMats)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtfMats, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jlaAnoInicio)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtfAnoInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jbCadastrar)
-                        .addGap(69, 69, 69)
+                        .addGap(89, 89, 89)
                         .addComponent(jbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(77, 77, 77)
+                        .addGap(89, 89, 89)
                         .addComponent(jbAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                        .addComponent(jbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jlaCodigo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64)
-                        .addComponent(jlaNome)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jlaCursos)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(19, 19, 19))
+                        .addComponent(jbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbSair)
-                    .addComponent(jlaDep))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlaCodigo)
-                            .addComponent(jtfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlaNome)
-                            .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlaCursos)
-                            .addComponent(jtfCursos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jlaPpc)
+                    .addComponent(jbSair))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlaCurso)
+                    .addComponent(jtfCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlaMats)
+                    .addComponent(jtfMats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlaAnoInicio)
+                    .addComponent(jtfAnoInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbCadastrar)
                     .addComponent(jbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -213,32 +204,33 @@ public class FormDep extends javax.swing.JFrame {
     }//GEN-LAST:event_jbSairActionPerformed
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
-        Departamento d = new Departamento();
+        Ppc p = new Ppc();
 
-        d.setCodigo(Integer.valueOf(jtfCodigo.getText()));
-        d.setNome(jtfNome.getText());
-//        d.setCursos();
+        fichaPpc.procurarCurso();
+        fichaPpc.procurarMat();
+        p.setAnoInicio(Integer.valueOf(jtfAnoInicio.getText()));
 
-        fichaDep.cadastrar(d);
-        modelo.addRow(new String[]{String.valueOf(d.getCodigo()), d.getNome(), "???"});
-        JOptionPane.showMessageDialog(this, "Departamento cadastrado com sucesso!");
-        jtfCodigo.setText(null);
-        jtfNome.setText(null);
-        jtfCursos.setText(null);
-        jtDep.setModel(modelo);
+        fichaPpc.cadastrar(p);
+        modelo.addRow(new String[]{String.valueOf(p.getCurso()),
+            String.valueOf(p.getMateria()), String.valueOf(p.getAnoInicio())});
+        JOptionPane.showMessageDialog(this, "PPC cadastrado com sucesso!");
+        jtfCurso.setText(null);
+        jtfMats.setText(null);
+        jtfAnoInicio.setText(null);
+        jtPpcs.setModel(modelo);
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
-        if (fichaDep.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há departamentos cadastrados!", "Erro",
+        if (fichaPpc.isEmpty())
+            JOptionPane.showMessageDialog(this, "Não há PPCs cadastrados!", "Erro",
                     JOptionPane.ERROR_MESSAGE);
         else {
             int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
                     "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
-                fichaDep.excluir(jtDep.getSelectedRow());
-                modelo.removeRow(jtDep.getSelectedRow());
-                JOptionPane.showMessageDialog(this, "Departamento excluído com sucesso!");
+                fichaPpc.excluir(jtPpcs.getSelectedRow());
+                modelo.removeRow(jtPpcs.getSelectedRow());
+                JOptionPane.showMessageDialog(this, "PPC excluído com sucesso!");
             } else {
                 JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
             }
@@ -246,25 +238,25 @@ public class FormDep extends javax.swing.JFrame {
     }//GEN-LAST:event_jbExcluirActionPerformed
 
     private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
-        if (fichaDep.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há departamentos cadastrados!", "Erro",
+        if (fichaPpc.isEmpty())
+            JOptionPane.showMessageDialog(this, "Não há PPCs cadastrados!", "Erro",
                     JOptionPane.ERROR_MESSAGE);
         else {
             int res = JOptionPane.showConfirmDialog(this, "Confirmar alteração?",
                     "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
-                Departamento d = new Departamento();
+                Ppc p = new Ppc();
 
-                d.setCodigo(Integer.valueOf(jtfCodigo.getText()));
-                d.setNome(jtfNome.getText());
-                fichaDep.procurarCurso();
+                fichaPpc.procurarCurso();
+                fichaPpc.procurarMat();
+                p.setAnoInicio(Integer.valueOf(jtfAnoInicio.getText()));
 
-                fichaDep.alterar(d, jtDep.getSelectedRow());
-                modelo.setValueAt(d.getCodigo(), jtDep.getSelectedRow(), 0);
-                modelo.setValueAt(d.getNome(), jtDep.getSelectedRow(), 1);
-                modelo.setValueAt(d.getCurso(), jtDep.getSelectedRow(), 2);
-                jtDep.setModel(modelo);
-                JOptionPane.showMessageDialog(this, "Departamento alterado com sucesso!");
+                fichaPpc.alterar(p, jtPpcs.getSelectedRow());
+                modelo.setValueAt(p.getCurso(), jtPpcs.getSelectedRow(), 0);
+                modelo.setValueAt(p.getMateria(), jtPpcs.getSelectedRow(), 1);
+                modelo.setValueAt(p.getAnoInicio(), jtPpcs.getSelectedRow(), 2);
+                jtPpcs.setModel(modelo);
+                JOptionPane.showMessageDialog(this, "PPC alterado com sucesso!");
             } else {
                 JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
             }
@@ -272,15 +264,15 @@ public class FormDep extends javax.swing.JFrame {
     }//GEN-LAST:event_jbAlterarActionPerformed
 
     private void jbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsultarActionPerformed
-        if (fichaDep.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há departamentos cadastrados!", "Erro",
+        if (fichaPpc.isEmpty())
+            JOptionPane.showMessageDialog(this, "Não há PPCs cadastrados!", "Erro",
                     JOptionPane.ERROR_MESSAGE);
         else {
-            Departamento d = fichaDep.consultar(jtDep.getSelectedRow());
+            Ppc p = fichaPpc.consultar(jtPpcs.getSelectedRow());
             JOptionPane.showMessageDialog(this,
-                    "Código: " + d.getCodigo()
-                    + "\nNome: " + d.getNome()
-                    + "\nCursos: " + d.getCurso());
+                    "Curso: " + p.getCurso() + 
+                    "\nMatérias: " + p.getMateria() + 
+                    "\nAno de início: " + p.getAnoInicio());
         }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
@@ -301,20 +293,20 @@ public class FormDep extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormDep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormPpc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormDep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormPpc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormDep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormPpc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormDep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormPpc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormDep().setVisible(true);
+                new FormPpc().setVisible(true);
             }
         });
     }
@@ -327,13 +319,13 @@ public class FormDep extends javax.swing.JFrame {
     private javax.swing.JButton jbConsultar;
     private javax.swing.JButton jbExcluir;
     private javax.swing.JButton jbSair;
-    private javax.swing.JLabel jlaCodigo;
-    private javax.swing.JLabel jlaCursos;
-    private javax.swing.JLabel jlaDep;
-    private javax.swing.JLabel jlaNome;
-    private javax.swing.JTable jtDep;
-    private javax.swing.JTextField jtfCodigo;
-    private javax.swing.JTextField jtfCursos;
-    private javax.swing.JTextField jtfNome;
+    private javax.swing.JLabel jlaAnoInicio;
+    private javax.swing.JLabel jlaCurso;
+    private javax.swing.JLabel jlaMats;
+    private javax.swing.JLabel jlaPpc;
+    private javax.swing.JTable jtPpcs;
+    private javax.swing.JTextField jtfAnoInicio;
+    private javax.swing.JTextField jtfCurso;
+    private javax.swing.JTextField jtfMats;
     // End of variables declaration//GEN-END:variables
 }
