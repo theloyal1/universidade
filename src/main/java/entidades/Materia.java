@@ -4,17 +4,17 @@ import java.util.ArrayList;
 
 public class Materia {
     private String nome, ementa, preRequisitos;
-    private ArrayList<Professor> professores;
+    private Professor professor;
     private int cargaHoraria;
 
     public Materia() {
     }
 
-    public Materia(String nome, String ementa, String preRequisitos, ArrayList<Professor> professores, int cargaHoraria) {
+    public Materia(String nome, String ementa, String preRequisitos, Professor professor, int cargaHoraria) {
         this.nome = nome;
         this.ementa = ementa;
         this.preRequisitos = preRequisitos;
-        this.professores = professores;
+        this.professor = professor;
         this.cargaHoraria = cargaHoraria;
     }
 
@@ -42,12 +42,12 @@ public class Materia {
         this.preRequisitos = preRequisitos;
     }
 
-    public ArrayList<Professor> getProfessores() {
-        return professores;
+    public Professor getProfessor() {
+        return professor;
     }
 
-    public void setProfessores(ArrayList<Professor> professores) {
-        this.professores = professores;
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
     }
 
     public int getCargaHoraria() {

@@ -191,8 +191,7 @@ public class FormPrincipal extends javax.swing.JFrame {
                 "Sair", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (res == JOptionPane.YES_OPTION) {
             setVisible(false);
-            Login login = new Login();
-            login.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_jbSairActionPerformed
 

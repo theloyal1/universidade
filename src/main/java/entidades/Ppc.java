@@ -4,15 +4,15 @@ import java.util.ArrayList;
 
 public class Ppc {
     private Curso curso;
-    private ArrayList<Materia> materias;
+    private Materia materia;
     private int anoInicio;
 
     public Ppc() {
     }
 
-    public Ppc(Curso curso, ArrayList<Materia> materias, int anoInicio) {
+    public Ppc(Curso curso, Materia materia, int anoInicio) {
         this.curso = curso;
-        this.materias = materias;
+        this.materia = materia;
         this.anoInicio = anoInicio;
     }
 
@@ -24,12 +24,12 @@ public class Ppc {
         this.curso = curso;
     }
 
-    public ArrayList<Materia> getMaterias() {
-        return materias;
+    public Materia getMateria() {
+        return materia;
     }
 
-    public void setMaterias(ArrayList<Materia> materias) {
-        this.materias = materias;
+    public void setMateria(Materia materia) {
+        this.materia = materia;
     }
 
     public int getAnoInicio() {

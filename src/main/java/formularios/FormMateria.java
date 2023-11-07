@@ -254,9 +254,7 @@ public class FormMateria extends javax.swing.JFrame {
                 "Sair", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (res == JOptionPane.YES_OPTION) {
             setVisible(false);
-            FormPrincipal formPrincipal = new FormPrincipal();
-            formPrincipal.setVisible(true);
-        }
+            this.dispose();        }
     }//GEN-LAST:event_jbSairActionPerformed
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed

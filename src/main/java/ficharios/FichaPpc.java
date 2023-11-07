@@ -25,7 +25,7 @@ public class FichaPpc {
     
     public void alterar(Ppc p, int pos) {
         ppcs.get(pos).setCurso(p.getCurso());
-        ppcs.get(pos).setMaterias(p.getMateria());
+        ppcs.get(pos).setMateria(p.getMateria());
         ppcs.get(pos).setAnoInicio(p.getAnoInicio());
     }
     
@@ -96,7 +96,7 @@ public class FichaPpc {
             while (iterator.hasNext()) {
                 Materia mat = iterator.next();
                 if(achou) {
-                    ppcs.get(pos).setMaterias(mat);
+                    ppcs.get(pos).setMateria(mat);
                     break;
                 }
                 pos++;

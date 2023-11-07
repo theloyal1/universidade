@@ -285,8 +285,7 @@ public class FormDisc extends javax.swing.JFrame {
                 "Sair", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (res == JOptionPane.YES_OPTION) {
             setVisible(false);
-            FormPrincipal formPrincipal = new FormPrincipal();
-            formPrincipal.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_jbSairActionPerformed
 
