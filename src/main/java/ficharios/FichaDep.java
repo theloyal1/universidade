@@ -1,16 +1,11 @@
 package ficharios;
 
-import entidades.*;
-import java.io.*;
+import entidades.Departamento;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class FichaDep {
 
     private ArrayList<Departamento> deps = new ArrayList<>();
-    private ArrayList<Curso> cursos = new ArrayList<>();
     
     public FichaDep() {
     }
@@ -42,45 +37,5 @@ public class FichaDep {
             return true;
         else
             return false;
-    }
-    
-    public void salvarDep(Departamento dep) {
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("deps.txt", true));
-
-            writer.write(dep.getCodigo()+ ", " + dep.getNome() + ", " + dep.getCurso());
-            writer.newLine();
-
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    
-    public boolean procurarCurso() {
-        try {
-            FileReader fr = new FileReader("cursos.txt");
-            BufferedReader br = new BufferedReader(fr);
-            String linha = br.readLine();
-            
-            while(linha!=null)
-                linha = br.readLine();
-            
-            Iterator<Curso> iterator = cursos.iterator();
-            boolean achou = false;
-            int pos = 0;
-            
-            while (iterator.hasNext()) {
-                Curso curso = iterator.next();
-                if(achou) {
-                    deps.get(pos).setCurso(curso);
-                    break;
-                }
-                pos++;
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(FichaCurso.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return true;
     }
 }

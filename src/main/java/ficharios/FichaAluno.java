@@ -1,9 +1,6 @@
 package ficharios;
 
 import entidades.Aluno;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class FichaAluno {
@@ -45,9 +42,5 @@ public class FichaAluno {
             return true;
         else
             return false;
-    }
-    
-    public void salvarAluno(Aluno aluno) {
-        alunos.add(aluno);
     }
 }

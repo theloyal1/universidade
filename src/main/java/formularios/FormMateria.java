@@ -263,7 +263,7 @@ public class FormMateria extends javax.swing.JFrame {
         m.setNome(jtfNome.getText());
         m.setEmenta(jtaEmenta.getText());
         m.setPreRequisitos(jtaPreReq.getText());
-        fichaMat.procurarProf();
+//        fichaMat.procurarProf();
         m.setCargaHoraria(Integer.valueOf(jtfCargaHor.getText()));
 
         fichaMat.cadastrar(m);
@@ -308,7 +308,7 @@ public class FormMateria extends javax.swing.JFrame {
                 m.setNome(jtfNome.getText());
                 m.setEmenta(jtaEmenta.getText());
                 m.setPreRequisitos(jtaPreReq.getText());
-                fichaMat.procurarProf();
+//                fichaMat.procurarProf();
                 m.setCargaHoraria(Integer.valueOf(jtfCargaHor.getText()));
 
                 fichaMat.alterar(m, jtMats.getSelectedRow());

@@ -205,8 +205,8 @@ public class FormPpc extends javax.swing.JFrame {
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         Ppc p = new Ppc();
 
-        fichaPpc.procurarCurso();
-        fichaPpc.procurarMat();
+//        fichaPpc.procurarCurso();
+//        fichaPpc.procurarMat();
         p.setAnoInicio(Integer.valueOf(jtfAnoInicio.getText()));
 
         fichaPpc.cadastrar(p);
@@ -246,8 +246,8 @@ public class FormPpc extends javax.swing.JFrame {
             if (res == JOptionPane.YES_OPTION) {
                 Ppc p = new Ppc();
 
-                fichaPpc.procurarCurso();
-                fichaPpc.procurarMat();
+//                fichaPpc.procurarCurso();
+//                fichaPpc.procurarMat();
                 p.setAnoInicio(Integer.valueOf(jtfAnoInicio.getText()));
 
                 fichaPpc.alterar(p, jtPpcs.getSelectedRow());

@@ -221,10 +221,9 @@ public class FormDep extends javax.swing.JFrame {
 
         d.setCodigo(Integer.valueOf(jtfCodigo.getText()));
         d.setNome(jtfNome.getText());
-        d.setCursos();
 
         fichaDep.cadastrar(d);
-        modelo.addRow(new String[]{String.valueOf(d.getCodigo()), d.getNome(), d.getCurso()});
+        modelo.addRow(new String[]{String.valueOf(d.getCodigo()), d.getNome(), "???"});
         JOptionPane.showMessageDialog(this, "Departamento cadastrado com sucesso!");
         jtfCodigo.setText(null);
         jtfNome.setText(null);
@@ -261,7 +260,6 @@ public class FormDep extends javax.swing.JFrame {
 
                 d.setCodigo(Integer.valueOf(jtfCodigo.getText()));
                 d.setNome(jtfNome.getText());
-                fichaDep.procurarCurso();
 
                 fichaDep.alterar(d, jtDep.getSelectedRow());
                 modelo.setValueAt(d.getCodigo(), jtDep.getSelectedRow(), 0);

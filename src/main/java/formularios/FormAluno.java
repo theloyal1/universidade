@@ -326,7 +326,6 @@ public class FormAluno extends javax.swing.JFrame {
         a.setDataMatricula(jtfDataMat.getText());
 
         fichaAluno.cadastrar(a);
-        fichaAluno.salvarAluno(a);
         modelo.addRow(new String[]{a.getCpf(), a.getNome(), a.getEmail(), a.getEndereco(),
             a.getTelefone(), String.valueOf(a.getNumMatriculas()), String.valueOf(a.getNumConclusoes()),
             String.valueOf(a.getNumDiscDep()), String.valueOf(a.getDataMatricula())});

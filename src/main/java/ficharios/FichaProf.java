@@ -1,9 +1,6 @@
 package ficharios;
 
 import entidades.Professor;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class FichaProf {
@@ -42,9 +39,5 @@ public class FichaProf {
             return true;
         else
             return false;
-    }
-    
-    public void salvarProf(Professor prof) {
-        profs.add(prof);
     }
 }

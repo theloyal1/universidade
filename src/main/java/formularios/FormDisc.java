@@ -292,9 +292,9 @@ public class FormDisc extends javax.swing.JFrame {
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         Disciplina d = new Disciplina();
 
-        fichaDisc.procurarAluno();
-        fichaDisc.procurarProf();
-        fichaDisc.procurarMat();
+//        fichaDisc.procurarAluno();
+//        fichaDisc.procurarProf();
+//        fichaDisc.procurarMat();
         d.setNota(Float.valueOf(jtfNota.getText()));
         d.setAno(Integer.valueOf(jtfAno.getText()));
         d.setSemestre(Integer.valueOf(jtfSemestre.getText()));

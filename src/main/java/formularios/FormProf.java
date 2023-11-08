@@ -279,7 +279,6 @@ public class FormProf extends javax.swing.JFrame {
         p.setEspecializacao(jtfEspec.getText());
 
         fichaProf.cadastrar(p);
-        fichaProf.salvarProf(p);
         modelo.addRow(new String[]{p.getCpf(), p.getNome(), p.getEmail(), p.getEndereco(),
             p.getTelefone(), p.getEspecializacao()});
         JOptionPane.showMessageDialog(this, "Professor cadastrado com sucesso!");
