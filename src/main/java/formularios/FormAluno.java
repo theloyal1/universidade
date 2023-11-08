@@ -3,6 +3,7 @@ package formularios;
 import entidades.Aluno;
 import ficharios.FichaAluno;
 import java.awt.Color;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -471,6 +472,16 @@ public class FormAluno extends javax.swing.JFrame {
                     String.valueOf(fichaAluno.relatorio().get(i).getDataMatricula())});
                 jtAlunos.setModel(modelo);
             }
+//            Iterator<Aluno> i = fichaAluno.relatorio().iterator();
+//            while(i.hasNext()) {
+//                modelo.addRow(new String[]{i.next().getCpf(), i.next().getNome(), 
+//                    i.next().getEmail(), i.next().getEndereco(),
+//                    i.next().getTelefone(), String.valueOf(i.next().getNumMatriculas()), 
+//                    String.valueOf(i.next().getNumConclusoes()),
+//                    String.valueOf(i.next().getNumDiscDep()), 
+//                    String.valueOf(i.next().getDataMatricula())});
+//            }
+            jtAlunos.setModel(modelo);
         } catch (Exception e) {
         }
     }
