@@ -11,7 +11,8 @@ public class Disciplina {
     public Disciplina() {
     }
 
-    public Disciplina(Aluno aluno, Professor professor, Materia materia, float nota, float frequencia, int ano, int semestre, boolean aprovacao) {
+    public Disciplina(Aluno aluno, Professor professor, Materia materia, float nota, 
+            float frequencia, int ano, int semestre, boolean aprovacao) {
         this.aluno = aluno;
         this.professor = professor;
         this.materia = materia;

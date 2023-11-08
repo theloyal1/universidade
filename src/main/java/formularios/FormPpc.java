@@ -211,7 +211,7 @@ public class FormPpc extends javax.swing.JFrame {
 
         fichaPpc.cadastrar(p);
         modelo.addRow(new String[]{String.valueOf(p.getCurso()),
-            String.valueOf(p.getMateria()), String.valueOf(p.getAnoInicio())});
+            String.valueOf(p.getMaterias()), String.valueOf(p.getAnoInicio())});
         JOptionPane.showMessageDialog(this, "PPC cadastrado com sucesso!");
         jtfCurso.setText(null);
         jtfMats.setText(null);
@@ -252,7 +252,7 @@ public class FormPpc extends javax.swing.JFrame {
 
                 fichaPpc.alterar(p, jtPpcs.getSelectedRow());
                 modelo.setValueAt(p.getCurso(), jtPpcs.getSelectedRow(), 0);
-                modelo.setValueAt(p.getMateria(), jtPpcs.getSelectedRow(), 1);
+                modelo.setValueAt(p.getMaterias(), jtPpcs.getSelectedRow(), 1);
                 modelo.setValueAt(p.getAnoInicio(), jtPpcs.getSelectedRow(), 2);
                 jtPpcs.setModel(modelo);
                 JOptionPane.showMessageDialog(this, "PPC alterado com sucesso!");
@@ -270,7 +270,7 @@ public class FormPpc extends javax.swing.JFrame {
             Ppc p = fichaPpc.consultar(jtPpcs.getSelectedRow());
             JOptionPane.showMessageDialog(this,
                     "Curso: " + p.getCurso() + 
-                    "\nMatérias: " + p.getMateria() + 
+                    "\nMatérias: " + p.getMaterias() + 
                     "\nAno de início: " + p.getAnoInicio());
         }
     }//GEN-LAST:event_jbConsultarActionPerformed

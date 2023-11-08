@@ -268,7 +268,7 @@ public class FormMateria extends javax.swing.JFrame {
 
         fichaMat.cadastrar(m);
         modelo.addRow(new String[]{m.getNome(), m.getEmenta(), m.getPreRequisitos(),
-            String.valueOf(m.getProfessor()), String.valueOf(m.getCargaHoraria())});
+            String.valueOf(m.getProfessores()), String.valueOf(m.getCargaHoraria())});
         JOptionPane.showMessageDialog(this, "Matéria cadastrada com sucesso!");
         jtfNome.setText(null);
         jtaEmenta.setText(null);
@@ -315,7 +315,7 @@ public class FormMateria extends javax.swing.JFrame {
                 modelo.setValueAt(m.getNome(), jtMats.getSelectedRow(), 0);
                 modelo.setValueAt(m.getEmenta(), jtMats.getSelectedRow(), 1);
                 modelo.setValueAt(m.getPreRequisitos(), jtMats.getSelectedRow(), 2);
-                modelo.setValueAt(m.getProfessor(), jtMats.getSelectedRow(), 3);
+                modelo.setValueAt(m.getProfessores(), jtMats.getSelectedRow(), 3);
                 modelo.setValueAt(m.getCargaHoraria(), jtMats.getSelectedRow(), 4);
                 jtMats.setModel(modelo);
                 JOptionPane.showMessageDialog(this, "Matéria alterada com sucesso!");
@@ -335,7 +335,7 @@ public class FormMateria extends javax.swing.JFrame {
                     "Nome: " + m.getNome()
                     + "\nEmenta: " + m.getEmenta()
                     + "\nPré-requisitos: " + m.getPreRequisitos()
-                    + "\nProfessores: " + m.getProfessor()
+                    + "\nProfessores: " + m.getProfessores()
                     + "\nCarga horária: " + m.getCargaHoraria());
         }
     }//GEN-LAST:event_jbConsultarActionPerformed

@@ -19,7 +19,7 @@ public class FichaPpc {
     
     public void alterar(Ppc p, int pos) {
         ppcs.get(pos).setCurso(p.getCurso());
-        ppcs.get(pos).setMateria(p.getMateria());
+        ppcs.get(pos).setMaterias(p.getMaterias());
         ppcs.get(pos).setAnoInicio(p.getAnoInicio());
     }
     

@@ -264,7 +264,7 @@ public class FormDep extends javax.swing.JFrame {
                 fichaDep.alterar(d, jtDep.getSelectedRow());
                 modelo.setValueAt(d.getCodigo(), jtDep.getSelectedRow(), 0);
                 modelo.setValueAt(d.getNome(), jtDep.getSelectedRow(), 1);
-                modelo.setValueAt(d.getCurso(), jtDep.getSelectedRow(), 2);
+                modelo.setValueAt(d.getCursos(), jtDep.getSelectedRow(), 2);
                 jtDep.setModel(modelo);
                 JOptionPane.showMessageDialog(this, "Departamento alterado com sucesso!");
             } else {
@@ -282,7 +282,7 @@ public class FormDep extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,
                     "Código: " + d.getCodigo()
                     + "\nNome: " + d.getNome()
-                    + "\nCursos: " + d.getCurso());
+                    + "\nCursos: " + d.getCursos());
         }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
@@ -327,7 +327,7 @@ public class FormDep extends javax.swing.JFrame {
             for(int i=0; i<fichaDep.relatorio().size(); i++) {
                 modelo.addRow(new String[]{String.valueOf(fichaDep.relatorio().get(i).getCodigo()), 
                     fichaDep.relatorio().get(i).getNome(), 
-                    String.valueOf(fichaDep.relatorio().get(i).getCurso())});
+                    String.valueOf(fichaDep.relatorio().get(i).getCursos())});
             }
             jtDep.setModel(modelo);
         } catch (Exception e) {
