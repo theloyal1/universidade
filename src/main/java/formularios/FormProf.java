@@ -16,7 +16,9 @@ public class FormProf extends javax.swing.JFrame {
         this.fichaProf = fichaProf;
         String[] titulos = {"CPF", "Nome", "Email", "Endereço", "Telefone", "Espec."};
         modelo = new DefaultTableModel(titulos, 0);
+        jtProfs.setModel(modelo);
         jbSair.setBackground(Color.red);
+        preencheDados();
     }
 
     private FormProf() {
