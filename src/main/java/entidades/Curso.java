@@ -3,18 +3,28 @@ package entidades;
 import java.util.ArrayList;
 
 public class Curso {
+    private String nome;
     private int numDiscObg, numDiscOpc;
     private ArrayList<Aluno> alunos;
     private ArrayList<Professor> profs;
 
     public Curso() {
     }
-    
-    public Curso(int numDiscObg, int numDiscOpc, ArrayList<Aluno> alunos, ArrayList<Professor> profs) {
+
+    public Curso(String nome, int numDiscObg, int numDiscOpc, ArrayList<Aluno> alunos, ArrayList<Professor> profs) {
+        this.nome = nome;
         this.numDiscObg = numDiscObg;
         this.numDiscOpc = numDiscOpc;
         this.alunos = alunos;
         this.profs = profs;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public int getNumDiscObg() {

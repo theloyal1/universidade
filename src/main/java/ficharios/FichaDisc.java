@@ -18,6 +18,7 @@ public class FichaDisc {
     }
     
     public void alterar(Disciplina d, int pos) {
+        disc.get(pos).setNome(d.getNome());
         disc.get(pos).setAluno(d.getAluno());
         disc.get(pos).setProfessor(d.getProfessor());
         disc.get(pos).setMateria(d.getMateria());

@@ -1,6 +1,7 @@
 package entidades;
 
 public class Disciplina {
+    private String nome;
     private Aluno aluno;
     private Professor professor;
     private Materia materia;
@@ -11,8 +12,9 @@ public class Disciplina {
     public Disciplina() {
     }
 
-    public Disciplina(Aluno aluno, Professor professor, Materia materia, float nota, 
+    public Disciplina(String nome, Aluno aluno, Professor professor, Materia materia, float nota, 
             float frequencia, int ano, int semestre, boolean aprovacao) {
+        this.nome = nome;
         this.aluno = aluno;
         this.professor = professor;
         this.materia = materia;
@@ -23,6 +25,14 @@ public class Disciplina {
         this.aprovacao = aprovacao;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
     public Aluno getAluno() {
         return aluno;
     }

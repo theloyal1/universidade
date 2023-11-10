@@ -14,7 +14,7 @@ public class FormCurso extends javax.swing.JFrame {
     public FormCurso(FichaCurso fichaCurso) {
         initComponents();
         this.fichaCurso = fichaCurso;
-        String[] titulos = {"Nº de disc. obg.", "Nº de disc. opc.", "Alunos", "Professores"};
+        String[] titulos = {"Nome", "Nº de disc. obg.", "Nº de disc. opc.", "Alunos", "Professores"};
         modelo = new DefaultTableModel(titulos, 0);
         jtCursos.setModel(modelo);
         jbSair.setBackground(Color.red);
@@ -29,7 +29,7 @@ public class FormCurso extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jlaCursos = new javax.swing.JLabel();
         jbSair = new javax.swing.JButton();
         jlaNumDiscObg = new javax.swing.JLabel();
         jtfNumDiscObg = new javax.swing.JTextField();
@@ -45,13 +45,15 @@ public class FormCurso extends javax.swing.JFrame {
         jlaProf = new javax.swing.JLabel();
         jcbAlunos = new javax.swing.JComboBox<>();
         jcbProfs = new javax.swing.JComboBox<>();
+        jlaNome = new javax.swing.JLabel();
+        jtfNome = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(111, 156, 235));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 48)); // NOI18N
-        jLabel1.setText("Cursos");
+        jlaCursos.setFont(new java.awt.Font("Times New Roman", 2, 48)); // NOI18N
+        jlaCursos.setText("Cursos");
 
         jbSair.setBackground(new java.awt.Color(0, 0, 0));
         jbSair.setFont(new java.awt.Font("Yu Gothic Medium", 1, 11)); // NOI18N
@@ -110,16 +112,19 @@ public class FormCurso extends javax.swing.JFrame {
 
         jtCursos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Nº de disc. obg.", "Nº de disc. opc.", "Alunos", "Professores"
+                "Nome", "Nº de disc. obg.", "Nº de disc. opc.", "Alunos", "Professores"
             }
         ));
         jScrollPane1.setViewportView(jtCursos);
+        if (jtCursos.getColumnModel().getColumnCount() > 0) {
+            jtCursos.getColumnModel().getColumn(2).setResizable(false);
+        }
 
         jlaAluno.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jlaAluno.setForeground(new java.awt.Color(246, 248, 255));
@@ -133,6 +138,10 @@ public class FormCurso extends javax.swing.JFrame {
 
         jcbProfs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jlaNome.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jlaNome.setForeground(new java.awt.Color(246, 248, 255));
+        jlaNome.setText("Nome: ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -141,44 +150,48 @@ public class FormCurso extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(289, 289, 289)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlaCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jbSair))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jbCadastrar)
-                                        .addGap(69, 69, 69)
-                                        .addComponent(jbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jlaNumDiscOpc)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jtfNumDiscOpc))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jlaNumDiscObg)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jtfNumDiscObg, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jlaNumDiscOpc)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jtfNumDiscOpc))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jbAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(61, 61, 61)
-                                        .addComponent(jbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jlaProf)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jcbProfs, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jlaAluno)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jcbAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                                        .addComponent(jlaNumDiscObg)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jtfNumDiscObg, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jlaProf)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jcbProfs, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jlaAluno)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jcbAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jScrollPane1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jbCadastrar)
+                                .addGap(77, 77, 77)
+                                .addComponent(jbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(73, 73, 73)
+                                .addComponent(jbAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(17, 17, 17))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(194, 194, 194)
+                .addComponent(jlaNome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,7 +199,7 @@ public class FormCurso extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(jLabel1))
+                        .addComponent(jlaCursos))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(jbSair)))
@@ -204,13 +217,17 @@ public class FormCurso extends javax.swing.JFrame {
                     .addComponent(jcbProfs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbCadastrar)
+                    .addComponent(jlaNome)
+                    .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbCadastrar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -241,10 +258,11 @@ public class FormCurso extends javax.swing.JFrame {
 
         c.setNumDiscObg(Integer.valueOf(jtfNumDiscObg.getText()));
         c.setNumDiscOpc(Integer.valueOf(jtfNumDiscOpc.getText()));
+        c.setNome(jtfNome.getText());
 
         fichaCurso.cadastrar(c);
-        modelo.addRow(new String[]{String.valueOf(c.getNumDiscObg()),
-            String.valueOf(c.getNumDiscOpc()), "???", "???"}); 
+        modelo.addRow(new String[]{c.getNome(), String.valueOf(c.getNumDiscObg()),
+            String.valueOf(c.getNumDiscOpc()), "???", "???"});
 //            String.valueOf(c.getAluno()), String.valueOf(c.getProfessor())});
         JOptionPane.showMessageDialog(this, "Curso cadastrado com sucesso!");
         jtfNumDiscObg.setText(null);
@@ -281,12 +299,14 @@ public class FormCurso extends javax.swing.JFrame {
 
                 c.setNumDiscObg(Integer.valueOf(jtfNumDiscObg.getText()));
                 c.setNumDiscOpc(Integer.valueOf(jtfNumDiscOpc.getText()));
+                c.setNome(jtfNome.getText());
 
                 fichaCurso.alterar(c, jtCursos.getSelectedRow());
-                modelo.setValueAt(c.getNumDiscObg(), jtCursos.getSelectedRow(), 0);
-                modelo.setValueAt(c.getNumDiscOpc(), jtCursos.getSelectedRow(), 1);
-                modelo.setValueAt(c.getAlunos(), jtCursos.getSelectedRow(), 2);
-                modelo.setValueAt(c.getProfs(), jtCursos.getSelectedRow(), 3);
+                modelo.setValueAt(c.getNome(), jtCursos.getSelectedRow(), 0);
+                modelo.setValueAt(c.getNumDiscObg(), jtCursos.getSelectedRow(), 1);
+                modelo.setValueAt(c.getNumDiscOpc(), jtCursos.getSelectedRow(), 2);
+                modelo.setValueAt(c.getAlunos(), jtCursos.getSelectedRow(), 3);
+                modelo.setValueAt(c.getProfs(), jtCursos.getSelectedRow(), 4);
                 jtCursos.setModel(modelo);
                 JOptionPane.showMessageDialog(this, "Curso alterado com sucesso!");
             } else {
@@ -302,7 +322,8 @@ public class FormCurso extends javax.swing.JFrame {
         else {
             Curso c = fichaCurso.consultar(jtCursos.getSelectedRow());
             JOptionPane.showMessageDialog(this,
-                    "Número de disciplinas obrigatórias: " + c.getNumDiscObg()
+                    "Nome: " + c.getNome()
+                    + "\nNúmero de disciplinas obrigatórias: " + c.getNumDiscObg()
                     + "\nNúmero de disciplinas opcionais: " + c.getNumDiscOpc()
                     + "\nAlunos: " + c.getAlunos()
                     + "\nProfessores: " + c.getProfs());
@@ -343,15 +364,16 @@ public class FormCurso extends javax.swing.JFrame {
             }
         });
     }
-    
+
     public void relatorio() {
         try {
             jtCursos.removeAll();
-            for(int i=0; i<fichaCurso.relatorio().size(); i++) {
-                modelo.addRow(new String[]{String.valueOf(fichaCurso.relatorio().get(i).getNumDiscObg()),
-            String.valueOf(fichaCurso.relatorio().get(i).getNumDiscOpc()), 
-            String.valueOf(fichaCurso.relatorio().get(i).getAlunos()),
-            String.valueOf(fichaCurso.relatorio().get(i).getProfs())});
+            for (int i = 0; i < fichaCurso.relatorio().size(); i++) {
+                modelo.addRow(new String[]{fichaCurso.relatorio().get(i).getNome(),
+                    String.valueOf(fichaCurso.relatorio().get(i).getNumDiscObg()),
+                    String.valueOf(fichaCurso.relatorio().get(i).getNumDiscOpc()),
+                    String.valueOf(fichaCurso.relatorio().get(i).getAlunos()),
+                    String.valueOf(fichaCurso.relatorio().get(i).getProfs())});
             }
             jtCursos.setModel(modelo);
         } catch (Exception e) {
@@ -359,7 +381,6 @@ public class FormCurso extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbAlterar;
@@ -370,10 +391,13 @@ public class FormCurso extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcbAlunos;
     private javax.swing.JComboBox<String> jcbProfs;
     private javax.swing.JLabel jlaAluno;
+    private javax.swing.JLabel jlaCursos;
+    private javax.swing.JLabel jlaNome;
     private javax.swing.JLabel jlaNumDiscObg;
     private javax.swing.JLabel jlaNumDiscOpc;
     private javax.swing.JLabel jlaProf;
     private javax.swing.JTable jtCursos;
+    private javax.swing.JTextField jtfNome;
     private javax.swing.JTextField jtfNumDiscObg;
     private javax.swing.JTextField jtfNumDiscOpc;
     // End of variables declaration//GEN-END:variables

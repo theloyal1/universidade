@@ -18,6 +18,7 @@ public class FichaCurso {
     }
     
     public void alterar(Curso c, int pos) {
+        cursos.get(pos).setNome(c.getNome());
         cursos.get(pos).setNumDiscObg(c.getNumDiscObg());
         cursos.get(pos).setNumDiscOpc(c.getNumDiscOpc());
         cursos.get(pos).setAlunos(c.getAlunos());
