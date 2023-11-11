@@ -33,6 +33,10 @@ public class FichaDisc {
         return disc.get(pos);
     }
     
+    public ArrayList<Disciplina> relatorio() {
+        return disc;
+    }
+    
     public boolean isEmpty() {
         if(disc.isEmpty())
             return true;

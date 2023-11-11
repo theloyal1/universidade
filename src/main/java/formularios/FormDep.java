@@ -3,6 +3,7 @@ package formularios;
 import entidades.Departamento;
 import ficharios.FichaDep;
 import java.awt.Color;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -324,10 +325,11 @@ public class FormDep extends javax.swing.JFrame {
     public void relatorio() {
         try {
             jtDep.removeAll();
-            for(int i=0; i<fichaDep.relatorio().size(); i++) {
-                modelo.addRow(new String[]{String.valueOf(fichaDep.relatorio().get(i).getCodigo()), 
-                    fichaDep.relatorio().get(i).getNome(), 
-                    String.valueOf(fichaDep.relatorio().get(i).getCursos())});
+            Iterator<Departamento> i = fichaDep.relatorio().iterator();
+            while(i.hasNext()) {
+                Departamento aux = (Departamento)i.next();
+                modelo.addRow(new String[]{String.valueOf(aux.getCodigo()), 
+                    aux.getNome(), String.valueOf(aux.getCursos())});
             }
             jtDep.setModel(modelo);
         } catch (Exception e) {

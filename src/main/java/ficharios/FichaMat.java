@@ -28,6 +28,10 @@ public class FichaMat {
         return mats.get(pos);
     }
     
+    public ArrayList<Materia> relatorio() {
+        return mats;
+    }
+    
     public boolean isEmpty() {
         if(mats.isEmpty())
             return true;

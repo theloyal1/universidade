@@ -3,6 +3,7 @@ package formularios;
 import entidades.Materia;
 import ficharios.FichaMat;
 import java.awt.Color;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -373,6 +374,21 @@ public class FormMateria extends javax.swing.JFrame {
                 new FormMateria().setVisible(true);
             }
         });
+    }
+    
+    public void relatorio() {
+        try {
+            jtMats.removeAll();
+            Iterator<Materia> i = fichaMat.relatorio().iterator();
+            while(i.hasNext()) {
+                Materia aux = (Materia)i.next();
+                modelo.addRow(new String[]{aux.getNome(), aux.getEmenta(), 
+                    aux.getPreRequisitos(), String.valueOf(aux.getProfessores()), 
+                    String.valueOf(aux.getCargaHoraria())});
+            }
+            jtMats.setModel(modelo);
+        } catch (Exception e) {
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

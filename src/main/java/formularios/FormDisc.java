@@ -3,6 +3,7 @@ package formularios;
 import entidades.Disciplina;
 import ficharios.FichaDisc;
 import java.awt.Color;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -265,14 +266,14 @@ public class FormDisc extends javax.swing.JFrame {
                     .addComponent(jlaNome))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jbCadastrar)
-                        .addComponent(jbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jbAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -444,7 +445,24 @@ public class FormDisc extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    public void relatorio() {
+        try {
+            jtDisc.removeAll();
+            Iterator<Disciplina> i = fichaDisc.relatorio().iterator();
+            while(i.hasNext()) {
+                Disciplina aux = (Disciplina)i.next();
+                modelo.addRow(new String[]{aux.getNome(), String.valueOf(aux.getAluno()), 
+                    String.valueOf(aux.getProfessor()), String.valueOf(aux.getMateria()), 
+                    String.valueOf(aux.getNota()), String.valueOf(aux.getAno()),
+                    String.valueOf(aux.getSemestre()), String.valueOf(aux.getFrequencia()), 
+                    String.valueOf(aux.isAprovacao())});
+            }
+            jtDisc.setModel(modelo);
+        } catch (Exception e) {
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btnGrpAprov;
     private javax.swing.JPanel jPanel1;

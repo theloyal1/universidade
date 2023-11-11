@@ -367,16 +367,16 @@ public class FormCurso extends javax.swing.JFrame {
             }
         });
     }
-
+    
     public void relatorio() {
         try {
             jtCursos.removeAll();
-            for (int i = 0; i < fichaCurso.relatorio().size(); i++) {
-                modelo.addRow(new String[]{fichaCurso.relatorio().get(i).getNome(),
-                    String.valueOf(fichaCurso.relatorio().get(i).getNumDiscObg()),
-                    String.valueOf(fichaCurso.relatorio().get(i).getNumDiscOpc()),
-                    String.valueOf(fichaCurso.relatorio().get(i).getAlunos()),
-                    String.valueOf(fichaCurso.relatorio().get(i).getProfs())});
+            Iterator<Curso> i = fichaCurso.relatorio().iterator();
+            while(i.hasNext()) {
+                Curso aux = (Curso)i.next();
+                modelo.addRow(new String[]{aux.getNome(), String.valueOf(aux.getNumDiscObg()),
+                    String.valueOf(aux.getNumDiscOpc()), String.valueOf(aux.getAlunos()),
+                    String.valueOf(aux.getProfs())});
             }
             jtCursos.setModel(modelo);
         } catch (Exception e) {

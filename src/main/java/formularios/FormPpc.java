@@ -3,6 +3,7 @@ package formularios;
 import entidades.Ppc;
 import ficharios.FichaPpc;
 import java.awt.Color;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -309,7 +310,22 @@ public class FormPpc extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    public void relatorio() {
+        try {
+            jtPpcs.removeAll();
+            Iterator<Ppc> i = fichaPpc.relatorio().iterator();
+            while(i.hasNext()) {
+                Ppc aux = (Ppc)i.next();
+                modelo.addRow(new String[]{String.valueOf(aux.getCurso()), 
+                    String.valueOf(aux.getMaterias()), 
+                    String.valueOf(aux.getAnoInicio())});
+            }
+            jtPpcs.setModel(modelo);
+        } catch (Exception e) {
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

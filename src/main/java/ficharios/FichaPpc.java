@@ -27,6 +27,10 @@ public class FichaPpc {
         return ppcs.get(pos);
     }
     
+    public ArrayList<Ppc> relatorio() {
+        return ppcs;
+    }
+    
     public boolean isEmpty() {
         if(ppcs.isEmpty())
             return true;
