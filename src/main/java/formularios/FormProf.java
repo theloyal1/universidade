@@ -3,6 +3,7 @@ package formularios;
 import entidades.Professor;
 import ficharios.FichaProf;
 import java.awt.Color;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -395,13 +396,12 @@ public class FormProf extends javax.swing.JFrame {
     public void preencheDados() {
         try {
             jtProfs.removeAll();
-            for(int i=0; i<fichaProf.relatorio().size(); i++) {
-                modelo.addRow(new String[]{fichaProf.relatorio().get(i).getCpf(), 
-                    fichaProf.relatorio().get(i).getNome(), 
-                    fichaProf.relatorio().get(i).getEmail(), 
-                    fichaProf.relatorio().get(i).getEndereco(),
-                    fichaProf.relatorio().get(i).getTelefone(), 
-                    fichaProf.relatorio().get(i).getEspecializacao()});
+            Iterator<Professor> i = fichaProf.relatorio().iterator();
+            while(i.hasNext()) {
+                Professor aux = (Professor)i.next();
+                modelo.addRow(new String[]{aux.getCpf(), aux.getNome(), 
+                    aux.getEmail(), aux.getEndereco(), aux.getTelefone(),
+                    aux.getEspecializacao()});
             }
             jtProfs.setModel(modelo);
         } catch (Exception e) {

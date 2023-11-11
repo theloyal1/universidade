@@ -460,27 +460,16 @@ public class FormAluno extends javax.swing.JFrame {
     public void preencheDados() {
         try {
             jtAlunos.removeAll();
-            for (int i = 0; i < fichaAluno.relatorio().size(); i++) {
-                modelo.addRow(new String[]{fichaAluno.relatorio().get(i).getCpf(), 
-                    fichaAluno.relatorio().get(i).getNome(), 
-                    fichaAluno.relatorio().get(i).getEmail(), 
-                    fichaAluno.relatorio().get(i).getEndereco(),
-                    fichaAluno.relatorio().get(i).getTelefone(), 
-                    String.valueOf(fichaAluno.relatorio().get(i).getNumMatriculas()), 
-                    String.valueOf(fichaAluno.relatorio().get(i).getNumConclusoes()),
-                    String.valueOf(fichaAluno.relatorio().get(i).getNumDiscDep()), 
-                    String.valueOf(fichaAluno.relatorio().get(i).getDataMatricula())});
-                jtAlunos.setModel(modelo);
+            Iterator<Aluno> i = fichaAluno.relatorio().iterator();
+            while(i.hasNext()) {
+                Aluno aux = (Aluno)i.next();
+                modelo.addRow(new String[]{aux.getCpf(), aux.getNome(), 
+                    aux.getEmail(), aux.getEndereco(), aux.getTelefone(), 
+                    String.valueOf(aux.getNumMatriculas()), 
+                    String.valueOf(aux.getNumConclusoes()),
+                    String.valueOf(aux.getNumDiscDep()), 
+                    String.valueOf(aux.getDataMatricula())});
             }
-//            Iterator<Aluno> i = fichaAluno.relatorio().iterator();
-//            while(i.hasNext()) {
-//                modelo.addRow(new String[]{i.next().getCpf(), i.next().getNome(), 
-//                    i.next().getEmail(), i.next().getEndereco(),
-//                    i.next().getTelefone(), String.valueOf(i.next().getNumMatriculas()), 
-//                    String.valueOf(i.next().getNumConclusoes()),
-//                    String.valueOf(i.next().getNumDiscDep()), 
-//                    String.valueOf(i.next().getDataMatricula())});
-//            }
             jtAlunos.setModel(modelo);
         } catch (Exception e) {
         }

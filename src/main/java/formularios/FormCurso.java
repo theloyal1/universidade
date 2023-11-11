@@ -1,8 +1,11 @@
 package formularios;
 
+import entidades.Aluno;
 import entidades.Curso;
 import ficharios.FichaCurso;
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
