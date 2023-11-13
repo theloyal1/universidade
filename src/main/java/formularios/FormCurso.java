@@ -253,9 +253,10 @@ public class FormCurso extends javax.swing.JFrame {
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         Curso c = new Curso();
 
+        c.setNome(jtfNome.getText());
         c.setNumDiscObg(Integer.valueOf(jtfNumDiscObg.getText()));
         c.setNumDiscOpc(Integer.valueOf(jtfNumDiscOpc.getText()));
-        c.setNome(jtfNome.getText());
+        
 
         fichaCurso.cadastrar(c);
         modelo.addRow(new String[]{c.getNome(), String.valueOf(c.getNumDiscObg()),
