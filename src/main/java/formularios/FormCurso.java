@@ -1,8 +1,11 @@
 package formularios;
 
+import entidades.Aluno;
 import entidades.Curso;
+import ficharios.FichaAluno;
 import ficharios.FichaCurso;
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -19,6 +22,7 @@ public class FormCurso extends javax.swing.JFrame {
         modelo = new DefaultTableModel(titulos, 0);
         jtCursos.setModel(modelo);
         jbSair.setBackground(Color.red);
+        preencheDados();
     }
 
     private FormCurso() {
@@ -363,7 +367,7 @@ public class FormCurso extends javax.swing.JFrame {
         });
     }
     
-    public void relatorio() {
+    public void preencheDados() {
         try {
             jtCursos.removeAll();
             Iterator<Curso> i = fichaCurso.relatorio().iterator();
@@ -377,7 +381,13 @@ public class FormCurso extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
-
+    
+//    public void colocarNomes() {
+//        FichaAluno fichaAluno = new FichaAluno();
+//        ArrayList<Aluno> alunos = fichaAluno.relatorio();
+//        
+//    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
