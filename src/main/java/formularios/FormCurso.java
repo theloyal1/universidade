@@ -330,7 +330,7 @@ public class FormCurso extends javax.swing.JFrame {
                     "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
                 fichaCurso.excluir(jtCursos.getSelectedRow());
-                modelo.removeRow(jtCursos.getSelectedRow());
+                modeloCurso.removeRow(jtCursos.getSelectedRow());
                 JOptionPane.showMessageDialog(this, "Curso excluído com sucesso!");
             } else {
                 JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
@@ -348,17 +348,17 @@ public class FormCurso extends javax.swing.JFrame {
             if (res == JOptionPane.YES_OPTION) {
                 Curso c = new Curso();
 
+                c.setNome(jtfNome.getText());
                 c.setNumDiscObg(Integer.valueOf(jtfNumDiscObg.getText()));
                 c.setNumDiscOpc(Integer.valueOf(jtfNumDiscOpc.getText()));
-                c.setNome(jtfNome.getText());
 
-                fichaCurso.alterar(c, jtCursos.getSelectedRow());
-                modelo.setValueAt(c.getNome(), jtCursos.getSelectedRow(), 0);
-                modelo.setValueAt(c.getNumDiscObg(), jtCursos.getSelectedRow(), 1);
-                modelo.setValueAt(c.getNumDiscOpc(), jtCursos.getSelectedRow(), 2);
-                modelo.setValueAt(c.getAlunos(), jtCursos.getSelectedRow(), 3);
-                modelo.setValueAt(c.getProfs(), jtCursos.getSelectedRow(), 4);
-                jtCursos.setModel(modelo);
+//                fichaCurso.alterar(c, jtCursos.getSelectedRow());
+//                modelo.setValueAt(c.getNome(), jtCursos.getSelectedRow(), 0);
+//                modelo.setValueAt(c.getNumDiscObg(), jtCursos.getSelectedRow(), 1);
+//                modelo.setValueAt(c.getNumDiscOpc(), jtCursos.getSelectedRow(), 2);
+//                modelo.setValueAt(c.getAlunos(), jtCursos.getSelectedRow(), 3);
+//                modelo.setValueAt(c.getProfs(), jtCursos.getSelectedRow(), 4);
+//                jtCursos.setModel(modelo);
                 JOptionPane.showMessageDialog(this, "Curso alterado com sucesso!");
             } else {
                 JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
@@ -430,29 +430,28 @@ public class FormCurso extends javax.swing.JFrame {
             Iterator<Curso> i = fichaCurso.relatorio().iterator();
             while(i.hasNext()) {
                 Curso aux = (Curso)i.next();
-                modelo.addRow(new String[]{aux.getNome(), String.valueOf(aux.getNumDiscObg()),
-                    String.valueOf(aux.getNumDiscOpc()), String.valueOf(aux.getAlunos()),
-                    String.valueOf(aux.getProfs())});
+                modeloCurso.addRow(new String[]{aux.getNome(), String.valueOf(aux.getNumDiscObg()),
+                    String.valueOf(aux.getNumDiscOpc())});
             }
-            jtCursos.setModel(modelo);
+            jtCursos.setModel(modeloCurso);
         } catch (Exception e) {
         }
         
-        try {
-            jcbAlunos.removeAllItems();
-            jcbProfs.removeAllItems();
-            fichaAluno.relatorio().forEach(aluno -> jcbAlunos.addItem(aluno.getCpf() + " " + aluno.getNome()));
-            fichaProf.relatorio().forEach(professor -> jcbProfs.addItem(professor.getCpf() + " " + professor.getNome()));
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Nenhum aluno ou professor cadastrado!", "Erro", JOptionPane.ERROR_MESSAGE);
-        }
+//        try {
+//            jcbAlunos.removeAllItems();
+//            jcbProfs.removeAllItems();
+//            fichaAluno.relatorio().forEach(aluno -> jcbAlunos.addItem(aluno.getCpf() + " " + aluno.getNome()));
+//            fichaProf.relatorio().forEach(professor -> jcbProfs.addItem(professor.getCpf() + " " + professor.getNome()));
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(this, "Nenhum aluno ou professor cadastrado!", "Erro", JOptionPane.ERROR_MESSAGE);
+//        }
     }
     
-    public void colocarNomes(FichaAluno fichaAluno) {
-        fichaAluno = new FichaAluno();
-        ArrayList<Aluno> alunos = fichaAluno.relatorio();
-        
-    }
+//    public void colocarNomes(FichaAluno fichaAluno) {
+//        fichaAluno = new FichaAluno();
+//        ArrayList<Aluno> alunos = fichaAluno.relatorio();
+//        
+//    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
