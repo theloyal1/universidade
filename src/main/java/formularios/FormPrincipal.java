@@ -89,7 +89,9 @@ public class FormPrincipal extends javax.swing.JFrame {
         );
 
         jmCadastros.setText("Cadastros");
+        jmCadastros.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
 
+        jmiAluno.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jmiAluno.setText("Aluno");
         jmiAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +100,7 @@ public class FormPrincipal extends javax.swing.JFrame {
         });
         jmCadastros.add(jmiAluno);
 
+        jmiProf.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jmiProf.setText("Professor");
         jmiProf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,6 +109,7 @@ public class FormPrincipal extends javax.swing.JFrame {
         });
         jmCadastros.add(jmiProf);
 
+        jmiCurso.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jmiCurso.setText("Curso");
         jmiCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +118,7 @@ public class FormPrincipal extends javax.swing.JFrame {
         });
         jmCadastros.add(jmiCurso);
 
+        jmiDept.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jmiDept.setText("Departamento");
         jmiDept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +127,7 @@ public class FormPrincipal extends javax.swing.JFrame {
         });
         jmCadastros.add(jmiDept);
 
+        jmiMat.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jmiMat.setText("Matéria");
         jmiMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,6 +136,7 @@ public class FormPrincipal extends javax.swing.JFrame {
         });
         jmCadastros.add(jmiMat);
 
+        jmiPpc.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jmiPpc.setText("PPC");
         jmiPpc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,6 +145,7 @@ public class FormPrincipal extends javax.swing.JFrame {
         });
         jmCadastros.add(jmiPpc);
 
+        jmiDisc.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jmiDisc.setText("Disciplina");
         jmiDisc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,7 +192,7 @@ public class FormPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiProfActionPerformed
 
     private void jmiCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCursoActionPerformed
-        FormCurso formCurso = new FormCurso(fichaCurso);
+        FormCurso formCurso = new FormCurso(fichaCurso, fichaAluno, fichaProf);
         formCurso.setVisible(true);
     }//GEN-LAST:event_jmiCursoActionPerformed
 
