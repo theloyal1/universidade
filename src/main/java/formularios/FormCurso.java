@@ -382,12 +382,6 @@ public class FormCurso extends javax.swing.JFrame {
         }
     }
     
-//    public void colocarNomes() {
-//        FichaAluno fichaAluno = new FichaAluno();
-//        ArrayList<Aluno> alunos = fichaAluno.relatorio();
-//        
-//    }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
