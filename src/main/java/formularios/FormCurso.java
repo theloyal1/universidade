@@ -1,11 +1,8 @@
 package formularios;
 
-import entidades.Aluno;
 import entidades.Curso;
-import ficharios.FichaAluno;
 import ficharios.FichaCurso;
 import java.awt.Color;
-import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -48,8 +45,6 @@ public class FormCurso extends javax.swing.JFrame {
         jtCursos = new javax.swing.JTable();
         jlaAluno = new javax.swing.JLabel();
         jlaProf = new javax.swing.JLabel();
-        jcbAlunos = new javax.swing.JComboBox<>();
-        jcbProfs = new javax.swing.JComboBox<>();
         jlaNome = new javax.swing.JLabel();
         jtfNome = new javax.swing.JTextField();
 
@@ -139,10 +134,6 @@ public class FormCurso extends javax.swing.JFrame {
         jlaProf.setForeground(new java.awt.Color(246, 248, 255));
         jlaProf.setText("Professores: ");
 
-        jcbAlunos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jcbProfs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jlaNome.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jlaNome.setForeground(new java.awt.Color(246, 248, 255));
         jlaNome.setText("Nome: ");
@@ -184,12 +175,10 @@ public class FormCurso extends javax.swing.JFrame {
                                 .addComponent(jbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jlaProf)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jcbProfs, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(149, 149, 149))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jlaAluno)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jcbAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(200, 200, 200))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jlaCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -207,7 +196,6 @@ public class FormCurso extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlaAluno)
-                    .addComponent(jcbAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlaNome)
                     .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -218,8 +206,7 @@ public class FormCurso extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlaNumDiscOpc)
                     .addComponent(jtfNumDiscOpc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlaProf)
-                    .addComponent(jcbProfs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jlaProf))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -382,6 +369,12 @@ public class FormCurso extends javax.swing.JFrame {
         }
     }
     
+//    public void colocarNomes() {
+//        FichaAluno fichaAluno = new FichaAluno();
+//        ArrayList<Aluno> alunos = fichaAluno.relatorio();
+//        
+//    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -390,8 +383,6 @@ public class FormCurso extends javax.swing.JFrame {
     private javax.swing.JButton jbConsultar;
     private javax.swing.JButton jbExcluir;
     private javax.swing.JButton jbSair;
-    private javax.swing.JComboBox<String> jcbAlunos;
-    private javax.swing.JComboBox<String> jcbProfs;
     private javax.swing.JLabel jlaAluno;
     private javax.swing.JLabel jlaCursos;
     private javax.swing.JLabel jlaNome;

@@ -24,16 +24,18 @@ public class FormPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jbAluno = new javax.swing.JButton();
-        jbDept = new javax.swing.JButton();
-        jbDisciplina = new javax.swing.JButton();
-        jbCurso = new javax.swing.JButton();
-        jbProfessor = new javax.swing.JButton();
         jlaLogo = new javax.swing.JLabel();
-        jbPpc = new javax.swing.JButton();
-        jbMateria = new javax.swing.JButton();
         jlaIcone = new javax.swing.JLabel();
         jbSair = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jmCadastros = new javax.swing.JMenu();
+        jmiAluno = new javax.swing.JMenuItem();
+        jmiProf = new javax.swing.JMenuItem();
+        jmiCurso = new javax.swing.JMenuItem();
+        jmiDept = new javax.swing.JMenuItem();
+        jmiMat = new javax.swing.JMenuItem();
+        jmiPpc = new javax.swing.JMenuItem();
+        jmiDisc = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("UniFed");
@@ -43,65 +45,9 @@ public class FormPrincipal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(111, 156, 235));
         jPanel1.setForeground(new java.awt.Color(53, 40, 29));
 
-        jbAluno.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
-        jbAluno.setText("Aluno");
-        jbAluno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbAlunoActionPerformed(evt);
-            }
-        });
-
-        jbDept.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
-        jbDept.setText("Departamento");
-        jbDept.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbDeptActionPerformed(evt);
-            }
-        });
-
-        jbDisciplina.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
-        jbDisciplina.setText("Disciplina");
-        jbDisciplina.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbDisciplinaActionPerformed(evt);
-            }
-        });
-
-        jbCurso.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
-        jbCurso.setText("Curso");
-        jbCurso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbCursoActionPerformed(evt);
-            }
-        });
-
-        jbProfessor.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
-        jbProfessor.setText("Professor");
-        jbProfessor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbProfessorActionPerformed(evt);
-            }
-        });
-
         jlaLogo.setFont(new java.awt.Font("Times New Roman", 2, 48)); // NOI18N
         jlaLogo.setForeground(new java.awt.Color(20, 27, 65));
         jlaLogo.setText("UniFed");
-
-        jbPpc.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
-        jbPpc.setText("PPC");
-        jbPpc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbPpcActionPerformed(evt);
-            }
-        });
-
-        jbMateria.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
-        jbMateria.setText("Matéria");
-        jbMateria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbMateriaActionPerformed(evt);
-            }
-        });
 
         jlaIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icone.png"))); // NOI18N
 
@@ -119,67 +65,96 @@ public class FormPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
-                        .addComponent(jlaIcone, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jlaLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbSair))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jbDisciplina, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                                    .addComponent(jbAluno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(47, 47, 47)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jbProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jbMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jbPpc, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(56, 56, 56)
-                                        .addComponent(jbCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(191, 191, 191)
-                                .addComponent(jbDept)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(266, 266, 266)
+                .addComponent(jlaIcone, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlaLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
+                .addComponent(jbSair)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jlaIcone, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jbSair)
-                            .addComponent(jlaLogo))))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbAluno)
-                    .addComponent(jbProfessor)
-                    .addComponent(jbMateria))
-                .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbDisciplina)
-                    .addComponent(jbPpc)
-                    .addComponent(jbCurso))
-                .addGap(18, 18, 18)
-                .addComponent(jbDept)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jbSair)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jlaIcone, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jlaLogo))
+                        .addContainerGap(354, Short.MAX_VALUE))))
         );
+
+        jmCadastros.setText("Cadastros");
+
+        jmiAluno.setText("Aluno");
+        jmiAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiAlunoActionPerformed(evt);
+            }
+        });
+        jmCadastros.add(jmiAluno);
+
+        jmiProf.setText("Professor");
+        jmiProf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiProfActionPerformed(evt);
+            }
+        });
+        jmCadastros.add(jmiProf);
+
+        jmiCurso.setText("Curso");
+        jmiCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiCursoActionPerformed(evt);
+            }
+        });
+        jmCadastros.add(jmiCurso);
+
+        jmiDept.setText("Departamento");
+        jmiDept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiDeptActionPerformed(evt);
+            }
+        });
+        jmCadastros.add(jmiDept);
+
+        jmiMat.setText("Matéria");
+        jmiMat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiMatActionPerformed(evt);
+            }
+        });
+        jmCadastros.add(jmiMat);
+
+        jmiPpc.setText("PPC");
+        jmiPpc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiPpcActionPerformed(evt);
+            }
+        });
+        jmCadastros.add(jmiPpc);
+
+        jmiDisc.setText("Disciplina");
+        jmiDisc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiDiscActionPerformed(evt);
+            }
+        });
+        jmCadastros.add(jmiDisc);
+
+        jMenuBar1.add(jmCadastros);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,11 +163,6 @@ public class FormPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jbAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlunoActionPerformed
-        FormAluno formAluno = new FormAluno(fichaAluno);
-        formAluno.setVisible(true);
-    }//GEN-LAST:event_jbAlunoActionPerformed
 
     private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
         int res = JOptionPane.showConfirmDialog(this, "Tem certeza de que queira sair?",
@@ -203,35 +173,40 @@ public class FormPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jbSairActionPerformed
 
-    private void jbProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbProfessorActionPerformed
+    private void jmiAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAlunoActionPerformed
+        FormAluno formAluno = new FormAluno(fichaAluno);
+        formAluno.setVisible(true);
+    }//GEN-LAST:event_jmiAlunoActionPerformed
+
+    private void jmiProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiProfActionPerformed
         FormProf formProf = new FormProf(fichaProf);
         formProf.setVisible(true);
-    }//GEN-LAST:event_jbProfessorActionPerformed
+    }//GEN-LAST:event_jmiProfActionPerformed
 
-    private void jbCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCursoActionPerformed
+    private void jmiCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCursoActionPerformed
         FormCurso formCurso = new FormCurso(fichaCurso);
         formCurso.setVisible(true);
-    }//GEN-LAST:event_jbCursoActionPerformed
+    }//GEN-LAST:event_jmiCursoActionPerformed
 
-    private void jbDeptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDeptActionPerformed
+    private void jmiDeptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiDeptActionPerformed
         FormDep formDep = new FormDep(fichaDep);
         formDep.setVisible(true);
-    }//GEN-LAST:event_jbDeptActionPerformed
+    }//GEN-LAST:event_jmiDeptActionPerformed
 
-    private void jbMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMateriaActionPerformed
+    private void jmiMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiMatActionPerformed
         FormMateria formMateria = new FormMateria();
         formMateria.setVisible(true);
-    }//GEN-LAST:event_jbMateriaActionPerformed
+    }//GEN-LAST:event_jmiMatActionPerformed
 
-    private void jbPpcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPpcActionPerformed
+    private void jmiPpcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiPpcActionPerformed
         FormPpc formPpc = new FormPpc();
         formPpc.setVisible(true);
-    }//GEN-LAST:event_jbPpcActionPerformed
+    }//GEN-LAST:event_jmiPpcActionPerformed
 
-    private void jbDisciplinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDisciplinaActionPerformed
+    private void jmiDiscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiDiscActionPerformed
         FormDisc formDisc = new FormDisc();
         formDisc.setVisible(true);
-    }//GEN-LAST:event_jbDisciplinaActionPerformed
+    }//GEN-LAST:event_jmiDiscActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -266,16 +241,18 @@ public class FormPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton jbAluno;
-    private javax.swing.JButton jbCurso;
-    private javax.swing.JButton jbDept;
-    private javax.swing.JButton jbDisciplina;
-    private javax.swing.JButton jbMateria;
-    private javax.swing.JButton jbPpc;
-    private javax.swing.JButton jbProfessor;
     private javax.swing.JButton jbSair;
     private javax.swing.JLabel jlaIcone;
     private javax.swing.JLabel jlaLogo;
+    private javax.swing.JMenu jmCadastros;
+    private javax.swing.JMenuItem jmiAluno;
+    private javax.swing.JMenuItem jmiCurso;
+    private javax.swing.JMenuItem jmiDept;
+    private javax.swing.JMenuItem jmiDisc;
+    private javax.swing.JMenuItem jmiMat;
+    private javax.swing.JMenuItem jmiPpc;
+    private javax.swing.JMenuItem jmiProf;
     // End of variables declaration//GEN-END:variables
 }
