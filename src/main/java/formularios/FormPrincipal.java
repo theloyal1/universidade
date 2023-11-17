@@ -90,7 +90,7 @@ public class FormPrincipal extends javax.swing.JFrame {
         );
 
         jmCadastros.setText("Cadastros");
-        jmCadastros.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jmCadastros.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         jmiAluno.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jmiAluno.setText("Aluno");
