@@ -154,6 +154,11 @@ public class FormAluno extends javax.swing.JFrame {
                 "CPF", "Nome", "Email", "Endereço", "Telefone", "Nº de mat.", "Nº de conc.", "Nº de dep.", "Data da mat."
             }
         ));
+        jtAlunos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtAlunosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtAlunos);
 
         jbSair.setBackground(new java.awt.Color(0, 0, 0));
@@ -331,15 +336,7 @@ public class FormAluno extends javax.swing.JFrame {
             a.getTelefone(), String.valueOf(a.getNumMatriculas()), String.valueOf(a.getNumConclusoes()),
             String.valueOf(a.getNumDiscDep()), String.valueOf(a.getDataMatricula())});
         JOptionPane.showMessageDialog(this, "Aluno cadastrado com sucesso!");
-        jtfCpf.setText(null);
-        jtfNome.setText(null);
-        jtfEmail.setText(null);
-        jtfEndereco.setText(null);
-        jtfTelefone.setText(null);
-        jtfNumMat.setText(null);
-        jtfNumConc.setText(null);
-        jtfNumDep.setText(null);
-        jtfDataMat.setText(null);
+        limparDados();
         jtAlunos.setModel(modelo);
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
@@ -384,6 +381,7 @@ public class FormAluno extends javax.swing.JFrame {
                     + "\nNúmero de conclusões: " + a.getNumConclusoes()
                     + "\nNúmero de dependências: " + a.getNumDiscDep()
                     + "\nData da matrícula: " + a.getDataMatricula());
+            limparDados();
         }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
@@ -424,6 +422,21 @@ public class FormAluno extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jbAlterarActionPerformed
+
+    private void jtAlunosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtAlunosMouseClicked
+        try {
+            jtfCpf.setText(jtAlunos.getModel().getValueAt(jtAlunos.getSelectedRow(), 0).toString());
+            jtfNome.setText(jtAlunos.getModel().getValueAt(jtAlunos.getSelectedRow(), 1).toString());
+            jtfEmail.setText(jtAlunos.getModel().getValueAt(jtAlunos.getSelectedRow(), 2).toString());
+            jtfEndereco.setText(jtAlunos.getModel().getValueAt(jtAlunos.getSelectedRow(), 3).toString());
+            jtfTelefone.setText(jtAlunos.getModel().getValueAt(jtAlunos.getSelectedRow(), 4).toString());
+            jtfNumMat.setText(jtAlunos.getModel().getValueAt(jtAlunos.getSelectedRow(), 5).toString());
+            jtfNumConc.setText(jtAlunos.getModel().getValueAt(jtAlunos.getSelectedRow(), 6).toString());
+            jtfNumDep.setText(jtAlunos.getModel().getValueAt(jtAlunos.getSelectedRow(), 7).toString());
+            jtfDataMat.setText(jtAlunos.getModel().getValueAt(jtAlunos.getSelectedRow(), 8).toString());
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jtAlunosMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -474,7 +487,19 @@ public class FormAluno extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
-
+    
+    public void limparDados() {
+        jtfCpf.setText(null);
+        jtfNome.setText(null);
+        jtfEmail.setText(null);
+        jtfEndereco.setText(null);
+        jtfTelefone.setText(null);
+        jtfNumMat.setText(null);
+        jtfNumConc.setText(null);
+        jtfNumDep.setText(null);
+        jtfDataMat.setText(null);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

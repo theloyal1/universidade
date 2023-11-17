@@ -34,7 +34,6 @@ public class FormProf extends javax.swing.JFrame {
         jlaProfs = new javax.swing.JLabel();
         jbSair = new javax.swing.JButton();
         jlaCpf = new javax.swing.JLabel();
-        jtfCpf = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jtfNome = new javax.swing.JTextField();
         jlaEndereco = new javax.swing.JLabel();
@@ -42,7 +41,6 @@ public class FormProf extends javax.swing.JFrame {
         jlaEmail = new javax.swing.JLabel();
         jtfEmail = new javax.swing.JTextField();
         jlaTelefone = new javax.swing.JLabel();
-        jtfTelefone = new javax.swing.JTextField();
         jlaEspec = new javax.swing.JLabel();
         jtfEspec = new javax.swing.JTextField();
         jbCadastrar = new javax.swing.JButton();
@@ -51,6 +49,8 @@ public class FormProf extends javax.swing.JFrame {
         jbConsultar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtProfs = new javax.swing.JTable();
+        jtfCpf = new javax.swing.JFormattedTextField();
+        jtfTelefone = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -144,7 +144,24 @@ public class FormProf extends javax.swing.JFrame {
                 "CPF", "Nome", "Email", "Endereço", "Telefone", "Espec."
             }
         ));
+        jtProfs.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtProfsMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtProfs);
+
+        try {
+            jtfCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            jtfTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -163,21 +180,21 @@ public class FormProf extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jlaTelefone)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jtfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jtfTelefone))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addComponent(jlaEmail)
                                             .addGap(18, 18, 18)
                                             .addComponent(jtfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                             .addComponent(jlaCpf)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jtfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jtfCpf))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jbCadastrar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -220,11 +237,12 @@ public class FormProf extends javax.swing.JFrame {
                         .addComponent(jlaProfs)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jlaCpf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jlaCpf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jtfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel1)
-                        .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jtfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlaEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -234,9 +252,9 @@ public class FormProf extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlaTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlaEspec, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtfEspec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfEspec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbCadastrar)
@@ -285,12 +303,7 @@ public class FormProf extends javax.swing.JFrame {
         modelo.addRow(new String[]{p.getCpf(), p.getNome(), p.getEmail(), p.getEndereco(),
             p.getTelefone(), p.getEspecializacao()});
         JOptionPane.showMessageDialog(this, "Professor cadastrado com sucesso!");
-        jtfCpf.setText(null);
-        jtfNome.setText(null);
-        jtfEmail.setText(null);
-        jtfEndereco.setText(null);
-        jtfTelefone.setText(null);
-        jtfEspec.setText(null);
+        limparDados();
         jtProfs.setModel(modelo);
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
@@ -358,6 +371,18 @@ public class FormProf extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
+    private void jtProfsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProfsMouseClicked
+        try {
+            jtfCpf.setText(jtProfs.getModel().getValueAt(jtProfs.getSelectedRow(), 0).toString());
+            jtfNome.setText(jtProfs.getModel().getValueAt(jtProfs.getSelectedRow(), 1).toString());
+            jtfEmail.setText(jtProfs.getModel().getValueAt(jtProfs.getSelectedRow(), 2).toString());
+            jtfEndereco.setText(jtProfs.getModel().getValueAt(jtProfs.getSelectedRow(), 3).toString());
+            jtfTelefone.setText(jtProfs.getModel().getValueAt(jtProfs.getSelectedRow(), 4).toString());
+            jtfEspec.setText(jtProfs.getModel().getValueAt(jtProfs.getSelectedRow(), 5).toString());
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jtProfsMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -407,7 +432,16 @@ public class FormProf extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
-
+    
+    public void limparDados() {
+        jtfCpf.setText(null);
+        jtfNome.setText(null);
+        jtfEmail.setText(null);
+        jtfEndereco.setText(null);
+        jtfTelefone.setText(null);
+        jtfEspec.setText(null);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -424,11 +458,11 @@ public class FormProf extends javax.swing.JFrame {
     private javax.swing.JLabel jlaProfs;
     private javax.swing.JLabel jlaTelefone;
     private javax.swing.JTable jtProfs;
-    private javax.swing.JTextField jtfCpf;
+    private javax.swing.JFormattedTextField jtfCpf;
     private javax.swing.JTextField jtfEmail;
     private javax.swing.JTextField jtfEndereco;
     private javax.swing.JTextField jtfEspec;
     private javax.swing.JTextField jtfNome;
-    private javax.swing.JTextField jtfTelefone;
+    private javax.swing.JFormattedTextField jtfTelefone;
     // End of variables declaration//GEN-END:variables
 }

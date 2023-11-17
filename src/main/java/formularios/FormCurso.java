@@ -439,20 +439,20 @@ public class FormCurso extends javax.swing.JFrame {
         } catch (Exception e) {
         }
         
-        try {
-            jtAlunos.removeAll();
-            jtProfs.removeAll();
-            for(int c = 0; c < alunos.size(); c++) {
-                Aluno a = new Aluno();
-                modeloAluno.addRow(new String[]{a.getCpf(), a.getNome()});
-            }
-            for(int c = 0; c < profs.size(); c++) {
-                Professor p = new Professor();
-                modeloProf.addRow(new String[]{p.getCpf(), p.getNome()});
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Nenhum aluno ou professor cadastrado!", "Erro", JOptionPane.ERROR_MESSAGE);
-        }
+//        try {
+//            jtAlunos.removeAll();
+//            jtProfs.removeAll();
+//            for(int c = 0; c < alunos.size(); c++) {
+//                Aluno a = new Aluno();
+//                modeloAluno.addRow(new String[]{a.getCpf(), a.getNome()});
+//            }
+//            for(int c = 0; c < profs.size(); c++) {
+//                Professor p = new Professor();
+//                modeloProf.addRow(new String[]{p.getCpf(), p.getNome()});
+//            }
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(this, "Nenhum aluno ou professor cadastrado!", "Erro", JOptionPane.ERROR_MESSAGE);
+//        }
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
