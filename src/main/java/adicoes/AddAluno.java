@@ -1,16 +1,22 @@
 package adicoes;
 
+import entidades.Aluno;
 import ficharios.FichaAluno;
-import formularios.FormAluno;
+import java.util.Iterator;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class AddAluno extends javax.swing.JFrame {
     
     FichaAluno fichaAluno;
-    FormAluno formAluno;
+    DefaultTableModel modelo;
     
-    public AddAluno(FichaAluno fichaAluno, FormAluno formAluno) {
+    public AddAluno(FichaAluno fichaAluno) {
         this.fichaAluno = new FichaAluno();
-        this.formAluno = new FormAluno(fichaAluno);
+        String[] titulos = {"CPF", "Aluno"};
+        modelo = new DefaultTableModel(titulos, 0);
+        jtAlunos.setModel(modelo);
+        preencheDados();
     }
     
     private AddAluno() {
@@ -154,15 +160,52 @@ public class AddAluno extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
-        // TODO add your handling code here:
+        if (fichaAluno.isEmpty())
+            JOptionPane.showMessageDialog(this, "Não há alunos cadastrados!", "Erro",
+                    JOptionPane.ERROR_MESSAGE);
+        else {
+            int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
+                    "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (res == JOptionPane.YES_OPTION) {
+                fichaAluno.excluir(jtAlunos.getSelectedRow());
+                modelo.removeRow(jtAlunos.getSelectedRow());
+                JOptionPane.showMessageDialog(this, "Aluno excluído com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
+            }
+        }
     }//GEN-LAST:event_jbExcluirActionPerformed
 
     private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
-        // TODO add your handling code here:
+        if (fichaAluno.isEmpty())
+            JOptionPane.showMessageDialog(this, "Não há alunos cadastrados!", "Erro",
+                    JOptionPane.ERROR_MESSAGE);
+        else {
+            int res = JOptionPane.showConfirmDialog(this, "Confirmar alteração?",
+                    "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (res == JOptionPane.YES_OPTION) {
+                Aluno a = new Aluno();
+
+                a.setCpf(jtfCpf.getText());
+                a.setNome(jtfAluno.getText());
+                
+                modelo.setValueAt(a.getCpf(), jtAlunos.getSelectedRow(), 0);
+                modelo.setValueAt(a.getNome(), jtAlunos.getSelectedRow(), 1);
+                jtAlunos.setModel(modelo);
+                JOptionPane.showMessageDialog(this, "Aluno alterado com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
+            }
+        }
     }//GEN-LAST:event_jbAlterarActionPerformed
 
     private void jbFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFinalizarActionPerformed
-        // TODO add your handling code here:
+        int res = JOptionPane.showConfirmDialog(this, "Tem certeza de que queira sair?",
+                "Sair", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (res == JOptionPane.YES_OPTION) {
+            setVisible(false);
+            this.dispose();
+        }
     }//GEN-LAST:event_jbFinalizarActionPerformed
 
     /**
@@ -199,7 +242,20 @@ public class AddAluno extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    public void preencheDados() {
+        try {
+            jtAlunos.removeAll();
+            Iterator<Aluno> i = fichaAluno.relatorio().iterator();
+            while(i.hasNext()) {
+                Aluno aux = (Aluno)i.next();
+                modelo.addRow(new String[]{aux.getCpf(), aux.getNome()});
+            }
+            jtAlunos.setModel(modelo);
+        } catch (Exception e) {
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

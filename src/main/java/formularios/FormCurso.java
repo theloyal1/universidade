@@ -1,5 +1,6 @@
 package formularios;
 
+import adicoes.AddAluno;
 import entidades.Aluno;
 import entidades.Curso;
 import entidades.Professor;
@@ -384,7 +385,8 @@ public class FormCurso extends javax.swing.JFrame {
     }//GEN-LAST:event_jbConsultarActionPerformed
 
     private void jbAddAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddAlunosActionPerformed
-        // TODO add your handling code here:
+        AddAluno addAluno = new AddAluno(fichaAluno);
+        addAluno.setVisible(true);
     }//GEN-LAST:event_jbAddAlunosActionPerformed
 
     private void jbAddProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddProfsActionPerformed
