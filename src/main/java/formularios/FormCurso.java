@@ -68,8 +68,8 @@ public class FormCurso extends javax.swing.JFrame {
         jtAlunos = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         jtProfs = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        jcbAlunos = new javax.swing.JComboBox<>();
+        jlaAddAlunos = new javax.swing.JLabel();
         jbRemAlunos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -196,11 +196,11 @@ public class FormCurso extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(jtProfs);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbAlunos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 16)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(246, 248, 255));
-        jLabel1.setText("Selecionar aluno:");
+        jlaAddAlunos.setFont(new java.awt.Font("Arial Black", 0, 16)); // NOI18N
+        jlaAddAlunos.setForeground(new java.awt.Color(246, 248, 255));
+        jlaAddAlunos.setText("Selecionar aluno:");
 
         jbRemAlunos.setFont(new java.awt.Font("Yu Gothic Medium", 1, 24)); // NOI18N
         jbRemAlunos.setText("^");
@@ -248,14 +248,14 @@ public class FormCurso extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
+                                    .addComponent(jlaAddAlunos)
                                     .addComponent(jbAddAlunos))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jbRemAlunos)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jcbAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -278,14 +278,14 @@ public class FormCurso extends javax.swing.JFrame {
                             .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel1)))
+                        .addComponent(jlaAddAlunos)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jlaNumDiscObg)
                         .addComponent(jtfNumDiscObg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jbAddProfs))
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcbAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -489,8 +489,6 @@ public class FormCurso extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -503,6 +501,8 @@ public class FormCurso extends javax.swing.JFrame {
     private javax.swing.JButton jbExcluir;
     private javax.swing.JButton jbRemAlunos;
     private javax.swing.JButton jbSair;
+    private javax.swing.JComboBox<String> jcbAlunos;
+    private javax.swing.JLabel jlaAddAlunos;
     private javax.swing.JLabel jlaCursos;
     private javax.swing.JLabel jlaNome;
     private javax.swing.JLabel jlaNumDiscObg;

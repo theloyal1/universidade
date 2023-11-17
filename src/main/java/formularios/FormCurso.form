@@ -85,7 +85,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jlaAddAlunos" min="-2" max="-2" attributes="0"/>
                                       <Component id="jbAddAlunos" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -94,7 +94,7 @@
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="jbRemAlunos" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jComboBox1" min="-2" pref="151" max="-2" attributes="0"/>
+                                          <Component id="jcbAlunos" min="-2" pref="151" max="-2" attributes="0"/>
                                           <Component id="jScrollPane2" alignment="0" min="-2" pref="151" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -129,7 +129,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jlaAddAlunos" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -139,7 +139,7 @@
                           <Component id="jtfNumDiscObg" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jbAddProfs" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jComboBox1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcbAlunos" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -438,7 +438,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="jcbAlunos">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
@@ -453,7 +453,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="jlaAddAlunos">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Black" size="16" style="0"/>
