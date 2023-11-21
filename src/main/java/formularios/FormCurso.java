@@ -448,19 +448,29 @@ public class FormCurso extends javax.swing.JFrame {
     }//GEN-LAST:event_jbConsultarActionPerformed
 
     private void jbAddAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddAlunosActionPerformed
-        modeloAluno.addRow(new String[]{"a", "a"});
+        Aluno a = jcbAlunos.getItemAt(jtAlunos.getRowCount());
+        modeloAluno.addRow(new String[]{a.getCpf(), a.getNome()});
+        JOptionPane.showMessageDialog(this, "Aluno selecionado com sucesso!");
+        jtAlunos.setModel(modeloAluno);
     }//GEN-LAST:event_jbAddAlunosActionPerformed
 
     private void jbRemAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemAlunosActionPerformed
-        // TODO add your handling code here:
+        modeloAluno.removeRow(jtAlunos.getSelectedRow());
+        JOptionPane.showMessageDialog(this, "Aluno removido com sucesso!");
+        jtAlunos.setModel(modeloAluno);
     }//GEN-LAST:event_jbRemAlunosActionPerformed
 
     private void jbAddProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddProfsActionPerformed
-        // TODO add your handling code here:
+        Professor p = jcbProfs.getItemAt(jtProfs.getRowCount());
+        modeloProf.addRow(new String[]{p.getCpf(), p.getNome()});
+        JOptionPane.showMessageDialog(this, "Professor selecionado com sucesso!");
+        jtProfs.setModel(modeloProf);
     }//GEN-LAST:event_jbAddProfsActionPerformed
 
     private void jbRemProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemProfsActionPerformed
-        // TODO add your handling code here:
+        modeloProf.removeRow(jtProfs.getSelectedRow());
+        JOptionPane.showMessageDialog(this, "Professor removido com sucesso!");
+        jtProfs.setModel(modeloProf);
     }//GEN-LAST:event_jbRemProfsActionPerformed
 
     /**
