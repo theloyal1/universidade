@@ -14,14 +14,14 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class FormCurso extends javax.swing.JFrame {
-
+    
     FichaCurso fichaCurso;
     FichaAluno fichaAluno;
     ArrayList<Aluno> alunos;
     FichaProf fichaProf;
     ArrayList<Professor> profs;
     DefaultTableModel modeloCurso, modeloAluno, modeloProf;
-
+    
     public FormCurso(FichaCurso fichaCurso, FichaAluno fichaAluno, FichaProf fichaProf) {
         initComponents();
         this.fichaCurso = fichaCurso;
@@ -42,11 +42,11 @@ public class FormCurso extends javax.swing.JFrame {
         preencheDados();
 //        preencheComboBoxes();
     }
-
+    
     private FormCurso() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -373,11 +373,11 @@ public class FormCurso extends javax.swing.JFrame {
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         Curso c = new Curso();
-
+        
         c.setNome(jtfNome.getText());
         c.setNumDiscObg(Integer.valueOf(jtfNumDiscObg.getText()));
         c.setNumDiscOpc(Integer.valueOf(jtfNumDiscOpc.getText()));
-
+        
         fichaCurso.cadastrar(c);
         modeloCurso.addRow(new String[]{c.getNome(), String.valueOf(c.getNumDiscObg()), String.valueOf(c.getNumDiscOpc())});
         JOptionPane.showMessageDialog(this, "Curso cadastrado com sucesso!");
@@ -413,7 +413,7 @@ public class FormCurso extends javax.swing.JFrame {
                     "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
                 Curso c = new Curso();
-
+                
                 c.setNome(jtfNome.getText());
                 c.setNumDiscObg(Integer.valueOf(jtfNumDiscObg.getText()));
                 c.setNumDiscOpc(Integer.valueOf(jtfNumDiscOpc.getText()));
@@ -531,8 +531,8 @@ public class FormCurso extends javax.swing.JFrame {
                 jcbAlunos.addItem(a);
             jtAlunos.removeAll();
             Iterator<Aluno> ia = alunos.iterator();
-            while(ia.hasNext()) {
-                Aluno aux = (Aluno)ia.next();
+            while (ia.hasNext()) {
+                Aluno aux = (Aluno) ia.next();
                 modeloAluno.addRow(new String[]{aux.getCpf(), aux.getNome()});
             }
             jcbProfs.removeAll();
@@ -540,8 +540,8 @@ public class FormCurso extends javax.swing.JFrame {
                 jcbProfs.addItem(p);
             jtProfs.removeAll();
             Iterator<Professor> ip = profs.iterator();
-            while(ip.hasNext()) {
-                Professor aux = (Professor)ip.next();
+            while (ip.hasNext()) {
+                Professor aux = (Professor) ip.next();
                 modeloProf.addRow(new String[]{aux.getCpf(), aux.getNome()});
             }
         } catch (Exception e) {
