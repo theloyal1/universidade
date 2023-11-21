@@ -40,7 +40,7 @@ public class FormCurso extends javax.swing.JFrame {
         profs = fichaProf.relatorio();
         jbSair.setBackground(Color.red);
         preencheDados();
-        preencheComboBoxes();
+//        preencheComboBoxes();
     }
 
     private FormCurso() {
@@ -448,7 +448,7 @@ public class FormCurso extends javax.swing.JFrame {
     }//GEN-LAST:event_jbConsultarActionPerformed
 
     private void jbAddAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddAlunosActionPerformed
-        Aluno a = jcbAlunos.getItemAt(jtAlunos.getRowCount());
+        Aluno a = jcbAlunos.getItemAt(jcbAlunos.getSelectedIndex());
         modeloAluno.addRow(new String[]{a.getCpf(), a.getNome()});
         JOptionPane.showMessageDialog(this, "Aluno selecionado com sucesso!");
         jtAlunos.setModel(modeloAluno);
@@ -461,7 +461,7 @@ public class FormCurso extends javax.swing.JFrame {
     }//GEN-LAST:event_jbRemAlunosActionPerformed
 
     private void jbAddProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddProfsActionPerformed
-        Professor p = jcbProfs.getItemAt(jtProfs.getRowCount());
+        Professor p = jcbProfs.getItemAt(jcbProfs.getSelectedIndex());
         modeloProf.addRow(new String[]{p.getCpf(), p.getNome()});
         JOptionPane.showMessageDialog(this, "Professor selecionado com sucesso!");
         jtProfs.setModel(modeloProf);
@@ -507,45 +507,47 @@ public class FormCurso extends javax.swing.JFrame {
             }
         });
     }
-    
-    public void preencheComboBoxes() {
-        jcbAlunos.removeAll();
-        for(Aluno a : alunos)
-            jcbAlunos.addItem(a);
-        jcbProfs.removeAll();
-        for(Professor p : profs)
-            jcbProfs.addItem(p);
-    }
-    
+
+//    public void preencheComboBoxes() {
+//        jcbAlunos.removeAll();
+//        for(Aluno a : alunos)
+//            jcbAlunos.addItem(a);
+//        jcbProfs.removeAll();
+//        for(Professor p : profs)
+//            jcbProfs.addItem(p);
+//    }
     public void preencheDados() {
         try {
             jtCursos.removeAll();
             Iterator<Curso> i = fichaCurso.relatorio().iterator();
-            while(i.hasNext()) {
-                Curso aux = (Curso)i.next();
+            while (i.hasNext()) {
+                Curso aux = (Curso) i.next();
                 modeloCurso.addRow(new String[]{aux.getNome(), String.valueOf(aux.getNumDiscObg()),
                     String.valueOf(aux.getNumDiscOpc())});
             }
             jtCursos.setModel(modeloCurso);
+            jcbAlunos.removeAll();
+            for (Aluno a : alunos)
+                jcbAlunos.addItem(a);
+            jtAlunos.removeAll();
+            Iterator<Aluno> ia = alunos.iterator();
+            while(ia.hasNext()) {
+                Aluno aux = (Aluno)ia.next();
+                modeloAluno.addRow(new String[]{aux.getCpf(), aux.getNome()});
+            }
+            jcbProfs.removeAll();
+            for (Professor p : profs)
+                jcbProfs.addItem(p);
+            jtProfs.removeAll();
+            Iterator<Professor> ip = profs.iterator();
+            while(ip.hasNext()) {
+                Professor aux = (Professor)ip.next();
+                modeloProf.addRow(new String[]{aux.getCpf(), aux.getNome()});
+            }
         } catch (Exception e) {
         }
-        
-//        try {
-//            jtAlunos.removeAll();
-//            jtProfs.removeAll();
-//            for(int c = 0; c < alunos.size(); c++) {
-//                Aluno a = new Aluno();
-//                modeloAluno.addRow(new String[]{a.getCpf(), a.getNome()});
-//            }
-//            for(int c = 0; c < profs.size(); c++) {
-//                Professor p = new Professor();
-//                modeloProf.addRow(new String[]{p.getCpf(), p.getNome()});
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(this, "Nenhum aluno ou professor cadastrado!", "Erro", JOptionPane.ERROR_MESSAGE);
-//        }
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
