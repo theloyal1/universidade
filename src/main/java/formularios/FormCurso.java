@@ -9,6 +9,7 @@ import ficharios.FichaProf;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,6 +21,7 @@ public class FormCurso extends javax.swing.JFrame {
     FichaProf fichaProf;
     ArrayList<Professor> profs = new ArrayList<>();
     DefaultTableModel modeloCurso, modeloAluno, modeloProf;
+    DefaultComboBoxModel modeloJcbAluno, modeloJcbProf;
 
     public FormCurso(FichaCurso fichaCurso, FichaAluno fichaAluno, FichaProf fichaProf) {
         initComponents();
@@ -34,9 +36,12 @@ public class FormCurso extends javax.swing.JFrame {
         jtAlunos.setModel(modeloAluno);
         String[] titProfs = {"CPF", "Professor"};
         modeloProf = new DefaultTableModel(titProfs, 0);
+        modeloJcbAluno = new DefaultComboBoxModel();
+        modeloJcbProf = new DefaultComboBoxModel();
         jtProfs.setModel(modeloProf);
         jbSair.setBackground(Color.red);
         preencheDados();
+        preencheComboBoxes();
     }
 
     private FormCurso() {
@@ -457,6 +462,12 @@ public class FormCurso extends javax.swing.JFrame {
                 new FormCurso().setVisible(true);
             }
         });
+    }
+    
+    public void preencheComboBoxes() {
+        for(Aluno a : alunos) {
+            jcbAlunos.addItem(a.getNome());
+        }
     }
     
     public void preencheDados() {

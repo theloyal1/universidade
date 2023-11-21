@@ -1,6 +1,5 @@
 package formularios;
 
-import entidades.Usuario;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
@@ -115,11 +114,6 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Usuário e senha inválidos!", "ERRO",
                     JOptionPane.ERROR_MESSAGE);
         } else {
-            Usuario u = new Usuario();
-
-            u.setEmail(jtfEmail.getText());
-            u.setSenha(jpfSenha.getText());
-
             setVisible(false);
             FormPrincipal formPrincipal = new FormPrincipal();
             formPrincipal.setVisible(true);
