@@ -1,8 +1,11 @@
 package formularios;
 
+import entidades.Curso;
 import entidades.Departamento;
+import ficharios.FichaCurso;
 import ficharios.FichaDep;
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -10,15 +13,23 @@ import javax.swing.table.DefaultTableModel;
 public class FormDep extends javax.swing.JFrame {
 
     FichaDep fichaDep;
-    DefaultTableModel modelo;
+    FichaCurso fichaCurso;
+    ArrayList<Curso> cursos;
+    DefaultTableModel modeloDep, modeloCurso;
 
-    public FormDep(FichaDep fichaDep) {
+    public FormDep(FichaDep fichaDep, FichaCurso fichaCurso) {
         initComponents();
         this.fichaDep = fichaDep;
-        String[] titulos = {"Código", "Nome", "Cursos"};
-        modelo = new DefaultTableModel(titulos, 0);
-        jtDep.setModel(modelo);
+        this.fichaCurso = fichaCurso;
+        String[] titDeps = {"Código", "Nome"};
+        modeloDep = new DefaultTableModel(titDeps, 0);
+        jtDep.setModel(modeloDep);
+        String[] titCursos = {"Nome", "Nº de disc. obg.", "Nº de disc. opc."};
+        modeloCurso = new DefaultTableModel(titCursos, 0);
+        jtCursos.setModel(modeloCurso);
+        cursos = fichaCurso.relatorio();
         jbSair.setBackground(Color.RED);
+        preencheDados();
     }
 
     private FormDep() {
@@ -45,7 +56,9 @@ public class FormDep extends javax.swing.JFrame {
         jtDep = new javax.swing.JTable();
         jcbCursos = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtCursos = new javax.swing.JTable();
+        jbAddCursos = new javax.swing.JButton();
+        jbRemCursos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -126,9 +139,7 @@ public class FormDep extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jtDep);
 
-        jcbCursos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtCursos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -139,7 +150,23 @@ public class FormDep extends javax.swing.JFrame {
                 "Nome", "Nº de disc. obg.", "Nº de disc. opc."
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(jtCursos);
+
+        jbAddCursos.setFont(new java.awt.Font("Yu Gothic Medium", 1, 11)); // NOI18N
+        jbAddCursos.setText("V");
+        jbAddCursos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAddCursosActionPerformed(evt);
+            }
+        });
+
+        jbRemCursos.setFont(new java.awt.Font("Yu Gothic Medium", 1, 24)); // NOI18N
+        jbRemCursos.setText("^");
+        jbRemCursos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbRemCursosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -171,11 +198,19 @@ public class FormDep extends javax.swing.JFrame {
                                 .addComponent(jbAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(34, 34, 34)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jlaCursos)
-                            .addComponent(jcbCursos, 0, 258, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jlaCursos)
+                                    .addComponent(jcbCursos, 0, 258, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addComponent(jbAddCursos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jbRemCursos)
+                                .addGap(38, 38, 38)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -192,12 +227,16 @@ public class FormDep extends javax.swing.JFrame {
                     .addComponent(jlaNome)
                     .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlaCursos))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jcbCursos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbAddCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbRemCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -208,9 +247,8 @@ public class FormDep extends javax.swing.JFrame {
                             .addComponent(jbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jbAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -243,12 +281,11 @@ public class FormDep extends javax.swing.JFrame {
         d.setNome(jtfNome.getText());
 
         fichaDep.cadastrar(d);
-        modelo.addRow(new String[]{String.valueOf(d.getCodigo()), d.getNome(), "???"});
+        modeloDep.addRow(new String[]{String.valueOf(d.getCodigo()), d.getNome()});
         JOptionPane.showMessageDialog(this, "Departamento cadastrado com sucesso!");
         jtfCodigo.setText(null);
         jtfNome.setText(null);
-        jtfCursos.setText(null);
-        jtDep.setModel(modelo);
+        jtDep.setModel(modeloDep);
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
@@ -260,7 +297,7 @@ public class FormDep extends javax.swing.JFrame {
                     "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
                 fichaDep.excluir(jtDep.getSelectedRow());
-                modelo.removeRow(jtDep.getSelectedRow());
+                modeloDep.removeRow(jtDep.getSelectedRow());
                 JOptionPane.showMessageDialog(this, "Departamento excluído com sucesso!");
             } else {
                 JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
@@ -282,10 +319,9 @@ public class FormDep extends javax.swing.JFrame {
                 d.setNome(jtfNome.getText());
 
                 fichaDep.alterar(d, jtDep.getSelectedRow());
-                modelo.setValueAt(d.getCodigo(), jtDep.getSelectedRow(), 0);
-                modelo.setValueAt(d.getNome(), jtDep.getSelectedRow(), 1);
-                modelo.setValueAt(d.getCursos(), jtDep.getSelectedRow(), 2);
-                jtDep.setModel(modelo);
+                modeloDep.setValueAt(d.getCodigo(), jtDep.getSelectedRow(), 0);
+                modeloDep.setValueAt(d.getNome(), jtDep.getSelectedRow(), 1);
+                jtDep.setModel(modeloDep);
                 JOptionPane.showMessageDialog(this, "Departamento alterado com sucesso!");
             } else {
                 JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
@@ -301,10 +337,22 @@ public class FormDep extends javax.swing.JFrame {
             Departamento d = fichaDep.consultar(jtDep.getSelectedRow());
             JOptionPane.showMessageDialog(this,
                     "Código: " + d.getCodigo()
-                    + "\nNome: " + d.getNome()
-                    + "\nCursos: " + d.getCursos());
+                    + "\nNome: " + d.getNome());
         }
     }//GEN-LAST:event_jbConsultarActionPerformed
+
+    private void jbAddCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddCursosActionPerformed
+        Curso c = jcbCursos.getItemAt(jcbCursos.getSelectedIndex());
+        modeloCurso.addRow(new String[]{c.getNome(), String.valueOf(c.getNumDiscObg()), String.valueOf(c.getNumDiscOpc())});
+        JOptionPane.showMessageDialog(this, "Curso selecionado com sucesso!");
+        jtCursos.setModel(modeloCurso);
+    }//GEN-LAST:event_jbAddCursosActionPerformed
+
+    private void jbRemCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemCursosActionPerformed
+        modeloCurso.removeRow(jtCursos.getSelectedRow());
+        JOptionPane.showMessageDialog(this, "Curso removido com sucesso!");
+        jtCursos.setModel(modeloCurso);
+    }//GEN-LAST:event_jbRemCursosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -341,16 +389,26 @@ public class FormDep extends javax.swing.JFrame {
         });
     }
     
-    public void relatorio() {
+    public void preencheDados() {
         try {
             jtDep.removeAll();
             Iterator<Departamento> i = fichaDep.relatorio().iterator();
             while(i.hasNext()) {
                 Departamento aux = (Departamento)i.next();
-                modelo.addRow(new String[]{String.valueOf(aux.getCodigo()), 
+                modeloDep.addRow(new String[]{String.valueOf(aux.getCodigo()), 
                     aux.getNome(), String.valueOf(aux.getCursos())});
             }
-            jtDep.setModel(modelo);
+            jtDep.setModel(modeloDep);
+            jcbCursos.removeAll();
+            for (Curso c : cursos)
+                jcbCursos.addItem(c);
+            jtCursos.removeAll();
+            Iterator<Curso> ic = cursos.iterator();
+            while (ic.hasNext()) {
+                Curso aux = (Curso) ic.next();
+                modeloCurso.addRow(new String[]{aux.getNome(), String.valueOf(aux.getNumDiscObg()), 
+                    String.valueOf(aux.getNumDiscOpc())});
+            }
         } catch (Exception e) {
         }
     }
@@ -359,17 +417,19 @@ public class FormDep extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton jbAddCursos;
     private javax.swing.JButton jbAlterar;
     private javax.swing.JButton jbCadastrar;
     private javax.swing.JButton jbConsultar;
     private javax.swing.JButton jbExcluir;
+    private javax.swing.JButton jbRemCursos;
     private javax.swing.JButton jbSair;
-    private javax.swing.JComboBox<String> jcbCursos;
+    private javax.swing.JComboBox<Curso> jcbCursos;
     private javax.swing.JLabel jlaCodigo;
     private javax.swing.JLabel jlaCursos;
     private javax.swing.JLabel jlaDep;
     private javax.swing.JLabel jlaNome;
+    private javax.swing.JTable jtCursos;
     private javax.swing.JTable jtDep;
     private javax.swing.JTextField jtfCodigo;
     private javax.swing.JTextField jtfNome;

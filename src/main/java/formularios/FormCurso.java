@@ -282,11 +282,11 @@ public class FormCurso extends javax.swing.JFrame {
                                 .addComponent(jbSair)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jbAddAlunos)
-                        .addGap(146, 146, 146)
+                        .addGap(141, 141, 141)
                         .addComponent(jbRemAlunos)
-                        .addGap(44, 44, 44))))
+                        .addGap(48, 48, 48))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

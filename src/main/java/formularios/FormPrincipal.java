@@ -202,7 +202,7 @@ public class FormPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiCursoActionPerformed
 
     private void jmiDeptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiDeptActionPerformed
-        FormDep formDep = new FormDep(fichaDep);
+        FormDep formDep = new FormDep(fichaDep, fichaCurso);
         formDep.setVisible(true);
     }//GEN-LAST:event_jmiDeptActionPerformed
 
