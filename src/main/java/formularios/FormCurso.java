@@ -17,11 +17,10 @@ public class FormCurso extends javax.swing.JFrame {
 
     FichaCurso fichaCurso;
     FichaAluno fichaAluno;
-    ArrayList<Aluno> alunos = new ArrayList<>();
+    ArrayList<Aluno> alunos;
     FichaProf fichaProf;
-    ArrayList<Professor> profs = new ArrayList<>();
+    ArrayList<Professor> profs;
     DefaultTableModel modeloCurso, modeloAluno, modeloProf;
-    DefaultComboBoxModel modeloJcbAluno, modeloJcbProf;
 
     public FormCurso(FichaCurso fichaCurso, FichaAluno fichaAluno, FichaProf fichaProf) {
         initComponents();
@@ -34,11 +33,11 @@ public class FormCurso extends javax.swing.JFrame {
         String[] titAlunos = {"CPF", "Aluno"};
         modeloAluno = new DefaultTableModel(titAlunos, 0);
         jtAlunos.setModel(modeloAluno);
+        alunos = fichaAluno.relatorio();
         String[] titProfs = {"CPF", "Professor"};
         modeloProf = new DefaultTableModel(titProfs, 0);
-        modeloJcbAluno = new DefaultComboBoxModel();
-        modeloJcbProf = new DefaultComboBoxModel();
         jtProfs.setModel(modeloProf);
+        profs = fichaProf.relatorio();
         jbSair.setBackground(Color.red);
         preencheDados();
         preencheComboBoxes();
@@ -200,8 +199,6 @@ public class FormCurso extends javax.swing.JFrame {
             }
         ));
         jScrollPane3.setViewportView(jtProfs);
-
-        jcbAlunos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jlaAddAlunos.setFont(new java.awt.Font("Arial Black", 0, 16)); // NOI18N
         jlaAddAlunos.setForeground(new java.awt.Color(246, 248, 255));
@@ -465,8 +462,9 @@ public class FormCurso extends javax.swing.JFrame {
     }
     
     public void preencheComboBoxes() {
+        jcbAlunos.removeAll();
         for(Aluno a : alunos) {
-            jcbAlunos.addItem(a.getNome());
+            jcbAlunos.addItem(a);
         }
     }
     
@@ -512,7 +510,7 @@ public class FormCurso extends javax.swing.JFrame {
     private javax.swing.JButton jbExcluir;
     private javax.swing.JButton jbRemAlunos;
     private javax.swing.JButton jbSair;
-    private javax.swing.JComboBox<String> jcbAlunos;
+    private javax.swing.JComboBox<Aluno> jcbAlunos;
     private javax.swing.JLabel jlaAddAlunos;
     private javax.swing.JLabel jlaCursos;
     private javax.swing.JLabel jlaNome;
