@@ -40,7 +40,6 @@ public class FormCurso extends javax.swing.JFrame {
         profs = fichaProf.relatorio();
         jbSair.setBackground(Color.red);
         preencheDados();
-//        preencheComboBoxes();
     }
     
     private FormCurso() {
@@ -152,6 +151,11 @@ public class FormCurso extends javax.swing.JFrame {
                 "Nome", "Nº de disc. obg.", "Nº de disc. opc."
             }
         ));
+        jtCursos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtCursosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtCursos);
         if (jtCursos.getColumnModel().getColumnCount() > 0) {
             jtCursos.getColumnModel().getColumn(2).setResizable(false);
@@ -418,13 +422,10 @@ public class FormCurso extends javax.swing.JFrame {
                 c.setNumDiscObg(Integer.valueOf(jtfNumDiscObg.getText()));
                 c.setNumDiscOpc(Integer.valueOf(jtfNumDiscOpc.getText()));
 
-//                fichaCurso.alterar(c, jtCursos.getSelectedRow());
-//                modelo.setValueAt(c.getNome(), jtCursos.getSelectedRow(), 0);
-//                modelo.setValueAt(c.getNumDiscObg(), jtCursos.getSelectedRow(), 1);
-//                modelo.setValueAt(c.getNumDiscOpc(), jtCursos.getSelectedRow(), 2);
-//                modelo.setValueAt(c.getAlunos(), jtCursos.getSelectedRow(), 3);
-//                modelo.setValueAt(c.getProfs(), jtCursos.getSelectedRow(), 4);
-//                jtCursos.setModel(modelo);
+                fichaCurso.alterar(c, jtCursos.getSelectedRow());
+                modeloCurso.setValueAt(c.getNome(), jtCursos.getSelectedRow(), 0);
+                modeloCurso.setValueAt(c.getNumDiscObg(), jtCursos.getSelectedRow(), 1);
+                modeloCurso.setValueAt(c.getNumDiscOpc(), jtCursos.getSelectedRow(), 2);
                 JOptionPane.showMessageDialog(this, "Curso alterado com sucesso!");
             } else {
                 JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
@@ -441,9 +442,7 @@ public class FormCurso extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,
                     "Nome: " + c.getNome()
                     + "\nNúmero de disciplinas obrigatórias: " + c.getNumDiscObg()
-                    + "\nNúmero de disciplinas opcionais: " + c.getNumDiscOpc()
-                    + "\nAlunos: " + c.getAlunos()
-                    + "\nProfessores: " + c.getProfs());
+                    + "\nNúmero de disciplinas opcionais: " + c.getNumDiscOpc());
         }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
@@ -472,6 +471,15 @@ public class FormCurso extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Professor removido com sucesso!");
         jtProfs.setModel(modeloProf);
     }//GEN-LAST:event_jbRemProfsActionPerformed
+
+    private void jtCursosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtCursosMouseClicked
+        try {
+            jtfNome.setText(jtCursos.getModel().getValueAt(jtCursos.getSelectedRow(), 0).toString());
+            jtfNumDiscObg.setText(jtCursos.getModel().getValueAt(jtCursos.getSelectedRow(), 1).toString());
+            jtfNumDiscOpc.setText(jtCursos.getModel().getValueAt(jtCursos.getSelectedRow(), 2).toString());
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jtCursosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -507,15 +515,7 @@ public class FormCurso extends javax.swing.JFrame {
             }
         });
     }
-
-//    public void preencheComboBoxes() {
-//        jcbAlunos.removeAll();
-//        for(Aluno a : alunos)
-//            jcbAlunos.addItem(a);
-//        jcbProfs.removeAll();
-//        for(Professor p : profs)
-//            jcbProfs.addItem(p);
-//    }
+    
     public void preencheDados() {
         try {
             jtCursos.removeAll();
