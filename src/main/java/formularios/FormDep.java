@@ -137,6 +137,11 @@ public class FormDep extends javax.swing.JFrame {
                 "Código", "Nome"
             }
         ));
+        jtDep.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtDepMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtDep);
 
         jtCursos.setModel(new javax.swing.table.DefaultTableModel(
@@ -353,6 +358,10 @@ public class FormDep extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Curso removido com sucesso!");
         jtCursos.setModel(modeloCurso);
     }//GEN-LAST:event_jbRemCursosActionPerformed
+
+    private void jtDepMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtDepMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtDepMouseClicked
 
     /**
      * @param args the command line arguments

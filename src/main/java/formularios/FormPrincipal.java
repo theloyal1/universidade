@@ -202,8 +202,12 @@ public class FormPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiCursoActionPerformed
 
     private void jmiDeptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiDeptActionPerformed
-        FormDep formDep = new FormDep(fichaDep, fichaCurso);
-        formDep.setVisible(true);
+        if(fichaCurso.isEmpty())
+            JOptionPane.showMessageDialog(this, "Não há cursos cadastrados!", "Erro", JOptionPane.ERROR_MESSAGE);
+        else {
+            FormDep formDep = new FormDep(fichaDep, fichaCurso);
+            formDep.setVisible(true); 
+        }
     }//GEN-LAST:event_jmiDeptActionPerformed
 
     private void jmiMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiMatActionPerformed
