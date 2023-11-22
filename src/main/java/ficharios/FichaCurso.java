@@ -21,7 +21,7 @@ public class FichaCurso {
         cursos.get(pos).setNome(c.getNome());
         cursos.get(pos).setNumDiscObg(c.getNumDiscObg());
         cursos.get(pos).setNumDiscOpc(c.getNumDiscOpc());
-        cursos.get(pos).setAlunos(c.getAlunos());
+        cursos.get(pos).setListaAlunos(c.getAlunos());
         cursos.get(pos).setProfs(c.getProfs());
     }
     

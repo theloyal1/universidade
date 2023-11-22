@@ -47,8 +47,12 @@ public class Curso {
         return alunos;
     }
 
-    public void setAlunos(ArrayList<Aluno> alunos) {
+    public void setListaAlunos(ArrayList<Aluno> alunos) {
         this.alunos = alunos;
+    }
+    
+    public void setAluno(Aluno aluno) {
+        this.alunos.add(aluno);
     }
 
     public ArrayList<Professor> getProfs() {

@@ -13,14 +13,14 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class FormCurso extends javax.swing.JFrame {
-    
+
     FichaCurso fichaCurso;
     FichaAluno fichaAluno;
     ArrayList<Aluno> alunos;
     FichaProf fichaProf;
     ArrayList<Professor> profs;
     DefaultTableModel modeloCurso, modeloAluno, modeloProf;
-    
+
     public FormCurso(FichaCurso fichaCurso, FichaAluno fichaAluno, FichaProf fichaProf) {
         initComponents();
         this.fichaCurso = fichaCurso;
@@ -40,11 +40,11 @@ public class FormCurso extends javax.swing.JFrame {
         jbSair.setBackground(Color.red);
         preencheDados();
     }
-    
+
     private FormCurso() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -376,11 +376,11 @@ public class FormCurso extends javax.swing.JFrame {
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         Curso c = new Curso();
-        
+
         c.setNome(jtfNome.getText());
         c.setNumDiscObg(Integer.valueOf(jtfNumDiscObg.getText()));
         c.setNumDiscOpc(Integer.valueOf(jtfNumDiscOpc.getText()));
-        
+
         fichaCurso.cadastrar(c);
         modeloCurso.addRow(new String[]{c.getNome(), String.valueOf(c.getNumDiscObg()), String.valueOf(c.getNumDiscOpc())});
         JOptionPane.showMessageDialog(this, "Curso cadastrado com sucesso!");
@@ -416,7 +416,7 @@ public class FormCurso extends javax.swing.JFrame {
                     "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
                 Curso c = new Curso();
-                
+
                 c.setNome(jtfNome.getText());
                 c.setNumDiscObg(Integer.valueOf(jtfNumDiscObg.getText()));
                 c.setNumDiscOpc(Integer.valueOf(jtfNumDiscOpc.getText()));
@@ -446,10 +446,13 @@ public class FormCurso extends javax.swing.JFrame {
     }//GEN-LAST:event_jbConsultarActionPerformed
 
     private void jbAddAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddAlunosActionPerformed
-        Aluno a = jcbAlunos.getItemAt(jcbAlunos.getSelectedIndex());
-        modeloAluno.addRow(new String[]{a.getCpf(), a.getNome()});
-        JOptionPane.showMessageDialog(this, "Aluno selecionado com sucesso!");
-        jtAlunos.setModel(modeloAluno);
+        if (jtCursos.getSelectedRow() != -1) {
+            Aluno a = fichaAluno.consultar(jcbAlunos.getSelectedIndex());
+            modeloAluno.addRow(new String[]{a.getCpf(), a.getNome()});
+            JOptionPane.showMessageDialog(this, "Aluno selecionado com sucesso!");
+            fichaCurso.consultar(jtCursos.getSelectedRow()).setAluno(a);
+            jtAlunos.setModel(modeloAluno);
+        }
     }//GEN-LAST:event_jbAddAlunosActionPerformed
 
     private void jbRemAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemAlunosActionPerformed
@@ -476,6 +479,12 @@ public class FormCurso extends javax.swing.JFrame {
             jtfNome.setText(jtCursos.getModel().getValueAt(jtCursos.getSelectedRow(), 0).toString());
             jtfNumDiscObg.setText(jtCursos.getModel().getValueAt(jtCursos.getSelectedRow(), 1).toString());
             jtfNumDiscOpc.setText(jtCursos.getModel().getValueAt(jtCursos.getSelectedRow(), 2).toString());
+
+            fichaCurso.consultar(jtCursos.getSelectedRow()).getAlunos().forEach(curso -> {
+                jtAlunos.removeAll();
+                modeloAluno.addRow(new String[]{curso.getCpf(), curso.getNome()});
+                jtAlunos.setModel(modeloAluno);
+            });
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jtCursosMouseClicked
@@ -514,7 +523,7 @@ public class FormCurso extends javax.swing.JFrame {
             }
         });
     }
-    
+
     public void preencheDados() {
         try {
             jtCursos.removeAll();
@@ -526,22 +535,12 @@ public class FormCurso extends javax.swing.JFrame {
             }
             jtCursos.setModel(modeloCurso);
             jcbAlunos.removeAll();
-            for (Aluno a : alunos)
+            for (Aluno a : alunos) {
                 jcbAlunos.addItem(a);
-            jtAlunos.removeAll();
-            Iterator<Aluno> ia = alunos.iterator();
-            while (ia.hasNext()) {
-                Aluno aux = (Aluno) ia.next();
-                modeloAluno.addRow(new String[]{aux.getCpf(), aux.getNome()});
             }
             jcbProfs.removeAll();
-            for (Professor p : profs)
+            for (Professor p : profs) {
                 jcbProfs.addItem(p);
-            jtProfs.removeAll();
-            Iterator<Professor> ip = profs.iterator();
-            while (ip.hasNext()) {
-                Professor aux = (Professor) ip.next();
-                modeloProf.addRow(new String[]{aux.getCpf(), aux.getNome()});
             }
         } catch (Exception e) {
         }
