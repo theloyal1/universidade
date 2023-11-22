@@ -5,18 +5,16 @@ import java.util.ArrayList;
 public class Curso {
     private String nome;
     private int numDiscObg, numDiscOpc;
-    private ArrayList<Aluno> alunos;
-    private ArrayList<Professor> profs;
+    private ArrayList<Aluno> alunos = new ArrayList<>();
+    private ArrayList<Professor> profs = new ArrayList<>();
 
     public Curso() {
     }
 
-    public Curso(String nome, int numDiscObg, int numDiscOpc, ArrayList<Aluno> alunos, ArrayList<Professor> profs) {
+    public Curso(String nome, int numDiscObg, int numDiscOpc) {
         this.nome = nome;
         this.numDiscObg = numDiscObg;
         this.numDiscOpc = numDiscOpc;
-        this.alunos = alunos;
-        this.profs = profs;
     }
 
     public String getNome() {

@@ -481,6 +481,7 @@ public class FormCurso extends javax.swing.JFrame {
             jtfNumDiscOpc.setText(jtCursos.getModel().getValueAt(jtCursos.getSelectedRow(), 2).toString());
 
             fichaCurso.consultar(jtCursos.getSelectedRow()).getAlunos().forEach(curso -> {
+                modeloAluno.setRowCount(0);
                 jtAlunos.removeAll();
                 modeloAluno.addRow(new String[]{curso.getCpf(), curso.getNome()});
                 jtAlunos.setModel(modeloAluno);
