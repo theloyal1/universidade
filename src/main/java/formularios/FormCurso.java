@@ -441,7 +441,9 @@ public class FormCurso extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,
                     "Nome: " + c.getNome()
                     + "\nNúmero de disciplinas obrigatórias: " + c.getNumDiscObg()
-                    + "\nNúmero de disciplinas opcionais: " + c.getNumDiscOpc());
+                    + "\nNúmero de disciplinas opcionais: " + c.getNumDiscOpc()
+                    + "\nAlunos: " + c.getAlunos()
+                    + "\nProfessores: " + c.getProfs());
         }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
@@ -456,21 +458,28 @@ public class FormCurso extends javax.swing.JFrame {
     }//GEN-LAST:event_jbAddAlunosActionPerformed
 
     private void jbRemAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemAlunosActionPerformed
+        Aluno a = fichaAluno.consultar(jtAlunos.getSelectedRow());
         modeloAluno.removeRow(jtAlunos.getSelectedRow());
         JOptionPane.showMessageDialog(this, "Aluno removido com sucesso!");
+        fichaCurso.consultar(jtCursos.getSelectedRow()).removeAluno(a);
         jtAlunos.setModel(modeloAluno);
     }//GEN-LAST:event_jbRemAlunosActionPerformed
 
     private void jbAddProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddProfsActionPerformed
-        Professor p = jcbProfs.getItemAt(jcbProfs.getSelectedIndex());
-        modeloProf.addRow(new String[]{p.getCpf(), p.getNome()});
-        JOptionPane.showMessageDialog(this, "Professor selecionado com sucesso!");
-        jtProfs.setModel(modeloProf);
+        if(jtCursos.getSelectedRow() != -1) {
+            Professor p = fichaProf.consultar(jcbProfs.getSelectedIndex());
+            modeloProf.addRow(new String[]{p.getCpf(), p.getNome()});
+            JOptionPane.showMessageDialog(this, "Professor selecionado com sucesso!");
+            fichaCurso.consultar(jtCursos.getSelectedRow()).setProf(p);
+            jtProfs.setModel(modeloProf);
+        }
     }//GEN-LAST:event_jbAddProfsActionPerformed
 
     private void jbRemProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemProfsActionPerformed
+        Professor p = fichaProf.consultar(jtProfs.getSelectedRow());
         modeloProf.removeRow(jtProfs.getSelectedRow());
         JOptionPane.showMessageDialog(this, "Professor removido com sucesso!");
+        fichaCurso.consultar(jtCursos.getSelectedRow()).removeProf(p);
         jtProfs.setModel(modeloProf);
     }//GEN-LAST:event_jbRemProfsActionPerformed
 

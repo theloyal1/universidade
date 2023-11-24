@@ -52,12 +52,24 @@ public class Curso {
     public void setAluno(Aluno aluno) {
         this.alunos.add(aluno);
     }
+    
+    public void removeAluno(Aluno aluno) {
+        this.alunos.remove(aluno);
+    }
 
     public ArrayList<Professor> getProfs() {
         return profs;
     }
 
-    public void setProfs(ArrayList<Professor> profs) {
+    public void setListaProfs(ArrayList<Professor> profs) {
         this.profs = profs;
+    }
+    
+    public void setProf(Professor professor) {
+        this.profs.add(professor);
+    }
+    
+    public void removeProf(Professor professor) {
+        this.profs.remove(professor);
     }
 }

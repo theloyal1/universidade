@@ -22,7 +22,7 @@ public class FichaCurso {
         cursos.get(pos).setNumDiscObg(c.getNumDiscObg());
         cursos.get(pos).setNumDiscOpc(c.getNumDiscOpc());
         cursos.get(pos).setListaAlunos(c.getAlunos());
-        cursos.get(pos).setProfs(c.getProfs());
+        cursos.get(pos).setListaProfs(c.getProfs());
     }
     
     public Curso consultar(int pos) {
