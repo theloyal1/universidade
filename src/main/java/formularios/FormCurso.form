@@ -76,9 +76,9 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
-                  <Component id="jbAddProfs" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jbAddProfs" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                   <Component id="jbRemProfs" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               </Group>
@@ -106,7 +106,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="jbAddAlunos" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
                           <Component id="jbRemAlunos" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       </Group>
@@ -182,9 +182,9 @@
                                   <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
                                   <Component id="jcbProfs" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jbAddProfs" min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Component id="jbRemProfs" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jbRemProfs" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Component id="jbAddProfs" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jScrollPane3" min="-2" pref="131" max="-2" attributes="0"/>
@@ -370,9 +370,9 @@
         <Component class="javax.swing.JButton" name="jbAddAlunos">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Yu Gothic Medium" size="11" style="1"/>
+              <Font name="Yu Gothic Medium" size="22" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="V"/>
+            <Property name="text" type="java.lang.String" value="&#x2193;"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbAddAlunosActionPerformed"/>
@@ -476,7 +476,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Yu Gothic Medium" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="^"/>
+            <Property name="text" type="java.lang.String" value="&#x2191;"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbRemAlunosActionPerformed"/>
@@ -506,9 +506,9 @@
         <Component class="javax.swing.JButton" name="jbAddProfs">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Yu Gothic Medium" size="11" style="1"/>
+              <Font name="Yu Gothic Medium" size="22" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="V"/>
+            <Property name="text" type="java.lang.String" value="&#x2193;"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbAddProfsActionPerformed"/>
@@ -519,7 +519,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Yu Gothic Medium" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="^"/>
+            <Property name="text" type="java.lang.String" value="&#x2191;"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbRemProfsActionPerformed"/>

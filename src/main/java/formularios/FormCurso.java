@@ -164,8 +164,8 @@ public class FormCurso extends javax.swing.JFrame {
         jlaNome.setForeground(new java.awt.Color(246, 248, 255));
         jlaNome.setText("Nome: ");
 
-        jbAddAlunos.setFont(new java.awt.Font("Yu Gothic Medium", 1, 11)); // NOI18N
-        jbAddAlunos.setText("V");
+        jbAddAlunos.setFont(new java.awt.Font("Yu Gothic Medium", 1, 22)); // NOI18N
+        jbAddAlunos.setText("↓");
         jbAddAlunos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbAddAlunosActionPerformed(evt);
@@ -203,7 +203,7 @@ public class FormCurso extends javax.swing.JFrame {
         jlaAddAlunos.setText("Selecionar aluno:");
 
         jbRemAlunos.setFont(new java.awt.Font("Yu Gothic Medium", 1, 24)); // NOI18N
-        jbRemAlunos.setText("^");
+        jbRemAlunos.setText("↑");
         jbRemAlunos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbRemAlunosActionPerformed(evt);
@@ -214,8 +214,8 @@ public class FormCurso extends javax.swing.JFrame {
         jlaAddProfs.setForeground(new java.awt.Color(246, 248, 255));
         jlaAddProfs.setText("Selecionar professor:");
 
-        jbAddProfs.setFont(new java.awt.Font("Yu Gothic Medium", 1, 11)); // NOI18N
-        jbAddProfs.setText("V");
+        jbAddProfs.setFont(new java.awt.Font("Yu Gothic Medium", 1, 22)); // NOI18N
+        jbAddProfs.setText("↓");
         jbAddProfs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbAddProfsActionPerformed(evt);
@@ -223,7 +223,7 @@ public class FormCurso extends javax.swing.JFrame {
         });
 
         jbRemProfs.setFont(new java.awt.Font("Yu Gothic Medium", 1, 24)); // NOI18N
-        jbRemProfs.setText("^");
+        jbRemProfs.setText("↑");
         jbRemProfs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbRemProfsActionPerformed(evt);
@@ -259,9 +259,9 @@ public class FormCurso extends javax.swing.JFrame {
                                     .addComponent(jbConsultar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jtfNumDiscOpc))))
-                .addGap(126, 126, 126)
-                .addComponent(jbAddProfs)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbAddProfs)
+                .addGap(104, 104, 104)
                 .addComponent(jbRemProfs)
                 .addGap(52, 52, 52))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -284,7 +284,7 @@ public class FormCurso extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jbAddAlunos)
-                        .addGap(141, 141, 141)
+                        .addGap(110, 110, 110)
                         .addComponent(jbRemAlunos)
                         .addGap(48, 48, 48))))
         );
@@ -342,9 +342,9 @@ public class FormCurso extends javax.swing.JFrame {
                                 .addGap(92, 92, 92)
                                 .addComponent(jcbProfs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jbAddProfs, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jbRemProfs, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jbRemProfs, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jbAddProfs, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
