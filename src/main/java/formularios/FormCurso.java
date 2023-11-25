@@ -444,6 +444,21 @@ public class FormCurso extends javax.swing.JFrame {
                     + "\nNúmero de disciplinas opcionais: " + c.getNumDiscOpc()
                     + "\nAlunos: " + c.getAlunos()
                     + "\nProfessores: " + c.getProfs());
+            jtAlunos.removeAll();
+            
+            fichaCurso.consultar(jtCursos.getSelectedRow()).getAlunos().forEach(curso -> {
+                modeloAluno.setRowCount(0);
+                jtAlunos.removeAll();
+                modeloAluno.addRow(new String[]{curso.getCpf(), curso.getNome()});
+                jtAlunos.setModel(modeloAluno);
+            });
+            
+            fichaCurso.consultar(jtCursos.getSelectedRow()).getProfs().forEach(curso -> {
+                modeloProf.setRowCount(0);
+                jtProfs.removeAll();
+                modeloProf.addRow(new String[]{curso.getCpf(), curso.getNome()});
+                jtProfs.setModel(modeloProf);
+            });
         }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
@@ -495,6 +510,13 @@ public class FormCurso extends javax.swing.JFrame {
                 modeloAluno.addRow(new String[]{curso.getCpf(), curso.getNome()});
                 jtAlunos.setModel(modeloAluno);
             });
+            
+            fichaCurso.consultar(jtCursos.getSelectedRow()).getProfs().forEach(curso -> {
+                modeloProf.setRowCount(0);
+                jtProfs.removeAll();
+                modeloProf.addRow(new String[]{curso.getCpf(), curso.getNome()});
+                jtProfs.setModel(modeloProf);
+            });
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jtCursosMouseClicked
@@ -545,13 +567,11 @@ public class FormCurso extends javax.swing.JFrame {
             }
             jtCursos.setModel(modeloCurso);
             jcbAlunos.removeAll();
-            for (Aluno a : alunos) {
+            for (Aluno a : alunos)
                 jcbAlunos.addItem(a);
-            }
             jcbProfs.removeAll();
-            for (Professor p : profs) {
+            for (Professor p : profs)
                 jcbProfs.addItem(p);
-            }
         } catch (Exception e) {
         }
     }
