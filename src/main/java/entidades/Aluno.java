@@ -1,9 +1,13 @@
 package entidades;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class Aluno extends Pessoa {
 
     private int numMatriculas, numConclusoes, numDiscDep;
-    private String dataMatricula;
+    private LocalDate dataMatricula;
+    private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public Aluno() {
     }
@@ -14,7 +18,7 @@ public class Aluno extends Pessoa {
         this.numMatriculas = numMatriculas;
         this.numConclusoes = numConclusoes;
         this.numDiscDep = numDiscDep;
-        this.dataMatricula = dataMatricula;
+        this.dataMatricula = LocalDate.parse(dataMatricula, dtf);
     }
 
     public int getNumMatriculas() {
@@ -41,11 +45,11 @@ public class Aluno extends Pessoa {
         this.numDiscDep = numDiscDep;
     }
 
-    public String getDataMatricula() {
+    public LocalDate getDataMatricula() {
         return dataMatricula;
     }
 
     public void setDataMatricula(String dataMatricula) {
-        this.dataMatricula = dataMatricula;
+        this.dataMatricula = LocalDate.parse(dataMatricula, dtf);
     }
 }

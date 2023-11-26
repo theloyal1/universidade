@@ -446,19 +446,7 @@ public class FormCurso extends javax.swing.JFrame {
                     + "\nProfessores: " + c.getProfs());
             jtAlunos.removeAll();
             
-            fichaCurso.consultar(jtCursos.getSelectedRow()).getAlunos().forEach(curso -> {
-                modeloAluno.setRowCount(0);
-                jtAlunos.removeAll();
-                modeloAluno.addRow(new String[]{curso.getCpf(), curso.getNome()});
-                jtAlunos.setModel(modeloAluno);
-            });
-            
-            fichaCurso.consultar(jtCursos.getSelectedRow()).getProfs().forEach(curso -> {
-                modeloProf.setRowCount(0);
-                jtProfs.removeAll();
-                modeloProf.addRow(new String[]{curso.getCpf(), curso.getNome()});
-                jtProfs.setModel(modeloProf);
-            });
+            atualizaTabelas();
         }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
@@ -507,20 +495,8 @@ public class FormCurso extends javax.swing.JFrame {
             jtfNome.setText(jtCursos.getModel().getValueAt(jtCursos.getSelectedRow(), 0).toString());
             jtfNumDiscObg.setText(jtCursos.getModel().getValueAt(jtCursos.getSelectedRow(), 1).toString());
             jtfNumDiscOpc.setText(jtCursos.getModel().getValueAt(jtCursos.getSelectedRow(), 2).toString());
-
-            fichaCurso.consultar(jtCursos.getSelectedRow()).getAlunos().forEach(curso -> {
-                modeloAluno.setRowCount(0);
-                jtAlunos.removeAll();
-                modeloAluno.addRow(new String[]{curso.getCpf(), curso.getNome()});
-                jtAlunos.setModel(modeloAluno);
-            });
             
-            fichaCurso.consultar(jtCursos.getSelectedRow()).getProfs().forEach(curso -> {
-                modeloProf.setRowCount(0);
-                jtProfs.removeAll();
-                modeloProf.addRow(new String[]{curso.getCpf(), curso.getNome()});
-                jtProfs.setModel(modeloProf);
-            });
+            atualizaTabelas();
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jtCursosMouseClicked
@@ -578,6 +554,36 @@ public class FormCurso extends javax.swing.JFrame {
                 jcbProfs.addItem(p);
         } catch (Exception e) {
         }
+    }
+    
+    public void atualizaTabelas() {
+        fichaCurso.consultar(jtCursos.getSelectedRow()).getAlunos().forEach(curso -> {
+            modeloAluno.setRowCount(0);
+            jtAlunos.removeAll();
+            modeloAluno.addRow(new String[]{curso.getCpf(), curso.getNome()});
+            jtAlunos.setModel(modeloAluno);
+        });
+            
+        fichaCurso.consultar(jtCursos.getSelectedRow()).getProfs().forEach(curso -> {
+            modeloProf.setRowCount(0);
+            jtProfs.removeAll();
+            modeloProf.addRow(new String[]{curso.getCpf(), curso.getNome()});
+            jtProfs.setModel(modeloProf);
+        });
+//        jtAlunos.removeAll();
+//        Iterator<Aluno> ia = fichaAluno.relatorio().iterator();
+//        while(ia.hasNext()) {
+//            Aluno aux = (Aluno)ia.next();
+//            modeloAluno.addRow(new String[]{aux.getCpf(), aux.getNome()});
+//        }
+//        jtAlunos.setModel(modeloAluno);
+//        jtProfs.removeAll();
+//        Iterator<Professor> ip = fichaProf.relatorio().iterator();
+//        while(ip.hasNext()) {
+//            Professor aux = (Professor)ip.next();
+//            modeloProf.addRow(new String[]{aux.getCpf(), aux.getNome()});
+//        }
+//        jtProfs.setModel(modeloProf);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
