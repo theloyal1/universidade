@@ -468,6 +468,7 @@ public class FormCurso extends javax.swing.JFrame {
             modeloAluno.addRow(new String[]{a.getCpf(), a.getNome()});
             JOptionPane.showMessageDialog(this, "Aluno selecionado com sucesso!");
             fichaCurso.consultar(jtCursos.getSelectedRow()).setAluno(a);
+            jcbAlunos.removeItemAt(jcbAlunos.getSelectedIndex());
             jtAlunos.setModel(modeloAluno);
         }
     }//GEN-LAST:event_jbAddAlunosActionPerformed
@@ -477,6 +478,7 @@ public class FormCurso extends javax.swing.JFrame {
         modeloAluno.removeRow(jtAlunos.getSelectedRow());
         JOptionPane.showMessageDialog(this, "Aluno removido com sucesso!");
         fichaCurso.consultar(jtCursos.getSelectedRow()).removeAluno(a);
+        jcbAlunos.addItem(a);
         jtAlunos.setModel(modeloAluno);
     }//GEN-LAST:event_jbRemAlunosActionPerformed
 
@@ -486,6 +488,7 @@ public class FormCurso extends javax.swing.JFrame {
             modeloProf.addRow(new String[]{p.getCpf(), p.getNome()});
             JOptionPane.showMessageDialog(this, "Professor selecionado com sucesso!");
             fichaCurso.consultar(jtCursos.getSelectedRow()).setProf(p);
+            jcbProfs.removeItemAt(jcbProfs.getSelectedIndex());
             jtProfs.setModel(modeloProf);
         }
     }//GEN-LAST:event_jbAddProfsActionPerformed
@@ -495,6 +498,7 @@ public class FormCurso extends javax.swing.JFrame {
         modeloProf.removeRow(jtProfs.getSelectedRow());
         JOptionPane.showMessageDialog(this, "Professor removido com sucesso!");
         fichaCurso.consultar(jtCursos.getSelectedRow()).removeProf(p);
+        jcbProfs.addItem(p);
         jtProfs.setModel(modeloProf);
     }//GEN-LAST:event_jbRemProfsActionPerformed
 
