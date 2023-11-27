@@ -557,33 +557,24 @@ public class FormCurso extends javax.swing.JFrame {
     }
     
     public void atualizaTabelas() {
-        fichaCurso.consultar(jtCursos.getSelectedRow()).getAlunos().forEach(curso -> {
-            modeloAluno.setRowCount(0);
+        try {
             jtAlunos.removeAll();
-            modeloAluno.addRow(new String[]{curso.getCpf(), curso.getNome()});
+            Curso c = new Curso();
+            Iterator<Aluno> ia = c.getAlunos().iterator();
+            while(ia.hasNext()) {
+                Aluno aux = (Aluno)ia.next();
+                modeloAluno.addRow(new String[]{aux.getCpf(), aux.getNome()});
+            }
             jtAlunos.setModel(modeloAluno);
-        });
-            
-        fichaCurso.consultar(jtCursos.getSelectedRow()).getProfs().forEach(curso -> {
-            modeloProf.setRowCount(0);
             jtProfs.removeAll();
-            modeloProf.addRow(new String[]{curso.getCpf(), curso.getNome()});
+            Iterator<Professor> ip = c.getProfs().iterator();
+            while(ip.hasNext()) {
+                Professor aux = (Professor)ip.next();
+                modeloProf.addRow(new String[]{aux.getCpf(), aux.getNome()});
+            }
             jtProfs.setModel(modeloProf);
-        });
-//        jtAlunos.removeAll();
-//        Iterator<Aluno> ia = fichaAluno.relatorio().iterator();
-//        while(ia.hasNext()) {
-//            Aluno aux = (Aluno)ia.next();
-//            modeloAluno.addRow(new String[]{aux.getCpf(), aux.getNome()});
-//        }
-//        jtAlunos.setModel(modeloAluno);
-//        jtProfs.removeAll();
-//        Iterator<Professor> ip = fichaProf.relatorio().iterator();
-//        while(ip.hasNext()) {
-//            Professor aux = (Professor)ip.next();
-//            modeloProf.addRow(new String[]{aux.getCpf(), aux.getNome()});
-//        }
-//        jtProfs.setModel(modeloProf);
+        } catch (Exception e) {
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
