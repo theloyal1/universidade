@@ -10,6 +10,8 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 public class FormCurso extends javax.swing.JFrame {
@@ -501,6 +503,8 @@ public class FormCurso extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jtCursosMouseClicked
 
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -558,14 +562,20 @@ public class FormCurso extends javax.swing.JFrame {
     
     public void atualizaTabelas() {
         try {
-            jtAlunos.removeAll();
-            Curso c = new Curso();
+            modeloAluno.setRowCount(0);
+            Curso c = fichaCurso.consultar(jtCursos.getSelectedRow());
             Iterator<Aluno> ia = c.getAlunos().iterator();
             while(ia.hasNext()) {
                 Aluno aux = (Aluno)ia.next();
                 modeloAluno.addRow(new String[]{aux.getCpf(), aux.getNome()});
             }
             jtAlunos.setModel(modeloAluno);
+            modeloAluno.fireTableDataChanged();
+            jtAlunos.setModel(modeloAluno);
+        } catch (Exception e) {
+        }
+        try {
+            Curso c = new Curso();
             jtProfs.removeAll();
             Iterator<Professor> ip = c.getProfs().iterator();
             while(ip.hasNext()) {
