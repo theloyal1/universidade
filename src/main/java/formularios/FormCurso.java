@@ -503,8 +503,6 @@ public class FormCurso extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jtCursosMouseClicked
 
-    
-    
     /**
      * @param args the command line arguments
      */
