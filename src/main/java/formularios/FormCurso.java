@@ -80,6 +80,7 @@ public class FormCurso extends javax.swing.JFrame {
         jbRemProfs = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cursos");
 
         jPanel1.setBackground(new java.awt.Color(111, 156, 235));
 

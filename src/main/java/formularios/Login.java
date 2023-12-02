@@ -21,6 +21,7 @@ public class Login extends javax.swing.JFrame {
         jpfSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
 
         jPanel1.setBackground(new java.awt.Color(111, 156, 235));
 

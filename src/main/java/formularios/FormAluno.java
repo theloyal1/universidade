@@ -60,6 +60,7 @@ public class FormAluno extends javax.swing.JFrame {
         jtfTelefone = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Alunos");
 
         jPanel1.setBackground(new java.awt.Color(111, 156, 235));
         jPanel1.setForeground(new java.awt.Color(111, 156, 235));
