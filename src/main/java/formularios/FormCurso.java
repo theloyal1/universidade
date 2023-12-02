@@ -39,7 +39,7 @@ public class FormCurso extends javax.swing.JFrame {
         modeloProf = new DefaultTableModel(titProfs, 0);
         jtProfs.setModel(modeloProf);
         profs = fichaProf.relatorio();
-        jbSair.setBackground(Color.red);
+        jbVoltar.setBackground(Color.red);
         preencheDados();
     }
 
@@ -53,7 +53,7 @@ public class FormCurso extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jlaCursos = new javax.swing.JLabel();
-        jbSair = new javax.swing.JButton();
+        jbVoltar = new javax.swing.JButton();
         jlaNumDiscObg = new javax.swing.JLabel();
         jtfNumDiscObg = new javax.swing.JTextField();
         jlaNumDiscOpc = new javax.swing.JLabel();
@@ -87,12 +87,12 @@ public class FormCurso extends javax.swing.JFrame {
         jlaCursos.setFont(new java.awt.Font("Times New Roman", 2, 48)); // NOI18N
         jlaCursos.setText("Cursos");
 
-        jbSair.setBackground(new java.awt.Color(0, 0, 0));
-        jbSair.setFont(new java.awt.Font("Yu Gothic Medium", 1, 11)); // NOI18N
-        jbSair.setText("Sair");
-        jbSair.addActionListener(new java.awt.event.ActionListener() {
+        jbVoltar.setBackground(new java.awt.Color(0, 0, 0));
+        jbVoltar.setFont(new java.awt.Font("Yu Gothic Medium", 1, 11)); // NOI18N
+        jbVoltar.setText("Voltar");
+        jbVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbSairActionPerformed(evt);
+                jbVoltarActionPerformed(evt);
             }
         });
 
@@ -282,7 +282,7 @@ public class FormCurso extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jlaCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(224, 224, 224)
-                                .addComponent(jbSair)))
+                                .addComponent(jbVoltar)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -297,7 +297,7 @@ public class FormCurso extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(13, 13, 13)
-                        .addComponent(jbSair)
+                        .addComponent(jbVoltar)
                         .addGap(29, 29, 29))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
@@ -368,14 +368,14 @@ public class FormCurso extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
-        int res = JOptionPane.showConfirmDialog(this, "Tem certeza de que queira sair?",
-                "Sair", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+    private void jbVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVoltarActionPerformed
+        int res = JOptionPane.showConfirmDialog(this, "Tem certeza de que queira voltar para o menu principal?",
+                "Voltar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (res == JOptionPane.YES_OPTION) {
             setVisible(false);
             this.dispose();
         }
-    }//GEN-LAST:event_jbSairActionPerformed
+    }//GEN-LAST:event_jbVoltarActionPerformed
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         Curso c = new Curso();
@@ -616,7 +616,7 @@ public class FormCurso extends javax.swing.JFrame {
     private javax.swing.JButton jbExcluir;
     private javax.swing.JButton jbRemAlunos;
     private javax.swing.JButton jbRemProfs;
-    private javax.swing.JButton jbSair;
+    private javax.swing.JButton jbVoltar;
     private javax.swing.JComboBox<Aluno> jcbAlunos;
     private javax.swing.JComboBox<Professor> jcbProfs;
     private javax.swing.JLabel jlaAddAlunos;

@@ -18,7 +18,7 @@ public class FormProf extends javax.swing.JFrame {
         String[] titulos = {"CPF", "Nome", "Email", "Endereço", "Telefone", "Espec."};
         modelo = new DefaultTableModel(titulos, 0);
         jtProfs.setModel(modelo);
-        jbSair.setBackground(Color.red);
+        jbVoltar.setBackground(Color.red);
         preencheDados();
     }
 
@@ -32,7 +32,7 @@ public class FormProf extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jlaProfs = new javax.swing.JLabel();
-        jbSair = new javax.swing.JButton();
+        jbVoltar = new javax.swing.JButton();
         jlaCpf = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jtfNome = new javax.swing.JTextField();
@@ -63,12 +63,12 @@ public class FormProf extends javax.swing.JFrame {
         jlaProfs.setForeground(new java.awt.Color(20, 27, 65));
         jlaProfs.setText("Professores");
 
-        jbSair.setBackground(new java.awt.Color(0, 0, 0));
-        jbSair.setFont(new java.awt.Font("Yu Gothic Medium", 1, 11)); // NOI18N
-        jbSair.setText("Sair");
-        jbSair.addActionListener(new java.awt.event.ActionListener() {
+        jbVoltar.setBackground(new java.awt.Color(0, 0, 0));
+        jbVoltar.setFont(new java.awt.Font("Yu Gothic Medium", 1, 11)); // NOI18N
+        jbVoltar.setText("Voltar");
+        jbVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbSairActionPerformed(evt);
+                jbVoltarActionPerformed(evt);
             }
         });
 
@@ -172,7 +172,7 @@ public class FormProf extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jlaProfs)
                 .addGap(134, 134, 134)
-                .addComponent(jbSair)
+                .addComponent(jbVoltar)
                 .addGap(21, 21, 21))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
@@ -230,7 +230,7 @@ public class FormProf extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(jbSair)
+                        .addComponent(jbVoltar)
                         .addGap(28, 28, 28))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
@@ -280,14 +280,14 @@ public class FormProf extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
-        int res = JOptionPane.showConfirmDialog(this, "Tem certeza de que queira sair?",
-                "Sair", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+    private void jbVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVoltarActionPerformed
+        int res = JOptionPane.showConfirmDialog(this, "Tem certeza de que queira voltar para o menu principal?",
+                "Voltar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (res == JOptionPane.YES_OPTION) {
             setVisible(false);
             this.dispose();
         }
-    }//GEN-LAST:event_jbSairActionPerformed
+    }//GEN-LAST:event_jbVoltarActionPerformed
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         Professor p = new Professor();
@@ -450,7 +450,7 @@ public class FormProf extends javax.swing.JFrame {
     private javax.swing.JButton jbCadastrar;
     private javax.swing.JButton jbConsultar;
     private javax.swing.JButton jbExcluir;
-    private javax.swing.JButton jbSair;
+    private javax.swing.JButton jbVoltar;
     private javax.swing.JLabel jlaCpf;
     private javax.swing.JLabel jlaEmail;
     private javax.swing.JLabel jlaEndereco;

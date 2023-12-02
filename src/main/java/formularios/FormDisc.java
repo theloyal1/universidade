@@ -17,7 +17,7 @@ public class FormDisc extends javax.swing.JFrame {
         String titulos[] = {"Nome", "Aluno", "Prof.", "Mat.", "Nota", "Ano", "Sem.", "Freq.", "Aprov."};
         modelo = new DefaultTableModel(titulos, 0);
         jtDisc.setModel(modelo);
-        jbSair.setBackground(Color.red);
+        jbVoltar.setBackground(Color.red);
     }
 
     @SuppressWarnings("unchecked")
@@ -27,7 +27,7 @@ public class FormDisc extends javax.swing.JFrame {
         btnGrpAprov = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jlaDisc = new javax.swing.JLabel();
-        jbSair = new javax.swing.JButton();
+        jbVoltar = new javax.swing.JButton();
         jlaAluno = new javax.swing.JLabel();
         jtfAluno = new javax.swing.JTextField();
         jlaProf = new javax.swing.JLabel();
@@ -61,12 +61,12 @@ public class FormDisc extends javax.swing.JFrame {
         jlaDisc.setFont(new java.awt.Font("Times New Roman", 2, 48)); // NOI18N
         jlaDisc.setText("Disciplinas");
 
-        jbSair.setBackground(new java.awt.Color(0, 0, 0));
-        jbSair.setFont(new java.awt.Font("Yu Gothic Medium", 1, 11)); // NOI18N
-        jbSair.setText("Sair");
-        jbSair.addActionListener(new java.awt.event.ActionListener() {
+        jbVoltar.setBackground(new java.awt.Color(0, 0, 0));
+        jbVoltar.setFont(new java.awt.Font("Yu Gothic Medium", 1, 11)); // NOI18N
+        jbVoltar.setText("Voltar");
+        jbVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbSairActionPerformed(evt);
+                jbVoltarActionPerformed(evt);
             }
         });
 
@@ -192,7 +192,7 @@ public class FormDisc extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jlaDisc)
                             .addGap(237, 237, 237)
-                            .addComponent(jbSair)))
+                            .addComponent(jbVoltar)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -237,7 +237,7 @@ public class FormDisc extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbSair)
+                    .addComponent(jbVoltar)
                     .addComponent(jlaDisc))
                 .addGap(9, 9, 9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -290,14 +290,14 @@ public class FormDisc extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
-        int res = JOptionPane.showConfirmDialog(this, "Tem certeza de que queira sair?",
-                "Sair", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+    private void jbVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVoltarActionPerformed
+        int res = JOptionPane.showConfirmDialog(this, "Tem certeza de que queira voltar para o menu principal?",
+                "Voltar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (res == JOptionPane.YES_OPTION) {
             setVisible(false);
             this.dispose();
         }
-    }//GEN-LAST:event_jbSairActionPerformed
+    }//GEN-LAST:event_jbVoltarActionPerformed
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         Disciplina d = new Disciplina();
@@ -471,7 +471,7 @@ public class FormDisc extends javax.swing.JFrame {
     private javax.swing.JButton jbCadastrar;
     private javax.swing.JButton jbConsultar;
     private javax.swing.JButton jbExcluir;
-    private javax.swing.JButton jbSair;
+    private javax.swing.JButton jbVoltar;
     private javax.swing.JLabel jlaAluno;
     private javax.swing.JLabel jlaAno;
     private javax.swing.JLabel jlaAprov;

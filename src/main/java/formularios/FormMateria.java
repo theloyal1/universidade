@@ -17,7 +17,7 @@ public class FormMateria extends javax.swing.JFrame {
         String[] titulos = {"Nome", "Ementa", "Pré-req.", "Profs.", "Carga hor."};
         modelo = new DefaultTableModel(titulos, 0);
         jtMats.setModel(modelo);
-        jbSair.setBackground(Color.RED);
+        jbVoltar.setBackground(Color.RED);
     }
 
     @SuppressWarnings("unchecked")
@@ -27,7 +27,7 @@ public class FormMateria extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jlaMateria = new javax.swing.JLabel();
         jlaNome = new javax.swing.JLabel();
-        jbSair = new javax.swing.JButton();
+        jbVoltar = new javax.swing.JButton();
         jtfNome = new javax.swing.JTextField();
         jlaProfs = new javax.swing.JLabel();
         jtfProfs = new javax.swing.JTextField();
@@ -57,12 +57,12 @@ public class FormMateria extends javax.swing.JFrame {
         jlaNome.setForeground(new java.awt.Color(246, 248, 255));
         jlaNome.setText("Nome: ");
 
-        jbSair.setBackground(new java.awt.Color(0, 0, 0));
-        jbSair.setFont(new java.awt.Font("Yu Gothic Medium", 1, 11)); // NOI18N
-        jbSair.setText("Sair");
-        jbSair.addActionListener(new java.awt.event.ActionListener() {
+        jbVoltar.setBackground(new java.awt.Color(0, 0, 0));
+        jbVoltar.setFont(new java.awt.Font("Yu Gothic Medium", 1, 11)); // NOI18N
+        jbVoltar.setText("Voltar");
+        jbVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbSairActionPerformed(evt);
+                jbVoltarActionPerformed(evt);
             }
         });
 
@@ -153,7 +153,7 @@ public class FormMateria extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jlaMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(233, 233, 233)
-                        .addComponent(jbSair))
+                        .addComponent(jbVoltar))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -196,7 +196,7 @@ public class FormMateria extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlaMateria)
-                    .addComponent(jbSair))
+                    .addComponent(jbVoltar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlaNome)
@@ -250,13 +250,13 @@ public class FormMateria extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
-        int res = JOptionPane.showConfirmDialog(this, "Tem certeza de que queira sair?",
-                "Sair", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+    private void jbVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVoltarActionPerformed
+        int res = JOptionPane.showConfirmDialog(this, "Tem certeza de que queira voltar para o menu principal?",
+                "Voltar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (res == JOptionPane.YES_OPTION) {
             setVisible(false);
             this.dispose();        }
-    }//GEN-LAST:event_jbSairActionPerformed
+    }//GEN-LAST:event_jbVoltarActionPerformed
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         Materia m = new Materia();
@@ -400,7 +400,7 @@ public class FormMateria extends javax.swing.JFrame {
     private javax.swing.JButton jbCadastrar;
     private javax.swing.JButton jbConsultar;
     private javax.swing.JButton jbExcluir;
-    private javax.swing.JButton jbSair;
+    private javax.swing.JButton jbVoltar;
     private javax.swing.JLabel jlaCargaHor;
     private javax.swing.JLabel jlaEmenta;
     private javax.swing.JLabel jlaMateria;

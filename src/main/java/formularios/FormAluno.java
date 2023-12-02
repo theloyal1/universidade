@@ -19,7 +19,7 @@ public class FormAluno extends javax.swing.JFrame {
             "Nº de conc.", "Nº de dep.", "Data da mat."};
         modelo = new DefaultTableModel(titulos, 0);
         jtAlunos.setModel(modelo);
-        jbSair.setBackground(Color.red);
+        jbVoltar.setBackground(Color.red);
         preencheDados();
     }
 
@@ -54,7 +54,7 @@ public class FormAluno extends javax.swing.JFrame {
         jbConsultar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtAlunos = new javax.swing.JTable();
-        jbSair = new javax.swing.JButton();
+        jbVoltar = new javax.swing.JButton();
         jtfDataMat = new javax.swing.JFormattedTextField();
         jtfCpf = new javax.swing.JFormattedTextField();
         jtfTelefone = new javax.swing.JFormattedTextField();
@@ -162,12 +162,12 @@ public class FormAluno extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jtAlunos);
 
-        jbSair.setBackground(new java.awt.Color(0, 0, 0));
-        jbSair.setFont(new java.awt.Font("Yu Gothic Medium", 1, 11)); // NOI18N
-        jbSair.setText("Sair");
-        jbSair.addActionListener(new java.awt.event.ActionListener() {
+        jbVoltar.setBackground(new java.awt.Color(0, 0, 0));
+        jbVoltar.setFont(new java.awt.Font("Yu Gothic Medium", 1, 11)); // NOI18N
+        jbVoltar.setText("Voltar");
+        jbVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbSairActionPerformed(evt);
+                jbVoltarActionPerformed(evt);
             }
         });
 
@@ -253,7 +253,7 @@ public class FormAluno extends javax.swing.JFrame {
                             .addGap(273, 273, 273)
                             .addComponent(jlaAlunos)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jbSair))))
+                            .addComponent(jbVoltar))))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -265,7 +265,7 @@ public class FormAluno extends javax.swing.JFrame {
                         .addComponent(jlaAlunos))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(jbSair)))
+                        .addComponent(jbVoltar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlaCpf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -341,14 +341,14 @@ public class FormAluno extends javax.swing.JFrame {
         jtAlunos.setModel(modelo);
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
-    private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
-        int res = JOptionPane.showConfirmDialog(this, "Tem certeza de que queira sair?",
-                "Sair", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+    private void jbVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVoltarActionPerformed
+        int res = JOptionPane.showConfirmDialog(this, "Tem certeza de que queira voltar para o menu principal?",
+                "Voltar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (res == JOptionPane.YES_OPTION) {
             setVisible(false);
             this.dispose();
         }
-    }//GEN-LAST:event_jbSairActionPerformed
+    }//GEN-LAST:event_jbVoltarActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
         if (fichaAluno.isEmpty())
@@ -508,7 +508,7 @@ public class FormAluno extends javax.swing.JFrame {
     private javax.swing.JButton jbCadastrar;
     private javax.swing.JButton jbConsultar;
     private javax.swing.JButton jbExcluir;
-    private javax.swing.JButton jbSair;
+    private javax.swing.JButton jbVoltar;
     private javax.swing.JLabel jlaAlunos;
     private javax.swing.JLabel jlaCpf;
     private javax.swing.JLabel jlaDataMat;

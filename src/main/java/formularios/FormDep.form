@@ -49,7 +49,7 @@
                       <Group type="102" attributes="0">
                           <Component id="jlaDep" min="-2" pref="305" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
-                          <Component id="jbSair" min="-2" max="-2" attributes="0"/>
+                          <Component id="jbVoltar" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -102,7 +102,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jbSair" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbVoltar" min="-2" max="-2" attributes="0"/>
                       <Component id="jlaDep" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
@@ -154,7 +154,7 @@
             <Property name="text" type="java.lang.String" value="Departamentos"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jbSair">
+        <Component class="javax.swing.JButton" name="jbVoltar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
@@ -162,10 +162,10 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Yu Gothic Medium" size="11" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Sair"/>
+            <Property name="text" type="java.lang.String" value="Voltar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbSairActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbVoltarActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jlaCodigo">
