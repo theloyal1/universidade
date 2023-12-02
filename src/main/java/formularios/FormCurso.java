@@ -33,8 +33,8 @@ public class FormCurso extends javax.swing.JFrame {
         jtCursos.setModel(modeloCurso);
         String[] titAlunos = {"CPF", "Aluno"};
         modeloAluno = new DefaultTableModel(titAlunos, 0);
-        jtAlunos.setModel(modeloAluno);
         alunos = fichaAluno.relatorio();
+        jtAlunos.setModel(modeloAluno);
         String[] titProfs = {"CPF", "Professor"};
         modeloProf = new DefaultTableModel(titProfs, 0);
         jtProfs.setModel(modeloProf);
@@ -469,11 +469,12 @@ public class FormCurso extends javax.swing.JFrame {
     private void jbAddAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddAlunosActionPerformed
         if (jtCursos.getSelectedRow() != -1) {
             Aluno a = fichaAluno.consultar(jcbAlunos.getSelectedIndex());
-            modeloAluno.addRow(new String[]{a.getCpf(), a.getNome()});
+            //modeloAluno.addRow(new String[]{a.getCpf(), a.getNome()});
             JOptionPane.showMessageDialog(this, "Aluno selecionado com sucesso!");
             fichaCurso.consultar(jtCursos.getSelectedRow()).setAluno(a);
             jcbAlunos.removeItemAt(jcbAlunos.getSelectedIndex());
-            jtAlunos.setModel(modeloAluno);
+            atualizaTabelas();
+//   jtAlunos.setModel(modeloAluno);
         }
     }//GEN-LAST:event_jbAddAlunosActionPerformed
 
@@ -483,7 +484,8 @@ public class FormCurso extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Aluno removido com sucesso!");
         fichaCurso.consultar(jtCursos.getSelectedRow()).removeAluno(a);
         jcbAlunos.addItem(a);
-        jtAlunos.setModel(modeloAluno);
+        atualizaTabelas();
+       // jtAlunos.setModel(modeloAluno);
     }//GEN-LAST:event_jbRemAlunosActionPerformed
 
     private void jbAddProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddProfsActionPerformed
@@ -574,25 +576,29 @@ public class FormCurso extends javax.swing.JFrame {
     
     public void atualizaTabelas() {
         try {
-            jtAlunos.removeAll();
-            Curso c = new Curso();
-            Iterator<Aluno> ia = c.getAlunos().iterator();
+            jtAlunos.setModel(null);
+            //Curso c = new Curso();
+            DefaultTableModel modAluno = new DefaultTableModel();
+            Iterator<Aluno> ia = fichaCurso.consultar(jtCursos.getSelectedRow()).getAlunos().iterator();
             while(ia.hasNext()) {
                 Aluno aux = (Aluno)ia.next();
-                modeloAluno.addRow(new String[]{aux.getCpf(), aux.getNome()});
+                modAluno.addRow(new String[]{aux.getCpf(), aux.getNome()});
             }
-            jtAlunos.setModel(modeloAluno);
+            modAluno.fireTableDataChanged();
+            jtAlunos.setModel(modAluno);
         } catch (Exception e) {
         }
         try {
-            jtProfs.removeAll();
-            Curso c = new Curso();
-            Iterator<Professor> ip = c.getProfs().iterator();
+            jtProfs.setModel(null);
+            //Curso c = new Curso();
+            DefaultTableModel modProf = new DefaultTableModel();
+            Iterator<Professor> ip = fichaCurso.consultar(jtCursos.getSelectedRow()).getProfs().iterator();
             while(ip.hasNext()) {
                 Professor aux = (Professor)ip.next();
-                modeloProf.addRow(new String[]{aux.getCpf(), aux.getNome()});
+                modProf.addRow(new String[]{aux.getCpf(), aux.getNome()});
             }
-            jtProfs.setModel(modeloProf);
+            jtProfs.setModel(modProf);
+            modProf.fireTableDataChanged();
         } catch (Exception e) {
         }
     }
