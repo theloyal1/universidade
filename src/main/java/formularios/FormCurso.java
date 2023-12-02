@@ -400,6 +400,19 @@ public class FormCurso extends javax.swing.JFrame {
             int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
                     "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
+                Curso c = new Curso();
+                Iterator<Aluno> ia = c.getAlunos().iterator();
+                while(ia.hasNext()) {
+                    Aluno aux = (Aluno)ia.next();
+                    jcbAlunos.addItem(aux);
+                }
+                jtAlunos.removeAll();
+                Iterator<Professor> ip = c.getProfs().iterator();
+                while(ip.hasNext()) {
+                    Professor aux = (Professor)ip.next();
+                    jcbProfs.addItem(aux);
+                }
+                jtProfs.removeAll();
                 fichaCurso.excluir(jtCursos.getSelectedRow());
                 modeloCurso.removeRow(jtCursos.getSelectedRow());
                 JOptionPane.showMessageDialog(this, "Curso excluído com sucesso!");
@@ -560,21 +573,19 @@ public class FormCurso extends javax.swing.JFrame {
     
     public void atualizaTabelas() {
         try {
-            modeloAluno.setRowCount(0);
-            Curso c = fichaCurso.consultar(jtCursos.getSelectedRow());
+            jtAlunos.removeAll();
+            Curso c = new Curso();
             Iterator<Aluno> ia = c.getAlunos().iterator();
             while(ia.hasNext()) {
                 Aluno aux = (Aluno)ia.next();
                 modeloAluno.addRow(new String[]{aux.getCpf(), aux.getNome()});
             }
             jtAlunos.setModel(modeloAluno);
-            modeloAluno.fireTableDataChanged();
-            jtAlunos.setModel(modeloAluno);
         } catch (Exception e) {
         }
         try {
-            Curso c = new Curso();
             jtProfs.removeAll();
+            Curso c = new Curso();
             Iterator<Professor> ip = c.getProfs().iterator();
             while(ip.hasNext()) {
                 Professor aux = (Professor)ip.next();
