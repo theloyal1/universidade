@@ -1,0 +1,1 @@
+Foi sugerido que o problema provavelmente está no método jbAddAlunosActionPerformed. O correto deveria ser: depurar e acompanhar linha a linha para saber o que está acontecendo, pois depuramos o atualizaTabelas() e aparentemente está tudo certo.
