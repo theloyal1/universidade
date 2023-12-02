@@ -26,7 +26,6 @@ public class FormPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jlaLogo = new javax.swing.JLabel();
-        jlaIcone = new javax.swing.JLabel();
         jbSair = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmCadastros = new javax.swing.JMenu();
@@ -48,9 +47,7 @@ public class FormPrincipal extends javax.swing.JFrame {
 
         jlaLogo.setFont(new java.awt.Font("Times New Roman", 2, 48)); // NOI18N
         jlaLogo.setForeground(new java.awt.Color(20, 27, 65));
-        jlaLogo.setText("UniFed");
-
-        jlaIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icone.png"))); // NOI18N
+        jlaLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo.png"))); // NOI18N
 
         jbSair.setBackground(new java.awt.Color(0, 0, 0));
         jbSair.setFont(new java.awt.Font("Yu Gothic Medium", 1, 11)); // NOI18N
@@ -66,27 +63,23 @@ public class FormPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(266, 266, 266)
-                .addComponent(jlaIcone, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jlaLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
-                .addComponent(jbSair)
-                .addContainerGap())
+                .addContainerGap(243, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jbSair)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jlaLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(233, 233, 233))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jbSair)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jlaIcone, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlaLogo))
-                        .addContainerGap(354, Short.MAX_VALUE))))
+                .addComponent(jbSair)
+                .addGap(18, 18, 18)
+                .addComponent(jlaLogo)
+                .addGap(0, 78, Short.MAX_VALUE))
         );
 
         jmCadastros.setText("Cadastros");
@@ -265,7 +258,6 @@ public class FormPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbSair;
-    private javax.swing.JLabel jlaIcone;
     private javax.swing.JLabel jlaLogo;
     private javax.swing.JMenu jmCadastros;
     private javax.swing.JMenuItem jmiAluno;
