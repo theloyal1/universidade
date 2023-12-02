@@ -25,6 +25,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(111, 156, 235));
 
         jlaLogo.setFont(new java.awt.Font("Times New Roman", 2, 48)); // NOI18N
+        jlaLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlaLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logologin.png"))); // NOI18N
 
         jlaEmail.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N

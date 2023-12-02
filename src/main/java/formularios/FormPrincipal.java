@@ -47,6 +47,7 @@ public class FormPrincipal extends javax.swing.JFrame {
 
         jlaLogo.setFont(new java.awt.Font("Times New Roman", 2, 48)); // NOI18N
         jlaLogo.setForeground(new java.awt.Color(20, 27, 65));
+        jlaLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlaLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo.png"))); // NOI18N
 
         jbSair.setBackground(new java.awt.Color(0, 0, 0));
