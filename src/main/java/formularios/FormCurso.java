@@ -473,8 +473,8 @@ public class FormCurso extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Aluno selecionado com sucesso!");
             fichaCurso.consultar(jtCursos.getSelectedRow()).setAluno(a);
             jcbAlunos.removeItemAt(jcbAlunos.getSelectedIndex());
-            atualizaTabelas();
-//   jtAlunos.setModel(modeloAluno);
+//            atualizaTabelas();
+            jtAlunos.setModel(modeloAluno);
         }
     }//GEN-LAST:event_jbAddAlunosActionPerformed
 
@@ -485,7 +485,7 @@ public class FormCurso extends javax.swing.JFrame {
         fichaCurso.consultar(jtCursos.getSelectedRow()).removeAluno(a);
         jcbAlunos.addItem(a);
 //        atualizaTabelas();
-       // jtAlunos.setModel(modeloAluno);
+//        jtAlunos.setModel(modeloAluno);
     }//GEN-LAST:event_jbRemAlunosActionPerformed
 
     private void jbAddProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddProfsActionPerformed
@@ -495,7 +495,7 @@ public class FormCurso extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Professor selecionado com sucesso!");
             fichaCurso.consultar(jtCursos.getSelectedRow()).setProf(p);
             jcbProfs.removeItemAt(jcbProfs.getSelectedIndex());
-//            jtProfs.setModel(modeloProf);
+            jtProfs.setModel(modeloProf);
         }
     }//GEN-LAST:event_jbAddProfsActionPerformed
 
@@ -576,29 +576,27 @@ public class FormCurso extends javax.swing.JFrame {
     
     public void atualizaTabelas() {
         try {
-//            jtAlunos.setModel(null);
-            //Curso c = new Curso();
-            DefaultTableModel modAluno = new DefaultTableModel();
+            modeloAluno.setNumRows(0);
+//            DefaultTableModel modAluno = new DefaultTableModel();
             Iterator<Aluno> ia = fichaCurso.consultar(jtCursos.getSelectedRow()).getAlunos().iterator();
             while(ia.hasNext()) {
                 Aluno aux = (Aluno)ia.next();
-                modAluno.addRow(new String[]{aux.getCpf(), aux.getNome()});
+                modeloAluno.addRow(new String[]{aux.getCpf(), aux.getNome()});
             }
-            modAluno.fireTableDataChanged();
-            jtAlunos.setModel(modAluno);
+            modeloAluno.fireTableDataChanged();
+            jtAlunos.setModel(modeloAluno);
         } catch (Exception e) {
         }
         try {
-//            jtProfs.setModel(null);
-            //Curso c = new Curso();
-            DefaultTableModel modProf = new DefaultTableModel();
+            modeloProf.setNumRows(0);
+//            DefaultTableModel modProf = new DefaultTableModel();
             Iterator<Professor> ip = fichaCurso.consultar(jtCursos.getSelectedRow()).getProfs().iterator();
             while(ip.hasNext()) {
                 Professor aux = (Professor)ip.next();
-                modProf.addRow(new String[]{aux.getCpf(), aux.getNome()});
+                modeloProf.addRow(new String[]{aux.getCpf(), aux.getNome()});
             }
-            jtProfs.setModel(modProf);
-            modProf.fireTableDataChanged();
+            modeloProf.fireTableDataChanged();
+            jtProfs.setModel(modeloProf);
         } catch (Exception e) {
         }
     }
