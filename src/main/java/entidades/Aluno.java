@@ -1,14 +1,14 @@
 package entidades;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+//import java.time.LocalDate;
+//import java.time.format.DateTimeFormatter;
 
 public class Aluno extends Pessoa {
 
     private int numMatriculas, numConclusoes, numDiscDep;
-    private LocalDate dataMatricula;
-    private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-//    private String dataMatricula;
+//    private LocalDate dataMatricula;
+//    private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private String dataMatricula;
 
     public Aluno() {
     }
@@ -19,8 +19,8 @@ public class Aluno extends Pessoa {
         this.numMatriculas = numMatriculas;
         this.numConclusoes = numConclusoes;
         this.numDiscDep = numDiscDep;
-        this.dataMatricula = LocalDate.parse(dataMatricula, dtf);
-//        this.dataMatricula = dataMatricula;
+//        this.dataMatricula = LocalDate.parse(dataMatricula, dtf);;
+        this.dataMatricula = dataMatricula;
     }
 
     public int getNumMatriculas() {
@@ -47,16 +47,16 @@ public class Aluno extends Pessoa {
         this.numDiscDep = numDiscDep;
     }
 
-    public LocalDate getDataMatricula() {
-        return dataMatricula;
-    }
-//    
-//    public String getDataMatricula() {
+//    public LocalDate getDataMatricula() {
 //        return dataMatricula;
 //    }
+//    
+    public String getDataMatricula() {
+        return dataMatricula;
+    }
     
     public void setDataMatricula(String dataMatricula) {
-        this.dataMatricula = LocalDate.parse(dataMatricula, dtf);
-//        this.dataMatricula = dataMatricula;
+//        this.dataMatricula = LocalDate.parse(dataMatricula, dtf);
+        this.dataMatricula = dataMatricula;
     }
 }

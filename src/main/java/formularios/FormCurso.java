@@ -469,7 +469,7 @@ public class FormCurso extends javax.swing.JFrame {
     private void jbAddAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddAlunosActionPerformed
         if (jtCursos.getSelectedRow() != -1) {
             Aluno a = fichaAluno.consultar(jcbAlunos.getSelectedIndex());
-            //modeloAluno.addRow(new String[]{a.getCpf(), a.getNome()});
+            modeloAluno.addRow(new String[]{a.getCpf(), a.getNome()});
             JOptionPane.showMessageDialog(this, "Aluno selecionado com sucesso!");
             fichaCurso.consultar(jtCursos.getSelectedRow()).setAluno(a);
             jcbAlunos.removeItemAt(jcbAlunos.getSelectedIndex());
@@ -484,7 +484,7 @@ public class FormCurso extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Aluno removido com sucesso!");
         fichaCurso.consultar(jtCursos.getSelectedRow()).removeAluno(a);
         jcbAlunos.addItem(a);
-        atualizaTabelas();
+//        atualizaTabelas();
        // jtAlunos.setModel(modeloAluno);
     }//GEN-LAST:event_jbRemAlunosActionPerformed
 
@@ -495,7 +495,7 @@ public class FormCurso extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Professor selecionado com sucesso!");
             fichaCurso.consultar(jtCursos.getSelectedRow()).setProf(p);
             jcbProfs.removeItemAt(jcbProfs.getSelectedIndex());
-            jtProfs.setModel(modeloProf);
+//            jtProfs.setModel(modeloProf);
         }
     }//GEN-LAST:event_jbAddProfsActionPerformed
 
@@ -505,7 +505,7 @@ public class FormCurso extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Professor removido com sucesso!");
         fichaCurso.consultar(jtCursos.getSelectedRow()).removeProf(p);
         jcbProfs.addItem(p);
-        jtProfs.setModel(modeloProf);
+//        jtProfs.setModel(modeloProf);
     }//GEN-LAST:event_jbRemProfsActionPerformed
 
     private void jtCursosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtCursosMouseClicked
@@ -576,7 +576,7 @@ public class FormCurso extends javax.swing.JFrame {
     
     public void atualizaTabelas() {
         try {
-            jtAlunos.setModel(null);
+//            jtAlunos.setModel(null);
             //Curso c = new Curso();
             DefaultTableModel modAluno = new DefaultTableModel();
             Iterator<Aluno> ia = fichaCurso.consultar(jtCursos.getSelectedRow()).getAlunos().iterator();
@@ -589,7 +589,7 @@ public class FormCurso extends javax.swing.JFrame {
         } catch (Exception e) {
         }
         try {
-            jtProfs.setModel(null);
+//            jtProfs.setModel(null);
             //Curso c = new Curso();
             DefaultTableModel modProf = new DefaultTableModel();
             Iterator<Professor> ip = fichaCurso.consultar(jtCursos.getSelectedRow()).getProfs().iterator();
