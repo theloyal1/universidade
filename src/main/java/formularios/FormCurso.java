@@ -403,19 +403,19 @@ public class FormCurso extends javax.swing.JFrame {
             int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
                     "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
-//                Curso c = new Curso();
-//                Iterator<Aluno> ia = c.getAlunos().iterator();
-//                while(ia.hasNext()) {
-//                    Aluno aux = (Aluno)ia.next();
-//                    jcbAlunos.addItem(aux);
-//                }
-//                jtAlunos.removeAll();
-//                Iterator<Professor> ip = c.getProfs().iterator();
-//                while(ip.hasNext()) {
-//                    Professor aux = (Professor)ip.next();
-//                    jcbProfs.addItem(aux);
-//                }
-//                jtProfs.removeAll();
+                Curso c = fichaCurso.consultar(jtCursos.getSelectedRow());
+                Iterator<Aluno> ia = c.getAlunos().iterator();
+                while(ia.hasNext()) {
+                    Aluno aux = (Aluno)ia.next();
+                    jcbAlunos.addItem(aux);
+                }
+                modeloAluno.setRowCount(0);
+                Iterator<Professor> ip = c.getProfs().iterator();
+                while(ip.hasNext()) {
+                    Professor aux = (Professor)ip.next();
+                    jcbProfs.addItem(aux);
+                }
+                modeloProf.setRowCount(0);
                 fichaCurso.excluir(jtCursos.getSelectedRow());
                 modeloCurso.removeRow(jtCursos.getSelectedRow());
                 JOptionPane.showMessageDialog(this, "Curso excluído com sucesso!");
