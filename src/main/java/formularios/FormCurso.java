@@ -18,9 +18,9 @@ public class FormCurso extends javax.swing.JFrame {
 
     FichaCurso fichaCurso;
     FichaAluno fichaAluno;
-    ArrayList<Aluno> alunos;
+    ArrayList<Aluno> alunos, alunosCb;
     FichaProf fichaProf;
-    ArrayList<Professor> profs;
+    ArrayList<Professor> profs, profsCb;
     DefaultTableModel modeloCurso, modeloAluno, modeloProf;
 
     public FormCurso(FichaCurso fichaCurso, FichaAluno fichaAluno, FichaProf fichaProf) {
@@ -39,6 +39,8 @@ public class FormCurso extends javax.swing.JFrame {
         modeloProf = new DefaultTableModel(titProfs, 0);
         jtProfs.setModel(modeloProf);
         profs = fichaProf.relatorio();
+        alunosCb = fichaAluno.relatorio();
+        profsCb = fichaProf.relatorio();
         jbVoltar.setBackground(Color.red);
         preencheDados();
     }
@@ -473,7 +475,7 @@ public class FormCurso extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Aluno selecionado com sucesso!");
             fichaCurso.consultar(jtCursos.getSelectedRow()).setAluno(a);
             jcbAlunos.removeItemAt(jcbAlunos.getSelectedIndex());
-//            atualizaTabelas();
+            alunosCb.remove(a);
             jtAlunos.setModel(modeloAluno);
         }
     }//GEN-LAST:event_jbAddAlunosActionPerformed
@@ -484,8 +486,7 @@ public class FormCurso extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Aluno removido com sucesso!");
         fichaCurso.consultar(jtCursos.getSelectedRow()).removeAluno(a);
         jcbAlunos.addItem(a);
-//        atualizaTabelas();
-//        jtAlunos.setModel(modeloAluno);
+        alunosCb.add(a);
     }//GEN-LAST:event_jbRemAlunosActionPerformed
 
     private void jbAddProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddProfsActionPerformed
@@ -496,6 +497,7 @@ public class FormCurso extends javax.swing.JFrame {
             fichaCurso.consultar(jtCursos.getSelectedRow()).setProf(p);
             jcbProfs.removeItemAt(jcbProfs.getSelectedIndex());
             jtProfs.setModel(modeloProf);
+            profsCb.remove(p);
         }
     }//GEN-LAST:event_jbAddProfsActionPerformed
 
@@ -505,7 +507,7 @@ public class FormCurso extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Professor removido com sucesso!");
         fichaCurso.consultar(jtCursos.getSelectedRow()).removeProf(p);
         jcbProfs.addItem(p);
-//        jtProfs.setModel(modeloProf);
+        profsCb.add(p);
     }//GEN-LAST:event_jbRemProfsActionPerformed
 
     private void jtCursosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtCursosMouseClicked
