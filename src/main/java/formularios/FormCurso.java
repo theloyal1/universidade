@@ -10,8 +10,6 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 public class FormCurso extends javax.swing.JFrame {
@@ -585,7 +583,6 @@ public class FormCurso extends javax.swing.JFrame {
     public void atualizaTabelas() {
         try {
             modeloAluno.setNumRows(0);
-//            DefaultTableModel modAluno = new DefaultTableModel();
             Iterator<Aluno> ia = fichaCurso.consultar(jtCursos.getSelectedRow()).getAlunos().iterator();
             while(ia.hasNext()) {
                 Aluno aux = (Aluno)ia.next();
@@ -597,7 +594,6 @@ public class FormCurso extends javax.swing.JFrame {
         }
         try {
             modeloProf.setNumRows(0);
-//            DefaultTableModel modProf = new DefaultTableModel();
             Iterator<Professor> ip = fichaCurso.consultar(jtCursos.getSelectedRow()).getProfs().iterator();
             while(ip.hasNext()) {
                 Professor aux = (Professor)ip.next();

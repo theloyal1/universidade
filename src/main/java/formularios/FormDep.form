@@ -361,7 +361,7 @@
         <Component class="javax.swing.JButton" name="jbAddCursos">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Yu Gothic Medium" size="11" style="1"/>
+              <Font name="Yu Gothic Medium" size="22" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#x2193;"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">

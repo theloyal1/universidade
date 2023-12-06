@@ -33,7 +33,7 @@ public class FormDep extends javax.swing.JFrame {
     }
 
     private FormDep() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @SuppressWarnings("unchecked")
@@ -157,7 +157,7 @@ public class FormDep extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jtCursos);
 
-        jbAddCursos.setFont(new java.awt.Font("Yu Gothic Medium", 1, 11)); // NOI18N
+        jbAddCursos.setFont(new java.awt.Font("Yu Gothic Medium", 1, 22)); // NOI18N
         jbAddCursos.setText("↓");
         jbAddCursos.setPreferredSize(new java.awt.Dimension(55, 45));
         jbAddCursos.addActionListener(new java.awt.event.ActionListener() {
@@ -302,6 +302,13 @@ public class FormDep extends javax.swing.JFrame {
             int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
                     "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
+                Departamento d = fichaDep.consultar(jtDep.getSelectedRow());
+                Iterator<Curso> ic = d.getCursos().iterator();
+                while(ic.hasNext()) {
+                    Curso aux = (Curso)ic.next();
+                    jcbCursos.addItem(aux);
+                }
+                modeloCurso.setRowCount(0);
                 fichaDep.excluir(jtDep.getSelectedRow());
                 modeloDep.removeRow(jtDep.getSelectedRow());
                 JOptionPane.showMessageDialog(this, "Departamento excluído com sucesso!");
@@ -343,7 +350,9 @@ public class FormDep extends javax.swing.JFrame {
             Departamento d = fichaDep.consultar(jtDep.getSelectedRow());
             JOptionPane.showMessageDialog(this,
                     "Código: " + d.getCodigo()
-                    + "\nNome: " + d.getNome());
+                    + "\nNome: " + d.getNome()
+                    + "\nCursos: " + d.getCursos());
+            jtCursos.removeAll();
         }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
@@ -401,24 +410,31 @@ public class FormDep extends javax.swing.JFrame {
     
     public void preencheDados() {
         try {
-            jtDep.removeAll();
+            modeloDep.setRowCount(0);
             Iterator<Departamento> i = fichaDep.relatorio().iterator();
             while(i.hasNext()) {
                 Departamento aux = (Departamento)i.next();
-                modeloDep.addRow(new String[]{String.valueOf(aux.getCodigo()), 
-                    aux.getNome(), String.valueOf(aux.getCursos())});
+                modeloDep.addRow(new String[]{String.valueOf(aux.getCodigo()), aux.getNome()});
             }
             jtDep.setModel(modeloDep);
             jcbCursos.removeAll();
             for (Curso c : cursos)
                 jcbCursos.addItem(c);
-            jtCursos.removeAll();
-            Iterator<Curso> ic = cursos.iterator();
-            while (ic.hasNext()) {
-                Curso aux = (Curso) ic.next();
-                modeloCurso.addRow(new String[]{aux.getNome(), String.valueOf(aux.getNumDiscObg()), 
+        } catch (Exception e) {
+        }
+    }
+    
+    public void atualizaTabelas() {
+        try {
+            modeloCurso.setRowCount(0);
+            Iterator<Curso> ic = fichaDep.consultar(jtDep.getSelectedRow()).getCursos().iterator();
+            while(ic.hasNext()) {
+                Curso aux = (Curso)ic.next();
+                modeloDep.addRow(new String[]{aux.getNome(), String.valueOf(aux.getNumDiscObg()), 
                     String.valueOf(aux.getNumDiscOpc())});
             }
+            modeloDep.fireTableDataChanged();
+            jtDep.setModel(modeloDep);
         } catch (Exception e) {
         }
     }
