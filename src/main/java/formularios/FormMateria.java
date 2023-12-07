@@ -30,6 +30,7 @@ public class FormMateria extends javax.swing.JFrame {
         profsCb = fichaProf.relatorio();
         jtMats.setModel(modeloMat);
         jbVoltar.setBackground(Color.RED);
+        preencheDados();
     }
 
     @SuppressWarnings("unchecked")
@@ -325,7 +326,6 @@ public class FormMateria extends javax.swing.JFrame {
         m.setNome(jtfNome.getText());
         m.setEmenta(jtaEmenta.getText());
         m.setPreRequisitos(jtaPreReq.getText());
-//        fichaMat.procurarProf();
         m.setCargaHoraria(Integer.valueOf(jtfCargaHor.getText()));
 
         fichaMat.cadastrar(m);
@@ -347,7 +347,7 @@ public class FormMateria extends javax.swing.JFrame {
                     "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
                 Materia m = fichaMat.consultar(jtMats.getSelectedRow());
-                Iterator<Professor> ip = m.getProfessores().iterator();
+                Iterator<Professor> ip = m.getProfs().iterator();
                 while(ip.hasNext()) {
                     Professor aux = (Professor)ip.next();
                     jcbProfs.addItem(aux);
@@ -381,9 +381,9 @@ public class FormMateria extends javax.swing.JFrame {
                 modeloMat.setValueAt(m.getNome(), jtMats.getSelectedRow(), 0);
                 modeloMat.setValueAt(m.getEmenta(), jtMats.getSelectedRow(), 1);
                 modeloMat.setValueAt(m.getPreRequisitos(), jtMats.getSelectedRow(), 2);
-                modeloMat.setValueAt(m.getProfessores(), jtMats.getSelectedRow(), 3);
-                modeloMat.setValueAt(m.getCargaHoraria(), jtMats.getSelectedRow(), 4);
+                modeloMat.setValueAt(m.getCargaHoraria(), jtMats.getSelectedRow(), 3);
                 JOptionPane.showMessageDialog(this, "Matéria alterada com sucesso!");
+                limparDados();
             } else {
                 JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
             }
@@ -400,8 +400,9 @@ public class FormMateria extends javax.swing.JFrame {
                     "Nome: " + m.getNome()
                     + "\nEmenta: " + m.getEmenta()
                     + "\nPré-requisitos: " + m.getPreRequisitos()
-                    + "\nProfessores: " + m.getProfessores()
+                    + "\nProfessores: " + m.getProfs()
                     + "\nCarga horária: " + m.getCargaHoraria());
+            limparDados();
         }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
@@ -464,7 +465,7 @@ public class FormMateria extends javax.swing.JFrame {
         });
     }
     
-    public void relatorio() {
+    public void preencheDados() {
         try {
             jtMats.removeAll();
             Iterator<Materia> i = fichaMat.relatorio().iterator();
@@ -478,7 +479,26 @@ public class FormMateria extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
-
+    
+    public void atualizaTabelas() {
+        try {
+            modeloProf.setNumRows(0);
+            Iterator<Professor> ip = fichaMat.consultar(jtMats.getSelectedRow()).getProfs().iterator();
+            while(ip.hasNext()) {
+                Professor aux = (Professor)ip.next();
+                modeloProf.addRow(new String[]{aux.getCpf(), aux.getNome()});
+            }
+            modeloProf.fireTableDataChanged();
+            jtProfs.setModel(modeloProf);
+        } catch (Exception e) {
+        }
+    }
+    
+    public void limparDados() {
+        jtfCargaHor.setText(null);
+        jtfNome.setText(null);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

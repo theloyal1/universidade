@@ -336,6 +336,7 @@ public class FormDep extends javax.swing.JFrame {
                 modeloDep.setValueAt(d.getNome(), jtDep.getSelectedRow(), 1);
                 jtDep.setModel(modeloDep);
                 JOptionPane.showMessageDialog(this, "Departamento alterado com sucesso!");
+                limparDados();
             } else {
                 JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
             }
@@ -353,6 +354,8 @@ public class FormDep extends javax.swing.JFrame {
                     + "\nNome: " + d.getNome()
                     + "\nCursos: " + d.getCursos());
             jtCursos.removeAll();
+            limparDados();
+            atualizaTabelas();
         }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
@@ -455,7 +458,12 @@ public class FormDep extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
-
+    
+    public void limparDados() {
+        jtfCodigo.setText(null);
+        jtfNome.setText(null);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

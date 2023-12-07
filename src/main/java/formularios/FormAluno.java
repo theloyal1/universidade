@@ -418,6 +418,7 @@ public class FormAluno extends javax.swing.JFrame {
                 modelo.setValueAt(a.getDataMatricula(), jtAlunos.getSelectedRow(), 8);
                 jtAlunos.setModel(modelo);
                 JOptionPane.showMessageDialog(this, "Aluno alterado com sucesso!");
+                limparDados();
             } else {
                 JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
             }

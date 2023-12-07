@@ -318,6 +318,7 @@ public class FormProf extends javax.swing.JFrame {
                 fichaProf.excluir(jtProfs.getSelectedRow());
                 modelo.removeRow(jtProfs.getSelectedRow());
                 JOptionPane.showMessageDialog(this, "Professor excluído com sucesso!");
+                limparDados();
             } else {
                 JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
             }
@@ -350,6 +351,7 @@ public class FormProf extends javax.swing.JFrame {
                 modelo.setValueAt(p.getEspecializacao(), jtProfs.getSelectedRow(), 5);
                 jtProfs.setModel(modelo);
                 JOptionPane.showMessageDialog(this, "Professor alterado com sucesso!");
+                limparDados();
             } else {
                 JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
             }

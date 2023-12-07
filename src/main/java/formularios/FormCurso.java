@@ -442,6 +442,7 @@ public class FormCurso extends javax.swing.JFrame {
                 modeloCurso.setValueAt(c.getNumDiscObg(), jtCursos.getSelectedRow(), 1);
                 modeloCurso.setValueAt(c.getNumDiscOpc(), jtCursos.getSelectedRow(), 2);
                 JOptionPane.showMessageDialog(this, "Curso alterado com sucesso!");
+                limparDados();
             } else {
                 JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
             }
@@ -461,7 +462,7 @@ public class FormCurso extends javax.swing.JFrame {
                     + "\nAlunos: " + c.getAlunos()
                     + "\nProfessores: " + c.getProfs());
             jtAlunos.removeAll();
-            
+            limparDados();
             atualizaTabelas();
         }
     }//GEN-LAST:event_jbConsultarActionPerformed
@@ -603,6 +604,12 @@ public class FormCurso extends javax.swing.JFrame {
             jtProfs.setModel(modeloProf);
         } catch (Exception e) {
         }
+    }
+    
+    public void limparDados() {
+        jtfNome.setText(null);
+        jtfNumDiscObg.setText(null);
+        jtfNumDiscOpc.setText(null);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
