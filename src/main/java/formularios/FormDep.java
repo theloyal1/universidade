@@ -362,7 +362,7 @@ public class FormDep extends javax.swing.JFrame {
             Curso c = fichaCurso.consultar(jcbCursos.getSelectedIndex());
             modeloCurso.addRow(new String[]{c.getNome(), String.valueOf(c.getNumDiscObg()), String.valueOf(c.getNumDiscOpc())});
             JOptionPane.showMessageDialog(this, "Curso selecionado com sucesso!");
-            fichaDep.consultar(jtCursos.getSelectedRow()).setCurso(c);
+            fichaDep.consultar(jtDep.getSelectedRow()).setCurso(c);
             jcbCursos.removeItemAt(jcbCursos.getSelectedIndex());
             cursosCb.remove(c);
             fichaCurso.cadastrar(c);
