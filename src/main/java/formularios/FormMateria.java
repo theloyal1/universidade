@@ -331,10 +331,7 @@ public class FormMateria extends javax.swing.JFrame {
         fichaMat.cadastrar(m);
         modeloMat.addRow(new String[]{m.getNome(), m.getEmenta(), m.getPreRequisitos(), String.valueOf(m.getCargaHoraria())});
         JOptionPane.showMessageDialog(this, "Matéria cadastrada com sucesso!");
-        jtfNome.setText(null);
-        jtaEmenta.setText(null);
-        jtaPreReq.setText(null);
-        jtfCargaHor.setText(null);
+        limparDados();
         jtMats.setModel(modeloMat);
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
@@ -495,8 +492,10 @@ public class FormMateria extends javax.swing.JFrame {
     }
     
     public void limparDados() {
-        jtfCargaHor.setText(null);
         jtfNome.setText(null);
+        jtaEmenta.setText(null);
+        jtaPreReq.setText(null);
+        jtfCargaHor.setText(null);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,8 +1,10 @@
 package formularios;
 
 import entidades.Curso;
+import entidades.Materia;
 import entidades.Ppc;
 import ficharios.FichaCurso;
+import ficharios.FichaMat;
 import ficharios.FichaPpc;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -14,13 +16,15 @@ public class FormPpc extends javax.swing.JFrame {
 
     FichaPpc fichaPpc;
     FichaCurso fichaCurso;
+    FichaMat fichaMat;
     ArrayList<Curso> cursos, cursosCb;
     DefaultTableModel modeloPpc, modeloMat;
 
-    public FormPpc(FichaPpc fichaPpc, FichaCurso fichaCurso) {
+    public FormPpc(FichaPpc fichaPpc, FichaCurso fichaCurso, FichaMat fichaMat) {
         initComponents();
         this.fichaPpc = fichaPpc;
         this.fichaCurso = fichaCurso;
+        this.fichaMat = fichaMat;
         String[] titulos = {"Curso", "Ano de início"};
         modeloPpc = new DefaultTableModel(titulos, 0);
         jtPpcs.setModel(modeloPpc);
@@ -49,9 +53,9 @@ public class FormPpc extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtPpcs = new javax.swing.JTable();
         jcbCurso = new javax.swing.JComboBox<>();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jbAddProfs = new javax.swing.JButton();
-        jbRemProfs = new javax.swing.JButton();
+        jcbMats = new javax.swing.JComboBox<>();
+        jbAddMats = new javax.swing.JButton();
+        jbRemMats = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtMaterias = new javax.swing.JTable();
 
@@ -134,19 +138,19 @@ public class FormPpc extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jtPpcs);
 
-        jbAddProfs.setFont(new java.awt.Font("Yu Gothic Medium", 1, 22)); // NOI18N
-        jbAddProfs.setText("↓");
-        jbAddProfs.addActionListener(new java.awt.event.ActionListener() {
+        jbAddMats.setFont(new java.awt.Font("Yu Gothic Medium", 1, 22)); // NOI18N
+        jbAddMats.setText("↓");
+        jbAddMats.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbAddProfsActionPerformed(evt);
+                jbAddMatsActionPerformed(evt);
             }
         });
 
-        jbRemProfs.setFont(new java.awt.Font("Yu Gothic Medium", 1, 24)); // NOI18N
-        jbRemProfs.setText("↑");
-        jbRemProfs.addActionListener(new java.awt.event.ActionListener() {
+        jbRemMats.setFont(new java.awt.Font("Yu Gothic Medium", 1, 24)); // NOI18N
+        jbRemMats.setText("↑");
+        jbRemMats.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbRemProfsActionPerformed(evt);
+                jbRemMatsActionPerformed(evt);
             }
         });
 
@@ -200,11 +204,11 @@ public class FormPpc extends javax.swing.JFrame {
                                 .addComponent(jbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jlaMats)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, 0, 263, Short.MAX_VALUE)
+                                .addComponent(jcbMats, javax.swing.GroupLayout.Alignment.TRAILING, 0, 263, Short.MAX_VALUE)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jbAddProfs)
+                                    .addComponent(jbAddMats)
                                     .addGap(72, 72, 72)
-                                    .addComponent(jbRemProfs)
+                                    .addComponent(jbRemMats)
                                     .addGap(44, 44, 44))
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
@@ -234,11 +238,11 @@ public class FormPpc extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jlaMats)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jcbMats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jbAddProfs, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbRemProfs, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jbAddMats, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbRemMats, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -269,16 +273,15 @@ public class FormPpc extends javax.swing.JFrame {
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         Ppc p = new Ppc();
-
-//        fichaPpc.procurarCurso();
-//        fichaPpc.procurarMat();
+        Curso c = fichaCurso.consultar(jcbCurso.getSelectedIndex());
+        
+        p.setCurso(c);
         p.setAnoInicio(Integer.valueOf(jtfAnoInicio.getText()));
 
         fichaPpc.cadastrar(p);
         modeloMat.addRow(new String[]{String.valueOf(p.getCurso()), String.valueOf(p.getAnoInicio())});
         JOptionPane.showMessageDialog(this, "PPC cadastrado com sucesso!");
-        jtfCurso.setText(null);
-        jtfMats.setText(null);
+        jcbCurso.removeItem(c);
         jtfAnoInicio.setText(null);
         jtPpcs.setModel(modeloPpc);
     }//GEN-LAST:event_jbCadastrarActionPerformed
@@ -291,8 +294,14 @@ public class FormPpc extends javax.swing.JFrame {
             int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
                     "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
+                Ppc p = fichaPpc.consultar(jtPpcs.getSelectedRow());
+                Iterator<Materia> im = p.getMaterias().iterator();
+                while(im.hasNext()) {
+                    Materia aux = (Materia)im.next();
+                    jcbMats.addItem(aux);
+                }
                 fichaPpc.excluir(jtPpcs.getSelectedRow());
-                modelo.removeRow(jtPpcs.getSelectedRow());
+                modeloPpc.removeRow(jtPpcs.getSelectedRow());
                 JOptionPane.showMessageDialog(this, "PPC excluído com sucesso!");
             } else {
                 JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
@@ -309,16 +318,15 @@ public class FormPpc extends javax.swing.JFrame {
                     "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
                 Ppc p = new Ppc();
-
-//                fichaPpc.procurarCurso();
-//                fichaPpc.procurarMat();
+                Curso c = fichaCurso.consultar(jcbCurso.getSelectedIndex());
+        
+                p.setCurso(c);
                 p.setAnoInicio(Integer.valueOf(jtfAnoInicio.getText()));
 
                 fichaPpc.alterar(p, jtPpcs.getSelectedRow());
-                modelo.setValueAt(p.getCurso(), jtPpcs.getSelectedRow(), 0);
-                modelo.setValueAt(p.getMaterias(), jtPpcs.getSelectedRow(), 1);
-                modelo.setValueAt(p.getAnoInicio(), jtPpcs.getSelectedRow(), 2);
-                jtPpcs.setModel(modelo);
+                modeloPpc.setValueAt(p.getCurso(), jtPpcs.getSelectedRow(), 0);
+                modeloPpc.setValueAt(p.getAnoInicio(), jtPpcs.getSelectedRow(), 1);
+                jtPpcs.setModel(modeloPpc);
                 JOptionPane.showMessageDialog(this, "PPC alterado com sucesso!");
             } else {
                 JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
@@ -339,9 +347,9 @@ public class FormPpc extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
-    private void jbAddProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddProfsActionPerformed
-        if(jtMats.getSelectedRow() != -1) {
-            Professor p = fichaProf.consultar(jcbProfs.getSelectedIndex());
+    private void jbAddMatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddMatsActionPerformed
+        if(jtPpcs.getSelectedRow() != -1) {
+            Materia m = fichaMat.consultar(jcbMats.getSelectedIndex());
             modeloProf.addRow(new String[]{p.getCpf(), p.getNome()});
             JOptionPane.showMessageDialog(this, "Professor selecionado com sucesso!");
             fichaMat.consultar(jtMats.getSelectedRow()).setProf(p);
@@ -350,10 +358,10 @@ public class FormPpc extends javax.swing.JFrame {
             fichaProf.cadastrar(p);
             jtProfs.setModel(modeloProf);
         }
-    }//GEN-LAST:event_jbAddProfsActionPerformed
+    }//GEN-LAST:event_jbAddMatsActionPerformed
 
-    private void jbRemProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemProfsActionPerformed
-        if(jtMats.getSelectedRow() != -1) {
+    private void jbRemMatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemMatsActionPerformed
+        if(jtPpcs.getSelectedRow() != -1) {
             Professor p = fichaProf.consultar(jtProfs.getSelectedRow());
             modeloProf.removeRow(jtProfs.getSelectedRow());
             JOptionPane.showMessageDialog(this, "Professor removido com sucesso!");
@@ -361,7 +369,7 @@ public class FormPpc extends javax.swing.JFrame {
             jcbProfs.addItem(p);
             profsCb.add(p);
         }
-    }//GEN-LAST:event_jbRemProfsActionPerformed
+    }//GEN-LAST:event_jbRemMatsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -414,18 +422,18 @@ public class FormPpc extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JButton jbAddProfs;
+    private javax.swing.JButton jbAddMats;
     private javax.swing.JButton jbAlterar;
     private javax.swing.JButton jbCadastrar;
     private javax.swing.JButton jbConsultar;
     private javax.swing.JButton jbExcluir;
-    private javax.swing.JButton jbRemProfs;
+    private javax.swing.JButton jbRemMats;
     private javax.swing.JButton jbVoltar;
     private javax.swing.JComboBox<String> jcbCurso;
+    private javax.swing.JComboBox<String> jcbMats;
     private javax.swing.JLabel jlaAnoInicio;
     private javax.swing.JLabel jlaCurso;
     private javax.swing.JLabel jlaMats;

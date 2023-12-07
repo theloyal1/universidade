@@ -82,11 +82,11 @@
                               </Group>
                               <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jlaMats" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" alignment="1" pref="263" max="32767" attributes="0"/>
+                                  <Component id="jcbMats" alignment="1" pref="263" max="32767" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jbAddProfs" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jbAddMats" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                                      <Component id="jbRemProfs" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jbRemMats" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jScrollPane2" alignment="1" pref="0" max="32767" attributes="0"/>
@@ -126,11 +126,11 @@
                       <Group type="102" attributes="0">
                           <Component id="jlaMats" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jcbMats" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jbAddProfs" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                              <Component id="jbRemProfs" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="jbAddMats" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="jbRemMats" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jScrollPane2" pref="0" max="32767" attributes="0"/>
@@ -307,7 +307,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="jcbMats">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
@@ -317,7 +317,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="jbAddProfs">
+        <Component class="javax.swing.JButton" name="jbAddMats">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Yu Gothic Medium" size="22" style="1"/>
@@ -325,10 +325,10 @@
             <Property name="text" type="java.lang.String" value="&#x2193;"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbAddProfsActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbAddMatsActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jbRemProfs">
+        <Component class="javax.swing.JButton" name="jbRemMats">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Yu Gothic Medium" size="24" style="1"/>
@@ -336,7 +336,7 @@
             <Property name="text" type="java.lang.String" value="&#x2191;"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbRemProfsActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbRemMatsActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane2">

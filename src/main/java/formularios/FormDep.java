@@ -289,8 +289,7 @@ public class FormDep extends javax.swing.JFrame {
         fichaDep.cadastrar(d);
         modeloDep.addRow(new String[]{String.valueOf(d.getCodigo()), d.getNome()});
         JOptionPane.showMessageDialog(this, "Departamento cadastrado com sucesso!");
-        jtfCodigo.setText(null);
-        jtfNome.setText(null);
+        limparDados();
         jtDep.setModel(modeloDep);
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
