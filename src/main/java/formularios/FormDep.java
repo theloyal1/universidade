@@ -87,7 +87,7 @@ public class FormDep extends javax.swing.JFrame {
 
         jlaCursos.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jlaCursos.setForeground(new java.awt.Color(246, 248, 255));
-        jlaCursos.setText("Seleção de cursos: ");
+        jlaCursos.setText("Selecionar curso:");
 
         jbCadastrar.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
         jbCadastrar.setText("Cadastrar");
@@ -160,7 +160,6 @@ public class FormDep extends javax.swing.JFrame {
 
         jbAddCursos.setFont(new java.awt.Font("Yu Gothic Medium", 1, 22)); // NOI18N
         jbAddCursos.setText("↓");
-        jbAddCursos.setPreferredSize(new java.awt.Dimension(55, 45));
         jbAddCursos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbAddCursosActionPerformed(evt);
@@ -214,7 +213,7 @@ public class FormDep extends javax.swing.JFrame {
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(64, 64, 64)
-                                .addComponent(jbAddCursos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jbAddCursos)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jbRemCursos)
                                 .addGap(38, 38, 38)))))
