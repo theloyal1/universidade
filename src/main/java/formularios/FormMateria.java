@@ -329,15 +329,13 @@ public class FormMateria extends javax.swing.JFrame {
         m.setCargaHoraria(Integer.valueOf(jtfCargaHor.getText()));
 
         fichaMat.cadastrar(m);
-        modelo.addRow(new String[]{m.getNome(), m.getEmenta(), m.getPreRequisitos(),
-            String.valueOf(m.getProfessores()), String.valueOf(m.getCargaHoraria())});
+        modeloMat.addRow(new String[]{m.getNome(), m.getEmenta(), m.getPreRequisitos(), String.valueOf(m.getCargaHoraria())});
         JOptionPane.showMessageDialog(this, "Matéria cadastrada com sucesso!");
         jtfNome.setText(null);
         jtaEmenta.setText(null);
         jtaPreReq.setText(null);
-        jtfProfs.setText(null);
         jtfCargaHor.setText(null);
-        jtMats.setModel(modelo);
+        jtMats.setModel(modeloMat);
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
@@ -348,8 +346,15 @@ public class FormMateria extends javax.swing.JFrame {
             int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
                     "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
+                Materia m = fichaMat.consultar(jtMats.getSelectedRow());
+                Iterator<Professor> ip = m.getProfessores().iterator();
+                while(ip.hasNext()) {
+                    Professor aux = (Professor)ip.next();
+                    jcbProfs.addItem(aux);
+                }
+                modeloProf.setRowCount(0);
                 fichaMat.excluir(jtMats.getSelectedRow());
-                modelo.removeRow(jtMats.getSelectedRow());
+                modeloMat.removeRow(jtMats.getSelectedRow());
                 JOptionPane.showMessageDialog(this, "Matéria excluída com sucesso!");
             } else {
                 JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
@@ -370,16 +375,14 @@ public class FormMateria extends javax.swing.JFrame {
                 m.setNome(jtfNome.getText());
                 m.setEmenta(jtaEmenta.getText());
                 m.setPreRequisitos(jtaPreReq.getText());
-//                fichaMat.procurarProf();
                 m.setCargaHoraria(Integer.valueOf(jtfCargaHor.getText()));
 
                 fichaMat.alterar(m, jtMats.getSelectedRow());
-                modelo.setValueAt(m.getNome(), jtMats.getSelectedRow(), 0);
-                modelo.setValueAt(m.getEmenta(), jtMats.getSelectedRow(), 1);
-                modelo.setValueAt(m.getPreRequisitos(), jtMats.getSelectedRow(), 2);
-                modelo.setValueAt(m.getProfessores(), jtMats.getSelectedRow(), 3);
-                modelo.setValueAt(m.getCargaHoraria(), jtMats.getSelectedRow(), 4);
-                jtMats.setModel(modelo);
+                modeloMat.setValueAt(m.getNome(), jtMats.getSelectedRow(), 0);
+                modeloMat.setValueAt(m.getEmenta(), jtMats.getSelectedRow(), 1);
+                modeloMat.setValueAt(m.getPreRequisitos(), jtMats.getSelectedRow(), 2);
+                modeloMat.setValueAt(m.getProfessores(), jtMats.getSelectedRow(), 3);
+                modeloMat.setValueAt(m.getCargaHoraria(), jtMats.getSelectedRow(), 4);
                 JOptionPane.showMessageDialog(this, "Matéria alterada com sucesso!");
             } else {
                 JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
@@ -403,11 +406,11 @@ public class FormMateria extends javax.swing.JFrame {
     }//GEN-LAST:event_jbConsultarActionPerformed
 
     private void jbAddProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddProfsActionPerformed
-        if(jtCursos.getSelectedRow() != -1) {
+        if(jtMats.getSelectedRow() != -1) {
             Professor p = fichaProf.consultar(jcbProfs.getSelectedIndex());
             modeloProf.addRow(new String[]{p.getCpf(), p.getNome()});
             JOptionPane.showMessageDialog(this, "Professor selecionado com sucesso!");
-            fichaCurso.consultar(jtCursos.getSelectedRow()).setProf(p);
+            fichaMat.consultar(jtMats.getSelectedRow()).setProf(p);
             jcbProfs.removeItemAt(jcbProfs.getSelectedIndex());
             profsCb.remove(p);
             fichaProf.cadastrar(p);
@@ -416,11 +419,11 @@ public class FormMateria extends javax.swing.JFrame {
     }//GEN-LAST:event_jbAddProfsActionPerformed
 
     private void jbRemProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemProfsActionPerformed
-        if(jtCursos.getSelectedRow() != -1) {
+        if(jtMats.getSelectedRow() != -1) {
             Professor p = fichaProf.consultar(jtProfs.getSelectedRow());
             modeloProf.removeRow(jtProfs.getSelectedRow());
             JOptionPane.showMessageDialog(this, "Professor removido com sucesso!");
-            fichaCurso.consultar(jtCursos.getSelectedRow()).removeProf(p);
+            fichaMat.consultar(jtMats.getSelectedRow()).removeProf(p);
             jcbProfs.addItem(p);
             profsCb.add(p);
         }
@@ -467,11 +470,11 @@ public class FormMateria extends javax.swing.JFrame {
             Iterator<Materia> i = fichaMat.relatorio().iterator();
             while(i.hasNext()) {
                 Materia aux = (Materia)i.next();
-                modelo.addRow(new String[]{aux.getNome(), aux.getEmenta(), 
-                    aux.getPreRequisitos(), String.valueOf(aux.getProfessores()), 
+                modeloMat.addRow(new String[]{aux.getNome(), aux.getEmenta(), 
+                    aux.getPreRequisitos(), String.valueOf(aux.getProfs()), 
                     String.valueOf(aux.getCargaHoraria())});
             }
-            jtMats.setModel(modelo);
+            jtMats.setModel(modeloMat);
         } catch (Exception e) {
         }
     }

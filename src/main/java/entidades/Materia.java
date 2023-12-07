@@ -4,17 +4,16 @@ import java.util.ArrayList;
 
 public class Materia {
     private String nome, ementa, preRequisitos;
-    private ArrayList<Professor> professores;
+    private ArrayList<Professor> professores = new ArrayList<>();
     private int cargaHoraria;
 
     public Materia() {
     }
 
-    public Materia(String nome, String ementa, String preRequisitos, ArrayList<Professor> professores, int cargaHoraria) {
+    public Materia(String nome, String ementa, String preRequisitos, int cargaHoraria) {
         this.nome = nome;
         this.ementa = ementa;
         this.preRequisitos = preRequisitos;
-        this.professores = professores;
         this.cargaHoraria = cargaHoraria;
     }
 
@@ -42,12 +41,20 @@ public class Materia {
         this.preRequisitos = preRequisitos;
     }
 
-    public ArrayList<Professor> getProfessores() {
+    public ArrayList<Professor> getProfs() {
         return professores;
     }
 
-    public void setProfessores(ArrayList<Professor> professores) {
+    public void setListaProfs(ArrayList<Professor> professores) {
         this.professores = professores;
+    }
+    
+    public void setProf(Professor professor) {
+        this.professores.add(professor);
+    }
+    
+    public void removeProf(Professor professor) {
+        this.professores.remove(professor);
     }
 
     public int getCargaHoraria() {
@@ -56,5 +63,10 @@ public class Materia {
 
     public void setCargaHoraria(int cargaHoraria) {
         this.cargaHoraria = cargaHoraria;
+    }
+    
+    @Override
+    public String toString() {
+        return nome;
     }
 }

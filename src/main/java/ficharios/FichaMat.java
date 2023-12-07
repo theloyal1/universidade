@@ -21,7 +21,6 @@ public class FichaMat {
         mats.get(pos).setNome(m.getNome());
         mats.get(pos).setEmenta(m.getEmenta());
         mats.get(pos).setPreRequisitos(m.getPreRequisitos());
-        mats.get(pos).setProfessores(m.getProfessores());
     }
     
     public Materia consultar(int pos) {

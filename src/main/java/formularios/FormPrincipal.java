@@ -209,8 +209,12 @@ public class FormPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiDeptActionPerformed
 
     private void jmiMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiMatActionPerformed
-        FormMateria formMateria = new FormMateria();
-        formMateria.setVisible(true);
+        if(fichaProf.isEmpty())
+            JOptionPane.showMessageDialog(this, "Não há professores cadastrados!", "Erro", JOptionPane.ERROR_MESSAGE);
+        else {
+            FormMateria formMateria = new FormMateria(fichaMat, fichaProf);
+            formMateria.setVisible(true); 
+        }
     }//GEN-LAST:event_jmiMatActionPerformed
 
     private void jmiPpcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiPpcActionPerformed

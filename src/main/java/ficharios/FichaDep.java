@@ -21,7 +21,6 @@ public class FichaDep {
     public void alterar(Departamento d, int pos) {
         deps.get(pos).setCodigo(d.getCodigo());
         deps.get(pos).setNome(d.getNome());
-        deps.get(pos).setListaCursos(d.getCursos());
     }
     
     public Departamento consultar(int pos) {
