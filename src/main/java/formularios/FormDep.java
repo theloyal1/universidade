@@ -24,7 +24,7 @@ public class FormDep extends javax.swing.JFrame {
         String[] titDeps = {"Código", "Nome"};
         modeloDep = new DefaultTableModel(titDeps, 0);
         jtDep.setModel(modeloDep);
-        String[] titCursos = {"Nome", "Nº de disc. obg.", "Nº de disc. opc."};
+        String[] titCursos = {"Cursos"};
         modeloCurso = new DefaultTableModel(titCursos, 0);
         jtCursos.setModel(modeloCurso);
         cursos = fichaCurso.relatorio();
@@ -147,13 +147,13 @@ public class FormDep extends javax.swing.JFrame {
 
         jtCursos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null},
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-                "Nome", "Nº de disc. obg.", "Nº de disc. opc."
+                "Cursos"
             }
         ));
         jScrollPane2.setViewportView(jtCursos);
@@ -214,7 +214,7 @@ public class FormDep extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(64, 64, 64)
                                 .addComponent(jbAddCursos)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                                 .addComponent(jbRemCursos)
                                 .addGap(38, 38, 38)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -450,8 +450,7 @@ public class FormDep extends javax.swing.JFrame {
             Iterator<Curso> ic = fichaDep.consultar(jtDep.getSelectedRow()).getCursos().iterator();
             while(ic.hasNext()) {
                 Curso aux = (Curso)ic.next();
-                modeloDep.addRow(new String[]{aux.getNome(), String.valueOf(aux.getNumDiscObg()), 
-                    String.valueOf(aux.getNumDiscOpc())});
+                modeloDep.addRow(new String[]{aux.getNome()});
             }
             modeloDep.fireTableDataChanged();
             jtDep.setModel(modeloDep);
