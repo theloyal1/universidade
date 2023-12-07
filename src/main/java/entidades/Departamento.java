@@ -5,15 +5,14 @@ import java.util.ArrayList;
 public class Departamento {
     private int codigo;
     private String nome;
-    private ArrayList<Curso> cursos;
+    private ArrayList<Curso> cursos = new ArrayList<>();
 
     public Departamento() {
     }
 
-    public Departamento(int codigo, String nome, ArrayList<Curso> cursos) {
+    public Departamento(int codigo, String nome) {
         this.codigo = codigo;
         this.nome = nome;
-        this.cursos = cursos;
     }
 
     public int getCodigo() {
@@ -36,7 +35,15 @@ public class Departamento {
         return cursos;
     }
 
-    public void setCursos(ArrayList<Curso> cursos) {
+    public void setListaCursos(ArrayList<Curso> cursos) {
         this.cursos = cursos;
+    }
+    
+    public void setCurso(Curso c) {
+        this.cursos.add(c);
+    }
+    
+    public void removeCurso(Curso c) {
+        this.cursos.remove(c);
     }
 }

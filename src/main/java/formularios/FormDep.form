@@ -364,9 +364,6 @@
               <Font name="Yu Gothic Medium" size="22" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#x2193;"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[55, 45]"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbAddCursosActionPerformed"/>

@@ -72,4 +72,9 @@ public class Curso {
     public void removeProf(Professor professor) {
         this.profs.remove(professor);
     }
+    
+    @Override
+    public String toString() {
+        return nome;
+    }
 }

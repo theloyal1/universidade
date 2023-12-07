@@ -14,7 +14,7 @@ public class FormDep extends javax.swing.JFrame {
 
     FichaDep fichaDep;
     FichaCurso fichaCurso;
-    ArrayList<Curso> cursos;
+    ArrayList<Curso> cursos, cursosCb;
     DefaultTableModel modeloDep, modeloCurso;
 
     public FormDep(FichaDep fichaDep, FichaCurso fichaCurso) {
@@ -28,6 +28,7 @@ public class FormDep extends javax.swing.JFrame {
         modeloCurso = new DefaultTableModel(titCursos, 0);
         jtCursos.setModel(modeloCurso);
         cursos = fichaCurso.relatorio();
+        cursosCb = fichaCurso.relatorio();
         jbVoltar.setBackground(Color.RED);
         preencheDados();
     }
@@ -357,20 +358,37 @@ public class FormDep extends javax.swing.JFrame {
     }//GEN-LAST:event_jbConsultarActionPerformed
 
     private void jbAddCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddCursosActionPerformed
-        Curso c = jcbCursos.getItemAt(jcbCursos.getSelectedIndex());
-        modeloCurso.addRow(new String[]{c.getNome(), String.valueOf(c.getNumDiscObg()), String.valueOf(c.getNumDiscOpc())});
-        JOptionPane.showMessageDialog(this, "Curso selecionado com sucesso!");
-        jtCursos.setModel(modeloCurso);
+        if(jtDep.getSelectedRow() != 1) {
+            Curso c = fichaCurso.consultar(jcbCursos.getSelectedIndex());
+            modeloCurso.addRow(new String[]{c.getNome(), String.valueOf(c.getNumDiscObg()), String.valueOf(c.getNumDiscOpc())});
+            JOptionPane.showMessageDialog(this, "Curso selecionado com sucesso!");
+            fichaDep.consultar(jtCursos.getSelectedRow()).setCurso(c);
+            jcbCursos.removeItemAt(jcbCursos.getSelectedIndex());
+            cursosCb.remove(c);
+            fichaCurso.cadastrar(c);
+            jtCursos.setModel(modeloCurso);
+        }
     }//GEN-LAST:event_jbAddCursosActionPerformed
 
     private void jbRemCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemCursosActionPerformed
-        modeloCurso.removeRow(jtCursos.getSelectedRow());
-        JOptionPane.showMessageDialog(this, "Curso removido com sucesso!");
-        jtCursos.setModel(modeloCurso);
+        if(jtDep.getSelectedRow() != 1) {
+            Curso c = fichaCurso.consultar(jcbCursos.getSelectedIndex());
+            modeloCurso.removeRow(jtCursos.getSelectedRow());
+            JOptionPane.showMessageDialog(this, "Curso removido com sucesso!");
+            fichaDep.consultar(jtCursos.getSelectedRow()).removeCurso(c);
+            jcbCursos.addItem(c);
+            cursosCb.add(c);
+        }
     }//GEN-LAST:event_jbRemCursosActionPerformed
 
     private void jtDepMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtDepMouseClicked
-        // TODO add your handling code here:
+        try {
+            jtfCodigo.setText(jtDep.getModel().getValueAt(jtDep.getSelectedRow(), 0).toString());
+            jtfNome.setText(jtDep.getModel().getValueAt(jtDep.getSelectedRow(), 1).toString());
+            
+            atualizaTabelas();
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_jtDepMouseClicked
 
     /**
