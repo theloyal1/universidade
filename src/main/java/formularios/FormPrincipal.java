@@ -224,7 +224,7 @@ public class FormPrincipal extends javax.swing.JFrame {
             if(fichaMat.isEmpty())
                 JOptionPane.showMessageDialog(this, "Não há matérias cadastradas!", "Erro", JOptionPane.ERROR_MESSAGE);
             else {
-                FormPpc formPpc = new FormPpc(fichaPpc, fichaCurso);
+                FormPpc formPpc = new FormPpc(fichaPpc, fichaCurso, fichaMat);
                 formPpc.setVisible(true);
             }
         }

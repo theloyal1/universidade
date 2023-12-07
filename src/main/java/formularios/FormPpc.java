@@ -18,6 +18,7 @@ public class FormPpc extends javax.swing.JFrame {
     FichaCurso fichaCurso;
     FichaMat fichaMat;
     ArrayList<Curso> cursos, cursosCb;
+    ArrayList<Materia> materias, matsCb;
     DefaultTableModel modeloPpc, modeloMat;
 
     public FormPpc(FichaPpc fichaPpc, FichaCurso fichaCurso, FichaMat fichaMat) {
@@ -31,6 +32,8 @@ public class FormPpc extends javax.swing.JFrame {
         String[] titMat = {"Matérias"};
         modeloMat = new DefaultTableModel(titMat, 0);
         jtMaterias.setModel(modeloMat);
+        materias = fichaMat.relatorio();
+        matsCb = fichaMat.relatorio();
         jbVoltar.setBackground(Color.RED);
         preencheDados();
     }
@@ -300,6 +303,9 @@ public class FormPpc extends javax.swing.JFrame {
                     Materia aux = (Materia)im.next();
                     jcbMats.addItem(aux);
                 }
+                Curso c = fichaPpc.consultar(jtPpcs.getSelectedRow()).getCurso();
+                jcbCurso.addItem(c);
+                modeloMat.setRowCount(0);
                 fichaPpc.excluir(jtPpcs.getSelectedRow());
                 modeloPpc.removeRow(jtPpcs.getSelectedRow());
                 JOptionPane.showMessageDialog(this, "PPC excluído com sucesso!");
@@ -350,24 +356,24 @@ public class FormPpc extends javax.swing.JFrame {
     private void jbAddMatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddMatsActionPerformed
         if(jtPpcs.getSelectedRow() != -1) {
             Materia m = fichaMat.consultar(jcbMats.getSelectedIndex());
-            modeloProf.addRow(new String[]{p.getCpf(), p.getNome()});
+            modeloMat.addRow(new String[]{m.getNome()});
             JOptionPane.showMessageDialog(this, "Professor selecionado com sucesso!");
-            fichaMat.consultar(jtMats.getSelectedRow()).setProf(p);
-            jcbProfs.removeItemAt(jcbProfs.getSelectedIndex());
-            profsCb.remove(p);
-            fichaProf.cadastrar(p);
-            jtProfs.setModel(modeloProf);
+            fichaPpc.consultar(jtPpcs.getSelectedRow()).setMateria(m);
+            jcbMats.removeItemAt(jcbMats.getSelectedIndex());
+            matsCb.remove(m);
+            fichaMat.cadastrar(m);
+            jtMaterias.setModel(modeloMat);
         }
     }//GEN-LAST:event_jbAddMatsActionPerformed
 
     private void jbRemMatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemMatsActionPerformed
         if(jtPpcs.getSelectedRow() != -1) {
-            Professor p = fichaProf.consultar(jtProfs.getSelectedRow());
-            modeloProf.removeRow(jtProfs.getSelectedRow());
+            Materia m = fichaMat.consultar(jtMaterias.getSelectedRow());
+            modeloMat.removeRow(jtMaterias.getSelectedRow());
             JOptionPane.showMessageDialog(this, "Professor removido com sucesso!");
-            fichaMat.consultar(jtMats.getSelectedRow()).removeProf(p);
-            jcbProfs.addItem(p);
-            profsCb.add(p);
+            fichaPpc.consultar(jtMaterias.getSelectedRow()).removeMateria(m);
+            jcbMats.addItem(m);
+            matsCb.add(m);
         }
     }//GEN-LAST:event_jbRemMatsActionPerformed
 
@@ -412,11 +418,11 @@ public class FormPpc extends javax.swing.JFrame {
             Iterator<Ppc> i = fichaPpc.relatorio().iterator();
             while(i.hasNext()) {
                 Ppc aux = (Ppc)i.next();
-                modelo.addRow(new String[]{String.valueOf(aux.getCurso()), 
+                modeloPpc.addRow(new String[]{String.valueOf(aux.getCurso()), 
                     String.valueOf(aux.getMaterias()), 
                     String.valueOf(aux.getAnoInicio())});
             }
-            jtPpcs.setModel(modelo);
+            jtPpcs.setModel(modeloPpc);
         } catch (Exception e) {
         }
     }
@@ -432,8 +438,8 @@ public class FormPpc extends javax.swing.JFrame {
     private javax.swing.JButton jbExcluir;
     private javax.swing.JButton jbRemMats;
     private javax.swing.JButton jbVoltar;
-    private javax.swing.JComboBox<String> jcbCurso;
-    private javax.swing.JComboBox<String> jcbMats;
+    private javax.swing.JComboBox<Curso> jcbCurso;
+    private javax.swing.JComboBox<Materia> jcbMats;
     private javax.swing.JLabel jlaAnoInicio;
     private javax.swing.JLabel jlaCurso;
     private javax.swing.JLabel jlaMats;
