@@ -20,7 +20,7 @@ public class FormPpc extends javax.swing.JFrame {
     ArrayList<Curso> cursos, cursosCb;
     ArrayList<Materia> materias, matsCb;
     DefaultTableModel modeloPpc, modeloMat;
-
+    
     public FormPpc(FichaPpc fichaPpc, FichaCurso fichaCurso, FichaMat fichaMat) {
         initComponents();
         this.fichaPpc = fichaPpc;
@@ -37,7 +37,11 @@ public class FormPpc extends javax.swing.JFrame {
         jbVoltar.setBackground(Color.RED);
         preencheDados();
     }
-
+    
+    private FormPpc() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -139,6 +143,11 @@ public class FormPpc extends javax.swing.JFrame {
                 "Curso", "Ano de início"
             }
         ));
+        jtPpcs.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtPpcsMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtPpcs);
 
         jbAddMats.setFont(new java.awt.Font("Yu Gothic Medium", 1, 22)); // NOI18N
@@ -334,6 +343,7 @@ public class FormPpc extends javax.swing.JFrame {
                 modeloPpc.setValueAt(p.getAnoInicio(), jtPpcs.getSelectedRow(), 1);
                 jtPpcs.setModel(modeloPpc);
                 JOptionPane.showMessageDialog(this, "PPC alterado com sucesso!");
+                jtfAnoInicio.setText(null);
             } else {
                 JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
             }
@@ -350,6 +360,7 @@ public class FormPpc extends javax.swing.JFrame {
                     "Curso: " + p.getCurso() + 
                     "\nMatérias: " + p.getMaterias() + 
                     "\nAno de início: " + p.getAnoInicio());
+            jtfAnoInicio.setText(null);
         }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
@@ -376,6 +387,14 @@ public class FormPpc extends javax.swing.JFrame {
             matsCb.add(m);
         }
     }//GEN-LAST:event_jbRemMatsActionPerformed
+
+    private void jtPpcsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPpcsMouseClicked
+        try {
+            
+            jtfAnoInicio.setText(jtPpcs.getModel().getValueAt(jtPpcs.getSelectedRow(), 1).toString());
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jtPpcsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -423,6 +442,20 @@ public class FormPpc extends javax.swing.JFrame {
                     String.valueOf(aux.getAnoInicio())});
             }
             jtPpcs.setModel(modeloPpc);
+        } catch (Exception e) {
+        }
+    }
+    
+    public void atualizaTabelas() {
+        try {
+            modeloMat.setRowCount(0);
+            Iterator<Materia> im = fichaPpc.consultar(jtPpcs.getSelectedRow()).getMaterias().iterator();
+            while(im.hasNext()) {
+                Materia aux = (Materia)im.next();
+                modeloMat.addRow(new String[]{aux.getNome()});
+            }
+            modeloMat.fireTableDataChanged();
+            jtMaterias.setModel(modeloMat);
         } catch (Exception e) {
         }
     }

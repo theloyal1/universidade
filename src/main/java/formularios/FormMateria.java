@@ -32,7 +32,11 @@ public class FormMateria extends javax.swing.JFrame {
         jbVoltar.setBackground(Color.RED);
         preencheDados();
     }
-
+    
+    private FormMateria() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -152,6 +156,11 @@ public class FormMateria extends javax.swing.JFrame {
                 "Nome", "Ementa", "Pré-req.", "Carga hor."
             }
         ));
+        jtMats.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtMatsMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jtMats);
 
         jlaAddProfs.setFont(new java.awt.Font("Arial Black", 0, 16)); // NOI18N
@@ -426,6 +435,18 @@ public class FormMateria extends javax.swing.JFrame {
             profsCb.add(p);
         }
     }//GEN-LAST:event_jbRemProfsActionPerformed
+
+    private void jtMatsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtMatsMouseClicked
+        try {
+            jtfNome.setText(jtMats.getModel().getValueAt(jtMats.getSelectedRow(), 0).toString());
+            jtaEmenta.setText(jtMats.getModel().getValueAt(jtMats.getSelectedRow(), 1).toString());
+            jtaPreReq.setText(jtMats.getModel().getValueAt(jtMats.getSelectedRow(), 2).toString());
+            jtfCargaHor.setText(jtMats.getModel().getValueAt(jtMats.getSelectedRow(), 3).toString());
+            
+            atualizaTabelas();
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jtMatsMouseClicked
 
     /**
      * @param args the command line arguments

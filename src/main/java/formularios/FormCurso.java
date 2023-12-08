@@ -20,7 +20,7 @@ public class FormCurso extends javax.swing.JFrame {
     FichaProf fichaProf;
     ArrayList<Professor> profs, profsCb;
     DefaultTableModel modeloCurso, modeloAluno, modeloProf;
-
+    
     public FormCurso(FichaCurso fichaCurso, FichaAluno fichaAluno, FichaProf fichaProf) {
         initComponents();
         this.fichaCurso = fichaCurso;
