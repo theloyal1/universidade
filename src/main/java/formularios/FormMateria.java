@@ -352,8 +352,7 @@ public class FormMateria extends javax.swing.JFrame {
             int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
                     "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
-                Materia m = fichaMat.consultar(jtMats.getSelectedRow());
-                Iterator<Professor> ip = m.getProfs().iterator();
+                Iterator<Professor> ip = profsCb.iterator();
                 while(ip.hasNext()) {
                     Professor aux = (Professor)ip.next();
                     jcbProfs.addItem(aux);

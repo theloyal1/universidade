@@ -306,8 +306,7 @@ public class FormPpc extends javax.swing.JFrame {
             int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
                     "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
-                Ppc p = fichaPpc.consultar(jtPpcs.getSelectedRow());
-                Iterator<Materia> im = p.getMaterias().iterator();
+                Iterator<Materia> im = matsCb.iterator();
                 while(im.hasNext()) {
                     Materia aux = (Materia)im.next();
                     jcbMats.addItem(aux);

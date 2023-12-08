@@ -1,25 +1,52 @@
 package formularios;
 
+import entidades.Aluno;
 import entidades.Disciplina;
+import entidades.Materia;
+import entidades.Professor;
+import ficharios.FichaAluno;
 import ficharios.FichaDisc;
+import ficharios.FichaMat;
+import ficharios.FichaProf;
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class FormDisc extends javax.swing.JFrame {
 
-    FichaDisc fichaDisc = new FichaDisc();
+    FichaDisc fichaDisc;
+    FichaAluno fichaAluno;
+    FichaProf fichaProf;
+    FichaMat fichaMat;
+    ArrayList<Aluno> alunos, alunosCb;
+    ArrayList<Professor> profs, profsCb;
+    ArrayList<Materia> mats, matsCb;
     DefaultTableModel modelo;
 
-    public FormDisc() {
+    public FormDisc(FichaDisc fichaDisc, FichaAluno fichaAluno, FichaProf fichaProf, FichaMat fichaMat) {
         initComponents();
+        this.fichaDisc = fichaDisc;
+        this.fichaAluno = fichaAluno;
+        this.fichaProf = fichaProf;
+        this.fichaMat = fichaMat;
         String titulos[] = {"Nome", "Aluno", "Prof.", "Mat.", "Nota", "Ano", "Sem.", "Freq.", "Aprov."};
         modelo = new DefaultTableModel(titulos, 0);
         jtDisc.setModel(modelo);
+        alunos = fichaAluno.relatorio();
+        alunosCb = fichaAluno.relatorio();
+        profs = fichaProf.relatorio();
+        profsCb = fichaProf.relatorio();
+        mats = fichaMat.relatorio();
+        matsCb = fichaMat.relatorio();
         jbVoltar.setBackground(Color.red);
     }
-
+    
+    private FormDisc() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -29,11 +56,8 @@ public class FormDisc extends javax.swing.JFrame {
         jlaDisc = new javax.swing.JLabel();
         jbVoltar = new javax.swing.JButton();
         jlaAluno = new javax.swing.JLabel();
-        jtfAluno = new javax.swing.JTextField();
         jlaProf = new javax.swing.JLabel();
-        jtfProf = new javax.swing.JTextField();
         jlaMat = new javax.swing.JLabel();
-        jtfMat = new javax.swing.JTextField();
         jlaNota = new javax.swing.JLabel();
         jtfNota = new javax.swing.JTextField();
         jlaAno = new javax.swing.JLabel();
@@ -53,6 +77,9 @@ public class FormDisc extends javax.swing.JFrame {
         jtDisc = new javax.swing.JTable();
         jlaNome = new javax.swing.JLabel();
         jtfNome = new javax.swing.JTextField();
+        jcbAluno = new javax.swing.JComboBox<>();
+        jcbProf = new javax.swing.JComboBox<>();
+        jcbMateria = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -180,7 +207,7 @@ public class FormDisc extends javax.swing.JFrame {
                             .addGap(98, 98, 98)
                             .addComponent(jbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 848, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jlaFrequencia)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -188,7 +215,7 @@ public class FormDisc extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jlaMat)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtfMat, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jcbMateria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jlaDisc)
                             .addGap(237, 237, 237)
@@ -200,8 +227,8 @@ public class FormDisc extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jlaAluno)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jtfAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(42, 42, 42)
+                                        .addComponent(jcbAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(57, 57, 57)
                                         .addComponent(jlaProf))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jlaNota)
@@ -211,14 +238,15 @@ public class FormDisc extends javax.swing.JFrame {
                                         .addComponent(jlaAno)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jtfAno, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jtfProf, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
+                                        .addGap(10, 10, 10)
                                         .addComponent(jlaSemestre)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jtfSemestre, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(jtfSemestre, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jcbProf, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(127, 127, 127)
                                 .addComponent(jlaNome)
@@ -242,11 +270,11 @@ public class FormDisc extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlaAluno)
-                    .addComponent(jtfAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtfProf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlaProf)
                     .addComponent(jlaMat)
-                    .addComponent(jtfMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcbAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbProf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlaNota)
@@ -301,11 +329,14 @@ public class FormDisc extends javax.swing.JFrame {
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         Disciplina d = new Disciplina();
+        Aluno a = fichaAluno.consultar(jcbAluno.getSelectedIndex());
+        Professor p = fichaProf.consultar(jcbProf.getSelectedIndex());
+        Materia m = fichaMat.consultar(jcbMateria.getSelectedIndex());
         
+        d.setAluno(a);
+        d.setProfessor(p);
+        d.setMateria(m);
         d.setNome(jtfNome.getText());
-//        fichaDisc.procurarAluno();
-//        fichaDisc.procurarProf();
-//        fichaDisc.procurarMat();
         d.setNota(Float.valueOf(jtfNota.getText()));
         d.setAno(Integer.valueOf(jtfAno.getText()));
         d.setSemestre(Integer.valueOf(jtfSemestre.getText()));
@@ -323,14 +354,10 @@ public class FormDisc extends javax.swing.JFrame {
             String.valueOf(d.getSemestre()), String.valueOf(d.getFrequencia()),
             String.valueOf(d.isAprovacao())});
         JOptionPane.showMessageDialog(this, "Disciplina cadastrada com sucesso!");
-        jtfAluno.setText(null);
-        jtfProf.setText(null);
-        jtfMat.setText(null);
-        jtfNota.setText(null);
-        jtfAno.setText(null);
-        jtfSemestre.setText(null);
-        jtfFrequencia.setText(null);
-        btnGrpAprov.clearSelection();
+        jcbAluno.removeItem(a);
+        jcbProf.removeItem(p);
+        jcbMateria.removeItem(m);
+        limpaDados();
         jtDisc.setModel(modelo);
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
@@ -342,6 +369,10 @@ public class FormDisc extends javax.swing.JFrame {
             int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
                     "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
+                Disciplina d = fichaDisc.consultar(jtDisc.getSelectedRow());
+                jcbAluno.addItem(d.getAluno());
+                jcbProf.addItem(d.getProfessor());
+                jcbMateria.addItem(d.getMateria());
                 fichaDisc.excluir(jtDisc.getSelectedRow());
                 modelo.removeRow(jtDisc.getSelectedRow());
                 JOptionPane.showMessageDialog(this, "Disciplina excluída com sucesso!");
@@ -360,31 +391,38 @@ public class FormDisc extends javax.swing.JFrame {
                     "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
                 Disciplina d = new Disciplina();
-                
+                Aluno a = fichaAluno.consultar(jcbAluno.getSelectedIndex());
+                Professor p = fichaProf.consultar(jcbProf.getSelectedIndex());
+                Materia m = fichaMat.consultar(jcbMateria.getSelectedIndex());
+        
+                d.setAluno(a);
+                d.setProfessor(p);
+                d.setMateria(m);
                 d.setNome(jtfNome.getText());
-//                fichaDisc.procurarAluno();
-//                fichaDisc.procurarProf();
-//                fichaDisc.procurarMat();
-//                d.setNota(Float.valueOf(jtfNota.getText()));
-//                d.setAno(Integer.valueOf(jtfAno.getText()));
-//                d.setSemestre(Integer.valueOf(jtfSemestre.getText()));
-//                d.setFrequencia(Float.valueOf(jtfFrequencia.getText()));
-//                if (jrbSim.isSelected())
-//                    d.setAprovacao(true);
-//                else
-//                    d.setAprovacao(false);
-//
-//                    fichaDisc.alterar(d, jtDisc.getSelectedRow());
-//                    modelo.setValueAt(d.getAluno(), jtDisc.getSelectedRow(), 0);
-//                    modelo.setValueAt(d.getProfessor(), jtDisc.getSelectedRow(), 1);
-//                    modelo.setValueAt(d.getMateria(), jtDisc.getSelectedRow(), 2);
-//                    modelo.setValueAt(d.getNota(), jtDisc.getSelectedRow(), 3);
-//                    modelo.setValueAt(d.getAno(), jtDisc.getSelectedRow(), 4);
-//                    modelo.setValueAt(d.getSemestre(), jtDisc.getSelectedRow(), 5);
-//                    modelo.setValueAt(d.getFrequencia(), jtDisc.getSelectedRow(), 6);
-//                    modelo.setValueAt(d.isAprovacao(), jtDisc.getSelectedRow(), 7);
-//                    jtDisc.setModel(modelo);
+                d.setNota(Float.valueOf(jtfNota.getText()));
+                d.setAno(Integer.valueOf(jtfAno.getText()));
+                d.setSemestre(Integer.valueOf(jtfSemestre.getText()));
+                d.setFrequencia(Float.valueOf(jtfFrequencia.getText()));
+                if (jrbSim.isSelected())
+                    d.setAprovacao(true);
+                else
+                    d.setAprovacao(false);
+
+                fichaDisc.alterar(d, jtDisc.getSelectedRow());
+                modelo.setValueAt(d.getAluno(), jtDisc.getSelectedRow(), 0);
+                modelo.setValueAt(d.getProfessor(), jtDisc.getSelectedRow(), 1);
+                modelo.setValueAt(d.getMateria(), jtDisc.getSelectedRow(), 2);
+                modelo.setValueAt(d.getNota(), jtDisc.getSelectedRow(), 3);
+                modelo.setValueAt(d.getAno(), jtDisc.getSelectedRow(), 4);
+                modelo.setValueAt(d.getSemestre(), jtDisc.getSelectedRow(), 5);
+                modelo.setValueAt(d.getFrequencia(), jtDisc.getSelectedRow(), 6);
+                modelo.setValueAt(d.isAprovacao(), jtDisc.getSelectedRow(), 7);
+                jtDisc.setModel(modelo);
                 JOptionPane.showMessageDialog(this, "Disciplina alterada com sucesso!");
+                jcbAluno.removeItem(a);
+                jcbProf.removeItem(p);
+                jcbMateria.removeItem(m);
+                limpaDados();
             } else {
                 JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
             }
@@ -408,6 +446,7 @@ public class FormDisc extends javax.swing.JFrame {
                     + "\nSemestre: " + d.getSemestre()
                     + "\nFrequência: " + d.getFrequencia()
                     + "\nAprovação: " + d.isAprovacao());
+            limpaDados();
         }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
@@ -463,6 +502,14 @@ public class FormDisc extends javax.swing.JFrame {
         }
     }
     
+    public void limpaDados() {
+        jtfNota.setText(null);
+        jtfAno.setText(null);
+        jtfSemestre.setText(null);
+        jtfFrequencia.setText(null);
+        btnGrpAprov.clearSelection();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btnGrpAprov;
     private javax.swing.JPanel jPanel1;
@@ -472,6 +519,9 @@ public class FormDisc extends javax.swing.JFrame {
     private javax.swing.JButton jbConsultar;
     private javax.swing.JButton jbExcluir;
     private javax.swing.JButton jbVoltar;
+    private javax.swing.JComboBox<Aluno> jcbAluno;
+    private javax.swing.JComboBox<Materia> jcbMateria;
+    private javax.swing.JComboBox<Professor> jcbProf;
     private javax.swing.JLabel jlaAluno;
     private javax.swing.JLabel jlaAno;
     private javax.swing.JLabel jlaAprov;
@@ -485,13 +535,10 @@ public class FormDisc extends javax.swing.JFrame {
     private javax.swing.JRadioButton jrbNao;
     private javax.swing.JRadioButton jrbSim;
     private javax.swing.JTable jtDisc;
-    private javax.swing.JTextField jtfAluno;
     private javax.swing.JTextField jtfAno;
     private javax.swing.JTextField jtfFrequencia;
-    private javax.swing.JTextField jtfMat;
     private javax.swing.JTextField jtfNome;
     private javax.swing.JTextField jtfNota;
-    private javax.swing.JTextField jtfProf;
     private javax.swing.JTextField jtfSemestre;
     // End of variables declaration//GEN-END:variables
 }

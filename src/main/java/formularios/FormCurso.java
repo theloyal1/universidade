@@ -401,14 +401,13 @@ public class FormCurso extends javax.swing.JFrame {
             int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
                     "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
-                Curso c = fichaCurso.consultar(jtCursos.getSelectedRow());
-                Iterator<Aluno> ia = c.getAlunos().iterator();
+                Iterator<Aluno> ia = alunosCb.iterator();
                 while(ia.hasNext()) {
                     Aluno aux = (Aluno)ia.next();
                     jcbAlunos.addItem(aux);
                 }
                 modeloAluno.setRowCount(0);
-                Iterator<Professor> ip = c.getProfs().iterator();
+                Iterator<Professor> ip = profsCb.iterator();
                 while(ip.hasNext()) {
                     Professor aux = (Professor)ip.next();
                     jcbProfs.addItem(aux);

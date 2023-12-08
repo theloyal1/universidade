@@ -96,4 +96,9 @@ public class Disciplina {
     public void setAprovacao(boolean aprovacao) {
         this.aprovacao = aprovacao;
     }
+    
+    @Override
+    public String toString() {
+        return nome;
+    }
 }

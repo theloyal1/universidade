@@ -231,8 +231,20 @@ public class FormPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiPpcActionPerformed
 
     private void jmiDiscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiDiscActionPerformed
-        FormDisc formDisc = new FormDisc();
-        formDisc.setVisible(true);
+        if(fichaAluno.isEmpty())
+            JOptionPane.showMessageDialog(this, "Não há alunos cadastrados!", "Erro", JOptionPane.ERROR_MESSAGE);
+        else {
+            if(fichaProf.isEmpty())
+                JOptionPane.showMessageDialog(this, "Não há professores cadastrados!", "Erro", JOptionPane.ERROR_MESSAGE);
+            else {
+                if(fichaMat.isEmpty())
+                    JOptionPane.showMessageDialog(this, "Não há matérias cadastradas!", "Erro", JOptionPane.ERROR_MESSAGE);
+                else {
+                    FormDisc formDisc = new FormDisc(fichaDisc, fichaAluno, fichaProf, fichaMat);
+                    formDisc.setVisible(true);  
+                }
+            }
+        }
     }//GEN-LAST:event_jmiDiscActionPerformed
 
     public static void main(String args[]) {

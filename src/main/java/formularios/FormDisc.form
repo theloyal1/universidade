@@ -61,7 +61,7 @@
                               <Component id="jbConsultar" min="-2" pref="123" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane2" min="-2" pref="848" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="jlaFrequencia" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -70,7 +70,7 @@
                               <Group type="102" attributes="0">
                                   <Component id="jlaMat" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jtfMat" min="-2" pref="148" max="-2" attributes="0"/>
+                                  <Component id="jcbMateria" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -86,8 +86,8 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jlaAluno" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jtfAluno" min="-2" pref="148" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                          <Component id="jcbAluno" min="-2" pref="133" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                                           <Component id="jlaProf" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
@@ -100,14 +100,16 @@
                                           <Component id="jtfAno" min="-2" pref="82" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jtfProf" min="-2" pref="148" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
-                                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                           <Component id="jlaSemestre" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jtfSemestre" min="-2" pref="71" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jcbProf" min="-2" pref="134" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -141,11 +143,11 @@
                   <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jlaAluno" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jtfAluno" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jtfProf" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlaProf" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlaMat" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jtfMat" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcbAluno" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcbProf" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcbMateria" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -216,8 +218,6 @@
             <Property name="text" type="java.lang.String" value="Aluno: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jtfAluno">
-        </Component>
         <Component class="javax.swing.JLabel" name="jlaProf">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -229,8 +229,6 @@
             <Property name="text" type="java.lang.String" value="Professor: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jtfProf">
-        </Component>
         <Component class="javax.swing.JLabel" name="jlaMat">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -241,8 +239,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Mat&#xe9;ria: "/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jtfMat">
         </Component>
         <Component class="javax.swing.JLabel" name="jlaNota">
           <Properties>
@@ -475,6 +471,36 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jtfNome">
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jcbAluno">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Aluno&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jcbProf">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Professor&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jcbMateria">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Materia&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

@@ -301,8 +301,7 @@ public class FormDep extends javax.swing.JFrame {
             int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
                     "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
-                Departamento d = fichaDep.consultar(jtDep.getSelectedRow());
-                Iterator<Curso> ic = d.getCursos().iterator();
+                Iterator<Curso> ic = cursosCb.iterator();
                 while(ic.hasNext()) {
                     Curso aux = (Curso)ic.next();
                     jcbCursos.addItem(aux);
