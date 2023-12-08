@@ -389,8 +389,8 @@ public class FormPpc extends javax.swing.JFrame {
 
     private void jtPpcsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPpcsMouseClicked
         try {
-            
             jtfAnoInicio.setText(jtPpcs.getModel().getValueAt(jtPpcs.getSelectedRow(), 1).toString());
+            atualizaTabelas();
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jtPpcsMouseClicked
