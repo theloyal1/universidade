@@ -185,6 +185,11 @@ public class FormDisc extends javax.swing.JFrame {
                 "Nome", "Aluno", "Prof.", "Mat.", "Nota", "Ano", "Sem.", "Freq.", "Aprov."
             }
         ));
+        jtDisc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtDiscMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jtDisc);
 
         jlaNome.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
@@ -450,6 +455,17 @@ public class FormDisc extends javax.swing.JFrame {
             limpaDados();
         }
     }//GEN-LAST:event_jbConsultarActionPerformed
+
+    private void jtDiscMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtDiscMouseClicked
+        try {
+            jtfNome.setText(jtDisc.getModel().getValueAt(jtDisc.getSelectedRow(), 0).toString());
+            jtfNota.setText(jtDisc.getModel().getValueAt(jtDisc.getSelectedRow(), 4).toString());
+            jtfAno.setText(jtDisc.getModel().getValueAt(jtDisc.getSelectedRow(), 5).toString());
+            jtfSemestre.setText(jtDisc.getModel().getValueAt(jtDisc.getSelectedRow(), 6).toString());
+            jtfFrequencia.setText(jtDisc.getModel().getValueAt(jtDisc.getSelectedRow(), 7).toString());
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jtDiscMouseClicked
 
     /**
      * @param args the command line arguments
