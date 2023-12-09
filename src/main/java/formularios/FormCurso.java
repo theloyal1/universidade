@@ -474,7 +474,7 @@ public class FormCurso extends javax.swing.JFrame {
             fichaCurso.consultar(jtCursos.getSelectedRow()).setAluno(a);
             jcbAlunos.removeItemAt(jcbAlunos.getSelectedIndex());
             alunosCb.remove(a);
-            fichaAluno.cadastrar(a);
+//            fichaAluno.cadastrar(a);
             jtAlunos.setModel(modeloAluno);
         }
     }//GEN-LAST:event_jbAddAlunosActionPerformed
@@ -498,7 +498,7 @@ public class FormCurso extends javax.swing.JFrame {
             fichaCurso.consultar(jtCursos.getSelectedRow()).setProf(p);
             jcbProfs.removeItemAt(jcbProfs.getSelectedIndex());
             profsCb.remove(p);
-            fichaProf.cadastrar(p);
+//            fichaProf.cadastrar(p);
             jtProfs.setModel(modeloProf);
         }
     }//GEN-LAST:event_jbAddProfsActionPerformed
