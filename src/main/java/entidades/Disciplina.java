@@ -6,14 +6,15 @@ public class Disciplina {
     private Professor professor;
     private Materia materia;
     private float nota, frequencia;
-    private int ano, semestre;
+    private int codigo, ano, semestre;
     private boolean aprovacao;
 
     public Disciplina() {
     }
 
-    public Disciplina(String nome, Aluno aluno, Professor professor, Materia materia, float nota, 
+    public Disciplina(int codigo, String nome, Aluno aluno, Professor professor, Materia materia, float nota, 
             float frequencia, int ano, int semestre, boolean aprovacao) {
+        this.codigo = codigo;
         this.nome = nome;
         this.aluno = aluno;
         this.professor = professor;
@@ -24,7 +25,15 @@ public class Disciplina {
         this.semestre = semestre;
         this.aprovacao = aprovacao;
     }
+    
+    public int getCodigo() {
+        return codigo;
+    }
 
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+    
     public String getNome() {
         return nome;
     }

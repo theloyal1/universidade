@@ -5,16 +5,25 @@ import java.util.ArrayList;
 public class Ppc {
     private Curso curso;
     private ArrayList<Materia> materias = new ArrayList<>();
-    private int anoInicio;
+    private int codigo, anoInicio;
 
     public Ppc() {
     }
 
-    public Ppc(Curso curso, int anoInicio) {
+    public Ppc(int codigo, Curso curso, int anoInicio) {
+        this.codigo = codigo;
         this.curso = curso;
         this.anoInicio = anoInicio;
     }
+    
+    public int getCodigo() {
+        return codigo;
+    }
 
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+    
     public Curso getCurso() {
         return curso;
     }

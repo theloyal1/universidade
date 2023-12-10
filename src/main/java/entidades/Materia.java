@@ -5,18 +5,27 @@ import java.util.ArrayList;
 public class Materia {
     private String nome, ementa, preRequisitos;
     private ArrayList<Professor> professores = new ArrayList<>();
-    private int cargaHoraria;
+    private int codigo, cargaHoraria;
 
     public Materia() {
     }
 
-    public Materia(String nome, String ementa, String preRequisitos, int cargaHoraria) {
+    public Materia(int codigo, String nome, String ementa, String preRequisitos, int cargaHoraria) {
+        this.codigo = codigo;
         this.nome = nome;
         this.ementa = ementa;
         this.preRequisitos = preRequisitos;
         this.cargaHoraria = cargaHoraria;
     }
+    
+    public int getCodigo() {
+        return codigo;
+    }
 
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+    
     public String getNome() {
         return nome;
     }
