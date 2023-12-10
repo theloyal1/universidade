@@ -322,7 +322,7 @@ public class FormAluno extends javax.swing.JFrame {
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         Aluno a = new Aluno();
 
-        a.setCpf(jtfCpf.getText());
+        a.setCpf(Integer.valueOf(jtfCpf.getText()));
         a.setNome(jtfNome.getText());
         a.setEmail(jtfEmail.getText());
         a.setEndereco(jtfEndereco.getText());
@@ -333,7 +333,7 @@ public class FormAluno extends javax.swing.JFrame {
         a.setDataMatricula(jtfDataMat.getText());
 
         fichaAluno.cadastrar(a);
-        modelo.addRow(new String[]{a.getCpf(), a.getNome(), a.getEmail(), a.getEndereco(),
+        modelo.addRow(new String[]{String.valueOf(a.getCpf()), a.getNome(), a.getEmail(), a.getEndereco(),
             a.getTelefone(), String.valueOf(a.getNumMatriculas()), String.valueOf(a.getNumConclusoes()),
             String.valueOf(a.getNumDiscDep()), String.valueOf(a.getDataMatricula())});
         JOptionPane.showMessageDialog(this, "Aluno cadastrado com sucesso!");
@@ -396,7 +396,7 @@ public class FormAluno extends javax.swing.JFrame {
             if (res == JOptionPane.YES_OPTION) {
                 Aluno a = new Aluno();
 
-                a.setCpf(jtfCpf.getText());
+                a.setCpf(Integer.valueOf(jtfCpf.getText()));
                 a.setNome(jtfNome.getText());
                 a.setEmail(jtfEmail.getText());
                 a.setEndereco(jtfEndereco.getText());
@@ -478,8 +478,9 @@ public class FormAluno extends javax.swing.JFrame {
             Iterator<Aluno> i = fichaAluno.relatorio().iterator();
             while(i.hasNext()) {
                 Aluno aux = (Aluno)i.next();
-                modelo.addRow(new String[]{aux.getCpf(), aux.getNome(), 
-                    aux.getEmail(), aux.getEndereco(), aux.getTelefone(), 
+                modelo.addRow(new String[]{String.valueOf(aux.getCpf()), 
+                    aux.getNome(), aux.getEmail(), aux.getEndereco(), 
+                    aux.getTelefone(), 
                     String.valueOf(aux.getNumMatriculas()), 
                     String.valueOf(aux.getNumConclusoes()),
                     String.valueOf(aux.getNumDiscDep()), 

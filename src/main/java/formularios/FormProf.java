@@ -292,7 +292,7 @@ public class FormProf extends javax.swing.JFrame {
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         Professor p = new Professor();
 
-        p.setCpf(jtfCpf.getText());
+        p.setCpf(Integer.valueOf(jtfCpf.getText()));;
         p.setNome(jtfNome.getText());
         p.setEmail(jtfEmail.getText());
         p.setEndereco(jtfEndereco.getText());
@@ -300,7 +300,7 @@ public class FormProf extends javax.swing.JFrame {
         p.setEspecializacao(jtfEspec.getText());
 
         fichaProf.cadastrar(p);
-        modelo.addRow(new String[]{p.getCpf(), p.getNome(), p.getEmail(), p.getEndereco(),
+        modelo.addRow(new String[]{String.valueOf(p.getCpf()), p.getNome(), p.getEmail(), p.getEndereco(),
             p.getTelefone(), p.getEspecializacao()});
         JOptionPane.showMessageDialog(this, "Professor cadastrado com sucesso!");
         limparDados();
@@ -335,7 +335,7 @@ public class FormProf extends javax.swing.JFrame {
             if (res == JOptionPane.YES_OPTION) {
                 Professor p = new Professor();
 
-                p.setCpf(jtfCpf.getText());
+                p.setCpf(Integer.valueOf(jtfCpf.getText()));
                 p.setNome(jtfNome.getText());
                 p.setEmail(jtfEmail.getText());
                 p.setEndereco(jtfEndereco.getText());
@@ -426,9 +426,9 @@ public class FormProf extends javax.swing.JFrame {
             Iterator<Professor> i = fichaProf.relatorio().iterator();
             while(i.hasNext()) {
                 Professor aux = (Professor)i.next();
-                modelo.addRow(new String[]{aux.getCpf(), aux.getNome(), 
-                    aux.getEmail(), aux.getEndereco(), aux.getTelefone(),
-                    aux.getEspecializacao()});
+                modelo.addRow(new String[]{String.valueOf(aux.getCpf()), 
+                    aux.getNome(), aux.getEmail(), aux.getEndereco(), 
+                    aux.getTelefone(), aux.getEspecializacao()});
             }
             jtProfs.setModel(modelo);
         } catch (Exception e) {

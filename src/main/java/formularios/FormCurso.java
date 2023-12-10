@@ -469,7 +469,7 @@ public class FormCurso extends javax.swing.JFrame {
     private void jbAddAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddAlunosActionPerformed
         if (jtCursos.getSelectedRow() != -1) {
             Aluno a = fichaAluno.consultar(jcbAlunos.getSelectedIndex());
-            modeloAluno.addRow(new String[]{a.getCpf(), a.getNome()});
+            modeloAluno.addRow(new String[]{String.valueOf(a.getCpf()), a.getNome()});
             JOptionPane.showMessageDialog(this, "Aluno selecionado com sucesso!");
             fichaCurso.consultar(jtCursos.getSelectedRow()).setAluno(a);
             jcbAlunos.removeItemAt(jcbAlunos.getSelectedIndex());
@@ -493,7 +493,7 @@ public class FormCurso extends javax.swing.JFrame {
     private void jbAddProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddProfsActionPerformed
         if(jtCursos.getSelectedRow() != -1) {
             Professor p = fichaProf.consultar(jcbProfs.getSelectedIndex());
-            modeloProf.addRow(new String[]{p.getCpf(), p.getNome()});
+            modeloProf.addRow(new String[]{String.valueOf(p.getCpf()), p.getNome()});
             JOptionPane.showMessageDialog(this, "Professor selecionado com sucesso!");
             fichaCurso.consultar(jtCursos.getSelectedRow()).setProf(p);
             jcbProfs.removeItemAt(jcbProfs.getSelectedIndex());
@@ -586,7 +586,7 @@ public class FormCurso extends javax.swing.JFrame {
             Iterator<Aluno> ia = fichaCurso.consultar(jtCursos.getSelectedRow()).getAlunos().iterator();
             while(ia.hasNext()) {
                 Aluno aux = (Aluno)ia.next();
-                modeloAluno.addRow(new String[]{aux.getCpf(), aux.getNome()});
+                modeloAluno.addRow(new String[]{String.valueOf(aux.getCpf()), aux.getNome()});
             }
             modeloAluno.fireTableDataChanged();
             jtAlunos.setModel(modeloAluno);
@@ -597,7 +597,7 @@ public class FormCurso extends javax.swing.JFrame {
             Iterator<Professor> ip = fichaCurso.consultar(jtCursos.getSelectedRow()).getProfs().iterator();
             while(ip.hasNext()) {
                 Professor aux = (Professor)ip.next();
-                modeloProf.addRow(new String[]{aux.getCpf(), aux.getNome()});
+                modeloProf.addRow(new String[]{String.valueOf(aux.getCpf()), aux.getNome()});
             }
             modeloProf.fireTableDataChanged();
             jtProfs.setModel(modeloProf);

@@ -1,12 +1,13 @@
 package entidades;
 
 public class Pessoa {
-    private String cpf, nome, email, endereco, telefone;
+    private int cpf;
+    private String nome, email, endereco, telefone;
 
     public Pessoa() {
     }
 
-    public Pessoa(String cpf, String nome, String email, String endereco, String telefone) {
+    public Pessoa(int cpf, String nome, String email, String endereco, String telefone) {
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
@@ -14,11 +15,11 @@ public class Pessoa {
         this.telefone = telefone;
     }
 
-    public String getCpf() {
+    public int getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(int cpf) {
         this.cpf = cpf;
     }
 

@@ -6,7 +6,7 @@ public class Professor extends Pessoa {
     public Professor() {
     }
 
-    public Professor(String especializacao, String cpf, String nome, String email, String endereco, String telefone) {
+    public Professor(String especializacao, int cpf, String nome, String email, String endereco, String telefone) {
         super(cpf, nome, email, endereco, telefone);
         this.especializacao = especializacao;
     }

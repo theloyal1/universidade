@@ -414,7 +414,7 @@ public class FormMateria extends javax.swing.JFrame {
     private void jbAddProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddProfsActionPerformed
         if(jtMats.getSelectedRow() != -1) {
             Professor p = fichaProf.consultar(jcbProfs.getSelectedIndex());
-            modeloProf.addRow(new String[]{p.getCpf(), p.getNome()});
+            modeloProf.addRow(new String[]{String.valueOf(p.getCpf()), p.getNome()});
             JOptionPane.showMessageDialog(this, "Professor selecionado com sucesso!");
             fichaMat.consultar(jtMats.getSelectedRow()).setProf(p);
             jcbProfs.removeItemAt(jcbProfs.getSelectedIndex());
@@ -503,7 +503,7 @@ public class FormMateria extends javax.swing.JFrame {
             Iterator<Professor> ip = fichaMat.consultar(jtMats.getSelectedRow()).getProfs().iterator();
             while(ip.hasNext()) {
                 Professor aux = (Professor)ip.next();
-                modeloProf.addRow(new String[]{aux.getCpf(), aux.getNome()});
+                modeloProf.addRow(new String[]{String.valueOf(aux.getCpf()), aux.getNome()});
             }
             modeloProf.fireTableDataChanged();
             jtProfs.setModel(modeloProf);
