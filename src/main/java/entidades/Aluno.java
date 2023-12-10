@@ -19,7 +19,7 @@ public class Aluno extends Pessoa {
         this.numMatriculas = numMatriculas;
         this.numConclusoes = numConclusoes;
         this.numDiscDep = numDiscDep;
-        this.dataMatricula = LocalDate.parse(dataMatricula, dtf);;
+        this.dataMatricula = LocalDate.parse(dataMatricula, dtf);
 //        this.dataMatricula = dataMatricula;
     }
 
