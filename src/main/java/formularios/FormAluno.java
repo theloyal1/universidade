@@ -358,19 +358,23 @@ public class FormAluno extends javax.swing.JFrame {
             int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
                     "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
-                Aluno a;
+                Aluno a = fichaAluno.consultar(jtAlunos.getSelectedRow());
+                int codEscolhido = a.getCodigo();
                 Iterator<Aluno> i = fichaAluno.relatorio().iterator();
                 boolean achou = false;
                 
                 while(i.hasNext()) {
                     a = (Aluno)i.next();
                     
-                    if((!achou) && (a.getCpf() == jtAlunos.getSelectedRow()));
+                    if(a.getCodigo() == codEscolhido)
+                        achou = true;
                 }
                 
-                fichaAluno.excluir(a, jtAlunos.getSelectedRow());
-                modelo.removeRow(jtAlunos.getSelectedRow());
-                JOptionPane.showMessageDialog(this, "Aluno excluído com sucesso!");
+                if(achou) {
+                    fichaAluno.excluir(a, jtAlunos.getSelectedRow());
+                    modelo.removeRow(jtAlunos.getSelectedRow());
+                    JOptionPane.showMessageDialog(this, "Aluno excluído com sucesso!");
+                }
             } else {
                 JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
             }

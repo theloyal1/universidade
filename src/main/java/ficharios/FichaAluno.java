@@ -4,6 +4,7 @@ import entidades.Aluno;
 import entidades.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -30,15 +31,16 @@ public class FichaAluno {
         
         try {
             ps = conexao.prepareStatement(sql);
-            ps.setInt(0, a.getCpf());
-            ps.setString(1, a.getNome());
-            ps.setString(2, a.getEmail());
-            ps.setString(3, a.getEndereco());
-            ps.setString(4, a.getTelefone());
-            ps.setInt(5, a.getNumMatriculas());
-            ps.setInt(6, a.getNumConclusoes());
-            ps.setInt(7, a.getNumDiscDep());
-            ps.setDate(8, a.getDataMatricula());
+            ps.setInt(1, proximoCodigo());
+            ps.setInt(2, a.getCpf());
+            ps.setString(3, a.getNome());
+            ps.setString(4, a.getEmail());
+            ps.setString(5, a.getEndereco());
+            ps.setString(6, a.getTelefone());
+            ps.setInt(7, a.getNumMatriculas());
+            ps.setInt(8, a.getNumConclusoes());
+            ps.setInt(9, a.getNumDiscDep());
+            ps.setDate(10, a.getDataMatricula());
             ps.execute();
             ps.close();
         } catch (Exception e) {
@@ -51,7 +53,15 @@ public class FichaAluno {
         String sql;
         PreparedStatement ps = null;
         
-        sql = "DELETE FROM aluno WHERE cpf = ?";
+        sql = "DELETE FROM aluno WHERE codigo = ?";
+        
+        try {
+            ps = conexao.prepareStatement(sql);
+            ps.setInt(1, a.getCodigo());
+            ps.execute();
+            ps.close();
+        } catch (Exception e) {
+        }
     }
     
     public void alterar(Aluno a, int pos) {
@@ -79,5 +89,29 @@ public class FichaAluno {
             return true;
         else
             return false;
+    }
+    
+    private int proximoCodigo() {
+        String sql;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int codigo = -1;
+        
+        sql = "SELECT MAX(codigo) FROM aluno";
+        
+        try {
+            ps = conexao.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            if(rs.next()) {
+                codigo = rs.getInt(1);
+                codigo++;
+            }
+            
+            ps.close();
+        } catch (Exception e) {
+        }
+        
+        return codigo;
     }
 }
