@@ -26,8 +26,8 @@ public class FichaAluno {
         String sql;
         PreparedStatement ps = null;
         
-        sql = "INSERT INTO aluno (cpf, nome, email, endereco, telefone, num_matriculas, num_conclusoes, "
-                + "num_dependencias, data_matricula) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        sql = "INSERT INTO aluno (codigo, cpf, nome, email, endereco, telefone, num_matriculas, num_conclusoes, "
+                + "num_dependencias, data_matricula) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
         try {
             ps = conexao.prepareStatement(sql);

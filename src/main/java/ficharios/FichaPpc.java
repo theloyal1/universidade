@@ -26,13 +26,14 @@ public class FichaPpc {
         String sql;
         PreparedStatement ps = null;
         
-        sql = "INSERT INTO ppc (codigo, curso, ano_inicio) VALUES (?, ?, ?)";
+        sql = "INSERT INTO ppc (codigo, curso, materias, ano_inicio) VALUES (?, ?, ?, ?)";
         
         try {
             ps = conexao.prepareStatement(sql);
             ps.setInt(0, proximoCodigo());
             ps.setString(1, p.getCurso().toString());
-            ps.setInt(2, p.getAnoInicio());
+            ps.setString(2, p.getMaterias().toString());
+            ps.setInt(3, p.getAnoInicio());
             ps.execute();
             ps.close();
         } catch (Exception e) {
@@ -68,7 +69,8 @@ public class FichaPpc {
         try {
             ps = conexao.prepareStatement(sql);
             ps.setString(1, p.getCurso().toString());
-            ps.setInt(2, p.getAnoInicio());
+            ps.setString(2, p.getMaterias().toString());
+            ps.setInt(3, p.getAnoInicio());
             ps.execute();
             ps.close();
         } catch (Exception e) {

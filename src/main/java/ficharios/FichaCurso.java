@@ -26,7 +26,8 @@ public class FichaCurso {
         String sql;
         PreparedStatement ps = null;
         
-        sql = "INSERT INTO curso (nome, num_disc_obg, num_disc_opc) VALUES (?, ?, ?)";
+        sql = "INSERT INTO curso (codigo, nome, num_disc_obg, num_disc_opc, alunos, "
+                + "professores) VALUES (?, ?, ?, ?)";
         
         try {
             ps = conexao.prepareStatement(sql);
@@ -34,6 +35,8 @@ public class FichaCurso {
             ps.setString(1, c.getNome());
             ps.setInt(2, c.getNumDiscObg());
             ps.setInt(3, c.getNumDiscOpc());
+            ps.setString(4, c.getAlunos().toString());
+            ps.setString(5, c.getProfs().toString());
             ps.execute();
             ps.close();
         } catch (Exception e) {
@@ -65,13 +68,16 @@ public class FichaCurso {
         String sql;
         PreparedStatement ps = null;
         
-        sql = "UPDATE curso SET nome = ?, num_disc_obg = ?, num_disc_opc = ?";
+        sql = "UPDATE curso SET nome = ?, num_disc_obg = ?, num_disc_opc = ?, alunos = ?, "
+                + "professores = ?";
         
         try {
             ps = conexao.prepareStatement(sql);
             ps.setString(1, c.getNome());
             ps.setInt(2, c.getNumDiscObg());
             ps.setInt(3, c.getNumDiscOpc());
+            ps.setString(4, c.getAlunos().toString());
+            ps.setString(5, c.getProfs().toString());
             ps.execute();
             ps.close();
         } catch (Exception e) {

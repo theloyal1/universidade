@@ -27,12 +27,13 @@ public class FichaDep {
         String sql;
         PreparedStatement ps = null;
         
-        sql = "INSERT INTO departamento (codigo, nome) VALUES (?, ?)";
+        sql = "INSERT INTO departamento (codigo, nome, cursos) VALUES (?, ?)";
         
         try {
             ps = conexao.prepareStatement(sql);
             ps.setInt(0, proximoCodigo());
             ps.setString(1, d.getNome());
+            ps.setString(2, d.getCursos().toString());
             ps.execute();
             ps.close();
         } catch (Exception e) {
@@ -63,11 +64,12 @@ public class FichaDep {
         String sql;
         PreparedStatement ps = null;
         
-        sql = "UPDATE departamento SET nome = ?";
+        sql = "UPDATE departamento SET nome = ?, cursos = ?";
         
         try {
             ps = conexao.prepareStatement(sql);
             ps.setString(1, d.getNome());
+            ps.setString(2, d.getCursos().toString());
             ps.execute();
             ps.close();
         } catch (Exception e) {

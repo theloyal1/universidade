@@ -26,8 +26,8 @@ public class FichaProf {
         String sql;
         PreparedStatement ps = null;
         
-        sql = "INSERT INTO professor (cpf, nome, email, endereco, especializacao) "
-                + "VALUES (?, ?, ?, ?, ?, ?)";
+        sql = "INSERT INTO professor (codigo, cpf, nome, email, endereco, telefone, especializacao) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?)";
         
         try {
             ps = conexao.prepareStatement(sql);

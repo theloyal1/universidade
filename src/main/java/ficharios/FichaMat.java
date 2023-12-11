@@ -26,8 +26,8 @@ public class FichaMat {
         String sql;
         PreparedStatement ps = null;
         
-        sql = "INSERT INTO materia (codigo, nome, ementa, pre_requisitos, carga_horaria) "
-                + "VALUES (?, ?, ?, ?, ?)";
+        sql = "INSERT INTO materia (codigo, nome, ementa, pre_requisitos, carga_horaria, "
+                + "professores) VALUES (?, ?, ?, ?, ?, ?)";
         
         try {
             ps = conexao.prepareStatement(sql);
@@ -36,6 +36,7 @@ public class FichaMat {
             ps.setString(2, m.getEmenta());
             ps.setString(3, m.getPreRequisitos());
             ps.setInt(4, m.getCargaHoraria());
+            ps.setString(5, m.getProfs().toString());
             ps.execute();
             ps.close();
         } catch (Exception e) {
@@ -67,7 +68,8 @@ public class FichaMat {
         String sql;
         PreparedStatement ps = null;
         
-        sql = "UPDATE materia SET nome = ?, ementa = ?, pre_requisitos = ?, carga_horaria = ?";
+        sql = "UPDATE materia SET nome = ?, ementa = ?, pre_requisitos = ?, carga_horaria = ?, "
+                + "professores = ?";
         
         try {
             ps = conexao.prepareStatement(sql);
@@ -75,6 +77,7 @@ public class FichaMat {
             ps.setString(2, m.getEmenta());
             ps.setString(3, m.getPreRequisitos());
             ps.setInt(4, m.getCargaHoraria());
+            ps.setString(5, m.getProfs().toString());
             ps.execute();
             ps.close();
         } catch (Exception e) {
