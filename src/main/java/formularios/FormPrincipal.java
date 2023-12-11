@@ -36,6 +36,14 @@ public class FormPrincipal extends javax.swing.JFrame {
         jmiMat = new javax.swing.JMenuItem();
         jmiPpc = new javax.swing.JMenuItem();
         jmiDisc = new javax.swing.JMenuItem();
+        jmiRelatorios = new javax.swing.JMenu();
+        jcbRelAlunos = new javax.swing.JMenuItem();
+        jmiRelProfs = new javax.swing.JMenuItem();
+        jmiRelCursos = new javax.swing.JMenuItem();
+        jmiRelDeps = new javax.swing.JMenuItem();
+        jmiRelMats = new javax.swing.JMenuItem();
+        jmiRelPpcs = new javax.swing.JMenuItem();
+        jmiRelDiscs = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("UniFed");
@@ -151,6 +159,67 @@ public class FormPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jmCadastros);
 
+        jmiRelatorios.setText("Relatórios");
+        jmiRelatorios.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jcbRelAlunos.setText("Alunos");
+        jcbRelAlunos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbRelAlunosActionPerformed(evt);
+            }
+        });
+        jmiRelatorios.add(jcbRelAlunos);
+
+        jmiRelProfs.setText("Professores");
+        jmiRelProfs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiRelProfsActionPerformed(evt);
+            }
+        });
+        jmiRelatorios.add(jmiRelProfs);
+
+        jmiRelCursos.setText("Cursos");
+        jmiRelCursos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiRelCursosActionPerformed(evt);
+            }
+        });
+        jmiRelatorios.add(jmiRelCursos);
+
+        jmiRelDeps.setText("Departamentos");
+        jmiRelDeps.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiRelDepsActionPerformed(evt);
+            }
+        });
+        jmiRelatorios.add(jmiRelDeps);
+
+        jmiRelMats.setText("Matérias");
+        jmiRelMats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiRelMatsActionPerformed(evt);
+            }
+        });
+        jmiRelatorios.add(jmiRelMats);
+
+        jmiRelPpcs.setText("PPC");
+        jmiRelPpcs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiRelPpcsActionPerformed(evt);
+            }
+        });
+        jmiRelatorios.add(jmiRelPpcs);
+
+        jmiRelDiscs.setText("Disciplinas");
+        jmiRelDiscs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiRelDiscsActionPerformed(evt);
+            }
+        });
+        jmiRelatorios.add(jmiRelDiscs);
+
+        jMenuBar1.add(jmiRelatorios);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -247,6 +316,34 @@ public class FormPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jmiDiscActionPerformed
 
+    private void jcbRelAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbRelAlunosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbRelAlunosActionPerformed
+
+    private void jmiRelProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRelProfsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmiRelProfsActionPerformed
+
+    private void jmiRelCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRelCursosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmiRelCursosActionPerformed
+
+    private void jmiRelDepsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRelDepsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmiRelDepsActionPerformed
+
+    private void jmiRelMatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRelMatsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmiRelMatsActionPerformed
+
+    private void jmiRelPpcsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRelPpcsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmiRelPpcsActionPerformed
+
+    private void jmiRelDiscsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRelDiscsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmiRelDiscsActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -283,6 +380,7 @@ public class FormPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbSair;
+    private javax.swing.JMenuItem jcbRelAlunos;
     private javax.swing.JLabel jlaLogo;
     private javax.swing.JMenu jmCadastros;
     private javax.swing.JMenuItem jmiAluno;
@@ -292,5 +390,12 @@ public class FormPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiMat;
     private javax.swing.JMenuItem jmiPpc;
     private javax.swing.JMenuItem jmiProf;
+    private javax.swing.JMenuItem jmiRelCursos;
+    private javax.swing.JMenuItem jmiRelDeps;
+    private javax.swing.JMenuItem jmiRelDiscs;
+    private javax.swing.JMenuItem jmiRelMats;
+    private javax.swing.JMenuItem jmiRelPpcs;
+    private javax.swing.JMenuItem jmiRelProfs;
+    private javax.swing.JMenu jmiRelatorios;
     // End of variables declaration//GEN-END:variables
 }
