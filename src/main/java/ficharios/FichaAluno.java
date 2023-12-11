@@ -31,16 +31,16 @@ public class FichaAluno {
         
         try {
             ps = conexao.prepareStatement(sql);
-            ps.setInt(1, proximoCodigo());
-            ps.setInt(2, a.getCpf());
-            ps.setString(3, a.getNome());
-            ps.setString(4, a.getEmail());
-            ps.setString(5, a.getEndereco());
-            ps.setString(6, a.getTelefone());
-            ps.setInt(7, a.getNumMatriculas());
-            ps.setInt(8, a.getNumConclusoes());
-            ps.setInt(9, a.getNumDiscDep());
-            ps.setDate(10, a.getDataMatricula());
+            ps.setInt(0, proximoCodigo());
+            ps.setInt(1, a.getCpf());
+            ps.setString(2, a.getNome());
+            ps.setString(3, a.getEmail());
+            ps.setString(4, a.getEndereco());
+            ps.setString(5, a.getTelefone());
+            ps.setInt(6, a.getNumMatriculas());
+            ps.setInt(7, a.getNumConclusoes());
+            ps.setInt(8, a.getNumDiscDep());
+            ps.setDate(9, a.getDataMatricula());
             ps.execute();
             ps.close();
         } catch (Exception e) {
@@ -74,6 +74,28 @@ public class FichaAluno {
         alunos.get(pos).setNumMatriculas(a.getNumMatriculas());
         alunos.get(pos).setNumDiscDep(a.getNumDiscDep());
         alunos.get(pos).setDataMatricula(String.valueOf(a.getDataMatricula()));
+        
+        String sql;
+        PreparedStatement ps = null;
+        
+        sql = "UPDATE aluno SET cpf = ?, nome = ?, email = ?, endereco = ?, telefone = ?, "
+                + "num_matriculas = ?, num_conclusoes = ?, num_dependencias = ?, data_matricula = ?";
+        
+        try {
+            ps = conexao.prepareStatement(sql);
+            ps.setInt(1, a.getCpf());
+            ps.setString(2, a.getNome());
+            ps.setString(3, a.getEmail());
+            ps.setString(4, a.getEndereco());
+            ps.setString(5, a.getTelefone());
+            ps.setInt(6, a.getNumMatriculas());
+            ps.setInt(7, a.getNumConclusoes());
+            ps.setInt(8, a.getNumDiscDep());
+            ps.setDate(9, a.getDataMatricula());
+            ps.execute();
+            ps.close();
+        } catch (Exception e) {
+        }
     }
     
     public Aluno consultar(int pos) {
@@ -81,6 +103,27 @@ public class FichaAluno {
     }
     
     public ArrayList<Aluno> relatorio() {
+        String sql;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        boolean umaVez = true;
+        
+        sql = "SELECT * FROM aluno";
+        
+        try {
+            ps = conexao.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            while(rs.next()) {
+                if(umaVez)
+                    umaVez = false;
+            }
+            
+            ps.close();
+            rs.close();
+        } catch (Exception e) {
+        }
+        
         return alunos;
     }
     
