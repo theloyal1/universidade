@@ -65,7 +65,7 @@ public class FichaCurso {
         String sql;
         PreparedStatement ps = null;
         
-        sql = "UPDATE curso SET nome = ?, num_disc_obg = ?, num_disc_opc ?";
+        sql = "UPDATE curso SET nome = ?, num_disc_obg = ?, num_disc_opc = ?";
         
         try {
             ps = conexao.prepareStatement(sql);

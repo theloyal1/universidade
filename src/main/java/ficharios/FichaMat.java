@@ -67,7 +67,7 @@ public class FichaMat {
         String sql;
         PreparedStatement ps = null;
         
-        sql = "UPDATE materia SET nome = ?, ementa = ?, pre_requisitos = ?";
+        sql = "UPDATE materia SET nome = ?, ementa = ?, pre_requisitos = ?, carga_horaria = ?";
         
         try {
             ps = conexao.prepareStatement(sql);
@@ -123,7 +123,7 @@ public class FichaMat {
         ResultSet rs = null;
         int codigo = -1;
         
-        sql = "SELECT MAX(codigo) FROM aluno";
+        sql = "SELECT MAX(codigo) FROM materia";
         
         try {
             ps = conexao.prepareStatement(sql);

@@ -27,7 +27,7 @@ public class FichaDep {
         String sql;
         PreparedStatement ps = null;
         
-        sql = "INSERT INTO departamento (nome, num_disc_obg, num_disc_opc) VALUES (?, ?, ?)";
+        sql = "INSERT INTO departamento (codigo, nome) VALUES (?, ?)";
         
         try {
             ps = conexao.prepareStatement(sql);
@@ -84,7 +84,7 @@ public class FichaDep {
         ResultSet rs = null;
         boolean umaVez = true;
         
-        sql = "SELECT * FROM curso";
+        sql = "SELECT * FROM departamento";
         
         try {
             ps = conexao.prepareStatement(sql);
@@ -116,7 +116,7 @@ public class FichaDep {
         ResultSet rs = null;
         int codigo = -1;
         
-        sql = "SELECT MAX(codigo) FROM aluno";
+        sql = "SELECT MAX(codigo) FROM departamento";
         
         try {
             ps = conexao.prepareStatement(sql);

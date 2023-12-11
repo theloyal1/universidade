@@ -314,7 +314,8 @@ public class FormPpc extends javax.swing.JFrame {
                 Curso c = fichaPpc.consultar(jtPpcs.getSelectedRow()).getCurso();
                 jcbCurso.addItem(c);
                 modeloMat.setRowCount(0);
-                fichaPpc.excluir(jtPpcs.getSelectedRow());
+                Ppc p = fichaPpc.consultar(jtPpcs.getSelectedRow());
+                fichaPpc.excluir(p, jtPpcs.getSelectedRow());
                 modeloPpc.removeRow(jtPpcs.getSelectedRow());
                 JOptionPane.showMessageDialog(this, "PPC excluído com sucesso!");
             } else {

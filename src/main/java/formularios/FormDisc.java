@@ -379,7 +379,7 @@ public class FormDisc extends javax.swing.JFrame {
                 jcbAluno.addItem(d.getAluno());
                 jcbProf.addItem(d.getProfessor());
                 jcbMateria.addItem(d.getMateria());
-                fichaDisc.excluir(jtDisc.getSelectedRow());
+                fichaDisc.excluir(d, jtDisc.getSelectedRow());
                 modelo.removeRow(jtDisc.getSelectedRow());
                 JOptionPane.showMessageDialog(this, "Disciplina excluída com sucesso!");
             } else {

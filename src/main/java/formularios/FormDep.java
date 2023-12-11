@@ -296,8 +296,6 @@ public class FormDep extends javax.swing.JFrame {
                 modeloCurso.setRowCount(0);
                 
                 Departamento d = fichaDep.consultar(jtDep.getSelectedRow());
-                
-                d = fichaDep.consultar(jtDep.getSelectedRow());
                 fichaDep.excluir(d, jtDep.getSelectedRow());
                 modeloDep.removeRow(jtDep.getSelectedRow());
                 JOptionPane.showMessageDialog(this, "Departamento excluído com sucesso!");
