@@ -322,7 +322,7 @@ public class FormAluno extends javax.swing.JFrame {
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         Aluno a = new Aluno();
 
-        a.setCpf(Integer.valueOf(jtfCpf.getText()));
+        a.setCpf(jtfCpf.getText());
         a.setNome(jtfNome.getText());
         a.setEmail(jtfEmail.getText());
         a.setEndereco(jtfEndereco.getText());
@@ -398,7 +398,7 @@ public class FormAluno extends javax.swing.JFrame {
             if (res == JOptionPane.YES_OPTION) {
                 Aluno a = new Aluno();
 
-                a.setCpf(Integer.valueOf(jtfCpf.getText()));
+                a.setCpf(jtfCpf.getText());
                 a.setNome(jtfNome.getText());
                 a.setEmail(jtfEmail.getText());
                 a.setEndereco(jtfEndereco.getText());

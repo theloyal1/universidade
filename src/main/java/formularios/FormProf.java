@@ -292,7 +292,7 @@ public class FormProf extends javax.swing.JFrame {
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         Professor p = new Professor();
 
-        p.setCpf(Integer.valueOf(jtfCpf.getText()));;
+        p.setCpf(jtfCpf.getText());;
         p.setNome(jtfNome.getText());
         p.setEmail(jtfEmail.getText());
         p.setEndereco(jtfEndereco.getText());
@@ -336,7 +336,7 @@ public class FormProf extends javax.swing.JFrame {
             if (res == JOptionPane.YES_OPTION) {
                 Professor p = new Professor();
 
-                p.setCpf(Integer.valueOf(jtfCpf.getText()));
+                p.setCpf(jtfCpf.getText());
                 p.setNome(jtfNome.getText());
                 p.setEmail(jtfEmail.getText());
                 p.setEndereco(jtfEndereco.getText());

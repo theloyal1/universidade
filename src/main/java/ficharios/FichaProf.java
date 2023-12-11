@@ -32,7 +32,7 @@ public class FichaProf {
         try {
             ps = conexao.prepareStatement(sql);
             ps.setInt(0, proximoCodigo());
-            ps.setInt(1, p.getCpf());
+            ps.setString(1, p.getCpf());
             ps.setString(2, p.getNome());
             ps.setString(3, p.getEmail());
             ps.setString(4, p.getEndereco());
@@ -77,7 +77,7 @@ public class FichaProf {
         
         try {
             ps = conexao.prepareStatement(sql);
-            ps.setInt(1, p.getCpf());
+            ps.setString(1, p.getCpf());
             ps.setString(2, p.getNome());
             ps.setString(3, p.getEmail());
             ps.setString(4, p.getEndereco());

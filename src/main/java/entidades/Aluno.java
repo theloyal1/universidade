@@ -14,7 +14,7 @@ public class Aluno extends Pessoa {
     }
 
     public Aluno(int numMatriculas, int numConclusoes, int numDiscDep, String dataMatricula,
-            int codigo, int cpf, String nome, String email, String endereco, String telefone) {
+            int codigo, String cpf, String nome, String email, String endereco, String telefone) {
         super(codigo, cpf, nome, email, endereco, telefone);
         this.numMatriculas = numMatriculas;
         this.numConclusoes = numConclusoes;

@@ -15,11 +15,11 @@
 	
 CREATE TABLE aluno (
 	codigo smallint NOT NULL PRIMARY KEY,
-	cpf int NOT NULL,
+	cpf character varying[14] NOT NULL,
 	nome character varying NOT NULL,
 	email character varying NOT NULL,
 	endereco character varying NOT NULL,
-	telefone character varying NOT NULL,
+	telefone character varying[14] NOT NULL,
 	num_matriculas int NOT NULL,
 	num_conclusoes int NOT NULL,
 	num_dependencias int NOT NULL,
@@ -28,11 +28,11 @@ CREATE TABLE aluno (
 
 CREATE TABLE professor (
 	codigo smallint NOT NULL PRIMARY KEY,
-	cpf int NOT NULL,
+	cpf character varying[14] NOT NULL,
 	nome character varying NOT NULL,
 	email character varying NOT NULL,
 	endereco character varying NOT NULL,
-	telefone character varying NOT NULL,
+	telefone character varying[14] NOT NULL,
 	especializacao character varying NOT NULL
 );
 
