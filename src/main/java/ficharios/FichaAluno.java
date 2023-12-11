@@ -40,7 +40,7 @@ public class FichaAluno {
             ps.setInt(6, a.getNumMatriculas());
             ps.setInt(7, a.getNumConclusoes());
             ps.setInt(8, a.getNumDiscDep());
-            ps.setDate(9, a.getDataMatricula());
+            ps.setString(9, a.getDataMatricula().toString());
             ps.execute();
             ps.close();
         } catch (Exception e) {
@@ -91,7 +91,7 @@ public class FichaAluno {
             ps.setInt(6, a.getNumMatriculas());
             ps.setInt(7, a.getNumConclusoes());
             ps.setInt(8, a.getNumDiscDep());
-            ps.setDate(9, a.getDataMatricula());
+            ps.setString(9, a.getDataMatricula().toString());
             ps.execute();
             ps.close();
         } catch (Exception e) {

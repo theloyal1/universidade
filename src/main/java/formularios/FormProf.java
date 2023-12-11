@@ -315,10 +315,25 @@ public class FormProf extends javax.swing.JFrame {
             int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
                     "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
-                fichaProf.excluir(jtProfs.getSelectedRow());
-                modelo.removeRow(jtProfs.getSelectedRow());
-                JOptionPane.showMessageDialog(this, "Professor excluído com sucesso!");
-                limparDados();
+                Professor p = fichaProf.consultar(jtProfs.getSelectedRow());
+                int codEscolhido = p.getCodigo();
+                Iterator<Professor> i = fichaProf.relatorio().iterator();
+                boolean achou = false;
+                
+                while((!achou) && (i.hasNext())) {
+                    p = (Professor)i.next();
+                    
+                    if(p.getCodigo() == codEscolhido)
+                        achou = true;
+                }
+                
+                if(achou) {
+                    p = fichaProf.consultar(jtProfs.getSelectedRow());
+                    fichaProf.excluir(p, jtProfs.getSelectedRow());
+                    modelo.removeRow(jtProfs.getSelectedRow());
+                    JOptionPane.showMessageDialog(this, "Professor excluído com sucesso!");
+                    limparDados();
+                }
             } else {
                 JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
             }
@@ -341,7 +356,7 @@ public class FormProf extends javax.swing.JFrame {
                 p.setEndereco(jtfEndereco.getText());
                 p.setTelefone(jtfTelefone.getText());
                 p.setEspecializacao(jtfEspec.getText());
-
+                
                 fichaProf.alterar(p, jtProfs.getSelectedRow());
                 modelo.setValueAt(p.getCpf(), jtProfs.getSelectedRow(), 0);
                 modelo.setValueAt(p.getNome(), jtProfs.getSelectedRow(), 1);
@@ -352,6 +367,7 @@ public class FormProf extends javax.swing.JFrame {
                 jtProfs.setModel(modelo);
                 JOptionPane.showMessageDialog(this, "Professor alterado com sucesso!");
                 limparDados();
+                
             } else {
                 JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
             }

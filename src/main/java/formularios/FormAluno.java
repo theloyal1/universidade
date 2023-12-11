@@ -371,9 +371,11 @@ public class FormAluno extends javax.swing.JFrame {
                 }
                 
                 if(achou) {
+                    a = fichaAluno.consultar(jtAlunos.getSelectedRow());
                     fichaAluno.excluir(a, jtAlunos.getSelectedRow());
                     modelo.removeRow(jtAlunos.getSelectedRow());
                     JOptionPane.showMessageDialog(this, "Aluno excluído com sucesso!");
+                    limparDados();
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
@@ -387,17 +389,6 @@ public class FormAluno extends javax.swing.JFrame {
                     JOptionPane.ERROR_MESSAGE);
         else {
             Aluno a = fichaAluno.consultar(jtAlunos.getSelectedRow());
-            int codEscolhido = a.getCodigo();
-            Iterator<Aluno> i = fichaAluno.relatorio().iterator();
-            boolean achou = false;
-                
-            while((!achou) && (i.hasNext())) {
-                a = (Aluno)i.next();
-                    
-                if(a.getCodigo() == codEscolhido)
-                    achou = true;
-            }
-                
             JOptionPane.showMessageDialog(this, "CPF: " + a.getCpf()
                     + "\nNome: " + a.getNome()
                     + "\nEmail: " + a.getEmail()
@@ -431,33 +422,19 @@ public class FormAluno extends javax.swing.JFrame {
                 a.setNumDiscDep(Integer.valueOf(jtfNumDep.getText()));
                 a.setDataMatricula(jtfDataMat.getText());
                 
-                a = fichaAluno.consultar(jtAlunos.getSelectedRow());
-                int codEscolhido = a.getCodigo();
-                Iterator<Aluno> i = fichaAluno.relatorio().iterator();
-                boolean achou = false;
-                
-                while((!achou) && (i.hasNext())) {
-                    a = (Aluno)i.next();
-                    
-                    if(a.getCodigo() == codEscolhido)
-                        achou = true;
-                }
-                
-                if(achou) {
-                    fichaAluno.alterar(a, jtAlunos.getSelectedRow());
-                    modelo.setValueAt(a.getCpf(), jtAlunos.getSelectedRow(), 0);
-                    modelo.setValueAt(a.getNome(), jtAlunos.getSelectedRow(), 1);
-                    modelo.setValueAt(a.getEmail(), jtAlunos.getSelectedRow(), 2);
-                    modelo.setValueAt(a.getEndereco(), jtAlunos.getSelectedRow(), 3);
-                    modelo.setValueAt(a.getTelefone(), jtAlunos.getSelectedRow(), 4);
-                    modelo.setValueAt(a.getNumMatriculas(), jtAlunos.getSelectedRow(), 5);
-                    modelo.setValueAt(a.getNumConclusoes(), jtAlunos.getSelectedRow(), 6);
-                    modelo.setValueAt(a.getNumDiscDep(), jtAlunos.getSelectedRow(), 7);
-                    modelo.setValueAt(a.getDataMatricula(), jtAlunos.getSelectedRow(), 8);
-                    jtAlunos.setModel(modelo);
-                    JOptionPane.showMessageDialog(this, "Aluno alterado com sucesso!");
-                    limparDados();
-                }
+                fichaAluno.alterar(a, jtAlunos.getSelectedRow());
+                modelo.setValueAt(a.getCpf(), jtAlunos.getSelectedRow(), 0);
+                modelo.setValueAt(a.getNome(), jtAlunos.getSelectedRow(), 1);
+                modelo.setValueAt(a.getEmail(), jtAlunos.getSelectedRow(), 2);
+                modelo.setValueAt(a.getEndereco(), jtAlunos.getSelectedRow(), 3);
+                modelo.setValueAt(a.getTelefone(), jtAlunos.getSelectedRow(), 4);
+                modelo.setValueAt(a.getNumMatriculas(), jtAlunos.getSelectedRow(), 5);
+                modelo.setValueAt(a.getNumConclusoes(), jtAlunos.getSelectedRow(), 6);
+                modelo.setValueAt(a.getNumDiscDep(), jtAlunos.getSelectedRow(), 7);
+                modelo.setValueAt(a.getDataMatricula(), jtAlunos.getSelectedRow(), 8);
+                jtAlunos.setModel(modelo);
+                JOptionPane.showMessageDialog(this, "Aluno alterado com sucesso!");
+                limparDados();
                 
             } else {
                 JOptionPane.showMessageDialog(this, "Alteração não sucedida!");

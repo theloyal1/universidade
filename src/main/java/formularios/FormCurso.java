@@ -413,9 +413,25 @@ public class FormCurso extends javax.swing.JFrame {
                     jcbProfs.addItem(aux);
                 }
                 modeloProf.setRowCount(0);
-                fichaCurso.excluir(jtCursos.getSelectedRow());
-                modeloCurso.removeRow(jtCursos.getSelectedRow());
-                JOptionPane.showMessageDialog(this, "Curso excluído com sucesso!");
+                
+                Curso c = fichaCurso.consultar(jtCursos.getSelectedRow());
+                int codEscolhido = c.getCodigo();
+                Iterator<Curso> i = fichaCurso.relatorio().iterator();
+                boolean achou = false;
+                
+                while((!achou) && (i.hasNext())) {
+                    c = (Curso)i.next();
+                    
+                    if(c.getCodigo() == codEscolhido)
+                        achou = true;
+                }
+                
+                if(achou) {
+                    c = fichaCurso.consultar(jtCursos.getSelectedRow());
+                    fichaCurso.excluir(c, jtCursos.getSelectedRow());
+                    modeloCurso.removeRow(jtCursos.getSelectedRow());
+                    JOptionPane.showMessageDialog(this, "Curso excluído com sucesso!");
+                }
             } else {
                 JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
             }
@@ -435,7 +451,7 @@ public class FormCurso extends javax.swing.JFrame {
                 c.setNome(jtfNome.getText());
                 c.setNumDiscObg(Integer.valueOf(jtfNumDiscObg.getText()));
                 c.setNumDiscOpc(Integer.valueOf(jtfNumDiscOpc.getText()));
-
+                
                 fichaCurso.alterar(c, jtCursos.getSelectedRow());
                 modeloCurso.setValueAt(c.getNome(), jtCursos.getSelectedRow(), 0);
                 modeloCurso.setValueAt(c.getNumDiscObg(), jtCursos.getSelectedRow(), 1);
