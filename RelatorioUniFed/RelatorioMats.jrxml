@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioMats" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="75b3a832-57a1-40ee-8511-44092aaa5c27">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="abc"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT *
+FROM materia]]>
+	</queryString>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="materia"/>
+	</field>
+	<field name="ementa" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ementa"/>
+		<property name="com.jaspersoft.studio.field.label" value="ementa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="materia"/>
+	</field>
+	<field name="pre_requisitos" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="pre_requisitos"/>
+		<property name="com.jaspersoft.studio.field.label" value="pre_requisitos"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="materia"/>
+	</field>
+	<field name="carga_horaria" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="carga_horaria"/>
+		<property name="com.jaspersoft.studio.field.label" value="carga_horaria"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="materia"/>
+	</field>
+	<field name="professores" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="professores"/>
+		<property name="com.jaspersoft.studio.field.label" value="professores"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="materia"/>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="abbd5895-5e5f-420c-96dc-42b93c31a330"/>
+				<staticText>
+					<reportElement x="180" y="25" width="270" height="43" forecolor="#FFFFFF" uuid="29fc2025-bee3-4b00-b6ac-c357f6e41eae"/>
+					<textElement>
+						<font size="20" isBold="true"/>
+					</textElement>
+					<text><![CDATA[RELATÓRIO DE MATÉRIAS]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="20c18997-a327-412c-ad6c-b8313a323989"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="160525c3-54c1-4725-9f2f-51ba14f8560e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8dec206e-9a87-4429-b150-1c179a172b01"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="111" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="ee180a17-83d4-4c05-9a50-7b493a962de3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6fad7ea9-044a-490c-b774-c4669bf4b3e4"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ementa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="222" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="84c2d949-24a2-4d2c-bf58-c2827dcc6f73">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8f45b3b0-0f12-4b74-b52c-909287d3fe99"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[pre_requisitos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="333" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="dff2b050-93af-410b-9084-3d9757919b22">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2c1c53a0-725a-4a92-adf0-2ee245d477d9"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[carga_horaria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="444" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="9b8c1eef-6ee0-47f1-8e47-74a29de7d3af">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f78f6fc0-fe14-4097-a261-a01e19cee84f"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[professores]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="952bd786-306e-4c3e-b142-fcbf685a8e34"/>
+			</line>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="0" y="0" width="111" height="20" uuid="4e035167-00ff-45a1-a0c1-134ef8b87dc3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8dec206e-9a87-4429-b150-1c179a172b01"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="111" y="0" width="111" height="20" uuid="f297fa1a-5bb9-4163-8fa1-6c2c001df9ac">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6fad7ea9-044a-490c-b774-c4669bf4b3e4"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ementa}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="222" y="0" width="111" height="20" uuid="5dfcbd91-7008-45e9-8730-f785c841d73e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8f45b3b0-0f12-4b74-b52c-909287d3fe99"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pre_requisitos}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="333" y="0" width="111" height="20" uuid="03f7e108-5239-44c3-8a96-0b9a4e38683b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2c1c53a0-725a-4a92-adf0-2ee245d477d9"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{carga_horaria}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="444" y="0" width="111" height="20" uuid="be7e7b5d-a426-4924-b962-f645633c1c26">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f78f6fc0-fe14-4097-a261-a01e19cee84f"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{professores}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="6ab24b91-7e11-43bd-8cd7-397d9a31fd38"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="b83e7ec1-2af4-4400-80a3-9919f1a82281"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="0636c06e-6a3f-4236-b17c-1537cba97d4b"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

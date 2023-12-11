@@ -317,7 +317,11 @@ public class FormPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiDiscActionPerformed
 
     private void jcbRelAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbRelAlunosActionPerformed
-        // TODO add your handling code here:
+        String src = "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\universidade\\RelatorioUniFed";
+        try {
+            
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_jcbRelAlunosActionPerformed
 
     private void jmiRelProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRelProfsActionPerformed
