@@ -26,7 +26,7 @@ public class Conexao {
             prop.put("lc_ctype", "ISO8859_1");
             
             return DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:5432/bd-unifed", prop);
+                    "jdbc:postgresql://localhost:5432/universidade", prop);
         } catch (Exception e) {
         }
         
