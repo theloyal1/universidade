@@ -415,23 +415,9 @@ public class FormCurso extends javax.swing.JFrame {
                 modeloProf.setRowCount(0);
                 
                 Curso c = fichaCurso.consultar(jtCursos.getSelectedRow());
-                int codEscolhido = c.getCodigo();
-                Iterator<Curso> i = fichaCurso.relatorio().iterator();
-                boolean achou = false;
-                
-                while((!achou) && (i.hasNext())) {
-                    c = (Curso)i.next();
-                    
-                    if(c.getCodigo() == codEscolhido)
-                        achou = true;
-                }
-                
-                if(achou) {
-                    c = fichaCurso.consultar(jtCursos.getSelectedRow());
-                    fichaCurso.excluir(c, jtCursos.getSelectedRow());
-                    modeloCurso.removeRow(jtCursos.getSelectedRow());
-                    JOptionPane.showMessageDialog(this, "Curso excluído com sucesso!");
-                }
+                fichaCurso.excluir(c, jtCursos.getSelectedRow());
+                modeloCurso.removeRow(jtCursos.getSelectedRow());
+                JOptionPane.showMessageDialog(this, "Curso excluído com sucesso!");
             } else {
                 JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
             }

@@ -358,7 +358,9 @@ public class FormMateria extends javax.swing.JFrame {
                     jcbProfs.addItem(aux);
                 }
                 modeloProf.setRowCount(0);
-                fichaMat.excluir(jtMats.getSelectedRow());
+                
+                Materia m = fichaMat.consultar(jtMats.getSelectedRow());
+                fichaMat.excluir(m, jtMats.getSelectedRow());
                 modeloMat.removeRow(jtMats.getSelectedRow());
                 JOptionPane.showMessageDialog(this, "Matéria excluída com sucesso!");
             } else {

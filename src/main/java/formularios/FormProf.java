@@ -316,24 +316,10 @@ public class FormProf extends javax.swing.JFrame {
                     "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (res == JOptionPane.YES_OPTION) {
                 Professor p = fichaProf.consultar(jtProfs.getSelectedRow());
-                int codEscolhido = p.getCodigo();
-                Iterator<Professor> i = fichaProf.relatorio().iterator();
-                boolean achou = false;
-                
-                while((!achou) && (i.hasNext())) {
-                    p = (Professor)i.next();
-                    
-                    if(p.getCodigo() == codEscolhido)
-                        achou = true;
-                }
-                
-                if(achou) {
-                    p = fichaProf.consultar(jtProfs.getSelectedRow());
-                    fichaProf.excluir(p, jtProfs.getSelectedRow());
-                    modelo.removeRow(jtProfs.getSelectedRow());
-                    JOptionPane.showMessageDialog(this, "Professor excluído com sucesso!");
-                    limparDados();
-                }
+                fichaProf.excluir(p, jtProfs.getSelectedRow());
+                modelo.removeRow(jtProfs.getSelectedRow());
+                JOptionPane.showMessageDialog(this, "Professor excluído com sucesso!");
+                limparDados();
             } else {
                 JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
             }

@@ -50,7 +50,7 @@ public class FichaCurso {
         
         try {
             ps = conexao.prepareStatement(sql);
-            ps.setInt(1, c.getCodigo());
+            ps.setInt(0, c.getCodigo());
             ps.execute();
             ps.close();
         } catch (Exception e) {

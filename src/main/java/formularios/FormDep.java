@@ -21,7 +21,7 @@ public class FormDep extends javax.swing.JFrame {
         initComponents();
         this.fichaDep = fichaDep;
         this.fichaCurso = fichaCurso;
-        String[] titDeps = {"Código", "Nome"};
+        String[] titDeps = {"Nome"};
         modeloDep = new DefaultTableModel(titDeps, 0);
         jtDep.setModel(modeloDep);
         String[] titCursos = {"Cursos"};
@@ -44,8 +44,6 @@ public class FormDep extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jlaDep = new javax.swing.JLabel();
         jbVoltar = new javax.swing.JButton();
-        jlaCodigo = new javax.swing.JLabel();
-        jtfCodigo = new javax.swing.JTextField();
         jlaNome = new javax.swing.JLabel();
         jtfNome = new javax.swing.JTextField();
         jlaCursos = new javax.swing.JLabel();
@@ -76,10 +74,6 @@ public class FormDep extends javax.swing.JFrame {
                 jbVoltarActionPerformed(evt);
             }
         });
-
-        jlaCodigo.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jlaCodigo.setForeground(new java.awt.Color(246, 248, 255));
-        jlaCodigo.setText("Código: ");
 
         jlaNome.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jlaNome.setForeground(new java.awt.Color(246, 248, 255));
@@ -129,13 +123,13 @@ public class FormDep extends javax.swing.JFrame {
 
         jtDep.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null},
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-                "Código", "Nome"
+                "Nome"
             }
         ));
         jtDep.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -188,10 +182,6 @@ public class FormDep extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jlaCodigo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29)
                                 .addComponent(jlaNome)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jtfNome))
@@ -228,8 +218,6 @@ public class FormDep extends javax.swing.JFrame {
                     .addComponent(jlaDep))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlaCodigo)
-                    .addComponent(jtfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlaNome)
                     .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlaCursos))
@@ -283,11 +271,10 @@ public class FormDep extends javax.swing.JFrame {
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
         Departamento d = new Departamento();
 
-        d.setCodigo(Integer.valueOf(jtfCodigo.getText()));
         d.setNome(jtfNome.getText());
 
         fichaDep.cadastrar(d);
-        modeloDep.addRow(new String[]{String.valueOf(d.getCodigo()), d.getNome()});
+        modeloDep.addRow(new String[]{d.getNome()});
         JOptionPane.showMessageDialog(this, "Departamento cadastrado com sucesso!");
         limparDados();
         jtDep.setModel(modeloDep);
@@ -307,7 +294,11 @@ public class FormDep extends javax.swing.JFrame {
                     jcbCursos.addItem(aux);
                 }
                 modeloCurso.setRowCount(0);
-                fichaDep.excluir(jtDep.getSelectedRow());
+                
+                Departamento d = fichaDep.consultar(jtDep.getSelectedRow());
+                
+                d = fichaDep.consultar(jtDep.getSelectedRow());
+                fichaDep.excluir(d, jtDep.getSelectedRow());
                 modeloDep.removeRow(jtDep.getSelectedRow());
                 JOptionPane.showMessageDialog(this, "Departamento excluído com sucesso!");
             } else {
@@ -326,12 +317,10 @@ public class FormDep extends javax.swing.JFrame {
             if (res == JOptionPane.YES_OPTION) {
                 Departamento d = new Departamento();
 
-                d.setCodigo(Integer.valueOf(jtfCodigo.getText()));
                 d.setNome(jtfNome.getText());
 
                 fichaDep.alterar(d, jtDep.getSelectedRow());
-                modeloDep.setValueAt(d.getCodigo(), jtDep.getSelectedRow(), 0);
-                modeloDep.setValueAt(d.getNome(), jtDep.getSelectedRow(), 1);
+                modeloDep.setValueAt(d.getNome(), jtDep.getSelectedRow(), 0);
                 jtDep.setModel(modeloDep);
                 JOptionPane.showMessageDialog(this, "Departamento alterado com sucesso!");
                 limparDados();
@@ -348,8 +337,7 @@ public class FormDep extends javax.swing.JFrame {
         else {
             Departamento d = fichaDep.consultar(jtDep.getSelectedRow());
             JOptionPane.showMessageDialog(this,
-                    "Código: " + d.getCodigo()
-                    + "\nNome: " + d.getNome()
+                    "\nNome: " + d.getNome()
                     + "\nCursos: " + d.getCursos());
             jtCursos.removeAll();
             limparDados();
@@ -383,8 +371,7 @@ public class FormDep extends javax.swing.JFrame {
 
     private void jtDepMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtDepMouseClicked
         try {
-            jtfCodigo.setText(jtDep.getModel().getValueAt(jtDep.getSelectedRow(), 0).toString());
-            jtfNome.setText(jtDep.getModel().getValueAt(jtDep.getSelectedRow(), 1).toString());
+            jtfNome.setText(jtDep.getModel().getValueAt(jtDep.getSelectedRow(), 0).toString());
             
             atualizaTabelas();
         } catch (Exception e) {
@@ -432,7 +419,7 @@ public class FormDep extends javax.swing.JFrame {
             Iterator<Departamento> i = fichaDep.relatorio().iterator();
             while(i.hasNext()) {
                 Departamento aux = (Departamento)i.next();
-                modeloDep.addRow(new String[]{String.valueOf(aux.getCodigo()), aux.getNome()});
+                modeloDep.addRow(new String[]{aux.getNome()});
             }
             jtDep.setModel(modeloDep);
             jcbCursos.removeAll();
@@ -457,7 +444,6 @@ public class FormDep extends javax.swing.JFrame {
     }
     
     public void limparDados() {
-        jtfCodigo.setText(null);
         jtfNome.setText(null);
     }
     
@@ -473,13 +459,11 @@ public class FormDep extends javax.swing.JFrame {
     private javax.swing.JButton jbRemCursos;
     private javax.swing.JButton jbVoltar;
     private javax.swing.JComboBox<Curso> jcbCursos;
-    private javax.swing.JLabel jlaCodigo;
     private javax.swing.JLabel jlaCursos;
     private javax.swing.JLabel jlaDep;
     private javax.swing.JLabel jlaNome;
     private javax.swing.JTable jtCursos;
     private javax.swing.JTable jtDep;
-    private javax.swing.JTextField jtfCodigo;
     private javax.swing.JTextField jtfNome;
     // End of variables declaration//GEN-END:variables
 }

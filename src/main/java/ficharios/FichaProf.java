@@ -54,7 +54,7 @@ public class FichaProf {
         
         try {
             ps = conexao.prepareStatement(sql);
-            ps.setInt(1, p.getCodigo());
+            ps.setInt(0, p.getCodigo());
             ps.execute();
             ps.close();
         } catch (Exception e) {

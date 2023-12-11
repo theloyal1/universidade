@@ -57,7 +57,7 @@ public class FichaAluno {
         
         try {
             ps = conexao.prepareStatement(sql);
-            ps.setInt(1, a.getCodigo());
+            ps.setInt(0, a.getCodigo());
             ps.execute();
             ps.close();
         } catch (Exception e) {
