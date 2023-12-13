@@ -6,30 +6,19 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class Conexao {
-    private static Connection conexao = null;
     
-    public static Connection getConexao() throws SQLException{
-        if((conexao == null) || (conexao.isClosed()))
-            conexao = fabricaDeConexoes();
-        
-        return conexao;
-    }
+    private static final String url = "jdbc:mysql://localhost:3306/bd_unifed", 
+            usuario = "root", password = "root";
     
-    public static Connection fabricaDeConexoes() {
+    private static Connection conn;
+    
+    public static Connection getConexao() {
         try {
-            Class.forName("org.postgresql.Driver");
-            
-            Properties prop = new Properties();
-            prop.put("user", "postgres");
-            prop.put("password", "vortex");
-            prop.put("charset", "UTF-8");
-            prop.put("lc_ctype", "ISO8859_1");
-            
-            return DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:5432/universidade", prop);
-        } catch (Exception e) {
+            if(conn == null)
+                conn = DriverManager.getConnection(url, usuario, password);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        
-        return null;
+        return conn;
     }
 }
