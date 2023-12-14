@@ -2,8 +2,6 @@ package formularios;
 
 import entidades.Curso;
 import entidades.Departamento;
-import ficharios.FichaCurso;
-import ficharios.FichaDep;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -12,30 +10,24 @@ import javax.swing.table.DefaultTableModel;
 
 public class FormDep extends javax.swing.JFrame {
 
-    FichaDep fichaDep;
-    FichaCurso fichaCurso;
     ArrayList<Curso> cursos, cursosCb;
     DefaultTableModel modeloDep, modeloCurso;
 
-    public FormDep(FichaDep fichaDep, FichaCurso fichaCurso) {
+    public FormDep() {
         initComponents();
-        this.fichaDep = fichaDep;
-        this.fichaCurso = fichaCurso;
         String[] titDeps = {"Nome"};
         modeloDep = new DefaultTableModel(titDeps, 0);
         jtDep.setModel(modeloDep);
         String[] titCursos = {"Cursos"};
         modeloCurso = new DefaultTableModel(titCursos, 0);
         jtCursos.setModel(modeloCurso);
-        cursos = fichaCurso.relatorio();
-        cursosCb = fichaCurso.relatorio();
         jbVoltar.setBackground(Color.RED);
-        preencheDados();
+//        preencheDados();
     }
 
-    private FormDep() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+//    private FormDep() {
+//        throw new UnsupportedOperationException("Not supported yet.");
+//    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -269,109 +261,109 @@ public class FormDep extends javax.swing.JFrame {
     }//GEN-LAST:event_jbVoltarActionPerformed
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
-        Departamento d = new Departamento();
-
-        d.setNome(jtfNome.getText());
-
-        fichaDep.cadastrar(d);
-        modeloDep.addRow(new String[]{d.getNome()});
-        JOptionPane.showMessageDialog(this, "Departamento cadastrado com sucesso!");
-        limparDados();
-        jtDep.setModel(modeloDep);
+//        Departamento d = new Departamento();
+//
+//        d.setNome(jtfNome.getText());
+//
+//        fichaDep.cadastrar(d);
+//        modeloDep.addRow(new String[]{d.getNome()});
+//        JOptionPane.showMessageDialog(this, "Departamento cadastrado com sucesso!");
+//        limparDados();
+//        jtDep.setModel(modeloDep);
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
-        if (fichaDep.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há departamentos cadastrados!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        else {
-            int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
-                    "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (res == JOptionPane.YES_OPTION) {
-                Iterator<Curso> ic = cursosCb.iterator();
-                while(ic.hasNext()) {
-                    Curso aux = (Curso)ic.next();
-                    jcbCursos.addItem(aux);
-                }
-                modeloCurso.setRowCount(0);
-                
-                Departamento d = fichaDep.consultar(jtDep.getSelectedRow());
-                fichaDep.excluir(d, jtDep.getSelectedRow());
-                modeloDep.removeRow(jtDep.getSelectedRow());
-                JOptionPane.showMessageDialog(this, "Departamento excluído com sucesso!");
-            } else {
-                JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
-            }
-        }
+//        if (fichaDep.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há departamentos cadastrados!", "Erro",
+//                    JOptionPane.ERROR_MESSAGE);
+//        else {
+//            int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
+//                    "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//            if (res == JOptionPane.YES_OPTION) {
+//                Iterator<Curso> ic = cursosCb.iterator();
+//                while(ic.hasNext()) {
+//                    Curso aux = (Curso)ic.next();
+//                    jcbCursos.addItem(aux);
+//                }
+//                modeloCurso.setRowCount(0);
+//                
+//                Departamento d = fichaDep.consultar(jtDep.getSelectedRow());
+//                fichaDep.excluir(d, jtDep.getSelectedRow());
+//                modeloDep.removeRow(jtDep.getSelectedRow());
+//                JOptionPane.showMessageDialog(this, "Departamento excluído com sucesso!");
+//            } else {
+//                JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
+//            }
+//        }
     }//GEN-LAST:event_jbExcluirActionPerformed
 
     private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
-        if (fichaDep.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há departamentos cadastrados!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        else {
-            int res = JOptionPane.showConfirmDialog(this, "Confirmar alteração?",
-                    "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (res == JOptionPane.YES_OPTION) {
-                Departamento d = new Departamento();
-
-                d.setNome(jtfNome.getText());
-
-                fichaDep.alterar(d, jtDep.getSelectedRow());
-                modeloDep.setValueAt(d.getNome(), jtDep.getSelectedRow(), 0);
-                jtDep.setModel(modeloDep);
-                JOptionPane.showMessageDialog(this, "Departamento alterado com sucesso!");
-                limparDados();
-            } else {
-                JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
-            }
-        }
+//        if (fichaDep.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há departamentos cadastrados!", "Erro",
+//                    JOptionPane.ERROR_MESSAGE);
+//        else {
+//            int res = JOptionPane.showConfirmDialog(this, "Confirmar alteração?",
+//                    "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//            if (res == JOptionPane.YES_OPTION) {
+//                Departamento d = new Departamento();
+//
+//                d.setNome(jtfNome.getText());
+//
+//                fichaDep.alterar(d, jtDep.getSelectedRow());
+//                modeloDep.setValueAt(d.getNome(), jtDep.getSelectedRow(), 0);
+//                jtDep.setModel(modeloDep);
+//                JOptionPane.showMessageDialog(this, "Departamento alterado com sucesso!");
+//                limparDados();
+//            } else {
+//                JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
+//            }
+//        }
     }//GEN-LAST:event_jbAlterarActionPerformed
 
     private void jbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsultarActionPerformed
-        if (fichaDep.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há departamentos cadastrados!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        else {
-            Departamento d = fichaDep.consultar(jtDep.getSelectedRow());
-            JOptionPane.showMessageDialog(this,
-                    "\nNome: " + d.getNome()
-                    + "\nCursos: " + d.getCursos());
-            jtCursos.removeAll();
-            limparDados();
-            atualizaTabelas();
-        }
+//        if (fichaDep.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há departamentos cadastrados!", "Erro",
+//                    JOptionPane.ERROR_MESSAGE);
+//        else {
+//            Departamento d = fichaDep.consultar(jtDep.getSelectedRow());
+//            JOptionPane.showMessageDialog(this,
+//                    "\nNome: " + d.getNome()
+//                    + "\nCursos: " + d.getCursos());
+//            jtCursos.removeAll();
+//            limparDados();
+//            atualizaTabelas();
+//        }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
     private void jbAddCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddCursosActionPerformed
-        if(jtDep.getSelectedRow() != 1) {
-            Curso c = fichaCurso.consultar(jcbCursos.getSelectedIndex());
-            modeloCurso.addRow(new String[]{c.getNome(), String.valueOf(c.getNumDiscObg()), String.valueOf(c.getNumDiscOpc())});
-            JOptionPane.showMessageDialog(this, "Curso selecionado com sucesso!");
-            fichaDep.consultar(jtDep.getSelectedRow()).setCurso(c);
-            jcbCursos.removeItemAt(jcbCursos.getSelectedIndex());
-            cursosCb.remove(c);
-            fichaCurso.cadastrar(c);
-            jtCursos.setModel(modeloCurso);
-        }
+//        if(jtDep.getSelectedRow() != 1) {
+//            Curso c = fichaCurso.consultar(jcbCursos.getSelectedIndex());
+//            modeloCurso.addRow(new String[]{c.getNome(), String.valueOf(c.getNumDiscObg()), String.valueOf(c.getNumDiscOpc())});
+//            JOptionPane.showMessageDialog(this, "Curso selecionado com sucesso!");
+//            fichaDep.consultar(jtDep.getSelectedRow()).setCurso(c);
+//            jcbCursos.removeItemAt(jcbCursos.getSelectedIndex());
+//            cursosCb.remove(c);
+//            fichaCurso.cadastrar(c);
+//            jtCursos.setModel(modeloCurso);
+//        }
     }//GEN-LAST:event_jbAddCursosActionPerformed
 
     private void jbRemCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemCursosActionPerformed
-        if(jtDep.getSelectedRow() != 1) {
-            Curso c = fichaCurso.consultar(jcbCursos.getSelectedIndex());
-            modeloCurso.removeRow(jtCursos.getSelectedRow());
-            JOptionPane.showMessageDialog(this, "Curso removido com sucesso!");
-            fichaDep.consultar(jtCursos.getSelectedRow()).removeCurso(c);
-            jcbCursos.addItem(c);
-            cursosCb.add(c);
-        }
+//        if(jtDep.getSelectedRow() != 1) {
+//            Curso c = fichaCurso.consultar(jcbCursos.getSelectedIndex());
+//            modeloCurso.removeRow(jtCursos.getSelectedRow());
+//            JOptionPane.showMessageDialog(this, "Curso removido com sucesso!");
+//            fichaDep.consultar(jtCursos.getSelectedRow()).removeCurso(c);
+//            jcbCursos.addItem(c);
+//            cursosCb.add(c);
+//        }
     }//GEN-LAST:event_jbRemCursosActionPerformed
 
     private void jtDepMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtDepMouseClicked
         try {
             jtfNome.setText(jtDep.getModel().getValueAt(jtDep.getSelectedRow(), 0).toString());
             
-            atualizaTabelas();
+//            atualizaTabelas();
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jtDepMouseClicked
@@ -411,40 +403,40 @@ public class FormDep extends javax.swing.JFrame {
         });
     }
     
-    public void preencheDados() {
-        try {
-            modeloDep.setRowCount(0);
-            Iterator<Departamento> i = fichaDep.relatorio().iterator();
-            while(i.hasNext()) {
-                Departamento aux = (Departamento)i.next();
-                modeloDep.addRow(new String[]{aux.getNome()});
-            }
-            jtDep.setModel(modeloDep);
-            jcbCursos.removeAll();
-            for (Curso c : cursos)
-                jcbCursos.addItem(c);
-        } catch (Exception e) {
-        }
-    }
-    
-    public void atualizaTabelas() {
-        try {
-            modeloCurso.setRowCount(0);
-            Iterator<Curso> ic = fichaDep.consultar(jtDep.getSelectedRow()).getCursos().iterator();
-            while(ic.hasNext()) {
-                Curso aux = (Curso)ic.next();
-                modeloDep.addRow(new String[]{aux.getNome()});
-            }
-            modeloDep.fireTableDataChanged();
-            jtDep.setModel(modeloDep);
-        } catch (Exception e) {
-        }
-    }
-    
-    public void limparDados() {
-        jtfNome.setText(null);
-    }
-    
+//    public void preencheDados() {
+//        try {
+//            modeloDep.setRowCount(0);
+//            Iterator<Departamento> i = fichaDep.relatorio().iterator();
+//            while(i.hasNext()) {
+//                Departamento aux = (Departamento)i.next();
+//                modeloDep.addRow(new String[]{aux.getNome()});
+//            }
+//            jtDep.setModel(modeloDep);
+//            jcbCursos.removeAll();
+//            for (Curso c : cursos)
+//                jcbCursos.addItem(c);
+//        } catch (Exception e) {
+//        }
+//    }
+//    
+//    public void atualizaTabelas() {
+//        try {
+//            modeloCurso.setRowCount(0);
+//            Iterator<Curso> ic = fichaDep.consultar(jtDep.getSelectedRow()).getCursos().iterator();
+//            while(ic.hasNext()) {
+//                Curso aux = (Curso)ic.next();
+//                modeloDep.addRow(new String[]{aux.getNome()});
+//            }
+//            modeloDep.fireTableDataChanged();
+//            jtDep.setModel(modeloDep);
+//        } catch (Exception e) {
+//        }
+//    }
+//    
+//    public void limparDados() {
+//        jtfNome.setText(null);
+//    }
+//    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

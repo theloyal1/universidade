@@ -2,7 +2,6 @@ package formularios;
 
 import dao.DAOAluno;
 import entidades.Aluno;
-import ficharios.FichaAluno;
 import java.awt.Color;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
@@ -10,13 +9,11 @@ import javax.swing.table.DefaultTableModel;
 
 public class FormAluno extends javax.swing.JFrame {
 
-    FichaAluno fichaAluno;
     DAOAluno daoAluno;
     DefaultTableModel modelo;
 
-    public FormAluno(FichaAluno fichaAluno, DAOAluno daoAluno) {
+    public FormAluno(DAOAluno daoAluno) {
         initComponents();
-        this.fichaAluno = fichaAluno;
         this.daoAluno = daoAluno;
         String[] titulos = {"CPF", "Nome", "Email", "Endereço", "Telefone", "Nº de mat.",
             "Nº de conc.", "Nº de dep.", "Data da mat."};
@@ -335,7 +332,7 @@ public class FormAluno extends javax.swing.JFrame {
         a.setNumDiscDep(Integer.valueOf(jtfNumDep.getText()));
         a.setDataMatricula(jtfDataMat.getText());
 
-        fichaAluno.cadastrar(a);
+        daoAluno.cadastrar(a);
         modelo.addRow(new String[]{String.valueOf(a.getCpf()), a.getNome(), a.getEmail(), a.getEndereco(),
             a.getTelefone(), String.valueOf(a.getNumMatriculas()), String.valueOf(a.getNumConclusoes()),
             String.valueOf(a.getNumDiscDep()), String.valueOf(a.getDataMatricula())});
@@ -354,81 +351,81 @@ public class FormAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_jbVoltarActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
-        if (fichaAluno.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há alunos cadastrados!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        else {
-            int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
-                    "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (res == JOptionPane.YES_OPTION) {
-                Aluno a = fichaAluno.consultar(jtAlunos.getSelectedRow());
-                fichaAluno.excluir(a, jtAlunos.getSelectedRow());
-                modelo.removeRow(jtAlunos.getSelectedRow());
-                JOptionPane.showMessageDialog(this, "Aluno excluído com sucesso!");
-                limparDados();
-            } else {
-                JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
-            }
-        }
+//        if (fichaAluno.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há alunos cadastrados!", "Erro",
+//                    JOptionPane.ERROR_MESSAGE);
+//        else {
+//            int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
+//                    "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//            if (res == JOptionPane.YES_OPTION) {
+//                Aluno a = fichaAluno.consultar(jtAlunos.getSelectedRow());
+//                fichaAluno.excluir(a, jtAlunos.getSelectedRow());
+//                modelo.removeRow(jtAlunos.getSelectedRow());
+//                JOptionPane.showMessageDialog(this, "Aluno excluído com sucesso!");
+//                limparDados();
+//            } else {
+//                JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
+//            }
+//        }
     }//GEN-LAST:event_jbExcluirActionPerformed
 
     private void jbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsultarActionPerformed
-        if (fichaAluno.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há alunos cadastrados!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        else {
-            Aluno a = fichaAluno.consultar(jtAlunos.getSelectedRow());
-            JOptionPane.showMessageDialog(this, "CPF: " + a.getCpf()
-                    + "\nNome: " + a.getNome()
-                    + "\nEmail: " + a.getEmail()
-                    + "\nEndereço: " + a.getEndereco()
-                    + "\nTelefone: " + a.getTelefone()
-                    + "\nNúmero de matrículas: " + a.getNumMatriculas()
-                    + "\nNúmero de conclusões: " + a.getNumConclusoes()
-                    + "\nNúmero de dependências: " + a.getNumDiscDep()
-                    + "\nData da matrícula: " + a.getDataMatricula());
-            limparDados();
-        }
+//        if (fichaAluno.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há alunos cadastrados!", "Erro",
+//                    JOptionPane.ERROR_MESSAGE);
+//        else {
+//            Aluno a = fichaAluno.consultar(jtAlunos.getSelectedRow());
+//            JOptionPane.showMessageDialog(this, "CPF: " + a.getCpf()
+//                    + "\nNome: " + a.getNome()
+//                    + "\nEmail: " + a.getEmail()
+//                    + "\nEndereço: " + a.getEndereco()
+//                    + "\nTelefone: " + a.getTelefone()
+//                    + "\nNúmero de matrículas: " + a.getNumMatriculas()
+//                    + "\nNúmero de conclusões: " + a.getNumConclusoes()
+//                    + "\nNúmero de dependências: " + a.getNumDiscDep()
+//                    + "\nData da matrícula: " + a.getDataMatricula());
+//            limparDados();
+//        }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
     private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
-        if (fichaAluno.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há alunos cadastrados!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        else {
-            int res = JOptionPane.showConfirmDialog(this, "Confirmar alteração?",
-                    "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (res == JOptionPane.YES_OPTION) {
-                Aluno a = new Aluno();
-
-                a.setCpf(jtfCpf.getText());
-                a.setNome(jtfNome.getText());
-                a.setEmail(jtfEmail.getText());
-                a.setEndereco(jtfEndereco.getText());
-                a.setTelefone(jtfTelefone.getText());
-                a.setNumMatriculas(Integer.valueOf(jtfNumMat.getText()));
-                a.setNumConclusoes(Integer.valueOf(jtfNumConc.getText()));
-                a.setNumDiscDep(Integer.valueOf(jtfNumDep.getText()));
-                a.setDataMatricula(jtfDataMat.getText());
-                
-                fichaAluno.alterar(a, jtAlunos.getSelectedRow());
-                modelo.setValueAt(a.getCpf(), jtAlunos.getSelectedRow(), 0);
-                modelo.setValueAt(a.getNome(), jtAlunos.getSelectedRow(), 1);
-                modelo.setValueAt(a.getEmail(), jtAlunos.getSelectedRow(), 2);
-                modelo.setValueAt(a.getEndereco(), jtAlunos.getSelectedRow(), 3);
-                modelo.setValueAt(a.getTelefone(), jtAlunos.getSelectedRow(), 4);
-                modelo.setValueAt(a.getNumMatriculas(), jtAlunos.getSelectedRow(), 5);
-                modelo.setValueAt(a.getNumConclusoes(), jtAlunos.getSelectedRow(), 6);
-                modelo.setValueAt(a.getNumDiscDep(), jtAlunos.getSelectedRow(), 7);
-                modelo.setValueAt(a.getDataMatricula(), jtAlunos.getSelectedRow(), 8);
-                jtAlunos.setModel(modelo);
-                JOptionPane.showMessageDialog(this, "Aluno alterado com sucesso!");
-                limparDados();
-                
-            } else {
-                JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
-            }
-        }
+//        if (fichaAluno.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há alunos cadastrados!", "Erro",
+//                    JOptionPane.ERROR_MESSAGE);
+//        else {
+//            int res = JOptionPane.showConfirmDialog(this, "Confirmar alteração?",
+//                    "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//            if (res == JOptionPane.YES_OPTION) {
+//                Aluno a = new Aluno();
+//
+//                a.setCpf(jtfCpf.getText());
+//                a.setNome(jtfNome.getText());
+//                a.setEmail(jtfEmail.getText());
+//                a.setEndereco(jtfEndereco.getText());
+//                a.setTelefone(jtfTelefone.getText());
+//                a.setNumMatriculas(Integer.valueOf(jtfNumMat.getText()));
+//                a.setNumConclusoes(Integer.valueOf(jtfNumConc.getText()));
+//                a.setNumDiscDep(Integer.valueOf(jtfNumDep.getText()));
+//                a.setDataMatricula(jtfDataMat.getText());
+//                
+//                fichaAluno.alterar(a, jtAlunos.getSelectedRow());
+//                modelo.setValueAt(a.getCpf(), jtAlunos.getSelectedRow(), 0);
+//                modelo.setValueAt(a.getNome(), jtAlunos.getSelectedRow(), 1);
+//                modelo.setValueAt(a.getEmail(), jtAlunos.getSelectedRow(), 2);
+//                modelo.setValueAt(a.getEndereco(), jtAlunos.getSelectedRow(), 3);
+//                modelo.setValueAt(a.getTelefone(), jtAlunos.getSelectedRow(), 4);
+//                modelo.setValueAt(a.getNumMatriculas(), jtAlunos.getSelectedRow(), 5);
+//                modelo.setValueAt(a.getNumConclusoes(), jtAlunos.getSelectedRow(), 6);
+//                modelo.setValueAt(a.getNumDiscDep(), jtAlunos.getSelectedRow(), 7);
+//                modelo.setValueAt(a.getDataMatricula(), jtAlunos.getSelectedRow(), 8);
+//                jtAlunos.setModel(modelo);
+//                JOptionPane.showMessageDialog(this, "Aluno alterado com sucesso!");
+//                limparDados();
+//                
+//            } else {
+//                JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
+//            }
+//        }
     }//GEN-LAST:event_jbAlterarActionPerformed
 
     private void jtAlunosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtAlunosMouseClicked
@@ -479,22 +476,22 @@ public class FormAluno extends javax.swing.JFrame {
     }
 
     public void preencheDados() {
-        try {
-            jtAlunos.removeAll();
-            Iterator<Aluno> i = fichaAluno.relatorio().iterator();
-            while(i.hasNext()) {
-                Aluno aux = (Aluno)i.next();
-                modelo.addRow(new String[]{String.valueOf(aux.getCpf()), 
-                    aux.getNome(), aux.getEmail(), aux.getEndereco(), 
-                    aux.getTelefone(), 
-                    String.valueOf(aux.getNumMatriculas()), 
-                    String.valueOf(aux.getNumConclusoes()),
-                    String.valueOf(aux.getNumDiscDep()), 
-                    String.valueOf(aux.getDataMatricula())});
-            }
-            jtAlunos.setModel(modelo);
-        } catch (Exception e) {
-        }
+//        try {
+//            jtAlunos.removeAll();
+//            Iterator<Aluno> i = fichaAluno.relatorio().iterator();
+//            while(i.hasNext()) {
+//                Aluno aux = (Aluno)i.next();
+//                modelo.addRow(new String[]{String.valueOf(aux.getCpf()), 
+//                    aux.getNome(), aux.getEmail(), aux.getEndereco(), 
+//                    aux.getTelefone(), 
+//                    String.valueOf(aux.getNumMatriculas()), 
+//                    String.valueOf(aux.getNumConclusoes()),
+//                    String.valueOf(aux.getNumDiscDep()), 
+//                    String.valueOf(aux.getDataMatricula())});
+//            }
+//            jtAlunos.setModel(modelo);
+//        } catch (Exception e) {
+//        }
     }
     
     public void limparDados() {

@@ -3,9 +3,6 @@ package formularios;
 import entidades.Curso;
 import entidades.Materia;
 import entidades.Ppc;
-import ficharios.FichaCurso;
-import ficharios.FichaMat;
-import ficharios.FichaPpc;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -14,33 +11,33 @@ import javax.swing.table.DefaultTableModel;
 
 public class FormPpc extends javax.swing.JFrame {
 
-    FichaPpc fichaPpc;
-    FichaCurso fichaCurso;
-    FichaMat fichaMat;
+//    FichaPpc fichaPpc;
+//    FichaCurso fichaCurso;
+//    FichaMat fichaMat;
     ArrayList<Curso> cursos, cursosCb;
     ArrayList<Materia> materias, matsCb;
     DefaultTableModel modeloPpc, modeloMat;
     
-    public FormPpc(FichaPpc fichaPpc, FichaCurso fichaCurso, FichaMat fichaMat) {
-        initComponents();
-        this.fichaPpc = fichaPpc;
-        this.fichaCurso = fichaCurso;
-        this.fichaMat = fichaMat;
+    public FormPpc() {
+//        initComponents();
+//        this.fichaPpc = fichaPpc;
+//        this.fichaCurso = fichaCurso;
+//        this.fichaMat = fichaMat;
         String[] titulos = {"Curso", "Ano de início"};
         modeloPpc = new DefaultTableModel(titulos, 0);
         jtPpcs.setModel(modeloPpc);
         String[] titMat = {"Matérias"};
         modeloMat = new DefaultTableModel(titMat, 0);
         jtMaterias.setModel(modeloMat);
-        materias = fichaMat.relatorio();
-        matsCb = fichaMat.relatorio();
+//        materias = fichaMat.relatorio();
+//        matsCb = fichaMat.relatorio();
         jbVoltar.setBackground(Color.RED);
-        preencheDados();
+//        preencheDados();
     }
     
-    private FormPpc() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+//    private FormPpc() {
+//        throw new UnsupportedOperationException("Not supported yet.");
+//    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -284,114 +281,114 @@ public class FormPpc extends javax.swing.JFrame {
     }//GEN-LAST:event_jbVoltarActionPerformed
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
-        Ppc p = new Ppc();
-        Curso c = fichaCurso.consultar(jcbCurso.getSelectedIndex());
-        
-        p.setCurso(c);
-        p.setAnoInicio(Integer.valueOf(jtfAnoInicio.getText()));
-
-        fichaPpc.cadastrar(p);
-        modeloMat.addRow(new String[]{String.valueOf(p.getCurso()), String.valueOf(p.getAnoInicio())});
-        JOptionPane.showMessageDialog(this, "PPC cadastrado com sucesso!");
-        jcbCurso.removeItem(c);
-        jtfAnoInicio.setText(null);
-        jtPpcs.setModel(modeloPpc);
+//        Ppc p = new Ppc();
+//        Curso c = fichaCurso.consultar(jcbCurso.getSelectedIndex());
+//        
+//        p.setCurso(c);
+//        p.setAnoInicio(Integer.valueOf(jtfAnoInicio.getText()));
+//
+//        fichaPpc.cadastrar(p);
+//        modeloMat.addRow(new String[]{String.valueOf(p.getCurso()), String.valueOf(p.getAnoInicio())});
+//        JOptionPane.showMessageDialog(this, "PPC cadastrado com sucesso!");
+//        jcbCurso.removeItem(c);
+//        jtfAnoInicio.setText(null);
+//        jtPpcs.setModel(modeloPpc);
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
-        if (fichaPpc.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há PPCs cadastrados!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        else {
-            int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
-                    "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (res == JOptionPane.YES_OPTION) {
-                Iterator<Materia> im = matsCb.iterator();
-                while(im.hasNext()) {
-                    Materia aux = (Materia)im.next();
-                    jcbMats.addItem(aux);
-                }
-                Curso c = fichaPpc.consultar(jtPpcs.getSelectedRow()).getCurso();
-                jcbCurso.addItem(c);
-                modeloMat.setRowCount(0);
-                Ppc p = fichaPpc.consultar(jtPpcs.getSelectedRow());
-                fichaPpc.excluir(p, jtPpcs.getSelectedRow());
-                modeloPpc.removeRow(jtPpcs.getSelectedRow());
-                JOptionPane.showMessageDialog(this, "PPC excluído com sucesso!");
-            } else {
-                JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
-            }
-        }
+//        if (fichaPpc.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há PPCs cadastrados!", "Erro",
+//                    JOptionPane.ERROR_MESSAGE);
+//        else {
+//            int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
+//                    "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//            if (res == JOptionPane.YES_OPTION) {
+//                Iterator<Materia> im = matsCb.iterator();
+//                while(im.hasNext()) {
+//                    Materia aux = (Materia)im.next();
+//                    jcbMats.addItem(aux);
+//                }
+//                Curso c = fichaPpc.consultar(jtPpcs.getSelectedRow()).getCurso();
+//                jcbCurso.addItem(c);
+//                modeloMat.setRowCount(0);
+//                Ppc p = fichaPpc.consultar(jtPpcs.getSelectedRow());
+//                fichaPpc.excluir(p, jtPpcs.getSelectedRow());
+//                modeloPpc.removeRow(jtPpcs.getSelectedRow());
+//                JOptionPane.showMessageDialog(this, "PPC excluído com sucesso!");
+//            } else {
+//                JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
+//            }
+//        }
     }//GEN-LAST:event_jbExcluirActionPerformed
 
     private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
-        if (fichaPpc.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há PPCs cadastrados!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        else {
-            int res = JOptionPane.showConfirmDialog(this, "Confirmar alteração?",
-                    "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (res == JOptionPane.YES_OPTION) {
-                Ppc p = new Ppc();
-                Curso c = fichaCurso.consultar(jcbCurso.getSelectedIndex());
-        
-                p.setCurso(c);
-                p.setAnoInicio(Integer.valueOf(jtfAnoInicio.getText()));
-
-                fichaPpc.alterar(p, jtPpcs.getSelectedRow());
-                modeloPpc.setValueAt(p.getCurso(), jtPpcs.getSelectedRow(), 0);
-                modeloPpc.setValueAt(p.getAnoInicio(), jtPpcs.getSelectedRow(), 1);
-                jtPpcs.setModel(modeloPpc);
-                JOptionPane.showMessageDialog(this, "PPC alterado com sucesso!");
-                jtfAnoInicio.setText(null);
-            } else {
-                JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
-            }
-        }
+//        if (fichaPpc.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há PPCs cadastrados!", "Erro",
+//                    JOptionPane.ERROR_MESSAGE);
+//        else {
+//            int res = JOptionPane.showConfirmDialog(this, "Confirmar alteração?",
+//                    "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//            if (res == JOptionPane.YES_OPTION) {
+//                Ppc p = new Ppc();
+//                Curso c = fichaCurso.consultar(jcbCurso.getSelectedIndex());
+//        
+//                p.setCurso(c);
+//                p.setAnoInicio(Integer.valueOf(jtfAnoInicio.getText()));
+//
+//                fichaPpc.alterar(p, jtPpcs.getSelectedRow());
+//                modeloPpc.setValueAt(p.getCurso(), jtPpcs.getSelectedRow(), 0);
+//                modeloPpc.setValueAt(p.getAnoInicio(), jtPpcs.getSelectedRow(), 1);
+//                jtPpcs.setModel(modeloPpc);
+//                JOptionPane.showMessageDialog(this, "PPC alterado com sucesso!");
+//                jtfAnoInicio.setText(null);
+//            } else {
+//                JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
+//            }
+//        }
     }//GEN-LAST:event_jbAlterarActionPerformed
 
     private void jbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsultarActionPerformed
-        if (fichaPpc.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há PPCs cadastrados!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        else {
-            Ppc p = fichaPpc.consultar(jtPpcs.getSelectedRow());
-            JOptionPane.showMessageDialog(this,
-                    "Curso: " + p.getCurso() + 
-                    "\nMatérias: " + p.getMaterias() + 
-                    "\nAno de início: " + p.getAnoInicio());
-            jtfAnoInicio.setText(null);
-        }
+//        if (fichaPpc.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há PPCs cadastrados!", "Erro",
+//                    JOptionPane.ERROR_MESSAGE);
+//        else {
+//            Ppc p = fichaPpc.consultar(jtPpcs.getSelectedRow());
+//            JOptionPane.showMessageDialog(this,
+//                    "Curso: " + p.getCurso() + 
+//                    "\nMatérias: " + p.getMaterias() + 
+//                    "\nAno de início: " + p.getAnoInicio());
+//            jtfAnoInicio.setText(null);
+//        }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
     private void jbAddMatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddMatsActionPerformed
-        if(jtPpcs.getSelectedRow() != -1) {
-            Materia m = fichaMat.consultar(jcbMats.getSelectedIndex());
-            modeloMat.addRow(new String[]{m.getNome()});
-            JOptionPane.showMessageDialog(this, "Professor selecionado com sucesso!");
-            fichaPpc.consultar(jtPpcs.getSelectedRow()).setMateria(m);
-            jcbMats.removeItemAt(jcbMats.getSelectedIndex());
-            matsCb.remove(m);
-            fichaMat.cadastrar(m);
-            jtMaterias.setModel(modeloMat);
-        }
+//        if(jtPpcs.getSelectedRow() != -1) {
+//            Materia m = fichaMat.consultar(jcbMats.getSelectedIndex());
+//            modeloMat.addRow(new String[]{m.getNome()});
+//            JOptionPane.showMessageDialog(this, "Professor selecionado com sucesso!");
+//            fichaPpc.consultar(jtPpcs.getSelectedRow()).setMateria(m);
+//            jcbMats.removeItemAt(jcbMats.getSelectedIndex());
+//            matsCb.remove(m);
+//            fichaMat.cadastrar(m);
+//            jtMaterias.setModel(modeloMat);
+//        }
     }//GEN-LAST:event_jbAddMatsActionPerformed
 
     private void jbRemMatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemMatsActionPerformed
-        if(jtPpcs.getSelectedRow() != -1) {
-            Materia m = fichaMat.consultar(jtMaterias.getSelectedRow());
-            modeloMat.removeRow(jtMaterias.getSelectedRow());
-            JOptionPane.showMessageDialog(this, "Professor removido com sucesso!");
-            fichaPpc.consultar(jtMaterias.getSelectedRow()).removeMateria(m);
-            jcbMats.addItem(m);
-            matsCb.add(m);
-        }
+//        if(jtPpcs.getSelectedRow() != -1) {
+//            Materia m = fichaMat.consultar(jtMaterias.getSelectedRow());
+//            modeloMat.removeRow(jtMaterias.getSelectedRow());
+//            JOptionPane.showMessageDialog(this, "Professor removido com sucesso!");
+//            fichaPpc.consultar(jtMaterias.getSelectedRow()).removeMateria(m);
+//            jcbMats.addItem(m);
+//            matsCb.add(m);
+//        }
     }//GEN-LAST:event_jbRemMatsActionPerformed
 
     private void jtPpcsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPpcsMouseClicked
         try {
             jtfAnoInicio.setText(jtPpcs.getModel().getValueAt(jtPpcs.getSelectedRow(), 1).toString());
-            atualizaTabelas();
+//            atualizaTabelas();
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jtPpcsMouseClicked
@@ -431,34 +428,34 @@ public class FormPpc extends javax.swing.JFrame {
         });
     }
     
-    public void preencheDados() {
-        try {
-            jtPpcs.removeAll();
-            Iterator<Ppc> i = fichaPpc.relatorio().iterator();
-            while(i.hasNext()) {
-                Ppc aux = (Ppc)i.next();
-                modeloPpc.addRow(new String[]{String.valueOf(aux.getCurso()), 
-                    String.valueOf(aux.getMaterias()), 
-                    String.valueOf(aux.getAnoInicio())});
-            }
-            jtPpcs.setModel(modeloPpc);
-        } catch (Exception e) {
-        }
-    }
-    
-    public void atualizaTabelas() {
-        try {
-            modeloMat.setRowCount(0);
-            Iterator<Materia> im = fichaPpc.consultar(jtPpcs.getSelectedRow()).getMaterias().iterator();
-            while(im.hasNext()) {
-                Materia aux = (Materia)im.next();
-                modeloMat.addRow(new String[]{aux.getNome()});
-            }
-            modeloMat.fireTableDataChanged();
-            jtMaterias.setModel(modeloMat);
-        } catch (Exception e) {
-        }
-    }
+//    public void preencheDados() {
+//        try {
+//            jtPpcs.removeAll();
+//            Iterator<Ppc> i = fichaPpc.relatorio().iterator();
+//            while(i.hasNext()) {
+//                Ppc aux = (Ppc)i.next();
+//                modeloPpc.addRow(new String[]{String.valueOf(aux.getCurso()), 
+//                    String.valueOf(aux.getMaterias()), 
+//                    String.valueOf(aux.getAnoInicio())});
+//            }
+//            jtPpcs.setModel(modeloPpc);
+//        } catch (Exception e) {
+//        }
+//    }
+//    
+//    public void atualizaTabelas() {
+//        try {
+//            modeloMat.setRowCount(0);
+//            Iterator<Materia> im = fichaPpc.consultar(jtPpcs.getSelectedRow()).getMaterias().iterator();
+//            while(im.hasNext()) {
+//                Materia aux = (Materia)im.next();
+//                modeloMat.addRow(new String[]{aux.getNome()});
+//            }
+//            modeloMat.fireTableDataChanged();
+//            jtMaterias.setModel(modeloMat);
+//        } catch (Exception e) {
+//        }
+//    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;

@@ -4,10 +4,6 @@ import entidades.Aluno;
 import entidades.Disciplina;
 import entidades.Materia;
 import entidades.Professor;
-import ficharios.FichaAluno;
-import ficharios.FichaDisc;
-import ficharios.FichaMat;
-import ficharios.FichaProf;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -16,37 +12,23 @@ import javax.swing.table.DefaultTableModel;
 
 public class FormDisc extends javax.swing.JFrame {
 
-    FichaDisc fichaDisc;
-    FichaAluno fichaAluno;
-    FichaProf fichaProf;
-    FichaMat fichaMat;
     ArrayList<Aluno> alunos, alunosCb;
     ArrayList<Professor> profs, profsCb;
     ArrayList<Materia> mats, matsCb;
     DefaultTableModel modelo;
 
-    public FormDisc(FichaDisc fichaDisc, FichaAluno fichaAluno, FichaProf fichaProf, FichaMat fichaMat) {
+    public FormDisc() {
         initComponents();
-        this.fichaDisc = fichaDisc;
-        this.fichaAluno = fichaAluno;
-        this.fichaProf = fichaProf;
-        this.fichaMat = fichaMat;
         String titulos[] = {"Nome", "Aluno", "Prof.", "Mat.", "Nota", "Ano", "Sem.", "Freq.", "Aprov."};
         modelo = new DefaultTableModel(titulos, 0);
         jtDisc.setModel(modelo);
-        alunos = fichaAluno.relatorio();
-        alunosCb = fichaAluno.relatorio();
-        profs = fichaProf.relatorio();
-        profsCb = fichaProf.relatorio();
-        mats = fichaMat.relatorio();
-        matsCb = fichaMat.relatorio();
         jbVoltar.setBackground(Color.red);
-        preencheDados();
+//        preencheDados();
     }
     
-    private FormDisc() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+//    private FormDisc() {
+//        throw new UnsupportedOperationException("Not supported yet.");
+//    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -334,126 +316,126 @@ public class FormDisc extends javax.swing.JFrame {
     }//GEN-LAST:event_jbVoltarActionPerformed
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
-        Disciplina d = new Disciplina();
-        Aluno a = fichaAluno.consultar(jcbAluno.getSelectedIndex());
-        Professor p = fichaProf.consultar(jcbProf.getSelectedIndex());
-        Materia m = fichaMat.consultar(jcbMateria.getSelectedIndex());
-        
-        d.setAluno(a);
-        d.setProfessor(p);
-        d.setMateria(m);
-        d.setNome(jtfNome.getText());
-        d.setNota(Float.valueOf(jtfNota.getText()));
-        d.setAno(Integer.valueOf(jtfAno.getText()));
-        d.setSemestre(Integer.valueOf(jtfSemestre.getText()));
-        d.setFrequencia(Float.valueOf(jtfFrequencia.getText()));
-        if (jrbSim.isSelected()) {
-            d.setAprovacao(true);
-        } else {
-            d.setAprovacao(false);
-        }
-
-        fichaDisc.cadastrar(d);
-        modelo.addRow(new String[]{d.getNome(), String.valueOf(d.getAluno()), 
-            String.valueOf(d.getProfessor()), String.valueOf(d.getMateria()), 
-            String.valueOf(d.getNota()), String.valueOf(d.getAno()),
-            String.valueOf(d.getSemestre()), String.valueOf(d.getFrequencia()),
-            String.valueOf(d.isAprovacao())});
-        JOptionPane.showMessageDialog(this, "Disciplina cadastrada com sucesso!");
-        jcbAluno.removeItem(a);
-        jcbProf.removeItem(p);
-        jcbMateria.removeItem(m);
-        limpaDados();
-        jtDisc.setModel(modelo);
+//        Disciplina d = new Disciplina();
+//        Aluno a = fichaAluno.consultar(jcbAluno.getSelectedIndex());
+//        Professor p = fichaProf.consultar(jcbProf.getSelectedIndex());
+//        Materia m = fichaMat.consultar(jcbMateria.getSelectedIndex());
+//        
+//        d.setAluno(a);
+//        d.setProfessor(p);
+//        d.setMateria(m);
+//        d.setNome(jtfNome.getText());
+//        d.setNota(Float.valueOf(jtfNota.getText()));
+//        d.setAno(Integer.valueOf(jtfAno.getText()));
+//        d.setSemestre(Integer.valueOf(jtfSemestre.getText()));
+//        d.setFrequencia(Float.valueOf(jtfFrequencia.getText()));
+//        if (jrbSim.isSelected()) {
+//            d.setAprovacao(true);
+//        } else {
+//            d.setAprovacao(false);
+//        }
+//
+//        fichaDisc.cadastrar(d);
+//        modelo.addRow(new String[]{d.getNome(), String.valueOf(d.getAluno()), 
+//            String.valueOf(d.getProfessor()), String.valueOf(d.getMateria()), 
+//            String.valueOf(d.getNota()), String.valueOf(d.getAno()),
+//            String.valueOf(d.getSemestre()), String.valueOf(d.getFrequencia()),
+//            String.valueOf(d.isAprovacao())});
+//        JOptionPane.showMessageDialog(this, "Disciplina cadastrada com sucesso!");
+//        jcbAluno.removeItem(a);
+//        jcbProf.removeItem(p);
+//        jcbMateria.removeItem(m);
+//        limpaDados();
+//        jtDisc.setModel(modelo);
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
-        if (fichaDisc.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há disciplinas cadastradas!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        else {
-            int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
-                    "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (res == JOptionPane.YES_OPTION) {
-                Disciplina d = fichaDisc.consultar(jtDisc.getSelectedRow());
-                jcbAluno.addItem(d.getAluno());
-                jcbProf.addItem(d.getProfessor());
-                jcbMateria.addItem(d.getMateria());
-                fichaDisc.excluir(d, jtDisc.getSelectedRow());
-                modelo.removeRow(jtDisc.getSelectedRow());
-                JOptionPane.showMessageDialog(this, "Disciplina excluída com sucesso!");
-            } else {
-                JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
-            }
-        }
+//        if (fichaDisc.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há disciplinas cadastradas!", "Erro",
+//                    JOptionPane.ERROR_MESSAGE);
+//        else {
+//            int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
+//                    "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//            if (res == JOptionPane.YES_OPTION) {
+//                Disciplina d = fichaDisc.consultar(jtDisc.getSelectedRow());
+//                jcbAluno.addItem(d.getAluno());
+//                jcbProf.addItem(d.getProfessor());
+//                jcbMateria.addItem(d.getMateria());
+//                fichaDisc.excluir(d, jtDisc.getSelectedRow());
+//                modelo.removeRow(jtDisc.getSelectedRow());
+//                JOptionPane.showMessageDialog(this, "Disciplina excluída com sucesso!");
+//            } else {
+//                JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
+//            }
+//        }
     }//GEN-LAST:event_jbExcluirActionPerformed
 
     private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
-        if (fichaDisc.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Não há disciplinas cadastradas!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        } else {
-            int res = JOptionPane.showConfirmDialog(this, "Confirmar alteração?",
-                    "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (res == JOptionPane.YES_OPTION) {
-                Disciplina d = new Disciplina();
-                Aluno a = fichaAluno.consultar(jcbAluno.getSelectedIndex());
-                Professor p = fichaProf.consultar(jcbProf.getSelectedIndex());
-                Materia m = fichaMat.consultar(jcbMateria.getSelectedIndex());
-        
-                d.setAluno(a);
-                d.setProfessor(p);
-                d.setMateria(m);
-                d.setNome(jtfNome.getText());
-                d.setNota(Float.valueOf(jtfNota.getText()));
-                d.setAno(Integer.valueOf(jtfAno.getText()));
-                d.setSemestre(Integer.valueOf(jtfSemestre.getText()));
-                d.setFrequencia(Float.valueOf(jtfFrequencia.getText()));
-                if (jrbSim.isSelected())
-                    d.setAprovacao(true);
-                else
-                    d.setAprovacao(false);
-
-                fichaDisc.alterar(d, jtDisc.getSelectedRow());
-                modelo.setValueAt(d.getAluno(), jtDisc.getSelectedRow(), 0);
-                modelo.setValueAt(d.getProfessor(), jtDisc.getSelectedRow(), 1);
-                modelo.setValueAt(d.getMateria(), jtDisc.getSelectedRow(), 2);
-                modelo.setValueAt(d.getNota(), jtDisc.getSelectedRow(), 3);
-                modelo.setValueAt(d.getAno(), jtDisc.getSelectedRow(), 4);
-                modelo.setValueAt(d.getSemestre(), jtDisc.getSelectedRow(), 5);
-                modelo.setValueAt(d.getFrequencia(), jtDisc.getSelectedRow(), 6);
-                modelo.setValueAt(d.isAprovacao(), jtDisc.getSelectedRow(), 7);
-                jtDisc.setModel(modelo);
-                JOptionPane.showMessageDialog(this, "Disciplina alterada com sucesso!");
-                jcbAluno.removeItem(a);
-                jcbProf.removeItem(p);
-                jcbMateria.removeItem(m);
-                limpaDados();
-            } else {
-                JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
-            }
-        }
+//        if (fichaDisc.isEmpty()) {
+//            JOptionPane.showMessageDialog(this, "Não há disciplinas cadastradas!", "Erro",
+//                    JOptionPane.ERROR_MESSAGE);
+//        } else {
+//            int res = JOptionPane.showConfirmDialog(this, "Confirmar alteração?",
+//                    "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//            if (res == JOptionPane.YES_OPTION) {
+//                Disciplina d = new Disciplina();
+//                Aluno a = fichaAluno.consultar(jcbAluno.getSelectedIndex());
+//                Professor p = fichaProf.consultar(jcbProf.getSelectedIndex());
+//                Materia m = fichaMat.consultar(jcbMateria.getSelectedIndex());
+//        
+//                d.setAluno(a);
+//                d.setProfessor(p);
+//                d.setMateria(m);
+//                d.setNome(jtfNome.getText());
+//                d.setNota(Float.valueOf(jtfNota.getText()));
+//                d.setAno(Integer.valueOf(jtfAno.getText()));
+//                d.setSemestre(Integer.valueOf(jtfSemestre.getText()));
+//                d.setFrequencia(Float.valueOf(jtfFrequencia.getText()));
+//                if (jrbSim.isSelected())
+//                    d.setAprovacao(true);
+//                else
+//                    d.setAprovacao(false);
+//
+//                fichaDisc.alterar(d, jtDisc.getSelectedRow());
+//                modelo.setValueAt(d.getAluno(), jtDisc.getSelectedRow(), 0);
+//                modelo.setValueAt(d.getProfessor(), jtDisc.getSelectedRow(), 1);
+//                modelo.setValueAt(d.getMateria(), jtDisc.getSelectedRow(), 2);
+//                modelo.setValueAt(d.getNota(), jtDisc.getSelectedRow(), 3);
+//                modelo.setValueAt(d.getAno(), jtDisc.getSelectedRow(), 4);
+//                modelo.setValueAt(d.getSemestre(), jtDisc.getSelectedRow(), 5);
+//                modelo.setValueAt(d.getFrequencia(), jtDisc.getSelectedRow(), 6);
+//                modelo.setValueAt(d.isAprovacao(), jtDisc.getSelectedRow(), 7);
+//                jtDisc.setModel(modelo);
+//                JOptionPane.showMessageDialog(this, "Disciplina alterada com sucesso!");
+//                jcbAluno.removeItem(a);
+//                jcbProf.removeItem(p);
+//                jcbMateria.removeItem(m);
+//                limpaDados();
+//            } else {
+//                JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
+//            }
+//        }
 
     }//GEN-LAST:event_jbAlterarActionPerformed
 
     private void jbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsultarActionPerformed
-        if(fichaDisc.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há disciplinas cadastradas!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        else {
-            Disciplina d = fichaDisc.consultar(jtDisc.getSelectedRow());
-            JOptionPane.showMessageDialog(this, 
-                    "Nome: " + d.getNome()
-                    + "\nAluno: " + d.getAluno()
-                    + "\nProfessor: " + d.getProfessor()
-                    + "\nMatéria: " + d.getMateria()
-                    + "\nNota: " + d.getNota()
-                    + "\nAno: " + d.getAno()
-                    + "\nSemestre: " + d.getSemestre()
-                    + "\nFrequência: " + d.getFrequencia()
-                    + "\nAprovação: " + d.isAprovacao());
-            limpaDados();
-        }
+//        if(fichaDisc.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há disciplinas cadastradas!", "Erro",
+//                    JOptionPane.ERROR_MESSAGE);
+//        else {
+//            Disciplina d = fichaDisc.consultar(jtDisc.getSelectedRow());
+//            JOptionPane.showMessageDialog(this, 
+//                    "Nome: " + d.getNome()
+//                    + "\nAluno: " + d.getAluno()
+//                    + "\nProfessor: " + d.getProfessor()
+//                    + "\nMatéria: " + d.getMateria()
+//                    + "\nNota: " + d.getNota()
+//                    + "\nAno: " + d.getAno()
+//                    + "\nSemestre: " + d.getSemestre()
+//                    + "\nFrequência: " + d.getFrequencia()
+//                    + "\nAprovação: " + d.isAprovacao());
+//            limpaDados();
+//        }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
     private void jtDiscMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtDiscMouseClicked
@@ -502,30 +484,30 @@ public class FormDisc extends javax.swing.JFrame {
         });
     }
     
-    public void preencheDados() {
-        try {
-            jtDisc.removeAll();
-            Iterator<Disciplina> i = fichaDisc.relatorio().iterator();
-            while(i.hasNext()) {
-                Disciplina aux = (Disciplina)i.next();
-                modelo.addRow(new String[]{aux.getNome(), String.valueOf(aux.getAluno()), 
-                    String.valueOf(aux.getProfessor()), String.valueOf(aux.getMateria()), 
-                    String.valueOf(aux.getNota()), String.valueOf(aux.getAno()),
-                    String.valueOf(aux.getSemestre()), String.valueOf(aux.getFrequencia()), 
-                    String.valueOf(aux.isAprovacao())});
-            }
-            jtDisc.setModel(modelo);
-        } catch (Exception e) {
-        }
-    }
-    
-    public void limpaDados() {
-        jtfNota.setText(null);
-        jtfAno.setText(null);
-        jtfSemestre.setText(null);
-        jtfFrequencia.setText(null);
-        btnGrpAprov.clearSelection();
-    }
+//    public void preencheDados() {
+//        try {
+//            jtDisc.removeAll();
+//            Iterator<Disciplina> i = fichaDisc.relatorio().iterator();
+//            while(i.hasNext()) {
+//                Disciplina aux = (Disciplina)i.next();
+//                modelo.addRow(new String[]{aux.getNome(), String.valueOf(aux.getAluno()), 
+//                    String.valueOf(aux.getProfessor()), String.valueOf(aux.getMateria()), 
+//                    String.valueOf(aux.getNota()), String.valueOf(aux.getAno()),
+//                    String.valueOf(aux.getSemestre()), String.valueOf(aux.getFrequencia()), 
+//                    String.valueOf(aux.isAprovacao())});
+//            }
+//            jtDisc.setModel(modelo);
+//        } catch (Exception e) {
+//        }
+//    }
+//    
+//    public void limpaDados() {
+//        jtfNota.setText(null);
+//        jtfAno.setText(null);
+//        jtfSemestre.setText(null);
+//        jtfFrequencia.setText(null);
+//        btnGrpAprov.clearSelection();
+//    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btnGrpAprov;

@@ -3,9 +3,9 @@ package formularios;
 import entidades.Aluno;
 import entidades.Curso;
 import entidades.Professor;
-import ficharios.FichaAluno;
-import ficharios.FichaCurso;
-import ficharios.FichaProf;
+//import ficharios.FichaAluno;
+//import ficharios.FichaCurso;
+//import ficharios.FichaProf;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -14,38 +14,38 @@ import javax.swing.table.DefaultTableModel;
 
 public class FormCurso extends javax.swing.JFrame {
 
-    FichaCurso fichaCurso;
-    FichaAluno fichaAluno;
+//    FichaCurso fichaCurso;
+//    FichaAluno fichaAluno;
     ArrayList<Aluno> alunos, alunosCb;
-    FichaProf fichaProf;
+//    FichaProf fichaProf;
     ArrayList<Professor> profs, profsCb;
     DefaultTableModel modeloCurso, modeloAluno, modeloProf;
     
-    public FormCurso(FichaCurso fichaCurso, FichaAluno fichaAluno, FichaProf fichaProf) {
+    public FormCurso() {
         initComponents();
-        this.fichaCurso = fichaCurso;
-        this.fichaAluno = fichaAluno;
-        this.fichaProf = fichaProf;
+//        this.fichaCurso = fichaCurso;
+//        this.fichaAluno = fichaAluno;
+//        this.fichaProf = fichaProf;
         String[] titCursos = {"Nome", "Nº de disc. obg.", "Nº de disc. opc."};
         modeloCurso = new DefaultTableModel(titCursos, 0);
         jtCursos.setModel(modeloCurso);
         String[] titAlunos = {"CPF", "Aluno"};
         modeloAluno = new DefaultTableModel(titAlunos, 0);
-        alunos = fichaAluno.relatorio();
+//        alunos = fichaAluno.relatorio();
         jtAlunos.setModel(modeloAluno);
         String[] titProfs = {"CPF", "Professor"};
         modeloProf = new DefaultTableModel(titProfs, 0);
         jtProfs.setModel(modeloProf);
-        profs = fichaProf.relatorio();
-        alunosCb = fichaAluno.relatorio();
-        profsCb = fichaProf.relatorio();
+//        profs = fichaProf.relatorio();
+//        alunosCb = fichaAluno.relatorio();
+//        profsCb = fichaProf.relatorio();
         jbVoltar.setBackground(Color.red);
-        preencheDados();
+//        preencheDados();
     }
 
-    private FormCurso() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+//    private FormCurso() {
+//        throw new UnsupportedOperationException("Not supported yet.");
+//    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -384,7 +384,7 @@ public class FormCurso extends javax.swing.JFrame {
         c.setNumDiscObg(Integer.valueOf(jtfNumDiscObg.getText()));
         c.setNumDiscOpc(Integer.valueOf(jtfNumDiscOpc.getText()));
 
-        fichaCurso.cadastrar(c);
+//        fichaCurso.cadastrar(c);
         modeloCurso.addRow(new String[]{c.getNome(), String.valueOf(c.getNumDiscObg()), String.valueOf(c.getNumDiscOpc())});
         JOptionPane.showMessageDialog(this, "Curso cadastrado com sucesso!");
         jtfNome.setText(null);
@@ -394,126 +394,126 @@ public class FormCurso extends javax.swing.JFrame {
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
-        if (fichaCurso.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há cursos cadastrados!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        else {
-            int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
-                    "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (res == JOptionPane.YES_OPTION) {
-                Iterator<Aluno> ia = alunosCb.iterator();
-                while(ia.hasNext()) {
-                    Aluno aux = (Aluno)ia.next();
-                    jcbAlunos.addItem(aux);
-                }
-                modeloAluno.setRowCount(0);
-                Iterator<Professor> ip = profsCb.iterator();
-                while(ip.hasNext()) {
-                    Professor aux = (Professor)ip.next();
-                    jcbProfs.addItem(aux);
-                }
-                modeloProf.setRowCount(0);
-                
-                Curso c = fichaCurso.consultar(jtCursos.getSelectedRow());
-                fichaCurso.excluir(c, jtCursos.getSelectedRow());
-                modeloCurso.removeRow(jtCursos.getSelectedRow());
-                JOptionPane.showMessageDialog(this, "Curso excluído com sucesso!");
-            } else {
-                JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
-            }
-        }
+//        if (fichaCurso.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há cursos cadastrados!", "Erro",
+//                    JOptionPane.ERROR_MESSAGE);
+//        else {
+//            int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
+//                    "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//            if (res == JOptionPane.YES_OPTION) {
+//                Iterator<Aluno> ia = alunosCb.iterator();
+//                while(ia.hasNext()) {
+//                    Aluno aux = (Aluno)ia.next();
+//                    jcbAlunos.addItem(aux);
+//                }
+//                modeloAluno.setRowCount(0);
+//                Iterator<Professor> ip = profsCb.iterator();
+//                while(ip.hasNext()) {
+//                    Professor aux = (Professor)ip.next();
+//                    jcbProfs.addItem(aux);
+//                }
+//                modeloProf.setRowCount(0);
+//                
+//                Curso c = fichaCurso.consultar(jtCursos.getSelectedRow());
+//                fichaCurso.excluir(c, jtCursos.getSelectedRow());
+//                modeloCurso.removeRow(jtCursos.getSelectedRow());
+//                JOptionPane.showMessageDialog(this, "Curso excluído com sucesso!");
+//            } else {
+//                JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
+//            }
+//        }
     }//GEN-LAST:event_jbExcluirActionPerformed
 
     private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
-        if (fichaCurso.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há cursos cadastrados!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        else {
-            int res = JOptionPane.showConfirmDialog(this, "Confirmar alteração?",
-                    "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (res == JOptionPane.YES_OPTION) {
-                Curso c = new Curso();
-
-                c.setNome(jtfNome.getText());
-                c.setNumDiscObg(Integer.valueOf(jtfNumDiscObg.getText()));
-                c.setNumDiscOpc(Integer.valueOf(jtfNumDiscOpc.getText()));
-                
-                fichaCurso.alterar(c, jtCursos.getSelectedRow());
-                modeloCurso.setValueAt(c.getNome(), jtCursos.getSelectedRow(), 0);
-                modeloCurso.setValueAt(c.getNumDiscObg(), jtCursos.getSelectedRow(), 1);
-                modeloCurso.setValueAt(c.getNumDiscOpc(), jtCursos.getSelectedRow(), 2);
-                JOptionPane.showMessageDialog(this, "Curso alterado com sucesso!");
-                limparDados();
-            } else {
-                JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
-            }
-        }
+//        if (fichaCurso.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há cursos cadastrados!", "Erro",
+//                    JOptionPane.ERROR_MESSAGE);
+//        else {
+//            int res = JOptionPane.showConfirmDialog(this, "Confirmar alteração?",
+//                    "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//            if (res == JOptionPane.YES_OPTION) {
+//                Curso c = new Curso();
+//
+//                c.setNome(jtfNome.getText());
+//                c.setNumDiscObg(Integer.valueOf(jtfNumDiscObg.getText()));
+//                c.setNumDiscOpc(Integer.valueOf(jtfNumDiscOpc.getText()));
+//                
+//                fichaCurso.alterar(c, jtCursos.getSelectedRow());
+//                modeloCurso.setValueAt(c.getNome(), jtCursos.getSelectedRow(), 0);
+//                modeloCurso.setValueAt(c.getNumDiscObg(), jtCursos.getSelectedRow(), 1);
+//                modeloCurso.setValueAt(c.getNumDiscOpc(), jtCursos.getSelectedRow(), 2);
+//                JOptionPane.showMessageDialog(this, "Curso alterado com sucesso!");
+//                limparDados();
+//            } else {
+//                JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
+//            }
+//        }
     }//GEN-LAST:event_jbAlterarActionPerformed
 
     private void jbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsultarActionPerformed
-        if (fichaCurso.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há cursos cadastrados!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        else {
-            Curso c = fichaCurso.consultar(jtCursos.getSelectedRow());
-            JOptionPane.showMessageDialog(this,
-                    "Nome: " + c.getNome()
-                    + "\nNúmero de disciplinas obrigatórias: " + c.getNumDiscObg()
-                    + "\nNúmero de disciplinas opcionais: " + c.getNumDiscOpc()
-                    + "\nAlunos: " + c.getAlunos()
-                    + "\nProfessores: " + c.getProfs());
-            jtAlunos.removeAll();
-            limparDados();
-            atualizaTabelas();
-        }
+//        if (fichaCurso.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há cursos cadastrados!", "Erro",
+//                    JOptionPane.ERROR_MESSAGE);
+//        else {
+//            Curso c = fichaCurso.consultar(jtCursos.getSelectedRow());
+//            JOptionPane.showMessageDialog(this,
+//                    "Nome: " + c.getNome()
+//                    + "\nNúmero de disciplinas obrigatórias: " + c.getNumDiscObg()
+//                    + "\nNúmero de disciplinas opcionais: " + c.getNumDiscOpc()
+//                    + "\nAlunos: " + c.getAlunos()
+//                    + "\nProfessores: " + c.getProfs());
+//            jtAlunos.removeAll();
+//            limparDados();
+//            atualizaTabelas();
+//        }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
     private void jbAddAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddAlunosActionPerformed
-        if (jtCursos.getSelectedRow() != -1) {
-            Aluno a = fichaAluno.consultar(jcbAlunos.getSelectedIndex());
-            modeloAluno.addRow(new String[]{String.valueOf(a.getCpf()), a.getNome()});
-            JOptionPane.showMessageDialog(this, "Aluno selecionado com sucesso!");
-            fichaCurso.consultar(jtCursos.getSelectedRow()).setAluno(a);
-            jcbAlunos.removeItemAt(jcbAlunos.getSelectedIndex());
-            alunosCb.remove(a);
-            fichaAluno.cadastrar(a);
-            jtAlunos.setModel(modeloAluno);
-        }
+//        if (jtCursos.getSelectedRow() != -1) {
+//            Aluno a = fichaAluno.consultar(jcbAlunos.getSelectedIndex());
+//            modeloAluno.addRow(new String[]{String.valueOf(a.getCpf()), a.getNome()});
+//            JOptionPane.showMessageDialog(this, "Aluno selecionado com sucesso!");
+//            fichaCurso.consultar(jtCursos.getSelectedRow()).setAluno(a);
+//            jcbAlunos.removeItemAt(jcbAlunos.getSelectedIndex());
+//            alunosCb.remove(a);
+//            fichaAluno.cadastrar(a);
+//            jtAlunos.setModel(modeloAluno);
+//        }
     }//GEN-LAST:event_jbAddAlunosActionPerformed
 
     private void jbRemAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemAlunosActionPerformed
-        if(jtCursos.getSelectedRow() != -1) {
-            Aluno a = fichaAluno.consultar(jtAlunos.getSelectedRow());
-            modeloAluno.removeRow(jtAlunos.getSelectedRow());
-            JOptionPane.showMessageDialog(this, "Aluno removido com sucesso!");
-            fichaCurso.consultar(jtCursos.getSelectedRow()).removeAluno(a);
-            jcbAlunos.addItem(a);
-            alunosCb.add(a);
-        }
+//        if(jtCursos.getSelectedRow() != -1) {
+//            Aluno a = fichaAluno.consultar(jtAlunos.getSelectedRow());
+//            modeloAluno.removeRow(jtAlunos.getSelectedRow());
+//            JOptionPane.showMessageDialog(this, "Aluno removido com sucesso!");
+//            fichaCurso.consultar(jtCursos.getSelectedRow()).removeAluno(a);
+//            jcbAlunos.addItem(a);
+//            alunosCb.add(a);
+//        }
     }//GEN-LAST:event_jbRemAlunosActionPerformed
 
     private void jbAddProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddProfsActionPerformed
-        if(jtCursos.getSelectedRow() != -1) {
-            Professor p = fichaProf.consultar(jcbProfs.getSelectedIndex());
-            modeloProf.addRow(new String[]{String.valueOf(p.getCpf()), p.getNome()});
-            JOptionPane.showMessageDialog(this, "Professor selecionado com sucesso!");
-            fichaCurso.consultar(jtCursos.getSelectedRow()).setProf(p);
-            jcbProfs.removeItemAt(jcbProfs.getSelectedIndex());
-            profsCb.remove(p);
-            fichaProf.cadastrar(p);
-            jtProfs.setModel(modeloProf);
-        }
+//        if(jtCursos.getSelectedRow() != -1) {
+//            Professor p = fichaProf.consultar(jcbProfs.getSelectedIndex());
+//            modeloProf.addRow(new String[]{String.valueOf(p.getCpf()), p.getNome()});
+//            JOptionPane.showMessageDialog(this, "Professor selecionado com sucesso!");
+//            fichaCurso.consultar(jtCursos.getSelectedRow()).setProf(p);
+//            jcbProfs.removeItemAt(jcbProfs.getSelectedIndex());
+//            profsCb.remove(p);
+//            fichaProf.cadastrar(p);
+//            jtProfs.setModel(modeloProf);
+//        }
     }//GEN-LAST:event_jbAddProfsActionPerformed
 
     private void jbRemProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemProfsActionPerformed
-        if(jtCursos.getSelectedRow() != -1) {
-            Professor p = fichaProf.consultar(jtProfs.getSelectedRow());
-            modeloProf.removeRow(jtProfs.getSelectedRow());
-            JOptionPane.showMessageDialog(this, "Professor removido com sucesso!");
-            fichaCurso.consultar(jtCursos.getSelectedRow()).removeProf(p);
-            jcbProfs.addItem(p);
-            profsCb.add(p);
-        }
+//        if(jtCursos.getSelectedRow() != -1) {
+//            Professor p = fichaProf.consultar(jtProfs.getSelectedRow());
+//            modeloProf.removeRow(jtProfs.getSelectedRow());
+//            JOptionPane.showMessageDialog(this, "Professor removido com sucesso!");
+//            fichaCurso.consultar(jtCursos.getSelectedRow()).removeProf(p);
+//            jcbProfs.addItem(p);
+//            profsCb.add(p);
+//        }
     }//GEN-LAST:event_jbRemProfsActionPerformed
 
     private void jtCursosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtCursosMouseClicked
@@ -522,7 +522,7 @@ public class FormCurso extends javax.swing.JFrame {
             jtfNumDiscObg.setText(jtCursos.getModel().getValueAt(jtCursos.getSelectedRow(), 1).toString());
             jtfNumDiscOpc.setText(jtCursos.getModel().getValueAt(jtCursos.getSelectedRow(), 2).toString());
             
-            atualizaTabelas();
+//            atualizaTabelas();
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jtCursosMouseClicked
@@ -562,50 +562,50 @@ public class FormCurso extends javax.swing.JFrame {
         });
     }
 
-    public void preencheDados() {
-        try {
-            jtCursos.removeAll();
-            Iterator<Curso> i = fichaCurso.relatorio().iterator();
-            while (i.hasNext()) {
-                Curso aux = (Curso) i.next();
-                modeloCurso.addRow(new String[]{aux.getNome(), String.valueOf(aux.getNumDiscObg()),
-                    String.valueOf(aux.getNumDiscOpc())});
-            }
-            jtCursos.setModel(modeloCurso);
-            jcbAlunos.removeAll();
-            for (Aluno a : alunos)
-                jcbAlunos.addItem(a);
-            jcbProfs.removeAll();
-            for (Professor p : profs)
-                jcbProfs.addItem(p);
-        } catch (Exception e) {
-        }
-    }
-    
-    public void atualizaTabelas() {
-        try {
-            modeloAluno.setNumRows(0);
-            Iterator<Aluno> ia = fichaCurso.consultar(jtCursos.getSelectedRow()).getAlunos().iterator();
-            while(ia.hasNext()) {
-                Aluno aux = (Aluno)ia.next();
-                modeloAluno.addRow(new String[]{String.valueOf(aux.getCpf()), aux.getNome()});
-            }
-            modeloAluno.fireTableDataChanged();
-            jtAlunos.setModel(modeloAluno);
-        } catch (Exception e) {
-        }
-        try {
-            modeloProf.setNumRows(0);
-            Iterator<Professor> ip = fichaCurso.consultar(jtCursos.getSelectedRow()).getProfs().iterator();
-            while(ip.hasNext()) {
-                Professor aux = (Professor)ip.next();
-                modeloProf.addRow(new String[]{String.valueOf(aux.getCpf()), aux.getNome()});
-            }
-            modeloProf.fireTableDataChanged();
-            jtProfs.setModel(modeloProf);
-        } catch (Exception e) {
-        }
-    }
+//    public void preencheDados() {
+//        try {
+//            jtCursos.removeAll();
+//            Iterator<Curso> i = fichaCurso.relatorio().iterator();
+//            while (i.hasNext()) {
+//                Curso aux = (Curso) i.next();
+//                modeloCurso.addRow(new String[]{aux.getNome(), String.valueOf(aux.getNumDiscObg()),
+//                    String.valueOf(aux.getNumDiscOpc())});
+//            }
+//            jtCursos.setModel(modeloCurso);
+//            jcbAlunos.removeAll();
+//            for (Aluno a : alunos)
+//                jcbAlunos.addItem(a);
+//            jcbProfs.removeAll();
+//            for (Professor p : profs)
+//                jcbProfs.addItem(p);
+//        } catch (Exception e) {
+//        }
+//    }
+//    
+//    public void atualizaTabelas() {
+//        try {
+//            modeloAluno.setNumRows(0);
+//            Iterator<Aluno> ia = fichaCurso.consultar(jtCursos.getSelectedRow()).getAlunos().iterator();
+//            while(ia.hasNext()) {
+//                Aluno aux = (Aluno)ia.next();
+//                modeloAluno.addRow(new String[]{String.valueOf(aux.getCpf()), aux.getNome()});
+//            }
+//            modeloAluno.fireTableDataChanged();
+//            jtAlunos.setModel(modeloAluno);
+//        } catch (Exception e) {
+//        }
+//        try {
+//            modeloProf.setNumRows(0);
+//            Iterator<Professor> ip = fichaCurso.consultar(jtCursos.getSelectedRow()).getProfs().iterator();
+//            while(ip.hasNext()) {
+//                Professor aux = (Professor)ip.next();
+//                modeloProf.addRow(new String[]{String.valueOf(aux.getCpf()), aux.getNome()});
+//            }
+//            modeloProf.fireTableDataChanged();
+//            jtProfs.setModel(modeloProf);
+//        } catch (Exception e) {
+//        }
+//    }
     
     public void limparDados() {
         jtfNome.setText(null);

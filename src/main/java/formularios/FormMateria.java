@@ -2,8 +2,6 @@ package formularios;
 
 import entidades.Materia;
 import entidades.Professor;
-import ficharios.FichaMat;
-import ficharios.FichaProf;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -12,30 +10,24 @@ import javax.swing.table.DefaultTableModel;
 
 public class FormMateria extends javax.swing.JFrame {
 
-    FichaMat fichaMat;
-    FichaProf fichaProf;
     ArrayList<Professor> profs, profsCb;
     DefaultTableModel modeloMat, modeloProf;
 
-    public FormMateria(FichaMat fichaMat, FichaProf fichaProf) {
+    public FormMateria() {
         initComponents();
-        this.fichaMat = fichaMat;
-        this.fichaProf = fichaProf;
         String[] titulos = {"Nome", "Ementa", "Pré-req.", "Carga hor."};
         modeloMat = new DefaultTableModel(titulos, 0);
         String[] titProfs = {"CPF", "Professor"};
         modeloProf = new DefaultTableModel(titProfs, 0);
         jtProfs.setModel(modeloProf);
-        profs = fichaProf.relatorio();
-        profsCb = fichaProf.relatorio();
         jtMats.setModel(modeloMat);
         jbVoltar.setBackground(Color.RED);
-        preencheDados();
+//        preencheDados();
     }
     
-    private FormMateria() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+//    private FormMateria() {
+//        throw new UnsupportedOperationException("Not supported yet.");
+//    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -330,111 +322,111 @@ public class FormMateria extends javax.swing.JFrame {
     }//GEN-LAST:event_jbVoltarActionPerformed
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
-        Materia m = new Materia();
-
-        m.setNome(jtfNome.getText());
-        m.setEmenta(jtaEmenta.getText());
-        m.setPreRequisitos(jtaPreReq.getText());
-        m.setCargaHoraria(Integer.valueOf(jtfCargaHor.getText()));
-
-        fichaMat.cadastrar(m);
-        modeloMat.addRow(new String[]{m.getNome(), m.getEmenta(), m.getPreRequisitos(), String.valueOf(m.getCargaHoraria())});
-        JOptionPane.showMessageDialog(this, "Matéria cadastrada com sucesso!");
-        limparDados();
-        jtMats.setModel(modeloMat);
+//        Materia m = new Materia();
+//
+//        m.setNome(jtfNome.getText());
+//        m.setEmenta(jtaEmenta.getText());
+//        m.setPreRequisitos(jtaPreReq.getText());
+//        m.setCargaHoraria(Integer.valueOf(jtfCargaHor.getText()));
+//
+//        fichaMat.cadastrar(m);
+//        modeloMat.addRow(new String[]{m.getNome(), m.getEmenta(), m.getPreRequisitos(), String.valueOf(m.getCargaHoraria())});
+//        JOptionPane.showMessageDialog(this, "Matéria cadastrada com sucesso!");
+//        limparDados();
+//        jtMats.setModel(modeloMat);
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
-        if (fichaMat.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há matérias cadastrados!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        else {
-            int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
-                    "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (res == JOptionPane.YES_OPTION) {
-                Iterator<Professor> ip = profsCb.iterator();
-                while(ip.hasNext()) {
-                    Professor aux = (Professor)ip.next();
-                    jcbProfs.addItem(aux);
-                }
-                modeloProf.setRowCount(0);
-                
-                Materia m = fichaMat.consultar(jtMats.getSelectedRow());
-                fichaMat.excluir(m, jtMats.getSelectedRow());
-                modeloMat.removeRow(jtMats.getSelectedRow());
-                JOptionPane.showMessageDialog(this, "Matéria excluída com sucesso!");
-            } else {
-                JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
-            }
-        }
+//        if (fichaMat.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há matérias cadastrados!", "Erro",
+//                    JOptionPane.ERROR_MESSAGE);
+//        else {
+//            int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
+//                    "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//            if (res == JOptionPane.YES_OPTION) {
+//                Iterator<Professor> ip = profsCb.iterator();
+//                while(ip.hasNext()) {
+//                    Professor aux = (Professor)ip.next();
+//                    jcbProfs.addItem(aux);
+//                }
+//                modeloProf.setRowCount(0);
+//                
+//                Materia m = fichaMat.consultar(jtMats.getSelectedRow());
+//                fichaMat.excluir(m, jtMats.getSelectedRow());
+//                modeloMat.removeRow(jtMats.getSelectedRow());
+//                JOptionPane.showMessageDialog(this, "Matéria excluída com sucesso!");
+//            } else {
+//                JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
+//            }
+//        }
     }//GEN-LAST:event_jbExcluirActionPerformed
 
     private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
-        if (fichaMat.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há matérias cadastrados!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        else {
-            int res = JOptionPane.showConfirmDialog(this, "Confirmar alteração?",
-                    "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (res == JOptionPane.YES_OPTION) {
-                Materia m = new Materia();
-
-                m.setNome(jtfNome.getText());
-                m.setEmenta(jtaEmenta.getText());
-                m.setPreRequisitos(jtaPreReq.getText());
-                m.setCargaHoraria(Integer.valueOf(jtfCargaHor.getText()));
-
-                fichaMat.alterar(m, jtMats.getSelectedRow());
-                modeloMat.setValueAt(m.getNome(), jtMats.getSelectedRow(), 0);
-                modeloMat.setValueAt(m.getEmenta(), jtMats.getSelectedRow(), 1);
-                modeloMat.setValueAt(m.getPreRequisitos(), jtMats.getSelectedRow(), 2);
-                modeloMat.setValueAt(m.getCargaHoraria(), jtMats.getSelectedRow(), 3);
-                JOptionPane.showMessageDialog(this, "Matéria alterada com sucesso!");
-                limparDados();
-            } else {
-                JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
-            }
-        }
+//        if (fichaMat.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há matérias cadastrados!", "Erro",
+//                    JOptionPane.ERROR_MESSAGE);
+//        else {
+//            int res = JOptionPane.showConfirmDialog(this, "Confirmar alteração?",
+//                    "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//            if (res == JOptionPane.YES_OPTION) {
+//                Materia m = new Materia();
+//
+//                m.setNome(jtfNome.getText());
+//                m.setEmenta(jtaEmenta.getText());
+//                m.setPreRequisitos(jtaPreReq.getText());
+//                m.setCargaHoraria(Integer.valueOf(jtfCargaHor.getText()));
+//
+//                fichaMat.alterar(m, jtMats.getSelectedRow());
+//                modeloMat.setValueAt(m.getNome(), jtMats.getSelectedRow(), 0);
+//                modeloMat.setValueAt(m.getEmenta(), jtMats.getSelectedRow(), 1);
+//                modeloMat.setValueAt(m.getPreRequisitos(), jtMats.getSelectedRow(), 2);
+//                modeloMat.setValueAt(m.getCargaHoraria(), jtMats.getSelectedRow(), 3);
+//                JOptionPane.showMessageDialog(this, "Matéria alterada com sucesso!");
+//                limparDados();
+//            } else {
+//                JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
+//            }
+//        }
     }//GEN-LAST:event_jbAlterarActionPerformed
 
     private void jbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsultarActionPerformed
-        if (fichaMat.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há matérias cadastradas!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        else {
-            Materia m = fichaMat.consultar(jtMats.getSelectedRow());
-            JOptionPane.showMessageDialog(this,
-                    "Nome: " + m.getNome()
-                    + "\nEmenta: " + m.getEmenta()
-                    + "\nPré-requisitos: " + m.getPreRequisitos()
-                    + "\nProfessores: " + m.getProfs()
-                    + "\nCarga horária: " + m.getCargaHoraria());
-            limparDados();
-        }
+//        if (fichaMat.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há matérias cadastradas!", "Erro",
+//                    JOptionPane.ERROR_MESSAGE);
+//        else {
+//            Materia m = fichaMat.consultar(jtMats.getSelectedRow());
+//            JOptionPane.showMessageDialog(this,
+//                    "Nome: " + m.getNome()
+//                    + "\nEmenta: " + m.getEmenta()
+//                    + "\nPré-requisitos: " + m.getPreRequisitos()
+//                    + "\nProfessores: " + m.getProfs()
+//                    + "\nCarga horária: " + m.getCargaHoraria());
+//            limparDados();
+//        }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
     private void jbAddProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddProfsActionPerformed
-        if(jtMats.getSelectedRow() != -1) {
-            Professor p = fichaProf.consultar(jcbProfs.getSelectedIndex());
-            modeloProf.addRow(new String[]{String.valueOf(p.getCpf()), p.getNome()});
-            JOptionPane.showMessageDialog(this, "Professor selecionado com sucesso!");
-            fichaMat.consultar(jtMats.getSelectedRow()).setProf(p);
-            jcbProfs.removeItemAt(jcbProfs.getSelectedIndex());
-            profsCb.remove(p);
-            fichaProf.cadastrar(p);
-            jtProfs.setModel(modeloProf);
-        }
+//        if(jtMats.getSelectedRow() != -1) {
+//            Professor p = fichaProf.consultar(jcbProfs.getSelectedIndex());
+//            modeloProf.addRow(new String[]{String.valueOf(p.getCpf()), p.getNome()});
+//            JOptionPane.showMessageDialog(this, "Professor selecionado com sucesso!");
+//            fichaMat.consultar(jtMats.getSelectedRow()).setProf(p);
+//            jcbProfs.removeItemAt(jcbProfs.getSelectedIndex());
+//            profsCb.remove(p);
+//            fichaProf.cadastrar(p);
+//            jtProfs.setModel(modeloProf);
+//        }
     }//GEN-LAST:event_jbAddProfsActionPerformed
 
     private void jbRemProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemProfsActionPerformed
-        if(jtMats.getSelectedRow() != -1) {
-            Professor p = fichaProf.consultar(jtProfs.getSelectedRow());
-            modeloProf.removeRow(jtProfs.getSelectedRow());
-            JOptionPane.showMessageDialog(this, "Professor removido com sucesso!");
-            fichaMat.consultar(jtMats.getSelectedRow()).removeProf(p);
-            jcbProfs.addItem(p);
-            profsCb.add(p);
-        }
+//        if(jtMats.getSelectedRow() != -1) {
+//            Professor p = fichaProf.consultar(jtProfs.getSelectedRow());
+//            modeloProf.removeRow(jtProfs.getSelectedRow());
+//            JOptionPane.showMessageDialog(this, "Professor removido com sucesso!");
+//            fichaMat.consultar(jtMats.getSelectedRow()).removeProf(p);
+//            jcbProfs.addItem(p);
+//            profsCb.add(p);
+//        }
     }//GEN-LAST:event_jbRemProfsActionPerformed
 
     private void jtMatsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtMatsMouseClicked
@@ -444,7 +436,7 @@ public class FormMateria extends javax.swing.JFrame {
             jtaPreReq.setText(jtMats.getModel().getValueAt(jtMats.getSelectedRow(), 2).toString());
             jtfCargaHor.setText(jtMats.getModel().getValueAt(jtMats.getSelectedRow(), 3).toString());
             
-            atualizaTabelas();
+//            atualizaTabelas();
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jtMatsMouseClicked
@@ -484,41 +476,41 @@ public class FormMateria extends javax.swing.JFrame {
         });
     }
     
-    public void preencheDados() {
-        try {
-            jtMats.removeAll();
-            Iterator<Materia> i = fichaMat.relatorio().iterator();
-            while(i.hasNext()) {
-                Materia aux = (Materia)i.next();
-                modeloMat.addRow(new String[]{aux.getNome(), aux.getEmenta(), 
-                    aux.getPreRequisitos(), String.valueOf(aux.getProfs()), 
-                    String.valueOf(aux.getCargaHoraria())});
-            }
-            jtMats.setModel(modeloMat);
-        } catch (Exception e) {
-        }
-    }
-    
-    public void atualizaTabelas() {
-        try {
-            modeloProf.setNumRows(0);
-            Iterator<Professor> ip = fichaMat.consultar(jtMats.getSelectedRow()).getProfs().iterator();
-            while(ip.hasNext()) {
-                Professor aux = (Professor)ip.next();
-                modeloProf.addRow(new String[]{String.valueOf(aux.getCpf()), aux.getNome()});
-            }
-            modeloProf.fireTableDataChanged();
-            jtProfs.setModel(modeloProf);
-        } catch (Exception e) {
-        }
-    }
-    
-    public void limparDados() {
-        jtfNome.setText(null);
-        jtaEmenta.setText(null);
-        jtaPreReq.setText(null);
-        jtfCargaHor.setText(null);
-    }
+//    public void preencheDados() {
+//        try {
+//            jtMats.removeAll();
+//            Iterator<Materia> i = fichaMat.relatorio().iterator();
+//            while(i.hasNext()) {
+//                Materia aux = (Materia)i.next();
+//                modeloMat.addRow(new String[]{aux.getNome(), aux.getEmenta(), 
+//                    aux.getPreRequisitos(), String.valueOf(aux.getProfs()), 
+//                    String.valueOf(aux.getCargaHoraria())});
+//            }
+//            jtMats.setModel(modeloMat);
+//        } catch (Exception e) {
+//        }
+//    }
+//    
+//    public void atualizaTabelas() {
+//        try {
+//            modeloProf.setNumRows(0);
+//            Iterator<Professor> ip = fichaMat.consultar(jtMats.getSelectedRow()).getProfs().iterator();
+//            while(ip.hasNext()) {
+//                Professor aux = (Professor)ip.next();
+//                modeloProf.addRow(new String[]{String.valueOf(aux.getCpf()), aux.getNome()});
+//            }
+//            modeloProf.fireTableDataChanged();
+//            jtProfs.setModel(modeloProf);
+//        } catch (Exception e) {
+//        }
+//    }
+//    
+//    public void limparDados() {
+//        jtfNome.setText(null);
+//        jtaEmenta.setText(null);
+//        jtaPreReq.setText(null);
+//        jtfCargaHor.setText(null);
+//    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;

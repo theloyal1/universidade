@@ -1,7 +1,6 @@
 package formularios;
 
 import entidades.Professor;
-import ficharios.FichaProf;
 import java.awt.Color;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
@@ -9,22 +8,20 @@ import javax.swing.table.DefaultTableModel;
 
 public class FormProf extends javax.swing.JFrame {
 
-    FichaProf fichaProf;
     DefaultTableModel modelo;
 
-    public FormProf(FichaProf fichaProf) {
+    public FormProf() {
         initComponents();
-        this.fichaProf = fichaProf;
         String[] titulos = {"CPF", "Nome", "Email", "Endereço", "Telefone", "Espec."};
         modelo = new DefaultTableModel(titulos, 0);
         jtProfs.setModel(modelo);
         jbVoltar.setBackground(Color.red);
-        preencheDados();
+//        preencheDados();
     }
 
-    private FormProf() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+//    private FormProf() {
+//        throw new UnsupportedOperationException("Not supported yet.");
+//    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -290,89 +287,89 @@ public class FormProf extends javax.swing.JFrame {
     }//GEN-LAST:event_jbVoltarActionPerformed
 
     private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
-        Professor p = new Professor();
-
-        p.setCpf(jtfCpf.getText());;
-        p.setNome(jtfNome.getText());
-        p.setEmail(jtfEmail.getText());
-        p.setEndereco(jtfEndereco.getText());
-        p.setTelefone(jtfTelefone.getText());
-        p.setEspecializacao(jtfEspec.getText());
-
-        fichaProf.cadastrar(p);
-        modelo.addRow(new String[]{String.valueOf(p.getCpf()), p.getNome(), p.getEmail(), p.getEndereco(),
-            p.getTelefone(), p.getEspecializacao()});
-        JOptionPane.showMessageDialog(this, "Professor cadastrado com sucesso!");
-        limparDados();
-        jtProfs.setModel(modelo);
+//        Professor p = new Professor();
+//
+//        p.setCpf(jtfCpf.getText());;
+//        p.setNome(jtfNome.getText());
+//        p.setEmail(jtfEmail.getText());
+//        p.setEndereco(jtfEndereco.getText());
+//        p.setTelefone(jtfTelefone.getText());
+//        p.setEspecializacao(jtfEspec.getText());
+//
+//        fichaProf.cadastrar(p);
+//        modelo.addRow(new String[]{String.valueOf(p.getCpf()), p.getNome(), p.getEmail(), p.getEndereco(),
+//            p.getTelefone(), p.getEspecializacao()});
+//        JOptionPane.showMessageDialog(this, "Professor cadastrado com sucesso!");
+//        limparDados();
+//        jtProfs.setModel(modelo);
     }//GEN-LAST:event_jbCadastrarActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
-        if (fichaProf.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há professores cadastrados!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        else {
-            int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
-                    "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (res == JOptionPane.YES_OPTION) {
-                Professor p = fichaProf.consultar(jtProfs.getSelectedRow());
-                fichaProf.excluir(p, jtProfs.getSelectedRow());
-                modelo.removeRow(jtProfs.getSelectedRow());
-                JOptionPane.showMessageDialog(this, "Professor excluído com sucesso!");
-                limparDados();
-            } else {
-                JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
-            }
-        }
+//        if (fichaProf.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há professores cadastrados!", "Erro",
+//                    JOptionPane.ERROR_MESSAGE);
+//        else {
+//            int res = JOptionPane.showConfirmDialog(this, "Confirmar exclusão?",
+//                    "Exclusão", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//            if (res == JOptionPane.YES_OPTION) {
+//                Professor p = fichaProf.consultar(jtProfs.getSelectedRow());
+//                fichaProf.excluir(p, jtProfs.getSelectedRow());
+//                modelo.removeRow(jtProfs.getSelectedRow());
+//                JOptionPane.showMessageDialog(this, "Professor excluído com sucesso!");
+//                limparDados();
+//            } else {
+//                JOptionPane.showMessageDialog(this, "Exclusão não sucedida!");
+//            }
+//        }
     }//GEN-LAST:event_jbExcluirActionPerformed
 
     private void jbAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarActionPerformed
-        if (fichaProf.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há professores cadastrados!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        else {
-            int res = JOptionPane.showConfirmDialog(this, "Confirmar alteração?",
-                    "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (res == JOptionPane.YES_OPTION) {
-                Professor p = new Professor();
-
-                p.setCpf(jtfCpf.getText());
-                p.setNome(jtfNome.getText());
-                p.setEmail(jtfEmail.getText());
-                p.setEndereco(jtfEndereco.getText());
-                p.setTelefone(jtfTelefone.getText());
-                p.setEspecializacao(jtfEspec.getText());
-                
-                fichaProf.alterar(p, jtProfs.getSelectedRow());
-                modelo.setValueAt(p.getCpf(), jtProfs.getSelectedRow(), 0);
-                modelo.setValueAt(p.getNome(), jtProfs.getSelectedRow(), 1);
-                modelo.setValueAt(p.getEmail(), jtProfs.getSelectedRow(), 2);
-                modelo.setValueAt(p.getEndereco(), jtProfs.getSelectedRow(), 3);
-                modelo.setValueAt(p.getTelefone(), jtProfs.getSelectedRow(), 4);
-                modelo.setValueAt(p.getEspecializacao(), jtProfs.getSelectedRow(), 5);
-                jtProfs.setModel(modelo);
-                JOptionPane.showMessageDialog(this, "Professor alterado com sucesso!");
-                limparDados();
-                
-            } else {
-                JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
-            }
-        }
+//        if (fichaProf.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há professores cadastrados!", "Erro",
+//                    JOptionPane.ERROR_MESSAGE);
+//        else {
+//            int res = JOptionPane.showConfirmDialog(this, "Confirmar alteração?",
+//                    "Alteração", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//            if (res == JOptionPane.YES_OPTION) {
+//                Professor p = new Professor();
+//
+//                p.setCpf(jtfCpf.getText());
+//                p.setNome(jtfNome.getText());
+//                p.setEmail(jtfEmail.getText());
+//                p.setEndereco(jtfEndereco.getText());
+//                p.setTelefone(jtfTelefone.getText());
+//                p.setEspecializacao(jtfEspec.getText());
+//                
+//                fichaProf.alterar(p, jtProfs.getSelectedRow());
+//                modelo.setValueAt(p.getCpf(), jtProfs.getSelectedRow(), 0);
+//                modelo.setValueAt(p.getNome(), jtProfs.getSelectedRow(), 1);
+//                modelo.setValueAt(p.getEmail(), jtProfs.getSelectedRow(), 2);
+//                modelo.setValueAt(p.getEndereco(), jtProfs.getSelectedRow(), 3);
+//                modelo.setValueAt(p.getTelefone(), jtProfs.getSelectedRow(), 4);
+//                modelo.setValueAt(p.getEspecializacao(), jtProfs.getSelectedRow(), 5);
+//                jtProfs.setModel(modelo);
+//                JOptionPane.showMessageDialog(this, "Professor alterado com sucesso!");
+//                limparDados();
+//                
+//            } else {
+//                JOptionPane.showMessageDialog(this, "Alteração não sucedida!");
+//            }
+//        }
     }//GEN-LAST:event_jbAlterarActionPerformed
 
     private void jbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsultarActionPerformed
-        if (fichaProf.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há professores cadastrados!", "Erro",
-                    JOptionPane.ERROR_MESSAGE);
-        else {
-            Professor p = fichaProf.consultar(jtProfs.getSelectedRow());
-            JOptionPane.showMessageDialog(this, "CPF: " + p.getCpf()
-                    + "\nNome: " + p.getNome()
-                    + "\nEmail: " + p.getEmail()
-                    + "\nEndereço: " + p.getEndereco()
-                    + "\nTelefone: " + p.getTelefone()
-                    + "\nEspecialização: " + p.getEspecializacao());
-        }
+//        if (fichaProf.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há professores cadastrados!", "Erro",
+//                    JOptionPane.ERROR_MESSAGE);
+//        else {
+//            Professor p = fichaProf.consultar(jtProfs.getSelectedRow());
+//            JOptionPane.showMessageDialog(this, "CPF: " + p.getCpf()
+//                    + "\nNome: " + p.getNome()
+//                    + "\nEmail: " + p.getEmail()
+//                    + "\nEndereço: " + p.getEndereco()
+//                    + "\nTelefone: " + p.getTelefone()
+//                    + "\nEspecialização: " + p.getEspecializacao());
+//        }
     }//GEN-LAST:event_jbConsultarActionPerformed
 
     private void jtProfsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProfsMouseClicked
@@ -422,29 +419,29 @@ public class FormProf extends javax.swing.JFrame {
         });
     }
     
-    public void preencheDados() {
-        try {
-            jtProfs.removeAll();
-            Iterator<Professor> i = fichaProf.relatorio().iterator();
-            while(i.hasNext()) {
-                Professor aux = (Professor)i.next();
-                modelo.addRow(new String[]{String.valueOf(aux.getCpf()), 
-                    aux.getNome(), aux.getEmail(), aux.getEndereco(), 
-                    aux.getTelefone(), aux.getEspecializacao()});
-            }
-            jtProfs.setModel(modelo);
-        } catch (Exception e) {
-        }
-    }
-    
-    public void limparDados() {
-        jtfCpf.setText(null);
-        jtfNome.setText(null);
-        jtfEmail.setText(null);
-        jtfEndereco.setText(null);
-        jtfTelefone.setText(null);
-        jtfEspec.setText(null);
-    }
+//    public void preencheDados() {
+//        try {
+//            jtProfs.removeAll();
+//            Iterator<Professor> i = fichaProf.relatorio().iterator();
+//            while(i.hasNext()) {
+//                Professor aux = (Professor)i.next();
+//                modelo.addRow(new String[]{String.valueOf(aux.getCpf()), 
+//                    aux.getNome(), aux.getEmail(), aux.getEndereco(), 
+//                    aux.getTelefone(), aux.getEspecializacao()});
+//            }
+//            jtProfs.setModel(modelo);
+//        } catch (Exception e) {
+//        }
+//    }
+//    
+//    public void limparDados() {
+//        jtfCpf.setText(null);
+//        jtfNome.setText(null);
+//        jtfEmail.setText(null);
+//        jtfEndereco.setText(null);
+//        jtfTelefone.setText(null);
+//        jtfEspec.setText(null);
+//    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

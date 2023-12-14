@@ -1,20 +1,12 @@
 package formularios;
 
-import ficharios.*;
 import dao.*;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
 public class FormPrincipal extends javax.swing.JFrame {
     
-    private FichaAluno fichaAluno = new FichaAluno();
     private DAOAluno daoAluno = new DAOAluno();
-    private FichaProf fichaProf = new FichaProf();
-    private FichaCurso fichaCurso = new FichaCurso();
-    private FichaDep fichaDep = new FichaDep();
-    private FichaDisc fichaDisc = new FichaDisc();
-    private FichaMat fichaMat = new FichaMat();
-    private FichaPpc fichaPpc = new FichaPpc();
     
     public FormPrincipal() {
         initComponents();
@@ -248,82 +240,82 @@ public class FormPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbSairActionPerformed
 
     private void jmiAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAlunoActionPerformed
-        FormAluno formAluno = new FormAluno(fichaAluno, daoAluno);
+        FormAluno formAluno = new FormAluno(daoAluno);
         formAluno.setVisible(true);
     }//GEN-LAST:event_jmiAlunoActionPerformed
 
     private void jmiProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiProfActionPerformed
-        FormProf formProf = new FormProf(fichaProf);
+        FormProf formProf = new FormProf();
         formProf.setVisible(true);
     }//GEN-LAST:event_jmiProfActionPerformed
 
     private void jmiCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCursoActionPerformed
-        if(fichaAluno.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há alunos cadastrados!", "Erro", JOptionPane.ERROR_MESSAGE);
-        else {
-            if(fichaProf.isEmpty())
-                JOptionPane.showMessageDialog(this, "Não há professores cadastrados!", "Erro", JOptionPane.ERROR_MESSAGE);
-            else {
-                FormCurso formCurso = new FormCurso(fichaCurso, fichaAluno, fichaProf);
-                formCurso.setVisible(true);
-            }
-        }
+//        if(fichaAluno.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há alunos cadastrados!", "Erro", JOptionPane.ERROR_MESSAGE);
+//        else {
+//            if(fichaProf.isEmpty())
+//                JOptionPane.showMessageDialog(this, "Não há professores cadastrados!", "Erro", JOptionPane.ERROR_MESSAGE);
+//            else {
+//                FormCurso formCurso = new FormCurso(fichaCurso, fichaAluno, fichaProf);
+//                formCurso.setVisible(true);
+//            }
+//        }
     }//GEN-LAST:event_jmiCursoActionPerformed
 
     private void jmiDeptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiDeptActionPerformed
-        if(fichaCurso.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há cursos cadastrados!", "Erro", JOptionPane.ERROR_MESSAGE);
-        else {
-            FormDep formDep = new FormDep(fichaDep, fichaCurso);
-            formDep.setVisible(true); 
-        }
+//        if(fichaCurso.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há cursos cadastrados!", "Erro", JOptionPane.ERROR_MESSAGE);
+//        else {
+//            FormDep formDep = new FormDep(fichaDep, fichaCurso);
+//            formDep.setVisible(true); 
+//        }
     }//GEN-LAST:event_jmiDeptActionPerformed
 
     private void jmiMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiMatActionPerformed
-        if(fichaProf.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há professores cadastrados!", "Erro", JOptionPane.ERROR_MESSAGE);
-        else {
-            FormMateria formMateria = new FormMateria(fichaMat, fichaProf);
-            formMateria.setVisible(true); 
-        }
+//        if(fichaProf.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há professores cadastrados!", "Erro", JOptionPane.ERROR_MESSAGE);
+//        else {
+//            FormMateria formMateria = new FormMateria(fichaMat, fichaProf);
+//            formMateria.setVisible(true); 
+//        }
     }//GEN-LAST:event_jmiMatActionPerformed
 
     private void jmiPpcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiPpcActionPerformed
-        if(fichaCurso.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há cursos cadastrados!", "Erro", JOptionPane.ERROR_MESSAGE);
-        else {
-            if(fichaMat.isEmpty())
-                JOptionPane.showMessageDialog(this, "Não há matérias cadastradas!", "Erro", JOptionPane.ERROR_MESSAGE);
-            else {
-                FormPpc formPpc = new FormPpc(fichaPpc, fichaCurso, fichaMat);
-                formPpc.setVisible(true);
-            }
-        }
+//        if(fichaCurso.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há cursos cadastrados!", "Erro", JOptionPane.ERROR_MESSAGE);
+//        else {
+//            if(fichaMat.isEmpty())
+//                JOptionPane.showMessageDialog(this, "Não há matérias cadastradas!", "Erro", JOptionPane.ERROR_MESSAGE);
+//            else {
+//                FormPpc formPpc = new FormPpc(fichaPpc, fichaCurso, fichaMat);
+//                formPpc.setVisible(true);
+//            }
+//        }
     }//GEN-LAST:event_jmiPpcActionPerformed
 
     private void jmiDiscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiDiscActionPerformed
-        if(fichaAluno.isEmpty())
-            JOptionPane.showMessageDialog(this, "Não há alunos cadastrados!", "Erro", JOptionPane.ERROR_MESSAGE);
-        else {
-            if(fichaProf.isEmpty())
-                JOptionPane.showMessageDialog(this, "Não há professores cadastrados!", "Erro", JOptionPane.ERROR_MESSAGE);
-            else {
-                if(fichaMat.isEmpty())
-                    JOptionPane.showMessageDialog(this, "Não há matérias cadastradas!", "Erro", JOptionPane.ERROR_MESSAGE);
-                else {
-                    FormDisc formDisc = new FormDisc(fichaDisc, fichaAluno, fichaProf, fichaMat);
-                    formDisc.setVisible(true);  
-                }
-            }
-        }
+//        if(fichaAluno.isEmpty())
+//            JOptionPane.showMessageDialog(this, "Não há alunos cadastrados!", "Erro", JOptionPane.ERROR_MESSAGE);
+//        else {
+//            if(fichaProf.isEmpty())
+//                JOptionPane.showMessageDialog(this, "Não há professores cadastrados!", "Erro", JOptionPane.ERROR_MESSAGE);
+//            else {
+//                if(fichaMat.isEmpty())
+//                    JOptionPane.showMessageDialog(this, "Não há matérias cadastradas!", "Erro", JOptionPane.ERROR_MESSAGE);
+//                else {
+//                    FormDisc formDisc = new FormDisc(fichaDisc, fichaAluno, fichaProf, fichaMat);
+//                    formDisc.setVisible(true);  
+//                }
+//            }
+//        }
     }//GEN-LAST:event_jmiDiscActionPerformed
 
     private void jcbRelAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbRelAlunosActionPerformed
-        String src = "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\universidade\\RelatorioUniFed";
-        try {
-            
-        } catch (Exception e) {
-        }
+//        String src = "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\universidade\\RelatorioUniFed";
+//        try {
+//            
+//        } catch (Exception e) {
+//        }
     }//GEN-LAST:event_jcbRelAlunosActionPerformed
 
     private void jmiRelProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRelProfsActionPerformed
