@@ -1,12 +1,14 @@
 package formularios;
 
 import ficharios.*;
+import dao.*;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
 public class FormPrincipal extends javax.swing.JFrame {
     
     private FichaAluno fichaAluno = new FichaAluno();
+    private DAOAluno daoAluno = new DAOAluno();
     private FichaProf fichaProf = new FichaProf();
     private FichaCurso fichaCurso = new FichaCurso();
     private FichaDep fichaDep = new FichaDep();
@@ -246,7 +248,7 @@ public class FormPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbSairActionPerformed
 
     private void jmiAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAlunoActionPerformed
-        FormAluno formAluno = new FormAluno(fichaAluno);
+        FormAluno formAluno = new FormAluno(fichaAluno, daoAluno);
         formAluno.setVisible(true);
     }//GEN-LAST:event_jmiAlunoActionPerformed
 

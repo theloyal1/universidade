@@ -13,11 +13,11 @@ public class FichaAluno {
     private Connection conexao = null;
     
     public FichaAluno() {
-        try {
-            conexao = Conexao.getConexao();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            conexao = Conexao.getConexao();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
     }
     
     public void cadastrar(Aluno a) {

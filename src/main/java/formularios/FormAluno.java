@@ -1,5 +1,6 @@
 package formularios;
 
+import dao.DAOAluno;
 import entidades.Aluno;
 import ficharios.FichaAluno;
 import java.awt.Color;
@@ -10,11 +11,13 @@ import javax.swing.table.DefaultTableModel;
 public class FormAluno extends javax.swing.JFrame {
 
     FichaAluno fichaAluno;
+    DAOAluno daoAluno;
     DefaultTableModel modelo;
 
-    public FormAluno(FichaAluno fichaAluno) {
+    public FormAluno(FichaAluno fichaAluno, DAOAluno daoAluno) {
         initComponents();
         this.fichaAluno = fichaAluno;
+        this.daoAluno = daoAluno;
         String[] titulos = {"CPF", "Nome", "Email", "Endereço", "Telefone", "Nº de mat.",
             "Nº de conc.", "Nº de dep.", "Data da mat."};
         modelo = new DefaultTableModel(titulos, 0);
