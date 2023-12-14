@@ -7,15 +7,14 @@ import java.util.Properties;
 
 public class Conexao {
     
-    private static final String url = "jdbc:mysql://localhost:3306/bd_unifed", 
-            usuario = "root", password = "root";
+    private static final String url = "jdbc:mysql://localhost:3306/bd_unifed";
     
     private static Connection conn;
     
     public static Connection getConexao() {
         try {
             if(conn == null)
-                conn = DriverManager.getConnection(url, usuario, password);
+                conn = DriverManager.getConnection(url);
         } catch (SQLException e) {
             e.printStackTrace();
         }
